@@ -552,3 +552,1944 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-11 22:33:16.639
 !MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-11 22:43:53.869
+!MESSAGE The POM for com.teamdev.jxbrowser:jxbrowser:jar:6.14.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-11 22:43:54.928
+!MESSAGE The POM for com.teamdev.jxbrowser:jxbrowser-win32:jar:6.14.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-11 22:43:57.167
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-11 22:43:57.170
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:11.859
+!MESSAGE The POM for com.teamdev.jxbrowser:jxbrowser:jar:6.14.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:11.860
+!MESSAGE The POM for com.teamdev.jxbrowser:jxbrowser-win32:jar:6.14.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:11.869
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:11.871
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:18.388
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:18.401
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:41.518
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:01:41.524
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:03:15.938
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:03:15.941
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:03:17.667
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:03:17.673
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:07:42.209
+!MESSAGE The POM for org.eclipse.jface:org.eclipse.jface:jar:3.5.0.I20090525-2000 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:07:44.731
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:07:44.734
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:14:24.720
+!MESSAGE The POM for org.eclipse.jface:org.eclipse.jface:jar:3.5.0.I20090525-2000 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:14:25.173
+!MESSAGE The POM for org.eclipse.jface:org.eclipse.jface:jar:3.5.0.I20090525-2000 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:14:25.342
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:14:25.345
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:15:05.514
+!MESSAGE The POM for org.eclipse.jface:org.eclipse.jface:jar:3.3.0-v3346 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:15:06.190
+!MESSAGE The POM for org.eclipse.jface:org.eclipse.jface:jar:3.3.0-v3346 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:15:07.050
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:15:07.053
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:18.419
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:18.421
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:19.766
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:19.776
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2018-02-12 00:16:22.443
+!MESSAGE Could not read pom.xml
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:565)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:574)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:542)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:498)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:351)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:298)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:86)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:563)
+	... 24 more
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:140)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2070)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3845)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:595)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:117)
+	... 26 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:16:22.444
+!MESSAGE Could not read pom.xml
+!STACK 0
+org.apache.maven.model.io.ModelParseException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:86)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:563)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:574)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:542)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:498)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:351)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:298)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:140)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2070)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3845)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:595)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:117)
+	... 26 more
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2018-02-12 00:16:24.071
+!MESSAGE Could not read pom.xml
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:565)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:574)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:542)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:498)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:351)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:298)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.model.io.ModelParseException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:86)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:563)
+	... 24 more
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:140)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2070)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3845)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:595)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:117)
+	... 26 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:16:24.071
+!MESSAGE Could not read pom.xml
+!STACK 0
+org.apache.maven.model.io.ModelParseException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:122)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:86)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:563)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readModel(MavenImpl.java:574)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:542)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:498)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:351)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:298)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:154)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:89)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Duplicated tag: 'modelVersion' (position: START_TAG seen ...</dependencies>\r\n  <modelVersion>... @36:17) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkFieldWithDuplicate(MavenXpp3Reader.java:140)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2070)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:3845)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:595)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:117)
+	... 26 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:43.416
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:43.419
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:44.637
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:16:44.639
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:17:10.421
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:17:10.424
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:44:48.657
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:44:48.659
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:44:54.403
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:44:54.406
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:23.562
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:23.564
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:24.940
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:24.941
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:29.983
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:29.985
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:35.239
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:45:35.241
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:46:27.258
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:46:27.261
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:46:28.661
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:46:28.663
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:55:32.013
+!MESSAGE The POM for org.eclipse.swt.win32:org.eclipse.swt.win32.win32.x86_64:jar:3.4.1.v3449c is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:55:32.904
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:55:32.906
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:03.302
+!MESSAGE The POM for org.apache.httpcomponents:httpclient:jar:4.5.5 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:03.558
+!MESSAGE The POM for org.jsoup:jsoup:jar:1.9.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:03.816
+!MESSAGE The POM for org.apache.commons:commons-text:jar:1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:05.765
+!MESSAGE The POM for org.apache.maven.plugins:maven-compiler-plugin:jar:3.7.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:05.770
+!MESSAGE The POM for org.apache.maven.plugins:maven-compiler-plugin:jar:3.7.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:05.777
+!MESSAGE The POM for org.apache.httpcomponents:httpclient:jar:4.5.5 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:05.779
+!MESSAGE The POM for org.jsoup:jsoup:jar:1.9.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:05.781
+!MESSAGE The POM for org.apache.commons:commons-text:jar:1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:06.091
+!MESSAGE The POM for org.apache.maven.plugins:maven-resources-plugin:jar:2.6 is missing, no dependency information available
+
+!ENTRY org.eclipse.core.resources 4 2 2018-02-12 00:59:06.094
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:06.095
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:06.096
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.core.resources 4 75 2018-02-12 00:59:06.103
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.m2e.core 4 75 2018-02-12 00:59:06.103
+!MESSAGE Errors running builder 'Maven Project Builder' on project 'Test'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:06.104
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:06.104
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:183)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:07.180
+!MESSAGE The POM for org.apache.httpcomponents:httpclient:jar:4.5.5 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:07.181
+!MESSAGE The POM for org.jsoup:jsoup:jar:1.9.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:07.183
+!MESSAGE The POM for org.apache.commons:commons-text:jar:1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:07.187
+!MESSAGE The POM for org.apache.maven.plugins:maven-resources-plugin:jar:2.6 is missing, no dependency information available
+
+!ENTRY org.eclipse.core.resources 4 2 2018-02-12 00:59:07.188
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:07.190
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:07.190
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.core.resources 4 75 2018-02-12 00:59:07.220
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.m2e.core 4 75 2018-02-12 00:59:07.220
+!MESSAGE Errors running builder 'Maven Project Builder' on project 'Test'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:07.220
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 00:59:07.220
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:15.539
+!MESSAGE The POM for org.apache.maven.plugins:maven-compiler-plugin:jar:3.7.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:15.542
+!MESSAGE The POM for org.apache.maven.plugins:maven-compiler-plugin:jar:3.7.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:15.546
+!MESSAGE The POM for org.apache.httpcomponents:httpclient:jar:4.5.5 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:15.547
+!MESSAGE The POM for org.jsoup:jsoup:jar:1.9.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 00:59:15.549
+!MESSAGE The POM for org.apache.commons:commons-text:jar:1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:29.020
+!MESSAGE The POM for org.apache.maven.plugins:maven-resources-plugin:jar:2.6 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:29.059
+!MESSAGE The POM for org.apache.maven.plugins:maven-resources-plugin:jar:2.6 is missing, no dependency information available
+
+!ENTRY org.eclipse.core.resources 4 2 2018-02-12 01:00:29.060
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:29.060
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:29.060
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.core.resources 4 75 2018-02-12 01:00:29.063
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.m2e.core 4 75 2018-02-12 01:00:29.063
+!MESSAGE Errors running builder 'Maven Project Builder' on project 'Test'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:29.063
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:29.063
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:30.521
+!MESSAGE The POM for org.apache.httpcomponents:httpclient:jar:4.5.5 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:30.522
+!MESSAGE The POM for org.jsoup:jsoup:jar:1.9.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:30.523
+!MESSAGE The POM for org.apache.commons:commons-text:jar:1.2 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:00:30.529
+!MESSAGE The POM for org.apache.maven.plugins:maven-resources-plugin:jar:2.6 is missing, no dependency information available
+
+!ENTRY org.eclipse.core.resources 4 2 2018-02-12 01:00:30.531
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:30.531
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:30.532
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.core.resources 4 75 2018-02-12 01:00:30.561
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.m2e.core 4 75 2018-02-12 01:00:30.561
+!MESSAGE Errors running builder 'Maven Project Builder' on project 'Test'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:410)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	... 29 more
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:30.561
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:00:30.561
+!MESSAGE Could not calculate build plan: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+!STACK 0
+org.apache.maven.plugin.PluginResolutionException: Plugin org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.eclipse.m2e.core.internal.project.registry.EclipsePluginDependenciesResolver.resolve(EclipsePluginDependenciesResolver.java:47)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getMojoDescriptor(DefaultMavenPluginManager.java:284)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.getMojoDescriptor(DefaultBuildPluginManager.java:241)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.setupMojoExecution(DefaultLifecycleExecutionPlanCalculator.java:169)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:408)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:420)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$2.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.setupMojoExecution(MavenImpl.java:418)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupMojoExecution(ProjectRegistryManager.java:961)
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectFacade.getMojoExecution(MavenProjectFacade.java:408)
+	at org.eclipse.m2e.core.project.configurator.AbstractCustomizableLifecycleMapping.getBuildParticipants(AbstractCustomizableLifecycleMapping.java:66)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1$1.call(MavenBuilder.java:113)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod$1.call(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:86)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 35 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to find org.apache.maven.plugins:maven-resources-plugin:jar:2.6 in http://uqbar-wiki.org/mvn/releases/ was cached in the local repository, resolution will not be reattempted until the update interval of uqbar-wiki has elapsed or updates are forced
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:231)
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421)
+	... 39 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:15.351
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:15.353
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:16.616
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:16.632
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:18.092
+!MESSAGE The POM for org.eclipse.swt.win32:org.eclipse.swt.win32.win32.x86_64:jar:3.4.1.v3449c is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:18.242
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:18.244
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:19.597
+!MESSAGE The POM for org.eclipse.swt.win32:org.eclipse.swt.win32.win32.x86_64:jar:3.4.1.v3449c is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:19.602
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:05:19.604
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:13:06.761
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:13:06.763
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:14:39.444
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:14:39.446
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:16:46.242
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:16:46.246
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:16:48.190
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:16:48.192
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:07.798
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:07.800
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:15.473
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:15.474
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:22.159
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:22.161
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:28.701
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:28.703
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:37.292
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:19:37.293
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:19.047
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:19.049
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:23.511
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:23.514
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:26.551
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:26.552
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:45.453
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:45.455
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:48.782
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:20:48.783
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2018-02-12 01:21:02.098
+!MESSAGE Could not download sources for org.eclipse:jface:3.3.0-I20070606-0010
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.eclipse:jface:jar:sources:3.3.0-I20070606-0010
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$5.call(MavenImpl.java:776)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$5.call(MavenImpl.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:743)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:720)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:249)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:228)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:202)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:153)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:136)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:1)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1355)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:134)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: Missing org.eclipse:jface:jar:sources:3.3.0-I20070606-0010
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2018-02-12 01:21:02.098
+!MESSAGE Could not resolve artifact org.eclipse:jface:jar:sources:3.3.0-I20070606-0010
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2018-02-12 01:21:02.099
+!MESSAGE Missing org.eclipse:jface:jar:sources:3.3.0-I20070606-0010
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:21:02.289
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:21:02.290
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.recommenders.rcp 4 18 2018-02-12 01:21:55.799
+!MESSAGE Failed to resolve selection in ‘=Test/src<com.zyw.browser{SWTBrowser.java’ at offset 3,694.
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromTypeRootInEditor(JavaElementSelections.java:164)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:119)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:102)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.handleSelectionInEditor(JavaElementSelectionService.java:108)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.access$1(JavaElementSelectionService.java:105)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService$1.run(JavaElementSelectionService.java:82)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:21:58.409
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:21:58.411
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:23:08.489
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:23:08.490
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:23:43.020
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:23:43.021
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:26:17.943
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:26:17.948
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:26:42.800
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:26:42.802
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:27:05.202
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-02-12 01:27:05.204
+!MESSAGE Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
