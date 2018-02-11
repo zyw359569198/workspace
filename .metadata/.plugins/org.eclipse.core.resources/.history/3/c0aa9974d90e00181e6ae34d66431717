@@ -1,0 +1,14 @@
+package com.zyw.controller;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		HttpClient httpclient=HttpClients.createDefault();
+		HttpGet hp=new HttpGet();
+		httpclient.execute(request);
+	}
+
+}

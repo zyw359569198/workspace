@@ -1,0 +1,42 @@
+package com.zyw.util;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Utils {
+	
+	public static List<Map<String,String>> strAnaly(String content,String... paramters) {
+		List<Map<String,String>> list=new ArrayList();
+		Map<String,String> productMap=null;
+		int startIndex=0;
+		int endIndex=0;
+		int lastIndex=0;
+		int nowIndex=0;
+		String s1="";
+		lop:
+		while(true) {
+			productMap=new HashMap();
+			for(String str:paramters) {
+				lastIndex=content.lastIndexOf(str);
+				if(nowIndex>lastIndex) {
+					break lop;
+				}
+				startIndex=content.indexOf(str, nowIndex)+str.length()+1;
+				s1=content.substring(startIndex,content.length());
+				endIndex=s1.indexOf(",",0)+startIndex;
+				if(endIndex>nowIndex) {
+					nowIndex=endIndex;
+				}
+				productMap.put(str, content.substring(startIndex,endIndex));
+				
+			}
+			list.add(productMap);
+		}
+		
+		return list;
+		
+	}
+
+}

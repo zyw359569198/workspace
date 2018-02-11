@@ -11,5 +11,6 @@ public class Common {
 	public static final String LOCATION="\"item_loc\"";
 	public static final String VIEW_SALES="\"view_sales\"";
 	public static final String TITLE="\"raw_title\"";
+	public static final String SHOP_LINK="\"shopLink\"";
 
 }

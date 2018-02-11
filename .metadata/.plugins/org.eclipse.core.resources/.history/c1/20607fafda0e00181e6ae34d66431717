@@ -1,0 +1,31 @@
+package com.zyw.controller;
+
+import java.io.IOException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		HttpClient httpclient=HttpClients.createDefault();
+		HttpGet hp=new HttpGet("https://s.taobao.com/search?q=ÊÖ»ú¿Ç");
+		try {
+			HttpResponse hr=httpclient.execute(hp);
+			Document document  =Jsoup.parse(hr.getEntity().getContent(), "utf-8",https://s.taobao.com);
+			System.out.println(document);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

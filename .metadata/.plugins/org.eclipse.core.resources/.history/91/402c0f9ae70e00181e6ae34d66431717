@@ -1,0 +1,9 @@
+package com.zyw.controller;
+
+public class Controller {
+	
+	public static queryShopType() {
+		
+	}
+
+}

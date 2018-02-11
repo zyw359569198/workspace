@@ -1,0 +1,12 @@
+package com.zyw.controller;
+
+import java.util.List;
+import java.util.Map;
+
+public class Controller {
+	
+	public static List<Map<String,String>> queryShopType(Map paramter) {
+		
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.zyw.controller;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Controller.queryShop(Controller.queryShopList(null));
+/*		try {
+			System.out.println(URLDecoder.decode("\u003d", "utf-8"));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}
+
+}
