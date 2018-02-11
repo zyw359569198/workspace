@@ -1,0 +1,10 @@
+package com.zyw.util;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Common {
+	
+	public static final String SHOP_ID="\"nid\"";
+
+}

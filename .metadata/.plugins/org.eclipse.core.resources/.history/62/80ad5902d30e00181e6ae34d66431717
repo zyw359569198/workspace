@@ -1,0 +1,7 @@
+package com.zyw.util;
+
+public class Common {
+	
+	public static final String SHOP_ID="\"nid\"";
+
+}

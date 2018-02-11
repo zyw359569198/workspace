@@ -1,0 +1,12 @@
+package com.zyw.util;
+
+import java.util.List;
+import java.util.Map;
+
+public class Utils {
+	
+	public static List<Map<String,String>> strAnaly(String ...paramter) {
+		
+	}
+
+}
