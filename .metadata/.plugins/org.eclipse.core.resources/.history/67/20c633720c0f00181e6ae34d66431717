@@ -114,7 +114,6 @@ public class Controller {
 			HttpResponse hr=httpclient.execute(hp);
 			in=hr.getEntity().getContent();
 			Document document  =Jsoup.parse(in, "utf-8","https://s.taobao.com");
-			System.out.println(document);
 			Elements totalCount=document.getElementsByClass("search-result");
 			System.out.println(totalCount);
 		} catch (ClientProtocolException e) {

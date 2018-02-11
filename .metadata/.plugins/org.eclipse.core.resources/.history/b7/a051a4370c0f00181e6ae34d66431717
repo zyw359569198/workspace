@@ -77,7 +77,7 @@ public class Controller {
 			in=hr.getEntity().getContent();
 			Document document  =Jsoup.parse(in, "utf-8","https://s.taobao.com");
 			Element totalCount=document.getElementById("J_ShopAsynSearchURL");
-			String shopingTotal=queryShopingTotal(hr.getHeaders("url-hash")[0].getValue().substring(0, hr.getHeaders("url-hash")[0].getValue().lastIndexOf("/"))+totalCount.attr("value"));			
+			String shopingTotal=queryShopingTotal(hr.getHeaders("url-hash")[0].getValue().substring(0, hr.getHeaders("url-hash")[0].getValue().indexOf("/"))+totalCount.attr("value"));			
 			System.out.println(shopingTotal);
 			list.parallelStream().forEach(mp->{
 				mp.forEach((key,value)->{
@@ -114,9 +114,8 @@ public class Controller {
 			HttpResponse hr=httpclient.execute(hp);
 			in=hr.getEntity().getContent();
 			Document document  =Jsoup.parse(in, "utf-8","https://s.taobao.com");
-			System.out.println(document);
 			Elements totalCount=document.getElementsByClass("search-result");
-			System.out.println(totalCount);
+			System.out.println(totalCount.attr("value"));
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

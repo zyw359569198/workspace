@@ -77,8 +77,8 @@ public class Controller {
 			in=hr.getEntity().getContent();
 			Document document  =Jsoup.parse(in, "utf-8","https://s.taobao.com");
 			Element totalCount=document.getElementById("J_ShopAsynSearchURL");
-			String shopingTotal=queryShopingTotal(hr.getHeaders("url-hash")[0].getValue().substring(0, hr.getHeaders("url-hash")[0].getValue().lastIndexOf("/"))+totalCount.attr("value"));			
-			System.out.println(shopingTotal);
+			queryShopingTotal();
+			System.out.println(totalCount.attr("value"));
 			list.parallelStream().forEach(mp->{
 				mp.forEach((key,value)->{
 					System.out.println(key+":"+value);
@@ -104,19 +104,25 @@ public class Controller {
 		return list;
 	}
 	
-	public static String queryShopingTotal(String url) {
-		String result="";
+	public static List<Map<String,String>> queryShopingTotal(String url) {
+		List<Map<String,String>> list=new ArrayList();
 		HttpClient httpclient=HttpClients.createDefault();
 		HttpGet hp=new HttpGet(url);
 		hp.getParams().setParameter("http.protocol.allow-circular-redirects", true);
 		InputStream in=null;
 		try {
 			HttpResponse hr=httpclient.execute(hp);
+			System.out.println(hr.getHeaders("url-hash")[0].getValue());
 			in=hr.getEntity().getContent();
 			Document document  =Jsoup.parse(in, "utf-8","https://s.taobao.com");
-			System.out.println(document);
-			Elements totalCount=document.getElementsByClass("search-result");
-			System.out.println(totalCount);
+			Element totalCount=document.getElementById("J_ShopAsynSearchURL");
+			System.out.println(totalCount.attr("value"));
+			list.parallelStream().forEach(mp->{
+				mp.forEach((key,value)->{
+					System.out.println(key+":"+value);
+				});
+			});
+			System.out.println(list.size());
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -133,7 +139,7 @@ public class Controller {
 		
 		}
 		
-		return result;
+		return list;
 	}
 
 }
