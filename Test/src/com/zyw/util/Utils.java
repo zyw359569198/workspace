@@ -33,13 +33,9 @@ public class Utils {
 					maxIndex=endIndex;
 				}
 				productMap.put(str, StringEscapeUtils.unescapeJava(content.substring(startIndex,endIndex).replace("\"", "")));
-				if(productMap.get(Common.IS_TMALL).equalsIgnoreCase("true")) {
-					productMap=null;
-					break;
-				}
 				
 			}
-			if(productMap!=null) {
+			if(!productMap.get(Common.IS_TMALL).equalsIgnoreCase("true")) {
 				list.add(productMap);
 			}
 			if(flag) {

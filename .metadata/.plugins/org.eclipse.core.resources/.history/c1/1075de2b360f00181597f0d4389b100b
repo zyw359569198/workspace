@@ -1,0 +1,12 @@
+package com.zyw.controller;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Controller.login();
+		Thread.sleep(5);
+		Controller.queryShop(Controller.queryShopList(null));
+	}
+
+}

@@ -1,0 +1,920 @@
+2018-02-11 20:05:58,706 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.pom
+2018-02-11 20:05:58,796 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.pom
+2018-02-11 20:05:58,902 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-client/4.5.5/httpcomponents-client-4.5.5.pom
+2018-02-11 20:05:59,038 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-client/4.5.5/httpcomponents-client-4.5.5.pom
+2018-02-11 20:05:59,145 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/10/httpcomponents-parent-10.pom
+2018-02-11 20:05:59,338 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/10/httpcomponents-parent-10.pom
+2018-02-11 20:05:59,448 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/18/apache-18.pom
+2018-02-11 20:05:59,547 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/18/apache-18.pom
+2018-02-11 20:05:59,784 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.pom
+2018-02-11 20:05:59,934 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.pom
+2018-02-11 20:06:00,094 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-core/4.4.9/httpcomponents-core-4.4.9.pom
+2018-02-11 20:06:00,172 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-core/4.4.9/httpcomponents-core-4.4.9.pom
+2018-02-11 20:06:00,256 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/9/httpcomponents-parent-9.pom
+2018-02-11 20:06:00,395 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/9/httpcomponents-parent-9.pom
+2018-02-11 20:06:00,573 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+2018-02-11 20:06:00,658 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+2018-02-11 20:06:00,760 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/34/commons-parent-34.pom
+2018-02-11 20:06:00,908 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/34/commons-parent-34.pom
+2018-02-11 20:06:01,179 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.pom
+2018-02-11 20:06:01,260 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.pom
+2018-02-11 20:06:01,347 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/35/commons-parent-35.pom
+2018-02-11 20:06:01,486 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/35/commons-parent-35.pom
+2018-02-11 20:06:01,703 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.pom
+2018-02-11 20:06:01,788 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.pom
+2018-02-11 20:06:01,899 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.pom
+2018-02-11 20:06:01,975 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.pom
+2018-02-11 20:06:02,070 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/42/commons-parent-42.pom
+2018-02-11 20:06:02,213 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/42/commons-parent-42.pom
+2018-02-11 20:06:02,343 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.pom
+2018-02-11 20:06:02,423 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.pom
+2018-02-11 20:06:02,545 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar
+2018-02-11 20:06:03,597 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar
+2018-02-11 20:06:03,692 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar
+2018-02-11 20:06:03,912 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar
+2018-02-11 20:06:03,991 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2018-02-11 20:06:04,424 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2018-02-11 20:06:04,505 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.jar
+2018-02-11 20:06:04,881 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.jar
+2018-02-11 20:06:04,971 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.jar
+2018-02-11 20:06:05,203 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.jar
+2018-02-11 20:06:05,298 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.jar
+2018-02-11 20:06:05,403 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.jar
+2018-02-11 20:06:05,490 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar
+2018-02-11 20:06:06,402 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar
+2018-02-11 20:08:45,347 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+2018-02-11 20:08:45,510 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+2018-02-11 20:08:45,921 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.jar
+2018-02-11 20:08:46,371 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.jar
+2018-02-11 20:08:46,794 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.jar
+2018-02-11 20:08:47,080 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.jar
+2018-02-11 20:08:47,473 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+2018-02-11 20:08:47,745 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+2018-02-11 20:08:48,124 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2018-02-11 20:08:48,344 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2018-02-11 20:08:48,722 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+2018-02-11 20:08:48,880 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+2018-02-11 20:08:49,358 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
+2018-02-11 20:08:49,535 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
+2018-02-11 20:08:49,905 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
+2018-02-11 20:08:50,312 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
+2018-02-11 20:08:50,779 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.pom
+2018-02-11 20:08:50,866 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.pom
+2018-02-11 20:08:50,974 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom
+2018-02-11 20:08:51,060 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom
+2018-02-11 20:08:51,169 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/30/maven-parent-30.pom
+2018-02-11 20:08:51,332 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/30/maven-parent-30.pom
+2018-02-11 20:08:51,468 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/18/apache-18.pom
+2018-02-11 20:08:51,555 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/18/apache-18.pom
+2018-02-11 20:08:51,723 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom
+2018-02-11 20:08:51,807 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom
+2018-02-11 20:08:51,925 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/3.0/maven-3.0.pom
+2018-02-11 20:08:52,011 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/3.0/maven-3.0.pom
+2018-02-11 20:08:52,123 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/15/maven-parent-15.pom
+2018-02-11 20:08:52,209 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/15/maven-parent-15.pom
+2018-02-11 20:08:52,314 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/6/apache-6.pom
+2018-02-11 20:08:52,402 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/6/apache-6.pom
+2018-02-11 20:08:52,518 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/3.0/maven-model-3.0.pom
+2018-02-11 20:08:52,610 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/3.0/maven-model-3.0.pom
+2018-02-11 20:08:52,731 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom
+2018-02-11 20:08:52,898 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom
+2018-02-11 20:08:53,010 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+2018-02-11 20:08:53,095 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+2018-02-11 20:08:53,208 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
+2018-02-11 20:08:53,300 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
+2018-02-11 20:08:53,429 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom
+2018-02-11 20:08:53,520 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom
+2018-02-11 20:08:53,631 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom
+2018-02-11 20:08:53,713 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom
+2018-02-11 20:08:53,821 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom
+2018-02-11 20:08:53,908 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom
+2018-02-11 20:08:54,020 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom
+2018-02-11 20:08:54,106 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom
+2018-02-11 20:08:54,217 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom
+2018-02-11 20:08:54,304 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom
+2018-02-11 20:08:54,417 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+2018-02-11 20:08:54,504 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+2018-02-11 20:08:54,621 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom
+2018-02-11 20:08:54,709 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom
+2018-02-11 20:08:54,825 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom
+2018-02-11 20:08:54,915 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom
+2018-02-11 20:08:55,033 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom
+2018-02-11 20:08:55,118 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom
+2018-02-11 20:08:55,234 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
+2018-02-11 20:08:55,320 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
+2018-02-11 20:08:55,429 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+2018-02-11 20:08:55,515 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+2018-02-11 20:08:55,634 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+2018-02-11 20:08:55,719 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+2018-02-11 20:08:55,823 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+2018-02-11 20:08:55,908 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+2018-02-11 20:08:56,038 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom
+2018-02-11 20:08:56,123 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom
+2018-02-11 20:08:56,258 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom
+2018-02-11 20:08:56,354 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom
+2018-02-11 20:08:56,469 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
+2018-02-11 20:08:56,558 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
+2018-02-11 20:08:56,675 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
+2018-02-11 20:08:56,763 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
+2018-02-11 20:08:56,911 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
+2018-02-11 20:08:57,015 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
+2018-02-11 20:08:57,166 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom
+2018-02-11 20:08:57,408 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom
+2018-02-11 20:08:57,525 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom
+2018-02-11 20:08:57,690 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom
+2018-02-11 20:08:57,796 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+2018-02-11 20:08:57,888 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+2018-02-11 20:08:58,010 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
+2018-02-11 20:08:58,104 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
+2018-02-11 20:08:58,214 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
+2018-02-11 20:08:58,308 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
+2018-02-11 20:08:58,410 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
+2018-02-11 20:08:58,499 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
+2018-02-11 20:08:58,613 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.5/plexus-utils-1.5.5.pom
+2018-02-11 20:08:58,697 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.5/plexus-utils-1.5.5.pom
+2018-02-11 20:08:58,806 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+2018-02-11 20:08:58,897 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+2018-02-11 20:08:59,018 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom
+2018-02-11 20:08:59,110 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom
+2018-02-11 20:08:59,231 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
+2018-02-11 20:08:59,621 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
+2018-02-11 20:08:59,740 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom
+2018-02-11 20:08:59,866 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom
+2018-02-11 20:08:59,976 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
+2018-02-11 20:09:00,068 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
+2018-02-11 20:09:00,253 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+2018-02-11 20:09:00,336 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+2018-02-11 20:09:00,443 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+2018-02-11 20:09:00,537 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+2018-02-11 20:09:00,650 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+2018-02-11 20:09:00,735 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+2018-02-11 20:09:00,862 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+2018-02-11 20:09:00,956 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+2018-02-11 20:09:01,077 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+2018-02-11 20:09:01,189 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+2018-02-11 20:09:01,308 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
+2018-02-11 20:09:01,401 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
+2018-02-11 20:09:01,510 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom
+2018-02-11 20:09:01,602 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom
+2018-02-11 20:09:01,713 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-io/commons-io/2.5/commons-io-2.5.pom
+2018-02-11 20:09:01,863 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-io/commons-io/2.5/commons-io-2.5.pom
+2018-02-11 20:09:01,970 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/39/commons-parent-39.pom
+2018-02-11 20:09:02,200 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/39/commons-parent-39.pom
+2018-02-11 20:09:02,308 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/16/apache-16.pom
+2018-02-11 20:09:02,391 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/16/apache-16.pom
+2018-02-11 20:09:02,525 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom
+2018-02-11 20:09:02,641 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom
+2018-02-11 20:09:02,749 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom
+2018-02-11 20:09:02,834 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom
+2018-02-11 20:09:02,946 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/23/maven-parent-23.pom
+2018-02-11 20:09:03,082 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/23/maven-parent-23.pom
+2018-02-11 20:09:03,197 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/13/apache-13.pom
+2018-02-11 20:09:03,299 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/13/apache-13.pom
+2018-02-11 20:09:03,410 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom
+2018-02-11 20:09:03,498 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom
+2018-02-11 20:09:03,611 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.2.1/maven-2.2.1.pom
+2018-02-11 20:09:03,697 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.2.1/maven-2.2.1.pom
+2018-02-11 20:09:03,811 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/11/maven-parent-11.pom
+2018-02-11 20:09:03,904 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/11/maven-parent-11.pom
+2018-02-11 20:09:04,010 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/5/apache-5.pom
+2018-02-11 20:09:04,097 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/5/apache-5.pom
+2018-02-11 20:09:04,209 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.2.1/maven-core-2.2.1.pom
+2018-02-11 20:09:04,296 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.2.1/maven-core-2.2.1.pom
+2018-02-11 20:09:04,403 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.pom
+2018-02-11 20:09:04,493 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.pom
+2018-02-11 20:09:04,608 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom
+2018-02-11 20:09:04,722 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom
+2018-02-11 20:09:04,835 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom
+2018-02-11 20:09:04,978 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom
+2018-02-11 20:09:05,239 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+2018-02-11 20:09:05,493 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+2018-02-11 20:09:05,594 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.pom
+2018-02-11 20:09:05,682 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.pom
+2018-02-11 20:09:05,875 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom
+2018-02-11 20:09:05,963 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom
+2018-02-11 20:09:06,122 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.2.1/maven-plugin-parameter-documenter-2.2.1.pom
+2018-02-11 20:09:06,211 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.2.1/maven-plugin-parameter-documenter-2.2.1.pom
+2018-02-11 20:09:06,325 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.pom
+2018-02-11 20:09:06,409 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.pom
+2018-02-11 20:09:06,518 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-parent/1.5.6/slf4j-parent-1.5.6.pom
+2018-02-11 20:09:06,602 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-parent/1.5.6/slf4j-parent-1.5.6.pom
+2018-02-11 20:09:06,704 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.pom
+2018-02-11 20:09:06,789 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.pom
+2018-02-11 20:09:06,900 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.pom
+2018-02-11 20:09:06,986 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.pom
+2018-02-11 20:09:07,097 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.pom
+2018-02-11 20:09:07,179 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.pom
+2018-02-11 20:09:07,286 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom
+2018-02-11 20:09:07,410 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom
+2018-02-11 20:09:07,514 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.pom
+2018-02-11 20:09:07,606 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.pom
+2018-02-11 20:09:07,707 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom
+2018-02-11 20:09:07,794 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom
+2018-02-11 20:09:07,904 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.pom
+2018-02-11 20:09:08,000 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.pom
+2018-02-11 20:09:08,109 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.pom
+2018-02-11 20:09:08,233 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.pom
+2018-02-11 20:09:08,361 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom
+2018-02-11 20:09:08,456 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom
+2018-02-11 20:09:08,556 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.pom
+2018-02-11 20:09:08,641 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.pom
+2018-02-11 20:09:08,787 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.2.1/maven-plugin-descriptor-2.2.1.pom
+2018-02-11 20:09:08,879 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.2.1/maven-plugin-descriptor-2.2.1.pom
+2018-02-11 20:09:09,006 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.2.1/maven-monitor-2.2.1.pom
+2018-02-11 20:09:09,095 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.2.1/maven-monitor-2.2.1.pom
+2018-02-11 20:09:09,204 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
+2018-02-11 20:09:09,288 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
+2018-02-11 20:09:09,400 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom
+2018-02-11 20:09:09,489 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom
+2018-02-11 20:09:09,598 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/22/maven-parent-22.pom
+2018-02-11 20:09:09,761 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/22/maven-parent-22.pom
+2018-02-11 20:09:09,874 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/11/apache-11.pom
+2018-02-11 20:09:09,963 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/11/apache-11.pom
+2018-02-11 20:09:10,089 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom
+2018-02-11 20:09:10,379 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom
+2018-02-11 20:09:10,856 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-java/0.9.2/plexus-java-0.9.2.pom
+2018-02-11 20:09:10,939 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-java/0.9.2/plexus-java-0.9.2.pom
+2018-02-11 20:09:11,047 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-languages/0.9.2/plexus-languages-0.9.2.pom
+2018-02-11 20:09:11,126 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-languages/0.9.2/plexus-languages-0.9.2.pom
+2018-02-11 20:09:11,222 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
+2018-02-11 20:09:11,376 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
+2018-02-11 20:09:11,502 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm/6.0_BETA/asm-6.0_BETA.pom
+2018-02-11 20:09:11,583 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm/6.0_BETA/asm-6.0_BETA.pom
+2018-02-11 20:09:11,684 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm-parent/6.0_BETA/asm-parent-6.0_BETA.pom
+2018-02-11 20:09:11,768 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm-parent/6.0_BETA/asm-parent-6.0_BETA.pom
+2018-02-11 20:09:11,946 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/ow2/ow2/1.3/ow2-1.3.pom
+2018-02-11 20:09:12,037 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/ow2/ow2/1.3/ow2-1.3.pom
+2018-02-11 20:09:12,162 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/com/thoughtworks/qdox/qdox/2.0-M7/qdox-2.0-M7.pom
+2018-02-11 20:09:12,309 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/com/thoughtworks/qdox/qdox/2.0-M7/qdox-2.0-M7.pom
+2018-02-11 20:09:12,413 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+2018-02-11 20:09:12,498 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+2018-02-11 20:09:12,611 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.8.2/plexus-compiler-api-2.8.2.pom
+2018-02-11 20:09:12,695 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.8.2/plexus-compiler-api-2.8.2.pom
+2018-02-11 20:09:12,809 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/2.8.2/plexus-compiler-2.8.2.pom
+2018-02-11 20:09:12,895 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/2.8.2/plexus-compiler-2.8.2.pom
+2018-02-11 20:09:13,006 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom
+2018-02-11 20:09:13,091 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom
+2018-02-11 20:09:13,202 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom
+2018-02-11 20:09:13,288 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom
+2018-02-11 20:09:13,396 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+2018-02-11 20:09:13,632 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+2018-02-11 20:09:13,751 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.8.2/plexus-compiler-manager-2.8.2.pom
+2018-02-11 20:09:13,836 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.8.2/plexus-compiler-manager-2.8.2.pom
+2018-02-11 20:09:13,958 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.8.2/plexus-compiler-javac-2.8.2.pom
+2018-02-11 20:09:14,042 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.8.2/plexus-compiler-javac-2.8.2.pom
+2018-02-11 20:09:14,151 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/2.8.2/plexus-compilers-2.8.2.pom
+2018-02-11 20:09:14,237 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/2.8.2/plexus-compilers-2.8.2.pom
+2018-02-11 20:09:14,370 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar
+2018-02-11 20:09:14,531 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar
+2018-02-11 20:09:14,630 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/3.0/maven-model-3.0.jar
+2018-02-11 20:09:14,916 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/3.0/maven-model-3.0.jar
+2018-02-11 20:09:15,008 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar
+2018-02-11 20:09:15,235 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar
+2018-02-11 20:09:15,326 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
+2018-02-11 20:09:15,494 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
+2018-02-11 20:09:15,583 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
+2018-02-11 20:09:16,038 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
+2018-02-11 20:09:16,131 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar
+2018-02-11 20:09:16,537 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar
+2018-02-11 20:09:16,636 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar
+2018-02-11 20:09:17,053 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar
+2018-02-11 20:09:17,151 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/3.0/maven-core-3.0.jar
+2018-02-11 20:09:17,712 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/3.0/maven-core-3.0.jar
+2018-02-11 20:09:17,807 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar
+2018-02-11 20:09:17,903 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar
+2018-02-11 20:09:18,000 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar
+2018-02-11 20:09:18,149 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar
+2018-02-11 20:09:18,250 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar
+2018-02-11 20:09:18,346 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar
+2018-02-11 20:09:18,440 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar
+2018-02-11 20:09:18,588 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar
+2018-02-11 20:09:18,683 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar
+2018-02-11 20:09:18,778 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar
+2018-02-11 20:09:18,872 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
+2018-02-11 20:09:18,993 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
+2018-02-11 20:09:19,093 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
+2018-02-11 20:09:19,223 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
+2018-02-11 20:09:19,330 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
+2018-02-11 20:09:19,438 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
+2018-02-11 20:09:19,534 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+2018-02-11 20:09:19,650 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+2018-02-11 20:09:19,741 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar
+2018-02-11 20:09:19,851 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar
+2018-02-11 20:09:19,944 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
+2018-02-11 20:09:20,047 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
+2018-02-11 20:09:20,137 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
+2018-02-11 20:09:20,222 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
+2018-02-11 20:09:20,316 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+2018-02-11 20:09:20,412 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+2018-02-11 20:09:20,505 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+2018-02-11 20:09:20,599 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+2018-02-11 20:09:20,694 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar
+2018-02-11 20:09:20,846 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar
+2018-02-11 20:09:20,943 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-io/commons-io/2.5/commons-io-2.5.jar
+2018-02-11 20:09:21,184 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-io/commons-io/2.5/commons-io-2.5.jar
+2018-02-11 20:09:21,276 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
+2018-02-11 20:09:21,486 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
+2018-02-11 20:09:21,578 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-java/0.9.2/plexus-java-0.9.2.jar
+2018-02-11 20:09:21,796 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-java/0.9.2/plexus-java-0.9.2.jar
+2018-02-11 20:09:21,887 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm/6.0_BETA/asm-6.0_BETA.jar
+2018-02-11 20:09:22,105 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/ow2/asm/asm/6.0_BETA/asm-6.0_BETA.jar
+2018-02-11 20:09:22,200 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/com/thoughtworks/qdox/qdox/2.0-M7/qdox-2.0-M7.jar
+2018-02-11 20:09:22,674 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/com/thoughtworks/qdox/qdox/2.0-M7/qdox-2.0-M7.jar
+2018-02-11 20:09:22,771 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.8.2/plexus-compiler-api-2.8.2.jar
+2018-02-11 20:09:22,860 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.8.2/plexus-compiler-api-2.8.2.jar
+2018-02-11 20:09:22,958 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.8.2/plexus-compiler-manager-2.8.2.jar
+2018-02-11 20:09:23,053 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.8.2/plexus-compiler-manager-2.8.2.jar
+2018-02-11 20:09:23,149 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.8.2/plexus-compiler-javac-2.8.2.jar
+2018-02-11 20:09:23,233 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.8.2/plexus-compiler-javac-2.8.2.jar
+2018-02-11 20:09:34,259 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ D:\GitHub\workspace\Test\pom.xml.
+2018-02-11 20:09:34,561 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.pom
+2018-02-11 20:09:34,647 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.pom
+2018-02-11 20:09:34,751 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-client/4.5.5/httpcomponents-client-4.5.5.pom
+2018-02-11 20:09:34,905 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-client/4.5.5/httpcomponents-client-4.5.5.pom
+2018-02-11 20:09:35,055 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/10/httpcomponents-parent-10.pom
+2018-02-11 20:09:35,339 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/10/httpcomponents-parent-10.pom
+2018-02-11 20:09:35,466 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.pom
+2018-02-11 20:09:35,569 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.pom
+2018-02-11 20:09:35,673 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-core/4.4.9/httpcomponents-core-4.4.9.pom
+2018-02-11 20:09:35,777 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-core/4.4.9/httpcomponents-core-4.4.9.pom
+2018-02-11 20:09:35,876 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/9/httpcomponents-parent-9.pom
+2018-02-11 20:09:36,018 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcomponents-parent/9/httpcomponents-parent-9.pom
+2018-02-11 20:09:36,136 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+2018-02-11 20:09:36,225 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.pom
+2018-02-11 20:09:36,309 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/34/commons-parent-34.pom
+2018-02-11 20:09:36,461 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/34/commons-parent-34.pom
+2018-02-11 20:09:36,565 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.pom
+2018-02-11 20:09:36,647 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.pom
+2018-02-11 20:09:36,737 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/35/commons-parent-35.pom
+2018-02-11 20:09:36,891 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/35/commons-parent-35.pom
+2018-02-11 20:09:36,992 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/15/apache-15.pom
+2018-02-11 20:09:37,078 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/15/apache-15.pom
+2018-02-11 20:09:37,189 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.pom
+2018-02-11 20:09:37,269 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.pom
+2018-02-11 20:09:37,410 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.pom
+2018-02-11 20:09:37,492 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.pom
+2018-02-11 20:09:37,603 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/42/commons-parent-42.pom
+2018-02-11 20:09:37,753 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-parent/42/commons-parent-42.pom
+2018-02-11 20:09:37,881 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.pom
+2018-02-11 20:09:37,974 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.pom
+2018-02-11 20:09:38,086 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar
+2018-02-11 20:09:38,793 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar
+2018-02-11 20:09:38,878 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar
+2018-02-11 20:09:39,126 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar
+2018-02-11 20:09:39,207 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2018-02-11 20:09:39,357 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2018-02-11 20:09:39,431 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.jar
+2018-02-11 20:09:39,717 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-codec/commons-codec/1.10/commons-codec-1.10.jar
+2018-02-11 20:09:39,798 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.jar
+2018-02-11 20:09:40,081 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/jsoup/jsoup/1.9.2/jsoup-1.9.2.jar
+2018-02-11 20:09:40,166 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.jar
+2018-02-11 20:09:40,325 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-text/1.2/commons-text-1.2.jar
+2018-02-11 20:09:40,411 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar
+2018-02-11 20:09:40,870 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar
+2018-02-11 20:09:43,785 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.pom
+2018-02-11 20:09:43,870 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.pom
+2018-02-11 20:09:43,973 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom
+2018-02-11 20:09:44,071 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom
+2018-02-11 20:09:44,192 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom
+2018-02-11 20:09:44,268 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom
+2018-02-11 20:09:44,371 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom
+2018-02-11 20:09:44,497 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom
+2018-02-11 20:09:44,594 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom
+2018-02-11 20:09:44,675 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom
+2018-02-11 20:09:44,776 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom
+2018-02-11 20:09:44,878 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom
+2018-02-11 20:09:44,976 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/21/maven-parent-21.pom
+2018-02-11 20:09:45,056 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/21/maven-parent-21.pom
+2018-02-11 20:09:45,178 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/10/apache-10.pom
+2018-02-11 20:09:45,254 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/10/apache-10.pom
+2018-02-11 20:09:45,379 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.pom
+2018-02-11 20:09:45,457 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.pom
+2018-02-11 20:09:45,555 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.0.6/maven-2.0.6.pom
+2018-02-11 20:09:45,632 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.0.6/maven-2.0.6.pom
+2018-02-11 20:09:45,727 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/5/maven-parent-5.pom
+2018-02-11 20:09:45,801 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-parent/5/maven-parent-5.pom
+2018-02-11 20:09:45,897 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/3/apache-3.pom
+2018-02-11 20:09:45,975 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/apache/3/apache-3.pom
+2018-02-11 20:09:46,098 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.pom
+2018-02-11 20:09:46,177 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.pom
+2018-02-11 20:09:46,279 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.pom
+2018-02-11 20:09:46,359 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.pom
+2018-02-11 20:09:46,499 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.pom
+2018-02-11 20:09:46,603 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.pom
+2018-02-11 20:09:46,746 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.4.1/plexus-utils-1.4.1.pom
+2018-02-11 20:09:46,828 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.4.1/plexus-utils-1.4.1.pom
+2018-02-11 20:09:46,928 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom
+2018-02-11 20:09:47,010 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom
+2018-02-11 20:09:47,107 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom
+2018-02-11 20:09:47,186 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom
+2018-02-11 20:09:47,289 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom
+2018-02-11 20:09:47,369 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom
+2018-02-11 20:09:47,500 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/junit/junit/3.8.1/junit-3.8.1.pom
+2018-02-11 20:09:47,575 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/junit/junit/3.8.1/junit-3.8.1.pom
+2018-02-11 20:09:47,668 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom
+2018-02-11 20:09:47,747 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom
+2018-02-11 20:09:47,860 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom
+2018-02-11 20:09:47,939 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom
+2018-02-11 20:09:48,085 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.pom
+2018-02-11 20:09:48,171 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.pom
+2018-02-11 20:09:48,283 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.pom
+2018-02-11 20:09:48,364 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.pom
+2018-02-11 20:09:48,475 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.pom
+2018-02-11 20:09:48,555 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.pom
+2018-02-11 20:09:48,658 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.pom
+2018-02-11 20:09:48,740 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.pom
+2018-02-11 20:09:48,847 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.pom
+2018-02-11 20:09:49,060 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.pom
+2018-02-11 20:09:49,162 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.pom
+2018-02-11 20:09:49,314 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.pom
+2018-02-11 20:09:49,420 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/17/maven-shared-components-17.pom
+2018-02-11 20:09:49,495 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/17/maven-shared-components-17.pom
+2018-02-11 20:09:49,597 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.pom
+2018-02-11 20:09:49,675 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.pom
+2018-02-11 20:09:49,776 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.pom
+2018-02-11 20:09:49,855 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.pom
+2018-02-11 20:09:49,960 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.pom
+2018-02-11 20:09:50,038 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.pom
+2018-02-11 20:09:50,140 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting/2.0.6/maven-reporting-2.0.6.pom
+2018-02-11 20:09:50,248 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting/2.0.6/maven-reporting-2.0.6.pom
+2018-02-11 20:09:50,347 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.pom
+2018-02-11 20:09:50,424 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.pom
+2018-02-11 20:09:50,521 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia/1.0-alpha-7/doxia-1.0-alpha-7.pom
+2018-02-11 20:09:50,602 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia/1.0-alpha-7/doxia-1.0-alpha-7.pom
+2018-02-11 20:09:50,703 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.pom
+2018-02-11 20:09:50,778 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.pom
+2018-02-11 20:09:50,876 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-cli/commons-cli/1.0/commons-cli-1.0.pom
+2018-02-11 20:09:50,951 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-cli/commons-cli/1.0/commons-cli-1.0.pom
+2018-02-11 20:09:51,042 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.pom
+2018-02-11 20:09:51,119 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.pom
+2018-02-11 20:09:51,223 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.pom
+2018-02-11 20:09:51,302 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.pom
+2018-02-11 20:09:51,405 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.pom
+2018-02-11 20:09:51,484 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.pom
+2018-02-11 20:09:51,587 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1/classworlds-1.1.pom
+2018-02-11 20:09:51,664 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1/classworlds-1.1.pom
+2018-02-11 20:09:51,766 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.pom
+2018-02-11 20:09:51,846 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.pom
+2018-02-11 20:09:51,942 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom
+2018-02-11 20:09:52,023 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom
+2018-02-11 20:09:52,127 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/16/spice-parent-16.pom
+2018-02-11 20:09:52,207 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/16/spice-parent-16.pom
+2018-02-11 20:09:52,306 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+2018-02-11 20:09:52,419 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+2018-02-11 20:09:52,519 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.pom
+2018-02-11 20:09:52,604 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.pom
+2018-02-11 20:09:52,707 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom
+2018-02-11 20:09:52,787 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom
+2018-02-11 20:09:52,909 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+2018-02-11 20:09:52,988 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+2018-02-11 20:09:53,090 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.pom
+2018-02-11 20:09:53,175 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.pom
+2018-02-11 20:09:53,279 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-lang/commons-lang/2.1/commons-lang-2.1.pom
+2018-02-11 20:09:53,358 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-lang/commons-lang/2.1/commons-lang-2.1.pom
+2018-02-11 20:09:53,551 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.jar
+2018-02-11 20:09:53,707 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.jar
+2018-02-11 20:09:53,801 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.jar
+2018-02-11 20:09:54,086 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.jar
+2018-02-11 20:09:54,184 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.jar
+2018-02-11 20:09:54,339 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.jar
+2018-02-11 20:09:54,433 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.jar
+2018-02-11 20:09:54,564 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.jar
+2018-02-11 20:09:54,655 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.jar
+2018-02-11 20:09:54,837 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.jar
+2018-02-11 20:09:54,933 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.jar
+2018-02-11 20:09:55,028 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.jar
+2018-02-11 20:09:55,121 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.jar
+2018-02-11 20:09:55,209 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.jar
+2018-02-11 20:09:55,311 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar
+2018-02-11 20:09:55,551 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar
+2018-02-11 20:09:55,644 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/junit/junit/3.8.1/junit-3.8.1.jar
+2018-02-11 20:09:55,765 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/junit/junit/3.8.1/junit-3.8.1.jar
+2018-02-11 20:09:55,861 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar
+2018-02-11 20:09:55,960 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar
+2018-02-11 20:09:56,060 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.jar
+2018-02-11 20:09:56,201 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.jar
+2018-02-11 20:09:56,294 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.jar
+2018-02-11 20:09:56,400 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.jar
+2018-02-11 20:09:56,495 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+2018-02-11 20:09:56,621 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+2018-02-11 20:09:56,718 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.jar
+2018-02-11 20:09:56,886 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.jar
+2018-02-11 20:09:56,983 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.jar
+2018-02-11 20:09:57,075 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.jar
+2018-02-11 20:09:57,184 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar
+2018-02-11 20:09:57,291 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar
+2018-02-11 20:09:57,394 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar
+2018-02-11 20:09:57,483 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar
+2018-02-11 20:09:57,582 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.jar
+2018-02-11 20:09:57,667 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.jar
+2018-02-11 20:09:57,789 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-cli/commons-cli/1.0/commons-cli-1.0.jar
+2018-02-11 20:09:57,983 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-cli/commons-cli/1.0/commons-cli-1.0.jar
+2018-02-11 20:09:58,091 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.jar
+2018-02-11 20:09:58,209 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.jar
+2018-02-11 20:09:58,306 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+2018-02-11 20:09:58,401 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+2018-02-11 20:09:58,499 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.jar
+2018-02-11 20:09:58,588 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.jar
+2018-02-11 20:09:58,685 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar
+2018-02-11 20:09:58,781 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar
+2018-02-11 20:09:58,874 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+2018-02-11 20:09:59,045 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+2018-02-11 20:09:59,139 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+2018-02-11 20:09:59,241 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+2018-02-11 20:09:59,338 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+2018-02-11 20:09:59,911 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+2018-02-11 20:10:00,002 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+2018-02-11 20:10:01,702 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+2018-02-11 20:10:12,214 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.pom
+2018-02-11 20:10:12,369 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.pom
+2018-02-11 20:10:12,490 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.12/plexus-interpolation-1.12.pom
+2018-02-11 20:10:12,585 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.12/plexus-interpolation-1.12.pom
+2018-02-11 20:10:12,695 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.pom
+2018-02-11 20:10:12,781 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.pom
+2018-02-11 20:10:12,889 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+2018-02-11 20:10:12,974 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+2018-02-11 20:10:13,083 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+2018-02-11 20:10:13,169 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+2018-02-11 20:10:13,283 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom
+2018-02-11 20:10:13,373 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom
+2018-02-11 20:10:13,488 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.pom
+2018-02-11 20:10:13,575 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.pom
+2018-02-11 20:10:13,683 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.15/plexus-components-1.1.15.pom
+2018-02-11 20:10:13,782 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.15/plexus-components-1.1.15.pom
+2018-02-11 20:10:13,894 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.3/plexus-2.0.3.pom
+2018-02-11 20:10:13,983 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus/2.0.3/plexus-2.0.3.pom
+2018-02-11 20:10:14,103 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1/classworlds-1.1.jar
+2018-02-11 20:10:14,253 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/classworlds/classworlds/1.1/classworlds-1.1.jar
+2018-02-11 20:10:14,355 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+2018-02-11 20:10:14,676 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+2018-02-11 20:10:14,767 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.jar
+2018-02-11 20:10:14,870 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.jar
+2018-02-11 20:10:14,962 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+2018-02-11 20:10:15,070 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+2018-02-11 20:10:15,162 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar
+2018-02-11 20:10:15,252 [Worker-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar
+2018-02-11 20:10:16,821 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:10:16,822 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:10:16,824 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:10:16,825 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 20:10:16,861 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Test/src
+2018-02-11 20:10:16,862 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Test/src/test/java because it overlaps with /Test/src
+2018-02-11 20:10:17,042 [Worker-7] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2018-02-11 20:10:17,547 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ D:\GitHub\workspace\Test\pom.xml.
+2018-02-11 20:10:18,502 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Test/src
+2018-02-11 20:10:18,503 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Test/src/test/java because it overlaps with /Test/src
+2018-02-11 20:10:18,599 [Worker-7] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2018-02-11 20:10:19,025 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:10:19,027 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:10:19,030 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:10:19,030 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 20:23:14,149 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:23:14,150 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:23:14,151 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:23:14,152 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 20:31:13,563 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:31:13,564 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:31:13,566 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:31:13,566 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 20:36:10,463 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:36:10,463 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:36:10,464 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:36:10,465 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 20:36:32,316 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:36:32,317 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 20:36:32,319 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 20:36:32,319 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:05:01,496 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:05:01,497 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:05:01,499 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:05:01,500 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:05:19,573 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:05:19,574 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:05:19,575 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:05:19,576 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:07:39,337 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:07:39,338 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:07:39,341 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:07:39,341 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:08:31,010 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:31,011 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:08:31,013 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:31,014 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:08:38,590 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:38,590 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:08:38,592 [Worker-49] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:38,592 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:08:51,358 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:51,359 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:08:51,360 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:51,361 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:08:59,686 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:59,687 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:08:59,688 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:08:59,689 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:09:03,279 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:03,280 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:09:03,281 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:03,282 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:09:07,679 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:07,680 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:09:07,681 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:07,681 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:09:40,257 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:40,258 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:09:40,260 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:09:40,261 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:11:52,258 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:11:52,259 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:11:52,262 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:11:52,263 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:11:58,214 [Worker-46] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5-sources.jar
+2018-02-11 21:11:59,167 [Worker-46] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5-sources.jar
+2018-02-11 21:11:59,561 [Worker-46] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.httpcomponents:httpclient:4.5.5
+2018-02-11 21:11:59,834 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:11:59,835 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:11:59,837 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:11:59,838 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:12:19,208 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:12:19,209 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:12:19,210 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:12:19,211 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:12:30,925 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:12:30,926 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:12:30,927 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:12:30,928 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:13:53,213 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:13:53,214 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:13:53,215 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:13:53,215 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:14:06,432 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:14:06,433 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:14:06,433 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:14:06,434 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:14:49,613 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:14:49,614 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:14:49,615 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:14:49,616 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:15:17,650 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:17,651 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:15:17,654 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:17,655 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:15:42,699 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:42,703 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:15:42,706 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:42,709 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:15:54,422 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:54,422 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:15:54,424 [Worker-54] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:15:54,424 [Worker-54] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:16:05,255 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:16:05,256 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:16:05,257 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:16:05,257 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:16:15,172 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:16:15,173 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:16:15,174 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:16:15,175 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:17:50,934 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:17:50,935 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:17:50,936 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:17:50,937 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:18:53,693 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:18:53,694 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:18:53,695 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:18:53,696 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:22:59,636 [Worker-46] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9-sources.jar
+2018-02-11 21:23:00,178 [Worker-46] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9-sources.jar
+2018-02-11 21:23:00,543 [Worker-46] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.httpcomponents:httpcore:4.4.9
+2018-02-11 21:23:00,737 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:23:00,738 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:23:00,739 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:23:00,740 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:24:39,666 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:24:39,667 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:24:39,668 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:24:39,669 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:25:03,846 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:25:03,847 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:25:03,848 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:25:03,849 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:26:33,802 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:26:33,802 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:26:33,803 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:26:33,804 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:26:41,902 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:26:41,903 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:26:41,904 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:26:41,905 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:27:21,024 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:27:21,024 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:27:21,025 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:27:21,026 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:27:52,300 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:27:52,301 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:27:52,304 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:27:52,305 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:28:30,113 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:28:30,114 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:28:30,115 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:28:30,116 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:29:27,638 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:29:27,639 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:29:27,640 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:29:27,641 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:29:43,352 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:29:43,353 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:29:43,354 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:29:43,355 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:30:23,949 [Worker-58] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:30:23,949 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:30:23,950 [Worker-58] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:30:23,951 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:31:05,916 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:31:05,918 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:31:05,920 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:31:05,921 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:34:16,357 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:34:16,359 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:34:16,360 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:34:16,361 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:34:23,862 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:34:23,863 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:34:23,864 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:34:23,864 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:35:00,238 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:00,239 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:35:00,240 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:00,240 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:35:44,148 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:44,148 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:35:44,150 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:44,150 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:35:50,242 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:50,245 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:35:50,246 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:35:50,247 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:36:03,584 [Worker-63] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:36:03,584 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:36:03,586 [Worker-63] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:36:03,586 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:36:51,747 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:36:51,747 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:36:51,748 [Worker-55] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:36:51,749 [Worker-55] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:47:45,569 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:47:45,569 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:47:45,570 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:47:45,571 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:49:17,670 [Worker-68] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:49:17,671 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:49:17,672 [Worker-68] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:49:17,672 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:51:05,315 [Worker-74] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:05,316 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:51:05,317 [Worker-74] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:05,318 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:51:18,807 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:18,808 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:51:18,809 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:18,809 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:51:23,793 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:23,793 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:51:23,795 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:51:23,795 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:52:13,341 [Worker-74] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:13,342 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:52:13,343 [Worker-74] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:13,344 [Worker-74] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:52:17,649 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:17,650 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:52:17,651 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:17,651 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:52:34,213 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:34,214 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:52:34,215 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:52:34,216 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:53:35,450 [Worker-70] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:53:35,451 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:53:35,452 [Worker-70] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:53:35,453 [Worker-70] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:53:45,259 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:53:45,260 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:53:45,261 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:53:45,262 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:56:03,743 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:56:03,744 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:56:03,745 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:56:03,751 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:57:05,126 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:05,127 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:57:05,128 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:05,128 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:57:19,985 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:19,987 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:57:19,988 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:19,988 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:57:41,477 [Worker-80] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:41,478 [Worker-80] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:57:41,479 [Worker-80] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:57:41,480 [Worker-80] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:58:40,119 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:58:40,120 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:58:40,121 [Worker-77] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:58:40,121 [Worker-77] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:58:51,618 [Worker-78] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:58:51,618 [Worker-78] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:58:51,620 [Worker-78] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:58:51,620 [Worker-78] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 21:59:22,194 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:59:22,195 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 21:59:22,196 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 21:59:22,197 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:05:20,970 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:20,971 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:05:20,972 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:20,973 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:05:35,323 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:35,324 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:05:35,326 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:35,327 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:05:39,461 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:39,461 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:05:39,463 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:39,463 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:05:47,353 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:47,354 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:05:47,356 [Worker-83] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:05:47,357 [Worker-83] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:10:30,208 [Worker-85] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:10:30,213 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:10:30,214 [Worker-85] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:10:30,215 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:14:37,225 [Worker-94] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:37,226 [Worker-94] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:14:37,227 [Worker-94] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:37,227 [Worker-94] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:14:48,331 [Worker-95] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:48,332 [Worker-95] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:14:48,336 [Worker-95] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:48,337 [Worker-95] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:14:55,314 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:55,315 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:14:55,317 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:14:55,317 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:15:34,820 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:34,821 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:15:34,822 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:34,823 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:15:40,181 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:40,182 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:15:40,183 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:40,183 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:15:52,169 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:52,170 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:15:52,171 [Worker-61] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:15:52,171 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:16:04,251 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:04,252 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:16:04,253 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:04,254 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:16:19,388 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:19,389 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:16:19,390 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:19,391 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:16:32,287 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:32,288 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:16:32,288 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:32,289 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:16:37,542 [Worker-97] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:37,543 [Worker-97] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:16:37,544 [Worker-97] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:16:37,544 [Worker-97] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:17:29,904 [Worker-94] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:17:29,906 [Worker-94] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:17:29,907 [Worker-94] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:17:29,908 [Worker-94] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:18:50,479 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:18:50,479 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:18:50,481 [Worker-96] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:18:50,481 [Worker-96] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:19:17,076 [Worker-93] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:19:17,077 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:19:17,078 [Worker-93] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:19:17,079 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:27:21,400 [Worker-109] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:27:21,400 [Worker-109] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:27:21,401 [Worker-109] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:27:21,402 [Worker-109] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:28:06,629 [Worker-104] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:28:06,629 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:28:06,630 [Worker-104] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:28:06,631 [Worker-104] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:29:33,963 [Worker-108] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:29:33,963 [Worker-108] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:29:33,964 [Worker-108] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:29:33,965 [Worker-108] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-11 22:33:16,638 [Worker-102] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:33:16,638 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
+2018-02-11 22:33:16,639 [Worker-102] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-11 22:33:16,640 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources

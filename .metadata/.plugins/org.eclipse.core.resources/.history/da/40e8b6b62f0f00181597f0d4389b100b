@@ -1,0 +1,155 @@
+package com.zyw.controller;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import com.zyw.util.Common;
+import com.zyw.util.Utils;
+
+public class Controller {
+	
+	public static void login(){
+
+		List<Map<String,String>> list=new ArrayList();
+		PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+		CloseableHttpClient httpClient = HttpClients.custom()
+				.setConnectionManager(cm)
+				.build();
+		httpClient.
+		HttpPost hp=new HttpPost("https://login.taobao.com/member/login.jhtml");
+		hp.setHeader(":authority", "login.taobao.com");
+		hp.setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+		hp.setHeader("origin", "https://login.taobao.com");
+		hp.setHeader("upgrade-insecure-requests", "1");
+		hp.setHeader("user-agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36");
+		hp.setHeader("referer", "https://login.taobao.com/member/login.jhtml");
+		hp.setHeader("content-type", "application/x-www-form-urlencoded");
+		try {
+			CloseableHttpResponse  hr=httpClient.execute(hp,HttpClientContext.create());
+			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
+			Elements script=document.getElementsByTag("head").get(0).getElementsByTag("script");
+			String data=script.get(script.size()-1).data();
+			list=Utils.jsonAnaly(data, Common.IS_TMALL,Common.SHOP_LINK,Common.LOCATION,Common.SHOPPING_ID,Common.TITLE,Common.USER_ID,Common.USER_NAME,Common.VIEW_FEE,Common.VIEW_PRICE,Common.VIEW_SALES);
+			/*list.parallelStream().forEach(mp->{
+				mp.forEach((key,value)->{
+					System.out.println(key+":"+value);
+				});
+			});
+			System.out.println(list.size());*/
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static List<Map<String,String>> queryShopList(Map paramter) {
+		List<Map<String,String>> list=new ArrayList();
+		HttpClient httpclient=HttpClients.createDefault();
+		HttpGet hp=new HttpGet("https://s.taobao.com/search?q=ÊÖ»ú¿Ç&bcoffset=4&ntoffset=4&p4ppushleft=1%2C48&s=44&sort=sale-desc");
+		hp.getParams().setParameter("http.protocol.allow-circular-redirects", true);
+		try {
+			HttpResponse hr=httpclient.execute(hp);
+			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
+			Elements script=document.getElementsByTag("head").get(0).getElementsByTag("script");
+			String data=script.get(script.size()-1).data();
+			list=Utils.jsonAnaly(data, Common.IS_TMALL,Common.SHOP_LINK,Common.LOCATION,Common.SHOPPING_ID,Common.TITLE,Common.USER_ID,Common.USER_NAME,Common.VIEW_FEE,Common.VIEW_PRICE,Common.VIEW_SALES);
+			/*list.parallelStream().forEach(mp->{
+				mp.forEach((key,value)->{
+					System.out.println(key+":"+value);
+				});
+			});
+			System.out.println(list.size());*/
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public static List<Map<String,String>> queryShop(List<Map<String,String>> rList) {
+		List<Map<String,String>> list=new ArrayList();
+		HttpClient httpclient=HttpClients.createDefault();
+		HttpGet hp=new HttpGet("https:"+rList.get(0).get(Common.SHOP_LINK)+"&search=y&orderType=hotsell_desc");
+		hp.getParams().setParameter("http.protocol.allow-circular-redirects", true);
+		try {
+			HttpResponse hr=httpclient.execute(hp);
+			System.out.println(hr.getHeaders("url-hash")[0].getValue());
+			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
+			Element totalCount=document.getElementById("J_ShopAsynSearchURL");
+			String shopingTotal=queryShopingTotal(hr.getHeaders("url-hash")[0].getValue().substring(0, hr.getHeaders("url-hash")[0].getValue().lastIndexOf("/"))+totalCount.attr("value"));			
+			System.out.println(shopingTotal);
+			list.parallelStream().forEach(mp->{
+				mp.forEach((key,value)->{
+					System.out.println(key+":"+value);
+				});
+			});
+			System.out.println(list.size());
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public static String queryShopingTotal(String url) {
+		String result="";
+		HttpClient httpclient=HttpClients.createDefault();
+		HttpGet hp=new HttpGet("https://shop35339694.taobao.com/i/asynSearch.htm?mid=w-14914601192-0&wid=14914601192&path=/view_shop.htm&user_number_id=57520996&search=y&orderType=hotsell_desc");
+		//hp.getParams().setParameter("http.protocol.allow-circular-redirects", true);
+		try {
+			HttpResponse hr=httpclient.execute(hp);
+			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
+			System.out.println(document);
+			Elements totalCount=document.getElementsByClass("search-result");
+			System.out.println(totalCount);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+}

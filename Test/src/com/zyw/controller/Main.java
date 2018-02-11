@@ -4,6 +4,13 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		Controller.login();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Controller.queryShop(Controller.queryShopList(null));
 	}
 
