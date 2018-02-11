@@ -1,15 +1,15 @@
 package com.zyw.util;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.text.StringEscapeUtils;
+
 public class Utils {
 	
-	public static List<Map<String,String>> strAnaly(String content,String... paramters) {
+	public static List<Map<String,String>> jsonAnaly(String content,String... paramters) {
 		List<Map<String,String>> list=new ArrayList();
 		Map<String,String> productMap=null;
 		int startIndex=0;
@@ -32,19 +32,16 @@ public class Utils {
 				if(endIndex>maxIndex) {
 					maxIndex=endIndex;
 				}
-				String url="";
-				String sb="";
-				try {
-					sb=content.substring(startIndex,endIndex).replace("\\u", "");
-					url=URLDecoder.decode( sb ,"utf-8");
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				productMap.put(str, url);
+				productMap.put(str, StringEscapeUtils.unescapeJava(content.substring(startIndex,endIndex).replace("\"", "")));
+				/*if(productMap.get(Common.IS_TMALL).equalsIgnoreCase("true")) {
+					productMap=null;
+					break;
+				}*/
 				
 			}
-			list.add(productMap);
+			if(productMap!=null) {
+				list.add(productMap);
+			}
 			if(flag) {
 				break;
 			}
