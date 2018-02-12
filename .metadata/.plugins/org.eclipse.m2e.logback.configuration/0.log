@@ -918,3 +918,200 @@
 2018-02-11 22:33:16,638 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\main\resources
 2018-02-11 22:33:16,639 [Worker-102] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2018-02-11 22:33:16,640 [Worker-102] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\GitHub\workspace\Test\src\test\resources
+2018-02-12 09:33:19,785 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-12 09:33:30,113 [Worker-14] WARN  o.e.a.i.i.DefaultRepositoryEventDispatcher - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+2018-02-12 09:33:31,190 [Worker-14] WARN  o.e.a.i.i.DefaultRepositoryEventDispatcher - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+2018-02-12 09:34:18,506 [Worker-14] WARN  o.e.a.i.i.DefaultRepositoryEventDispatcher - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+2018-02-12 09:34:19,242 [Worker-14] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\gitHub\workspace\Test\pom.xml.
+2018-02-12 09:34:23,688 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.pom
+2018-02-12 09:34:24,886 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.pom
+2018-02-12 09:34:25,189 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.pom
+2018-02-12 09:34:25,543 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/jface/3.3.0-I20070606-0010/jface-3.3.0-I20070606-0010.pom
+2018-02-12 09:34:25,715 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/jface/3.3.0-I20070606-0010/jface-3.3.0-I20070606-0010.pom
+2018-02-12 09:34:25,905 [DefaultMetadataResolver-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/swt/maven-metadata.xml
+2018-02-12 09:34:26,042 [DefaultMetadataResolver-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/maven-metadata.xml
+2018-02-12 09:34:26,074 [DefaultMetadataResolver-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/maven-metadata.xml
+2018-02-12 09:34:26,248 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/swt/3.3.0-v3346/swt-3.3.0-v3346.pom
+2018-02-12 09:34:26,418 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/3.3.0-v3346/swt-3.3.0-v3346.pom
+2018-02-12 09:34:26,639 [DefaultMetadataResolver-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/core/commands/maven-metadata.xml
+2018-02-12 09:34:26,822 [DefaultMetadataResolver-1-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/core/commands/maven-metadata.xml
+2018-02-12 09:34:27,028 [DefaultMetadataResolver-1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/core/commands/maven-metadata.xml
+2018-02-12 09:34:27,195 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/core/commands/3.3.0-I20070605-0010/commands-3.3.0-I20070605-0010.pom
+2018-02-12 09:34:27,369 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/core/commands/3.3.0-I20070605-0010/commands-3.3.0-I20070605-0010.pom
+2018-02-12 09:34:27,544 [DefaultMetadataResolver-2-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/equinox/common/maven-metadata.xml
+2018-02-12 09:34:27,715 [DefaultMetadataResolver-2-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/equinox/common/maven-metadata.xml
+2018-02-12 09:34:27,944 [DefaultMetadataResolver-2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/equinox/common/maven-metadata.xml
+2018-02-12 09:34:28,112 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/equinox/common/3.6.200-v20130402-1505/common-3.6.200-v20130402-1505.pom
+2018-02-12 09:34:28,285 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/equinox/common/3.6.200-v20130402-1505/common-3.6.200-v20130402-1505.pom
+2018-02-12 09:34:30,137 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.jar
+2018-02-12 09:34:30,572 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/jface/3.3.0-I20070606-0010/jface-3.3.0-I20070606-0010.jar
+2018-02-12 09:34:31,855 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/jface/3.3.0-I20070606-0010/jface-3.3.0-I20070606-0010.jar
+2018-02-12 09:34:32,010 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/swt/3.3.0-v3346/swt-3.3.0-v3346.jar
+2018-02-12 09:34:32,169 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/3.3.0-v3346/swt-3.3.0-v3346.jar
+2018-02-12 09:34:32,327 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/core/commands/3.3.0-I20070605-0010/commands-3.3.0-I20070605-0010.jar
+2018-02-12 09:34:32,500 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/core/commands/3.3.0-I20070605-0010/commands-3.3.0-I20070605-0010.jar
+2018-02-12 09:34:32,669 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/org/eclipse/equinox/common/3.6.200-v20130402-1505/common-3.6.200-v20130402-1505.jar
+2018-02-12 09:34:32,844 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/equinox/common/3.6.200-v20130402-1505/common-3.6.200-v20130402-1505.jar
+2018-02-12 09:34:34,035 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.jar
+2018-02-12 09:34:37,437 [Worker-14] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c.jar
+2018-02-12 09:35:01,553 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:35:01,559 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:35:01,977 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\gitHub\workspace\Test\pom.xml.
+2018-02-12 09:35:01,984 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:35:01,984 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:35:03,524 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:35:03,525 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:35:03,526 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:35:03,527 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:38:03,455 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:38:03,456 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:38:03,457 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:38:03,457 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:40:18,581 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:40:18,582 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:40:18,583 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:40:18,583 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:40:27,510 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:40:27,510 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:40:27,511 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:40:27,512 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:43:27,358 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:43:27,359 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:43:27,360 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:43:27,361 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:43:36,363 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:43:36,364 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:43:36,365 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:43:36,378 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:49:03,266 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:03,267 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:49:03,269 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:03,270 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:49:16,072 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:16,073 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:49:16,074 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:16,074 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:49:58,574 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:58,576 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:49:58,576 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:49:58,577 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:51:25,946 [Worker-32] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c-sources.jar
+2018-02-12 09:51:26,548 [Worker-32] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://uqbar-wiki.org/mvn/releases/org/eclipse/swt/win32/org.eclipse.swt.win32.win32.x86_64/3.4.1.v3449c/org.eclipse.swt.win32.win32.x86_64-3.4.1.v3449c-sources.jar
+2018-02-12 09:51:26,555 [Worker-32] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.eclipse.swt.win32:org.eclipse.swt.win32.win32.x86_64:3.4.1.v3449c
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.eclipse.swt.win32:org.eclipse.swt.win32.win32.x86_64:jar:sources:3.4.1.v3449c
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$5.call(MavenImpl.java:776) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl$5.call(MavenImpl.java:1) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:112) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:743) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:720) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:264) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:243) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:217) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:161) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:137) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob$1.call(DownloadSourcesJob.java:1) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1355) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:135) [org.eclipse.m2e.jdt_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56) [org.eclipse.core.jobs_3.9.2.v20171030-1027.jar:na]
+2018-02-12 09:51:26,705 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:51:26,706 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:51:26,707 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:51:26,707 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:54:44,728 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:54:44,729 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:54:44,735 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:54:44,736 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:58:04,274 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:58:04,275 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:58:04,276 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:58:04,276 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 09:58:29,541 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:58:29,541 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 09:58:29,541 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 09:58:29,542 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:03:39,758 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:03:39,759 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:03:39,760 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:03:39,761 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:11:42,344 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:11:42,345 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:11:42,347 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:11:42,347 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:12:25,458 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:12:25,459 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:12:25,460 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:12:25,460 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:13:53,612 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:13:53,619 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:13:53,620 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:13:53,621 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:22:13,038 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:22:13,039 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:22:13,040 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:22:13,041 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 10:22:35,650 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:22:35,651 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 10:22:35,652 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 10:22:35,652 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:02:43,856 [Worker-35] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\gitHub\workspace\Test\pom.xml.
+2018-02-12 11:02:43,967 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.hynnet.com/org/eclipse/swt/maven-metadata.xml
+2018-02-12 11:02:43,968 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Could not transfer metadata org.eclipse:swt/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:43,973 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.hynnet.com/org/eclipse/core/commands/maven-metadata.xml
+2018-02-12 11:02:43,973 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Could not transfer metadata org.eclipse.core:commands/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:43,979 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.hynnet.com/org/eclipse/equinox/common/maven-metadata.xml
+2018-02-12 11:02:43,980 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Could not transfer metadata org.eclipse.equinox:common/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:43,984 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.hynnet.com/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.pom
+2018-02-12 11:02:44,574 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.pom
+2018-02-12 11:02:44,814 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.pom
+2018-02-12 11:02:44,828 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.hynnet.com/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.jar
+2018-02-12 11:02:45,086 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://central.maven.org/maven2/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.jar
+2018-02-12 11:02:48,230 [Worker-35] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://central.maven.org/maven2/com/hynnet/DJNativeSwing-SWT/1.0.0/DJNativeSwing-SWT-1.0.0.jar
+2018-02-12 11:02:48,480 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:02:48,481 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:02:48,482 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:02:48,483 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:02:49,745 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.eclipse:swt/maven-metadata.xml from http://maven.hynnet.com/ was cached in the local repository, resolution will not be reattempted until the update interval of hynnet has elapsed or updates are forced. Original error: Could not transfer metadata org.eclipse:swt/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:49,748 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.eclipse.core:commands/maven-metadata.xml from http://maven.hynnet.com/ was cached in the local repository, resolution will not be reattempted until the update interval of hynnet has elapsed or updates are forced. Original error: Could not transfer metadata org.eclipse.core:commands/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:49,751 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.eclipse.equinox:common/maven-metadata.xml from http://maven.hynnet.com/ was cached in the local repository, resolution will not be reattempted until the update interval of hynnet has elapsed or updates are forced. Original error: Could not transfer metadata org.eclipse.equinox:common/maven-metadata.xml from/to hynnet (http://maven.hynnet.com/): maven.hynnet.com
+2018-02-12 11:02:49,793 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:02:49,793 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:02:49,794 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:02:49,794 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:03:24,643 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:03:24,644 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:03:24,645 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:03:24,645 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:03:48,308 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:03:48,309 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:03:48,310 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:03:48,310 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:07:36,034 [Worker-45] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Test:Test:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\gitHub\workspace\Test\pom.xml.
+2018-02-12 11:07:36,739 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:07:36,740 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:07:36,742 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:07:36,743 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:07:38,548 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:07:38,548 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:07:38,659 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:07:38,660 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:08:19,119 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:08:19,120 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:08:19,120 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:08:19,121 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:09:05,766 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:09:05,766 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:09:05,768 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:09:05,768 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:52:36,529 [Worker-47] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:52:36,530 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:52:36,531 [Worker-47] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:52:36,531 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources
+2018-02-12 11:54:10,972 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:54:10,973 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\main\resources
+2018-02-12 11:54:10,979 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-02-12 11:54:10,980 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Administrator\Desktop\gitHub\workspace\Test\src\test\resources

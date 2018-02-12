@@ -166,7 +166,7 @@ public class Controller {
 		HttpGet hp=new HttpGet("https:"+rList.get(0).get(Common.SHOP_LINK)+"&search=y&orderType=hotsell_desc");
 		hp.getParams().setParameter("http.protocol.allow-circular-redirects", true);
 		try {
-			httpClient.setCookieStore(cookiestore);
+			//httpClient.setCookieStore(cookiestore);
 			HttpResponse hr=httpClient.execute(hp);
 			System.out.println(hr.getHeaders("url-hash")[0].getValue());
 			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
@@ -202,7 +202,7 @@ public class Controller {
 		hp.setHeader("referer", "https://shop35339694.taobao.com/i/asynSearch.htm?mid=w-14914601192-0&wid=14914601192&path=/search.htm&user_number_id=57520996&search=y&orderType=hotsell_desc");
 		hp.setHeader("content-type", "application/x-www-form-urlencoded");
 		try {
-			httpClient.setCookieStore(cookiestore);
+			//httpClient.setCookieStore(cookiestore);
 			HttpResponse hr=httpClient.execute(hp);
 			Document document  =Jsoup.parse(EntityUtils.toString(hr.getEntity(), "utf-8"));
 			System.out.println(document);

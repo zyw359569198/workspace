@@ -64,7 +64,7 @@ public class BrowserExample {
         final ToolItem itemGo = new ToolItem(toolbar, SWT.PUSH);  
         itemGo.setText(getResourceString("Go"));  
         location = new Text(parent, SWT.BORDER);  
-        images = new Image[] { new Image(display, "C:/icons/web/go.gif") };  
+        images = new Image[] { new Image(display, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif") };  
         final Canvas canvas = new Canvas(parent, SWT.NO_BACKGROUND);  
         final Rectangle rect = images[0].getBounds();  
         canvas.addListener(SWT.Paint, new Listener() {  
@@ -296,7 +296,7 @@ public class BrowserExample {
         shell.setLayout(new FillLayout());  
         shell.setText("Browser example");  
         BrowserExample instance = new BrowserExample(shell);  
-        Image icon = new Image(display, "C:/icons/web/go.gif");  
+        Image icon = new Image(display, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif");  
         shell.setImage(icon);  
         shell.open();  
         while (!shell.isDisposed()) {  

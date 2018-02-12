@@ -53,7 +53,7 @@ public class SWTBrowser {
         textLocation = new Text(compositeLocation, SWT.SINGLE | SWT.BORDER);  
         textLocation.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));  
         Button buttonGo = new Button(compositeLocation, SWT.NULL);  
-        buttonGo.setImage(new Image(shell.getDisplay(), "C:/icons/web/go.gif"));  
+        buttonGo.setImage(new Image(shell.getDisplay(), "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif"));  
         browser = new Browser(shell, SWT.BORDER);  
         browser.setLayoutData(new GridData(GridData.FILL_BOTH));  
         Composite compositeStatus = new Composite(shell, SWT.NULL);  
@@ -73,35 +73,35 @@ public class SWTBrowser {
         textLocation.addListener(SWT.DefaultSelection, openURLListener);  
         final Action actionBackward = new Action("&Backword",  
                 ImageDescriptor.createFromFile(null,  
-                        "C:/icons/web/backward.gif")) {  
+                		"C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif")) {  
             public void run() {  
-                browser.back();  
+                browser.back(); 
             }  
         };  
         actionBackward.setEnabled(false);  
         final Action actionForward = new Action("&Forward",  
                 ImageDescriptor  
-                        .createFromFile(null, "C:/icons/web/forward.gif")) {  
+                        .createFromFile(null, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif")) {  
             public void run() {  
                 browser.forward();  
             }  
         };  
         actionForward.setEnabled(false);  
         Action actionStop = new Action("&Stop", ImageDescriptor.createFromFile(  
-                null, "C:/icons/web/stop.gif")) {  
+                null, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif")) {  
             public void run() {  
                 browser.stop();  
             }  
         };  
         Action actionRefresh = new Action("&Refresh",  
                 ImageDescriptor  
-                        .createFromFile(null, "C:/icons/web/refresh.gif")) {  
+                        .createFromFile(null, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif")) {  
             public void run() {  
                 browser.refresh();  
             }  
         };  
         Action actionHome = new Action("&Home", ImageDescriptor.createFromFile(  
-                null, "C:/icons/web/home.gif")) {  
+                null, "C:\\Users\\Administrator\\Desktop\\gitHub\\workspace\\Test\\resource\\icons\\forward.gif")) {  
             public void run() {  
                 browser.setUrl("http://www.eclipse.org");  
             }  
