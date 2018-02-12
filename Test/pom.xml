@@ -43,8 +43,13 @@
     <version>3.3.0-I20070606-0010</version>
     <scope>provided</scope>
 </dependency>
+<dependency>  
+           <groupId>net.sourceforge.htmlunit</groupId>  
+           <artifactId>htmlunit</artifactId>  
+           <version>2.29</version>  
+       </dependency>  
   </dependencies>
-  <repositories>
+<!--   <repositories>
       <repository>  
       <id>central</id>  
       <url>http://central.maven.org/maven2/</url>  
@@ -53,5 +58,5 @@
       <id>uqbar-wiki</id>  
       <url>http://uqbar-wiki.org/mvn/releases/</url>  
     </repository>  
- </repositories>  
+ </repositories>   -->
 </project>

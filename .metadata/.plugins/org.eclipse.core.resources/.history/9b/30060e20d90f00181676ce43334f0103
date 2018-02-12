@@ -1,0 +1,97 @@
+package com.zyw.controller;
+
+import java.io.IOException;
+import java.util.Set;
+
+import javax.net.ssl.SSLContext;
+
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.ssl.TrustStrategy;
+import org.apache.http.util.EntityUtils;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlButton;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.util.Cookie;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+/*		Controller.login();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Controller.queryShop(Controller.queryShopList(null));*/
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(false);  
+        webClient.getOptions().setCssEnabled(false);  
+        webClient.getOptions().setUseInsecureSSL(false);
+        HtmlPage page=null;
+        try {
+			page = webClient.getPage("https://login.taobao.com/member/login.jhtml?redirectURL=https%3A%2F%2Fwww.taobao.com%2F");
+			HtmlInput username = page.getHtmlElementById("TPL_username_1");
+			HtmlInput password = page.getHtmlElementById("TPL_password_1");
+			username.setValueAttribute("17318915967");
+			password.setValueAttribute("ZyW1987541x");
+			HtmlButton btn = page.getHtmlElementById("J_SubmitStatic");
+			btn.click();
+			BasicCookieStore cookieStore = new BasicCookieStore();  
+	        Set<Cookie> cookies2 =webClient.getCookieManager().getCookies();  
+	        for (Cookie cookie : cookies2) {  
+	        	System.out.println(cookie.getName()+"="+cookie.getValue());
+	            cookieStore.addCookie(cookie.toHttpClient());  
+	        }
+	      //设置cookie  
+	        HttpClientContext context = HttpClientContext.create();  
+	        context.setCookieStore(cookieStore);  
+	  
+	        //忽略SSL证书验证  
+	  
+	        SSLContext sslContext = null;
+			try {
+				sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {  
+				    //信任所有  
+				    public boolean isTrusted(X509Certificate[] chain,String authType) throws CertificateException {  
+				        return true;  
+				    }
+				}).build();
+			} catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}    
+	        CloseableHttpClient httpClient = HttpClients.custom().setSSLContext(sslContext).build();  
+	        HttpGet httpGet = new HttpGet("https://shop35339694.taobao.com/i/asynSearch.htm?mid=w-14914601192-0&wid=14914601192&path=/search.htm&user_number_id=57520996&search=y&orderType=hotsell_desc");  
+	  
+	        //发送请求并获取response  
+	        CloseableHttpResponse response = httpClient.execute(httpGet, context);  
+	        HttpEntity entity = response.getEntity();  
+	  
+	        System.out.println(EntityUtils.toString(entity));  
+		} catch (FailingHttpStatusCodeException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+
+}

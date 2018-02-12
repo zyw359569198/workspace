@@ -1,0 +1,36 @@
+package com.zyw.controller;
+
+import java.io.IOException;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+/*		Controller.login();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Controller.queryShop(Controller.queryShopList(null));*/
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		webClient.getOptions().setJavaScriptEnabled(true);  
+        webClient.getOptions().setCssEnabled(true);  
+        webClient.getOptions().setUseInsecureSSL(true);
+        HtmlPage page=null;
+        try {
+			HtmlPage page = webClient.getPage("https://login.taobao.com/member/login.jhtml?redirectURL=https%3A%2F%2Fwww.taobao.com%2F");
+		} catch (FailingHttpStatusCodeException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+
+}

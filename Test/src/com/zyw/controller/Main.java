@@ -1,5 +1,4 @@
 package com.zyw.controller;
-
 public class Main {
 	
 	public static void main(String[] args) {
@@ -11,7 +10,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Controller.queryShop(Controller.queryShopList(null));
+		Controller.queryShop(Controller.queryShopList(null));	
 	}
 
 }
