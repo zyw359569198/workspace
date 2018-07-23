@@ -33,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Administrator\Desktop\github\workspace\TmallGod"/>
 			<item value="C:\Users\Administrator\Desktop\gitHub\workspace\TmallGod"/>
 		</list>
 		<list key="projectNameTemplate">
