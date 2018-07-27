@@ -9,8 +9,37 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 public class WebChatUtil {
-	
-	public static void main(String[] args) {
+	public static void tkTest(String tkl) {
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpget = new HttpGet("http://api.kfsoft.net/api/tb/tklQuery/v1.php?user_key=f29CfGVPc0STIflw&tkl="+tkl);
+		CloseableHttpResponse response =null;
+		try {
+		response = httpclient.execute(httpget);
+		 HttpEntity entity = response.getEntity();
+		 if (entity != null) {
+		 long len = entity.getContentLength();
+		 if (len != -1 && len < 2048) {
+		 System.out.println(EntityUtils.toString(entity));
+		 } else {
+		 // Stream content out
+		 }
+		 }
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		 try {
+			response.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	}
+	public static void wxTest() {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpGet httpget = new HttpGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx2f557258c5ba09b0&secret=dcaf05f2a005e3199b3e4ab5c1de1f23");
 		CloseableHttpResponse response =null;
@@ -39,6 +68,9 @@ public class WebChatUtil {
 			e.printStackTrace();
 		}
 		}
+	}
+	public static void main(String[] args) {
+
 
 		
 	}
