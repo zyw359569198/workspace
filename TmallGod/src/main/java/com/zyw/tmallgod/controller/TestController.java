@@ -100,7 +100,7 @@ public class TestController {
 		}
 		logger.info("：解析用户发送过来的信息结束");  
 
-		return printTextMsg(map);
+		return printPicAndTextMsg(map);
 		
 	}
 	
@@ -111,7 +111,7 @@ public class TestController {
 		List<Article> articles = new ArrayList<Article>();
 		Article a = new Article();
 		a.setTitle("我是图片标题");
-		a.setUrl("www.baidu.com");// 该地址是点击图片跳转后
+		a.setUrl("http://119.3.2.234");// 该地址是点击图片跳转后
 		a.setPicUrl("http://b.hiphotos.baidu.com/image/pic/item/08f790529822720ea5d058ba7ccb0a46f21fab50.jpg");// 该地址是一个有效的图片地址
 		a.setDescription("我是图片的描述");
 		articles.add(a);
