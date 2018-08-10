@@ -53,4 +53,5 @@
 <fullyQualifiedTypeName name="com.taobao.api.DefaultTaobaoClient"/>
 <fullyQualifiedTypeName name="com.taobao.api.request.TbkItemGetRequest"/>
 <fullyQualifiedTypeName name="com.taobao.api.response.TbkItemGetResponse"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 </qualifiedTypeNameHistroy>
