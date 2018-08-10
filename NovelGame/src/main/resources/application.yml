@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/noval?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: cloudos
+    driver-class-name: com.mysql.cj.jdbc.Driver
