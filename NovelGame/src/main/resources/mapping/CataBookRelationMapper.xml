@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.CataBookRelationMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.CataBookRelation">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cata_id, book_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cata_book_relation
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cata_book_relation
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.CataBookRelation">
+    insert into cata_book_relation (id, cata_id, book_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{cataId,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.CataBookRelation">
+    insert into cata_book_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cataId != null">
+        cata_id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cataId != null">
+        #{cataId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.CataBookRelation">
+    update cata_book_relation
+    <set>
+      <if test="cataId != null">
+        cata_id = #{cataId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.CataBookRelation">
+    update cata_book_relation
+    set cata_id = #{cataId,jdbcType=VARCHAR},
+      book_id = #{bookId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

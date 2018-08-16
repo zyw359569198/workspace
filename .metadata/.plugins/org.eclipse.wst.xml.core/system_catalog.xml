@@ -35,4 +35,6 @@
   <uri name="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" uri="jar:file:/C:/eclipse/java-photon/eclipse/../../../Users/Administrator/.p2/pool/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201711201732.jar!/xsd/xmldsig-core-schema.xsd"/>
   <system systemId="http://www.w3.org/2001/xml.xsd" uri="jar:file:/C:/eclipse/java-photon/eclipse/../../../Users/Administrator/.p2/pool/plugins/org.eclipse.xsd_2.14.0.v20180127-0547.jar!/cache/www.w3.org/2001/xml.xsd"/>
   <uri name="http://www.w3.org/2001/XMLSchema" uri="jar:file:/C:/eclipse/java-photon/eclipse/../../../Users/Administrator/.p2/pool/plugins/org.eclipse.xsd_2.14.0.v20180127-0547.jar!/cache/www.w3.org/2001/XMLSchema.xsd"/>
+  <public publicId="-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" uri="jar:file:/C:/eclipse/java-photon/eclipse/../../../Users/Administrator/.p2/pool/plugins/org.mybatis.generator.eclipse.ui_1.3.7.201807042148.jar!/dtds/mybatis-generator-config_1_0.dtd"/>
+  <public publicId="-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" uri="jar:file:/C:/eclipse/java-photon/eclipse/../../../Users/Administrator/.p2/pool/plugins/org.mybatis.generator.eclipse.ui_1.3.7.201807042148.jar!/dtds/ibator-config_1_0.dtd"/>
 </catalog>

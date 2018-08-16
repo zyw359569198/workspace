@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.Book">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
+    <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="is_completion" jdbcType="INTEGER" property="isCompletion" />
+    <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
+    author_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from book
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.Book">
+    insert into book (id, book_id, book_name, 
+      book_name_en, book_desc, create_time, 
+      update_time, is_completion, author_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{bookName,jdbcType=VARCHAR}, 
+      #{bookNameEn,jdbcType=VARCHAR}, #{bookDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
+      #{updateTime,jdbcType=DATE}, #{isCompletion,jdbcType=INTEGER}, #{authorId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Book">
+    insert into book
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="bookName != null">
+        book_name,
+      </if>
+      <if test="bookNameEn != null">
+        book_name_en,
+      </if>
+      <if test="bookDesc != null">
+        book_desc,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isCompletion != null">
+        is_completion,
+      </if>
+      <if test="authorId != null">
+        author_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookName != null">
+        #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookNameEn != null">
+        #{bookNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="bookDesc != null">
+        #{bookDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="isCompletion != null">
+        #{isCompletion,jdbcType=INTEGER},
+      </if>
+      <if test="authorId != null">
+        #{authorId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.Book">
+    update book
+    <set>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookName != null">
+        book_name = #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookNameEn != null">
+        book_name_en = #{bookNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="bookDesc != null">
+        book_desc = #{bookDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="isCompletion != null">
+        is_completion = #{isCompletion,jdbcType=INTEGER},
+      </if>
+      <if test="authorId != null">
+        author_id = #{authorId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.Book">
+    update book
+    set book_id = #{bookId,jdbcType=VARCHAR},
+      book_name = #{bookName,jdbcType=VARCHAR},
+      book_name_en = #{bookNameEn,jdbcType=VARCHAR},
+      book_desc = #{bookDesc,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      update_time = #{updateTime,jdbcType=DATE},
+      is_completion = #{isCompletion,jdbcType=INTEGER},
+      author_id = #{authorId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

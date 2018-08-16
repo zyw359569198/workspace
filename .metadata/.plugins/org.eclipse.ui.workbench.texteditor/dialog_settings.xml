@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="../../../images/nocover.jpg" key="selection"/>
+		<item value="StoreId" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="storeId"/>
+			<item value="insert"/>
+			<item value="hibernate"/>
+			<item value="mybatis"/>
+			<item value="my"/>
 			<item value="/Public/img/nocover.jpg"/>
 			<item value="nocover"/>
 			<item value="novo"/>
@@ -18,11 +23,6 @@
 			<item value="logo"/>
 			<item value="nocover.jpg"/>
 			<item value="fontFamily"/>
-			<item value="fontSize"/>
-			<item value="rx"/>
-			<item value="1x"/>
-			<item value="3.1.0"/>
-			<item value="123"/>
 		</list>
 		<list key="replacehistory">
 			<item value="../../../images/nocover.jpg"/>
@@ -37,7 +37,7 @@
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="661" key="DIALOG_X_ORIGIN"/>
-		<item value="293" key="DIALOG_Y_ORIGIN"/>
+		<item value="1155" key="DIALOG_X_ORIGIN"/>
+		<item value="128" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

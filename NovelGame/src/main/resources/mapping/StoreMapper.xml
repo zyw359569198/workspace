@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.StoreMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.Store">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="store_id" jdbcType="VARCHAR" property="storeId" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="store_url" jdbcType="VARCHAR" property="storeUrl" />
+    <result column="pre_store_id" jdbcType="VARCHAR" property="preStoreId" />
+    <result column="next_store_id" jdbcType="VARCHAR" property="nextStoreId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.Store">
+    <result column="store_content" jdbcType="LONGVARBINARY" property="storeContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id
+  </sql>
+  <sql id="Blob_Column_List">
+    store_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from store
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from store
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.Store">
+    insert into store (id, book_id, store_id, 
+      store_name, store_url, pre_store_id, 
+      next_store_id, store_content)
+    values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, 
+      #{storeName,jdbcType=VARCHAR}, #{storeUrl,jdbcType=VARCHAR}, #{preStoreId,jdbcType=VARCHAR}, 
+      #{nextStoreId,jdbcType=VARCHAR}, #{storeContent,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Store">
+    insert into store
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="storeName != null">
+        store_name,
+      </if>
+      <if test="storeUrl != null">
+        store_url,
+      </if>
+      <if test="preStoreId != null">
+        pre_store_id,
+      </if>
+      <if test="nextStoreId != null">
+        next_store_id,
+      </if>
+      <if test="storeContent != null">
+        store_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="storeUrl != null">
+        #{storeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="preStoreId != null">
+        #{preStoreId,jdbcType=VARCHAR},
+      </if>
+      <if test="nextStoreId != null">
+        #{nextStoreId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeContent != null">
+        #{storeContent,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.Store">
+    update store
+    <set>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        store_name = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="storeUrl != null">
+        store_url = #{storeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="preStoreId != null">
+        pre_store_id = #{preStoreId,jdbcType=VARCHAR},
+      </if>
+      <if test="nextStoreId != null">
+        next_store_id = #{nextStoreId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeContent != null">
+        store_content = #{storeContent,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zyw.novelGame.model.Store">
+    update store
+    set book_id = #{bookId,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=VARCHAR},
+      store_name = #{storeName,jdbcType=VARCHAR},
+      store_url = #{storeUrl,jdbcType=VARCHAR},
+      pre_store_id = #{preStoreId,jdbcType=VARCHAR},
+      next_store_id = #{nextStoreId,jdbcType=VARCHAR},
+      store_content = #{storeContent,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.Store">
+    update store
+    set book_id = #{bookId,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=VARCHAR},
+      store_name = #{storeName,jdbcType=VARCHAR},
+      store_url = #{storeUrl,jdbcType=VARCHAR},
+      pre_store_id = #{preStoreId,jdbcType=VARCHAR},
+      next_store_id = #{nextStoreId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

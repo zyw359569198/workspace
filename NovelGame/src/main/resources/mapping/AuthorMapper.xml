@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.AuthorMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.Author">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, author_id, author_name, author_name_en
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from author
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from author
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.Author">
+    insert into author (id, author_id, author_name, 
+      author_name_en)
+    values (#{id,jdbcType=VARCHAR}, #{authorId,jdbcType=VARCHAR}, #{authorName,jdbcType=VARCHAR}, 
+      #{authorNameEn,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Author">
+    insert into author
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="authorId != null">
+        author_id,
+      </if>
+      <if test="authorName != null">
+        author_name,
+      </if>
+      <if test="authorNameEn != null">
+        author_name_en,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="authorId != null">
+        #{authorId,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null">
+        #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorNameEn != null">
+        #{authorNameEn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.Author">
+    update author
+    <set>
+      <if test="authorId != null">
+        author_id = #{authorId,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null">
+        author_name = #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorNameEn != null">
+        author_name_en = #{authorNameEn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.Author">
+    update author
+    set author_id = #{authorId,jdbcType=VARCHAR},
+      author_name = #{authorName,jdbcType=VARCHAR},
+      author_name_en = #{authorNameEn,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
