@@ -24,6 +24,6 @@
     <table schema="noval" tableName="catagory" domainObjectName="Catagory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
     <table schema="noval" tableName="author" domainObjectName="Author" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
     <table schema="noval" tableName="store" domainObjectName="Store" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/> -->
-        <table schema="noval" tableName="model" domainObjectName="Model" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/> 
+        <table schema="noval" tableName="book" domainObjectName="Book" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/> 
   </context>
 </generatorConfiguration>

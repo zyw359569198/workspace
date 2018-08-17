@@ -11,11 +11,17 @@
     <result column="update_time" jdbcType="DATE" property="updateTime" />
     <result column="is_completion" jdbcType="INTEGER" property="isCompletion" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+    <result column="hits" jdbcType="BIGINT" property="hits" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
-    author_id
+    author_id, hits
   </sql>
+    <select id="queryBookByHits" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book
+     order by hits desc limit 6 offset 0  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -29,12 +35,12 @@
   <insert id="insert" parameterType="com.zyw.novelGame.model.Book">
     insert into book (id, book_id, book_name, 
       book_name_en, book_desc, create_time, 
-      update_time, is_completion, author_id
-      )
+      update_time, is_completion, author_id, 
+      hits)
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{bookName,jdbcType=VARCHAR}, 
       #{bookNameEn,jdbcType=VARCHAR}, #{bookDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
-      #{updateTime,jdbcType=DATE}, #{isCompletion,jdbcType=INTEGER}, #{authorId,jdbcType=VARCHAR}
-      )
+      #{updateTime,jdbcType=DATE}, #{isCompletion,jdbcType=INTEGER}, #{authorId,jdbcType=VARCHAR}, 
+      #{hits,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Book">
     insert into book
@@ -66,6 +72,9 @@
       <if test="authorId != null">
         author_id,
       </if>
+      <if test="hits != null">
+        hits,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -94,6 +103,9 @@
       </if>
       <if test="authorId != null">
         #{authorId,jdbcType=VARCHAR},
+      </if>
+      <if test="hits != null">
+        #{hits,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -124,6 +136,9 @@
       <if test="authorId != null">
         author_id = #{authorId,jdbcType=VARCHAR},
       </if>
+      <if test="hits != null">
+        hits = #{hits,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -136,7 +151,8 @@
       create_time = #{createTime,jdbcType=DATE},
       update_time = #{updateTime,jdbcType=DATE},
       is_completion = #{isCompletion,jdbcType=INTEGER},
-      author_id = #{authorId,jdbcType=VARCHAR}
+      author_id = #{authorId,jdbcType=VARCHAR},
+      hits = #{hits,jdbcType=BIGINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

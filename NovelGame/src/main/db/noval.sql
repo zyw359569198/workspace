@@ -31,6 +31,8 @@ CREATE TABLE `author` (
 
 /*Data for the table `author` */
 
+insert  into `author`(`id`,`author_id`,`author_name`,`author_name_en`) values ('1','1','方想','fangxiang'),('2','2','我爱吃西红柿','woaichixihongshi'),('3','3','辰东','chendong');
+
 /*Table structure for table `book` */
 
 DROP TABLE IF EXISTS `book`;
@@ -43,13 +45,16 @@ CREATE TABLE `book` (
   `book_desc` varchar(500) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   `update_time` date DEFAULT NULL,
-  `is_completion` int(11) DEFAULT NULL,
+  `is_completion` int(11) DEFAULT '1',
   `author_id` varchar(32) DEFAULT NULL,
+  `hits` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `book` */
+
+insert  into `book`(`id`,`book_id`,`book_name`,`book_name_en`,`book_desc`,`create_time`,`update_time`,`is_completion`,`author_id`,`hits`) values ('1','1','卡徒','katu','方想的小说','2018-08-01','2018-08-03',0,'1',12),('2','2','师士传说','shishichuanshuo','方想的小说','2018-06-26','2018-08-01',1,'1',2),('3','3','神墓','shenmu','辰东的小说','2018-04-04','2018-07-04',0,'3',15);
 
 /*Table structure for table `cata_book_relation` */
 
@@ -64,6 +69,8 @@ CREATE TABLE `cata_book_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `cata_book_relation` */
+
+insert  into `cata_book_relation`(`id`,`cata_id`,`book_id`) values ('1','2','1'),('2','2','2'),('3','9','3');
 
 /*Table structure for table `catagory` */
 

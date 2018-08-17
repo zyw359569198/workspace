@@ -21,6 +21,8 @@ public class Book {
 
     private String authorId;
 
+    private Long hits;
+
     public String getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class Book {
 
     public void setAuthorId(String authorId) {
         this.authorId = authorId == null ? null : authorId.trim();
+    }
+
+    public Long getHits() {
+        return hits;
+    }
+
+    public void setHits(Long hits) {
+        this.hits = hits;
     }
 }
