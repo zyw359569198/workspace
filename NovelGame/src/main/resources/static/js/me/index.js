@@ -8,24 +8,39 @@ window.onload =function(){
 		asynchronous: true,
 		success: function(data){
 					//$("ul.nav_l").empty()
-					var cataGoryData=data.data;
-					$.each(cataGoryData,function(index,n){
-						//alert(cataGoryData[index].cataNameEn)
+					var catagoryData=data.data.cgl;
+					var modelData=data.data.mdl;
+			$.each(catagoryData,function(index,n){
+						//alert(catagoryData[index].cataNameEn)
 			var rowLi=document.createElement("li");
-			var child="<a href='javascript:void(0);'  onclick='openCatagory(this.id,this.name)'  id='"+cataGoryData[index].id+"'  name='"+cataGoryData[index].cataName+"'>"+cataGoryData[index].cataName+"</a>";
+			var child="<a href='javascript:void(0);'  onclick='openHtml(0,this.id,this.name)'  id='"+catagoryData[index].id+"'  name='"+catagoryData[index].cataName+"'>"+catagoryData[index].cataName+"</a>";
 			rowLi.innerHTML=child;
 			$("ul.nav_l").append(rowLi);
 		});
+			
+	$.each(modelData,function(index,n){
+				//alert(catagoryData[index].cataNameEn)
+	var rowLi=document.createElement("li");
+	var child="<a href='javascript:void(0);'  onclick='openHtml(1,this.id,this.name)'  id='"+modelData[index].id+"'  name='"+modelData[index].modelUrl+"'>"+modelData[index].modelName+"</a>";
+	rowLi.innerHTML=child;
+	$("ul.nav_r").append(rowLi);
+});
 		}
 	});
 
 }
 
-function openCatagory(id,name){
-	if(id==0){
-		window.location="/"
-		}
+function openHtml(type,id,name){
 	var rightcontent=document.getElementById("rightcontent");
-	rightcontent.src=encodeURI(encodeURI("/html/catagory.html?catagoryId="+id+"&catagoryName="+name));
+	if(type==0){
+		if(id==0){
+			window.location="/"
+			}
+		rightcontent.src=encodeURI(encodeURI("/html/catagory.html?catagoryId="+id+"&catagoryName="+name));
+	}else if (type==1){
+		rightcontent.src=encodeURI(encodeURI(name));
+	}
+	
 	return true;
+
 }

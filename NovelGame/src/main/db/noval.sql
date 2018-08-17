@@ -92,10 +92,14 @@ CREATE TABLE `model` (
   `model_id` varchar(32) DEFAULT NULL,
   `model_name` varchar(200) DEFAULT NULL,
   `model_name_en` varchar(100) DEFAULT NULL,
+  `order_desc` int(4) DEFAULT NULL,
+  `model_url` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `model` */
+
+insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`,`model_url`) values ('1','1','新书','xinshu',1,'/html/hot.html'),('2','2','推荐','tuijian',2,'/html/recommend.html'),('3','3','完本','wanben',3,'/html/full.html'),('4','4','排行','paihang',4,'/html/top.html'),('5','5','作者','zuozhe',5,'/html/author.html');
 
 /*Table structure for table `store` */
 

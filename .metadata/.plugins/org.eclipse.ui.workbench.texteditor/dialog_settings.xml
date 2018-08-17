@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="StoreId" key="selection"/>
+		<item value="place" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="place"/>
+			<item value="穿越"/>
+			<item value="ajax"/>
+			<item value="desc"/>
+			<item value="Base_Column_List"/>
 			<item value="storeId"/>
 			<item value="insert"/>
 			<item value="hibernate"/>
@@ -18,11 +23,6 @@
 			<item value="novo"/>
 			<item value="https://txt2.cc"/>
 			<item value="catagory"/>
-			<item value="book"/>
-			<item value="author"/>
-			<item value="logo"/>
-			<item value="nocover.jpg"/>
-			<item value="fontFamily"/>
 		</list>
 		<list key="replacehistory">
 			<item value="../../../images/nocover.jpg"/>

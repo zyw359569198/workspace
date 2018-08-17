@@ -1,5 +1,7 @@
 package com.zyw.novelGame.mapper;
 
+import java.util.List;
+
 import com.zyw.novelGame.model.Model;
 
 public interface ModelMapper {
@@ -14,4 +16,6 @@ public interface ModelMapper {
     int updateByPrimaryKeySelective(Model record);
 
     int updateByPrimaryKey(Model record);
+    
+    List<Model> queryModel();
 }

@@ -9,6 +9,10 @@ public class Model {
 
     private String modelNameEn;
 
+    private Integer orderDesc;
+
+    private String modelUrl;
+
     public String getId() {
         return id;
     }
@@ -39,5 +43,21 @@ public class Model {
 
     public void setModelNameEn(String modelNameEn) {
         this.modelNameEn = modelNameEn == null ? null : modelNameEn.trim();
+    }
+
+    public Integer getOrderDesc() {
+        return orderDesc;
+    }
+
+    public void setOrderDesc(Integer orderDesc) {
+        this.orderDesc = orderDesc;
+    }
+
+    public String getModelUrl() {
+        return modelUrl;
+    }
+
+    public void setModelUrl(String modelUrl) {
+        this.modelUrl = modelUrl == null ? null : modelUrl.trim();
     }
 }

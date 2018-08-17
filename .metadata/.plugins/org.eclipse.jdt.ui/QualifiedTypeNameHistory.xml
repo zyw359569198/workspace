@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
-<fullyQualifiedTypeName name="org.apache.http.impl.client.HttpClients"/>
-<fullyQualifiedTypeName name="org.apache.http.client.methods.CloseableHttpResponse"/>
-<fullyQualifiedTypeName name="org.springframework.http.HttpEntity"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpPatch"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
 <fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
 <fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.dom4j.io.SAXReader"/>
 <fullyQualifiedTypeName name="org.dom4j.Document"/>
 <fullyQualifiedTypeName name="org.dom4j.DocumentException"/>
@@ -28,9 +20,7 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="com.thoughtworks.xstream.XStream"/>
 <fullyQualifiedTypeName name="com.zyw.tmallgod.entity.Article"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.zyw.tmallgod.entity.PicAndTextMsg"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="com.zyw.tmallgod.entity.Tkl"/>
 <fullyQualifiedTypeName name="com.taobao.api.TaobaoClient"/>
@@ -60,4 +50,14 @@
 <fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.model.Author"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.mapper.ModelMapper"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.ModelService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.Model"/>
 </qualifiedTypeNameHistroy>
