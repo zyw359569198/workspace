@@ -48,13 +48,15 @@ CREATE TABLE `book` (
   `is_completion` int(11) DEFAULT '1',
   `author_id` varchar(32) DEFAULT NULL,
   `hits` bigint(20) DEFAULT '0',
+  `image_url` varchar(200) DEFAULT NULL,
+  `author_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `book` */
 
-insert  into `book`(`id`,`book_id`,`book_name`,`book_name_en`,`book_desc`,`create_time`,`update_time`,`is_completion`,`author_id`,`hits`) values ('1','1','卡徒','katu','方想的小说','2018-08-01','2018-08-03',0,'1',12),('2','2','师士传说','shishichuanshuo','方想的小说','2018-06-26','2018-08-01',1,'1',2),('3','3','神墓','shenmu','辰东的小说','2018-04-04','2018-07-04',0,'3',15);
+insert  into `book`(`id`,`book_id`,`book_name`,`book_name_en`,`book_desc`,`create_time`,`update_time`,`is_completion`,`author_id`,`hits`,`image_url`,`author_name`) values ('1','1','卡徒','katu','方想的小说的方式发大水发大水发的撒个飞洒发打发第三方撒的发生大发送到','2018-08-01','2018-08-03',0,'1',12,NULL,'方想'),('2','2','师士传说','shishichuanshuo','方想的小说范德萨发的所发生的访问额外丰富的水果防守打法撒地方萨芬撒范德萨发的撒噶是的范德萨发生的范德萨','2018-06-26','2018-08-01',1,'1',2,NULL,'方想'),('3','3','神墓','shenmu','辰东的小说爱是范德萨发生的发问发送到发送到','2018-04-04','2018-07-04',0,'3',15,NULL,'辰东');
 
 /*Table structure for table `cata_book_relation` */
 

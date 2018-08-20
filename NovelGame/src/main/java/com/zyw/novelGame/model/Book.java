@@ -23,6 +23,10 @@ public class Book {
 
     private Long hits;
 
+    private String imageUrl;
+
+    private String authorName;
+
     public String getId() {
         return id;
     }
@@ -101,5 +105,21 @@ public class Book {
 
     public void setHits(Long hits) {
         this.hits = hits;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl == null ? null : imageUrl.trim();
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName == null ? null : authorName.trim();
     }
 }

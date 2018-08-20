@@ -1,5 +1,6 @@
 package com.zyw.novelGame.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.zyw.novelGame.model.Book;
@@ -17,5 +18,7 @@ public interface BookMapper {
 
     int updateByPrimaryKey(Book record);
     
-    List<Book>  queryBookByHits();
+    List<Book> queryBookByHits();
+    
+    List<HashMap> queryBookRelationByCataID(String cataId);
 }

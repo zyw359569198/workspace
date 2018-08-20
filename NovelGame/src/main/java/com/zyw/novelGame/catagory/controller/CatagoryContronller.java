@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.catagory.service.CatagoryService;
@@ -42,13 +46,20 @@ public class CatagoryContronller {
 	public Map init(HttpServletRequest request,HttpServletResponse response) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
-		List<Catagory> catagoryList=new ArrayList<Catagory>();
-		List<Model> modelList=new ArrayList<Model>();
+		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		CompletableFuture<List<Model>> modelFuture=null;
 		try {
-			catagoryList=catagoryService.queryCatagory();
-			dataMap.put("cgl", catagoryList);
-			modelList=modelService.queryModel();
-			dataMap.put("mdl", modelList);
+			catagoryFuture=CompletableFuture.supplyAsync(()->{
+				return catagoryService.queryCatagory();
+			});
+			modelFuture=CompletableFuture.supplyAsync(()->{
+				return modelService.queryModel();
+			});
+			CompletableFuture.allOf(catagoryFuture,modelFuture);
+			dataMap.put("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			dataMap.put("mdl", modelFuture.get(30,TimeUnit.SECONDS));
+			
+			
 
 		}catch(Exception e) {
 			resultMap.put("errorCode", 10086);

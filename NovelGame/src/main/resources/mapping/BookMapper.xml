@@ -12,16 +12,31 @@
     <result column="is_completion" jdbcType="INTEGER" property="isCompletion" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="hits" jdbcType="BIGINT" property="hits" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+  </resultMap>
+    <resultMap id="BookRelationResultMap" type="java.util.HashMap">
+    <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
+    <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
-    author_id, hits
+    author_id, hits, image_url, author_name
   </sql>
-    <select id="queryBookByHits" resultMap="BaseResultMap">
+   <select id="queryBookRelationByCataID" parameterType="java.lang.String" resultMap="BookRelationResultMap">
+   SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_id=#{cataId,jdbcType=VARCHAR}
+     ORDER BY a.hits DESC LIMIT 7 OFFSET 0;
+  </select>
+     <select id="queryBookByHits" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from book
-     order by hits desc limit 6 offset 0  </select>
+     order by hits desc limit 6 offset 0  
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -36,11 +51,13 @@
     insert into book (id, book_id, book_name, 
       book_name_en, book_desc, create_time, 
       update_time, is_completion, author_id, 
-      hits)
+      hits, image_url, author_name
+      )
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{bookName,jdbcType=VARCHAR}, 
       #{bookNameEn,jdbcType=VARCHAR}, #{bookDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
       #{updateTime,jdbcType=DATE}, #{isCompletion,jdbcType=INTEGER}, #{authorId,jdbcType=VARCHAR}, 
-      #{hits,jdbcType=BIGINT})
+      #{hits,jdbcType=BIGINT}, #{imageUrl,jdbcType=VARCHAR}, #{authorName,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Book">
     insert into book
@@ -75,6 +92,12 @@
       <if test="hits != null">
         hits,
       </if>
+      <if test="imageUrl != null">
+        image_url,
+      </if>
+      <if test="authorName != null">
+        author_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -106,6 +129,12 @@
       </if>
       <if test="hits != null">
         #{hits,jdbcType=BIGINT},
+      </if>
+      <if test="imageUrl != null">
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null">
+        #{authorName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -139,6 +168,12 @@
       <if test="hits != null">
         hits = #{hits,jdbcType=BIGINT},
       </if>
+      <if test="imageUrl != null">
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null">
+        author_name = #{authorName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -152,7 +187,9 @@
       update_time = #{updateTime,jdbcType=DATE},
       is_completion = #{isCompletion,jdbcType=INTEGER},
       author_id = #{authorId,jdbcType=VARCHAR},
-      hits = #{hits,jdbcType=BIGINT}
+      hits = #{hits,jdbcType=BIGINT},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      author_name = #{authorName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

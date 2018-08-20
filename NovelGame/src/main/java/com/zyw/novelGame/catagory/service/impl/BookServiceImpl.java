@@ -1,5 +1,6 @@
 package com.zyw.novelGame.catagory.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public List<Book> queryBookByHits() {
 		return bookMapper.queryBookByHits();
+	}
+
+	@Override
+	public List<HashMap> queryBookRelationByCataID(String cataId) {
+		return bookMapper.queryBookRelationByCataID(cataId);
 	}
 
 }
