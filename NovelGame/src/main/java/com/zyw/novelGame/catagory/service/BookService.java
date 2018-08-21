@@ -10,5 +10,10 @@ public interface BookService {
 	List<Book>  queryBookByHits();
 	
     List<HashMap> queryBookRelationByCataID(String cataId);
+    
+    List<HashMap>  queryBookByCreateTime();
+    
+    List<HashMap> queryBookUpdateInfo();
+
 
 }

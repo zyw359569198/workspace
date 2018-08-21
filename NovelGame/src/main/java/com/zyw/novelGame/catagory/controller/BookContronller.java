@@ -39,8 +39,10 @@ public class BookContronller {
 	public Map init(HttpServletRequest request,HttpServletResponse response) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
-		CompletableFuture<List<Book>> bookFuture=null;
+		CompletableFuture<List<Book>> bookHitsFuture=null;
+		CompletableFuture<Object> bookCreateTimeFuture=null;
 		CompletableFuture<Object> catagoryFuture=null;
+		CompletableFuture<Object> bookUpdateInfoFuture=null;
 		try {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory();
@@ -53,12 +55,20 @@ public class BookContronller {
 					});
 				return li;
 			});
-			bookFuture=CompletableFuture.supplyAsync(()->{
+			bookHitsFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookByHits();
 			});
-			CompletableFuture.allOf(bookFuture,catagoryFuture);
-			dataMap.put("bkl", bookFuture.get(30, TimeUnit.SECONDS));
+			bookCreateTimeFuture=CompletableFuture.supplyAsync(()->{
+				return bookService.queryBookByCreateTime();
+			});
+			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
+				return bookService.queryBookUpdateInfo();
+			});
+			CompletableFuture.allOf(bookHitsFuture,catagoryFuture,bookCreateTimeFuture,bookUpdateInfoFuture);
+			dataMap.put("bkl", bookHitsFuture.get(30, TimeUnit.SECONDS));
+			dataMap.put("bcl", bookCreateTimeFuture.get(30, TimeUnit.SECONDS));
 			dataMap.put("tjl", catagoryFuture.get(30, TimeUnit.SECONDS));
+			dataMap.put("bul", bookUpdateInfoFuture.get(30, TimeUnit.SECONDS));
 		}catch(Exception e) {
 			resultMap.put("errorCode", 10086);
 			e.printStackTrace();

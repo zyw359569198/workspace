@@ -23,13 +23,49 @@
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
   </resultMap>
+      <resultMap id="BookUpdateInfoResultMap" type="java.util.HashMap">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
+    <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+  </resultMap>
   <sql id="Base_Column_List">
     id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
     author_id, hits, image_url, author_name
   </sql>
+  <select id="queryBookUpdateInfo"  resultMap="BookUpdateInfoResultMap">
+   SELECT 
+  a.id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time
+FROM
+  (SELECT 
+    MAX(a.`create_time`) AS create_time,
+    id,
+    a.store_name,
+    a.book_id 
+  FROM
+    store a 
+  GROUP BY a.book_id) a,
+  book b,
+  catagory c,
+  cata_book_relation d,
+  author e
+WHERE b.book_id = d.book_id 
+  AND a.book_id = b.book_id 
+  AND d.cata_id=c.cata_id 
+  AND b.author_id=e.author_id ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
+  </select>
    <select id="queryBookRelationByCataID" parameterType="java.lang.String" resultMap="BookRelationResultMap">
    SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_id=#{cataId,jdbcType=VARCHAR}
      ORDER BY a.hits DESC LIMIT 7 OFFSET 0;
+  </select>
+       <select id="queryBookByCreateTime" resultMap="BookRelationResultMap">
+       SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
+     ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
   </select>
      <select id="queryBookByHits" resultMap="BaseResultMap">
     select 

@@ -1,5 +1,7 @@
 package com.zyw.novelGame.model;
 
+import java.util.Date;
+
 public class Store {
     private String id;
 
@@ -14,6 +16,8 @@ public class Store {
     private String preStoreId;
 
     private String nextStoreId;
+
+    private Date createTime;
 
     private byte[] storeContent;
 
@@ -71,6 +75,14 @@ public class Store {
 
     public void setNextStoreId(String nextStoreId) {
         this.nextStoreId = nextStoreId == null ? null : nextStoreId.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public byte[] getStoreContent() {

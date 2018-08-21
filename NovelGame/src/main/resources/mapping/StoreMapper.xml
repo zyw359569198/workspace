@@ -9,12 +9,13 @@
     <result column="store_url" jdbcType="VARCHAR" property="storeUrl" />
     <result column="pre_store_id" jdbcType="VARCHAR" property="preStoreId" />
     <result column="next_store_id" jdbcType="VARCHAR" property="nextStoreId" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.Store">
     <result column="store_content" jdbcType="LONGVARBINARY" property="storeContent" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id
+    id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time
   </sql>
   <sql id="Blob_Column_List">
     store_content
@@ -34,10 +35,12 @@
   <insert id="insert" parameterType="com.zyw.novelGame.model.Store">
     insert into store (id, book_id, store_id, 
       store_name, store_url, pre_store_id, 
-      next_store_id, store_content)
+      next_store_id, create_time, store_content
+      )
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, 
       #{storeName,jdbcType=VARCHAR}, #{storeUrl,jdbcType=VARCHAR}, #{preStoreId,jdbcType=VARCHAR}, 
-      #{nextStoreId,jdbcType=VARCHAR}, #{storeContent,jdbcType=LONGVARBINARY})
+      #{nextStoreId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{storeContent,jdbcType=LONGVARBINARY}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Store">
     insert into store
@@ -62,6 +65,9 @@
       </if>
       <if test="nextStoreId != null">
         next_store_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
       </if>
       <if test="storeContent != null">
         store_content,
@@ -89,6 +95,9 @@
       <if test="nextStoreId != null">
         #{nextStoreId,jdbcType=VARCHAR},
       </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
       <if test="storeContent != null">
         #{storeContent,jdbcType=LONGVARBINARY},
       </if>
@@ -115,6 +124,9 @@
       <if test="nextStoreId != null">
         next_store_id = #{nextStoreId,jdbcType=VARCHAR},
       </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
       <if test="storeContent != null">
         store_content = #{storeContent,jdbcType=LONGVARBINARY},
       </if>
@@ -129,6 +141,7 @@
       store_url = #{storeUrl,jdbcType=VARCHAR},
       pre_store_id = #{preStoreId,jdbcType=VARCHAR},
       next_store_id = #{nextStoreId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
       store_content = #{storeContent,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -139,7 +152,8 @@
       store_name = #{storeName,jdbcType=VARCHAR},
       store_url = #{storeUrl,jdbcType=VARCHAR},
       pre_store_id = #{preStoreId,jdbcType=VARCHAR},
-      next_store_id = #{nextStoreId,jdbcType=VARCHAR}
+      next_store_id = #{nextStoreId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

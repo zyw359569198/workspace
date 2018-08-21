@@ -26,4 +26,14 @@ public class BookServiceImpl implements BookService{
 		return bookMapper.queryBookRelationByCataID(cataId);
 	}
 
+	@Override
+	public List<HashMap> queryBookByCreateTime() {
+		return bookMapper.queryBookByCreateTime();
+	}
+
+	@Override
+	public List<HashMap> queryBookUpdateInfo() {
+		return bookMapper.queryBookUpdateInfo();
+	}
+
 }
