@@ -25,7 +25,7 @@
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
   </resultMap>
       <resultMap id="BookUpdateInfoResultMap" type="java.util.HashMap">
-    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="store_id" jdbcType="VARCHAR" property="storeId" />
     <result column="store_name" jdbcType="VARCHAR" property="storeName" />
     <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
@@ -42,11 +42,11 @@
   </sql>
   <select id="queryBookUpdateInfo"  parameterType="java.lang.String" resultMap="BookUpdateInfoResultMap">
    SELECT 
-  a.id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time,b.is_completion
+  a.store_id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time,b.is_completion
 FROM
   (SELECT 
     MAX(a.`create_time`) AS create_time,
-    id,
+    a.store_id,
     a.store_name,
     a.book_id 
   FROM

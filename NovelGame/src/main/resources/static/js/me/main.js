@@ -50,7 +50,7 @@ function loadBookUpdateInfoData(bookUpdateInfoData){
 		var arrayTime=bookUpdateInfoData[index].createTime.split("-");
 		rowSpan1.className="lx";rowSpan1.innerHTML="["+bookUpdateInfoData[index].cataName+"]";
 		rowSpan2.className="sm";rowSpan2.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookUpdateInfoData[index].bookId+"'  name='"+bookUpdateInfoData[index].bookName+"'>"+bookUpdateInfoData[index].bookName+"</a>";
-		rowSpan3.className="zj";rowSpan3.innerHTML="&nbsp;<a href='javascript:void(0);'  onclick='parent.openHtml(4,this.id,this.name)'  id='"+bookUpdateInfoData[index].id+"'  name='"+bookUpdateInfoData[index].storeName+"'>"+bookUpdateInfoData[index].storeName+"</a>";
+		rowSpan3.className="zj";rowSpan3.innerHTML="&nbsp;<a href='javascript:void(0);'  onclick='parent.openHtml(4,this.id,this.name,\""+bookUpdateInfoData[index].bookId+"\")'  id='"+bookUpdateInfoData[index].storeId+"'  name='"+bookUpdateInfoData[index].storeName+"'>"+bookUpdateInfoData[index].storeName+"</a>";
 		rowSpan4.className="zz";rowSpan4.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(3,this.id,this.name)'  id='"+bookUpdateInfoData[index].authorId+"'  name='"+bookUpdateInfoData[index].authorName+"'>"+bookUpdateInfoData[index].authorName+"</a>";
 		rowSpan5.className="sj";rowSpan5.innerHTML=arrayTime[1]+"/"+arrayTime[2];
 		rowLi.appendChild(rowSpan1);
