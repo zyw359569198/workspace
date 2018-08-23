@@ -1,5 +1,6 @@
 window.onload =function(){
-	
+	$("div.wrapper",parent.document).show();
+	$("div.nav",parent.document).show();
 	$.ajax({
 		type: 'GET',
 		url: "/book/init",
@@ -37,7 +38,7 @@ function loadBookUpdateInfoData(bookUpdateInfoData){
 		rowFixedLi.appendChild(rowSpan3);
 		rowFixedLi.appendChild(rowSpan4);
 		rowFixedLi.appendChild(rowSpan5);
-		rowH2.innerHTML="<h2>最新更新</h2>";
+		rowH2.innerHTML="最新更新";
 		rowUl.appendChild(rowFixedLi);
 	$.each(bookUpdateInfoData,function(index,n){
 		var rowLi=document.createElement("li");
@@ -47,7 +48,7 @@ function loadBookUpdateInfoData(bookUpdateInfoData){
 		var rowSpan4=document.createElement("span");
 		var rowSpan5=document.createElement("span");
 		var arrayTime=bookUpdateInfoData[index].createTime.split("-");
-		rowSpan1.className="lx";rowSpan1.innerHTML="["+bookUpdateInfoData[index].cataName+"]";;
+		rowSpan1.className="lx";rowSpan1.innerHTML="["+bookUpdateInfoData[index].cataName+"]";
 		rowSpan2.className="sm";rowSpan2.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookUpdateInfoData[index].bookId+"'  name='"+bookUpdateInfoData[index].bookName+"'>"+bookUpdateInfoData[index].bookName+"</a>";
 		rowSpan3.className="zj";rowSpan3.innerHTML="&nbsp;<a href='javascript:void(0);'  onclick='parent.openHtml(4,this.id,this.name)'  id='"+bookUpdateInfoData[index].id+"'  name='"+bookUpdateInfoData[index].storeName+"'>"+bookUpdateInfoData[index].storeName+"</a>";
 		rowSpan4.className="zz";rowSpan4.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(3,this.id,this.name)'  id='"+bookUpdateInfoData[index].authorId+"'  name='"+bookUpdateInfoData[index].authorName+"'>"+bookUpdateInfoData[index].authorName+"</a>";
@@ -66,7 +67,7 @@ function loadBookUpdateInfoData(bookUpdateInfoData){
 function loadBookCreateData(bookCreateData){
 		var rowH2=document.createElement("h2");
 		var rowUl=document.createElement("ul");
-		rowH2.innerHTML="<h2>最新小说</h2>";
+		rowH2.innerHTML="最新小说";
 	$.each(bookCreateData,function(index,n){
 		var rowLi=document.createElement("li");
 		var rowSpanLx=document.createElement("span");

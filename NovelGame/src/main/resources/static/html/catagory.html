@@ -13,60 +13,23 @@
 <link rel="shortcut icon" href="../images/favicon-txt2.ico">
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/me/catagory.js"></script>
+<script type="text/javascript">
+//设置域信息
+document.domain = 'xxx.com';
+//设置父级页面引用自身的iframe高度
+function setHeight(){
+  //判断是否为顶级页面
+  if(window.top!=window.self){
+      parent.document.getElementByIdx_x('rightcontent').height=document.body.scrollHeight+20
+  }
+}
+setHeight();
+</script>
 </head>
 <body>
 <div class="place">当前位置：<a href="http://localhost:8080">txt2小说网</a> > <h2 id="placeId"></h2></div>
-<div class="fengtui">
-    <dl>
-      <dt><a href="http://localhost:8080/book/wushiwushiyuwushi/"><img src="/data/book/44611/ae8a804e5412.jpg" alt="吾是巫师与武士" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/wushiwushiyuwushi/">吾是巫师与武士</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/miaosenjun/">喵森君</a></span>
-        <p>　　在混乱的异世界，中二的武士少女遇上了狡诈的巫师青年。　　两人就此开始了一场冒险。起初彼此敌视，后来男巫帮助少女解开了心结，少女则慢慢...</p>
-      </dd>
-    </dl><dl>
-      <dt><a href="http://localhost:8080/book/zhanzhengzhixi/"><img src="/data/book/44610/5b0f04d8f0d2.jpg" alt="战争之夕" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/zhanzhengzhixi/">战争之夕</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/Kerasu/">Kerasu</a></span>
-        <p>　　在这个拥有无数世界的宇宙，曾是一度和平。直到魔王之一克拉苏的再次复苏，导致整个宇宙陷入了动荡。因为他，一个个黑暗力量出现，一个个英雄...</p>
-      </dd>
-    </dl><dl>
-      <dt><a href="http://localhost:8080/book/yishijieqimiaoshenghuo/"><img src="/data/book/44609/77765a2fac9d.jpg" alt="异世界奇妙生活" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/yishijieqimiaoshenghuo/">异世界奇妙生活</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/suangezhengchangren/">算个正常人</a></span>
-        <p>　　16岁高中生林岚，突然穿越到了异世界，在哪里有着许许多多的奇异事物，面对这个神奇的世界，他将何去何从呢。...</p>
-      </dd>
-    </dl><dl>
-      <dt><a href="http://localhost:8080/book/ximudeyueding/"><img src="/data/book/44608/19aab497b1d4.jpg" alt="希姆的约定" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/ximudeyueding/">希姆的约定</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/dongxiangchou/">东乡紬</a></span>
-        <p>　　       莱玛世界，强劲的灵环之力与奇妙的魔法晶格是两大力量之源。　　天界领主，他双眼所见的未来是莱玛世界陷入黑暗控制沦落毁灭。...</p>
-      </dd>
-    </dl><dl>
-      <dt><a href="http://localhost:8080/book/shouyezheshuo/"><img src="/data/book/44606/3c02b233d861.jpg" alt="守夜者说" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/shouyezheshuo/">守夜者说</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/bixia/">陛虾</a></span>
-        <p>　　华夏大学数学系的天才硕士生苏洵穿越史诗大陆，并在命运的推动下，加入梵特兰蒂斯教廷的守夜人部队，并一步步的成为守夜人的大执政官！执掌了...</p>
-      </dd>
-    </dl><dl>
-      <dt><a href="http://localhost:8080/book/shanhaimuyunlu/"><img src="/data/book/44604/904b81e9b5b0.jpg" alt="山海牧云录" onerror="this.src='../../../images/nocover.jpg'" alt=""/></a></dt>
-      <dd>
-        <h3><a href="http://localhost:8080/book/shanhaimuyunlu/">山海牧云录</a></h3>
-        <span><a target="_blank" href="http://localhost:8080/author/moyiyouyi/">墨亦有意</a></span>
-        <p>　　三千年后，山海经里被镇压的各种妖精突破封印回到世间，所过之处，鸡犬不宁……现世各位武夫修士，又将拿起手中武器……仙家子弟韩以轩，在乱...</p>
-      </dd>
-    </dl></div>
-<div class="booklist">
-    <h1>穿越</h1>
-    <ul>
-        <li class="t"><span class="sm">小说名称</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">更新</span><span class="zt">状态</span></li>
-        <li><span class="sm"><a href="http://localhost:8080/book/wushiwushiyuwushi/"><b>吾是巫师与武士</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/wushiwushiyuwushi/21/">第二十一章：兰斯，你好！</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/miaosenjun/">喵森君</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/zhanzhengzhixi/"><b>战争之夕</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/zhanzhengzhixi/42/">亡灵？死灵！</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/Kerasu/">Kerasu</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/yishijieqimiaoshenghuo/"><b>异世界奇妙生活</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/yishijieqimiaoshenghuo/29/">第二十八章</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/suangezhengchangren/">算个正常人</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/ximudeyueding/"><b>希姆的约定</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/ximudeyueding/26/">第二十六章 额外的机会</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/dongxiangchou/">东乡紬</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/shouyezheshuo/"><b>守夜者说</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/shouyezheshuo/5/">第五章 大魔法师</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/bixia/">陛虾</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/shanhaimuyunlu/"><b>山海牧云录</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/shanhaimuyunlu/5/">第五章 圣人一笑，妖露峥嵘</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/moyiyouyi/">墨亦有意</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/tianmingzhidaozhu/"><b>天命之道主</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/tianmingzhidaozhu/10/">第八章 盗贼认证（上）</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/shitianlong/">侍天龙</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/yeyuyeyu/"><b>夜与叶雨</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/yeyuyeyu/16/">卷1 章节15 厉鬼噬魂</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/guibian/">诡辨</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/gwdszsklxz/"><b>怪物大师之时空旅行者</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/gwdszsklxz/7/">第七章 暗影千机伞</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/mochennan/">陌尘南</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/zsznfxy/"><b>重生之农妇肖瑶</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/zsznfxy/140/">第142章</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/lvlv/">绿绿</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/csxyzsdcq/"><b>超神学院之圣帝传奇</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/csxyzsdcq/88/">禁忌之森</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/geyanyonghengzhixin/">葛彦永恒之心</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/wobushimoshenwang/"><b>我不是魔神王</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/wobushimoshenwang/5/">第五章 轮回千载，只为留名史册</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/zuoyeyelanman/">昨夜也烂漫</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/xinshijieyinjiezhuzai/"><b>新世界阴界主宰</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/xinshijieyinjiezhuzai/49/">第四十九章 你的委托我接了</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/yanyuan/">眼圆</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/fanyuzhouyishi/"><b>泛宇宙意识</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/fanyuzhouyishi/72/">第三十三章 我就是你们</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/gabaili_erciyuan/">伽百璃
-二次元</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/shenguozangge/"><b>神国葬歌</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/shenguozangge/10/">第十章 一波又起</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/anyanzhu/">暗焰烛</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/yungangzhishang/"><b>云港之殇</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/yungangzhishang/24/">第二十二章:悠悠樵夫</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/mushenQ/">牧神Q</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/moshidazhansangshi/"><b>末世大战丧尸</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/moshidazhansangshi/9/">第九章 被咬</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/lvyouyoudezhuge/">绿油油的猪哥</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/cemajingjue/"><b>策马精绝</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/cemajingjue/34/">第三十四节 夜袭精绝城（邵元800年5月12日）</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/shizhishengjun/">十指圣君</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/xukongwushiji/"><b>虚空巫师纪</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/xukongwushiji/13/">第十一章 贫民窟</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/chishoutaodemao/">吃寿桃的猫</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/pilipala/"><b>皮里帕拉</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/pilipala/9/">第五章：窜出</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/kepadejundui/">可怕的军队</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/xuegongxinyu/"><b>学宫新语</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/xuegongxinyu/7/">第七章 森蜉蝣</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/nanpuyoubie/">南蒲有别</a></span><span class="sj">08/06</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/dasonghaoxianggong/"><b>大宋好相公</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/dasonghaoxianggong/307/">章三零六 倭人的甲胄问题</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/linboyilang/">临波倚浪</a></span><span class="sj">07/25</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/ziyoulingyuwai/"><b>自由领域外</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/ziyoulingyuwai/7/">第6章 围剿（一）</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/hezishuo/">盒子说</a></span><span class="sj">08/05</span><span class="zt">连载中</span></li><li><span class="sm"><a href="http://localhost:8080/book/congdanxibaokaishi/"><b>从单细胞开始</b></a></span><span class="zj">&nbsp;<a href="http://localhost:8080/book/congdanxibaokaishi/34/">第三十四章 伊莉丝女王</a></span><span class="zz"><a target="_blank" href="http://localhost:8080/author/shiji/">食机</a></span><span class="sj">08/05</span><span class="zt">连载中</span></li>    </ul>
-</div>
+<div class="fengtui"></div>
+<div class="booklist"></div>
 <br>
 <div class="pagelink" id="pagelink"><div><span class="current">1</span><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=2">2</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=3">3</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=4">4</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=5">5</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=6">6</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=7">7</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=8">8</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=9">9</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=10">10</a><a class="num" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=11">11</a><a class="next" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=2">下一页</a><a class="end" href="/index.php?m=Home&c=Book&a=clist&pinyin=chuanyue&p=90">末页</a><li class="rows">共<b>2155</b>条记录&nbsp;第<b>1</b>页/共<b>90</b>页</li></div></div>
 </body>

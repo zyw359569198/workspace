@@ -1,5 +1,7 @@
 package com.zyw.novelGame.mapper;
 
+import java.util.List;
+
 import com.zyw.novelGame.model.Store;
 
 public interface StoreMapper {
@@ -16,4 +18,6 @@ public interface StoreMapper {
     int updateByPrimaryKeyWithBLOBs(Store record);
 
     int updateByPrimaryKey(Store record);
+    
+    List<Store> queryBookStore(Store store);
 }

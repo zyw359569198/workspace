@@ -3,6 +3,8 @@ package com.zyw.novelGame.mapper;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zyw.novelGame.model.Book;
 
 public interface BookMapper {
@@ -18,10 +20,11 @@ public interface BookMapper {
 
     int updateByPrimaryKey(Book record);
     
-    List<Book> queryBookByHits();
+    List<Book> queryBookByHits(@Param("count")int count);
         
-    List<HashMap> queryBookRelationByCataID(String cataId);
+    List<HashMap> queryBookRelationByCataID(@Param("cataId")String cataId,@Param("count")int count);
     
     List<HashMap> queryBookByCreateTime();
-    List<HashMap> queryBookUpdateInfo();
+    List<HashMap> queryBookUpdateInfo(@Param("cataId")String cataId);
+    List<Book> queryBookInfo(Book book);
 }

@@ -2,31 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="place" key="selection"/>
+		<item value="lf" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
-		<item value="false" key="wholeword"/>
+		<item value="true" key="wholeword"/>
 		<list key="findhistory">
+			<item value="lf"/>
+			<item value="BookUpdateInfoResultMap"/>
+			<item value="rt"/>
+			<item value="queryBookUpdateInfo"/>
+			<item value="BookRelationResultMap"/>
+			<item value="queryBookRelationByCataID"/>
+			<item value="/Public/img/nocover.jpg"/>
+			<item value="my"/>
+			<item value="ul"/>
+			<item value="CompletableFuture"/>
+			<item value="https://txt2.cc"/>
+			<item value="cover"/>
 			<item value="place"/>
 			<item value="穿越"/>
 			<item value="ajax"/>
-			<item value="desc"/>
-			<item value="Base_Column_List"/>
-			<item value="storeId"/>
-			<item value="insert"/>
-			<item value="hibernate"/>
-			<item value="mybatis"/>
-			<item value="my"/>
-			<item value="/Public/img/nocover.jpg"/>
-			<item value="nocover"/>
-			<item value="novo"/>
-			<item value="https://txt2.cc"/>
-			<item value="catagory"/>
 		</list>
 		<list key="replacehistory">
-			<item value="../../../images/nocover.jpg"/>
+			<item value="../images/nocover.jpg"/>
 			<item value="http://localhost:8080"/>
+			<item value="../../../images/nocover.jpg"/>
 			<item value="html/catagory"/>
 			<item value="html/book"/>
 			<item value="html/author"/>

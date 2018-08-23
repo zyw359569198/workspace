@@ -20,6 +20,7 @@
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+     <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
   </resultMap>
@@ -33,14 +34,15 @@
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="is_completion" jdbcType="VARCHAR" property="isCompletion" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
     author_id, hits, image_url, author_name
   </sql>
-  <select id="queryBookUpdateInfo"  resultMap="BookUpdateInfoResultMap">
+  <select id="queryBookUpdateInfo"  parameterType="java.lang.String" resultMap="BookUpdateInfoResultMap">
    SELECT 
-  a.id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time
+  a.id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time,b.is_completion
 FROM
   (SELECT 
     MAX(a.`create_time`) AS create_time,
@@ -57,21 +59,41 @@ FROM
 WHERE b.book_id = d.book_id 
   AND a.book_id = b.book_id 
   AND d.cata_id=c.cata_id 
-  AND b.author_id=e.author_id ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
+  AND b.author_id=e.author_id 
+  <if test="cataId != null">
+  AND c.cata_id =#{cataId,jdbcType=VARCHAR}
+  </if>
+  ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
   </select>
-   <select id="queryBookRelationByCataID" parameterType="java.lang.String" resultMap="BookRelationResultMap">
-   SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_id=#{cataId,jdbcType=VARCHAR}
-     ORDER BY a.hits DESC LIMIT 7 OFFSET 0;
+   <select id="queryBookRelationByCataID"  resultMap="BookRelationResultMap">
+   SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.book_desc,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_id=#{cataId,jdbcType=VARCHAR}
+     ORDER BY a.hits DESC LIMIT #{count,jdbcType=INTEGER} OFFSET 0;
   </select>
        <select id="queryBookByCreateTime" resultMap="BookRelationResultMap">
-       SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
+       SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.book_desc,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
      ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
   </select>
      <select id="queryBookByHits" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from book
-     order by hits desc limit 6 offset 0  
+     order by hits desc limit #{count,jdbcType=INTEGER} offset 0  
+  </select>
+    <select id="queryBookInfo" parameterType="com.zyw.novelGame.model.Book" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book
+    <where>
+        <if test="id != null">
+        id = #{id,jdbcType=VARCHAR}
+      </if>
+       <if test="bookId != null">
+        and book_id = #{bookId,jdbcType=VARCHAR}
+      </if>
+       <if test="authorId != null">
+        and author_id = #{authorId,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

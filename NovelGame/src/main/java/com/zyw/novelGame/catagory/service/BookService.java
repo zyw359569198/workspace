@@ -7,13 +7,15 @@ import com.zyw.novelGame.model.Book;
 
 public interface BookService {
 	
-	List<Book>  queryBookByHits();
+	List<Book>  queryBookByHits(int count);
 	
-    List<HashMap> queryBookRelationByCataID(String cataId);
+    List<HashMap> queryBookRelationByCataID(String cataId,int count);
     
     List<HashMap>  queryBookByCreateTime();
     
-    List<HashMap> queryBookUpdateInfo();
+    List<HashMap> queryBookUpdateInfo(String cataId);
+    
+    List<Book> queryBookInfo(Book book);
 
 
 }

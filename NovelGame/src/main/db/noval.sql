@@ -120,7 +120,7 @@ CREATE TABLE `store` (
   `store_id` varchar(32) DEFAULT NULL,
   `store_name` varchar(200) DEFAULT NULL,
   `store_url` varchar(200) DEFAULT NULL,
-  `store_content` blob,
+  `store_content` text,
   `pre_store_id` varchar(32) DEFAULT NULL,
   `next_store_id` varchar(32) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE `store` (
 
 /*Data for the table `store` */
 
-insert  into `store`(`id`,`book_id`,`store_id`,`store_name`,`store_url`,`store_content`,`pre_store_id`,`next_store_id`,`create_time`) values ('1','1','1','我去，阈值',NULL,'我去，你说吧，怎么玩','0','2','2018-08-20'),('2','1','2','你真来啊',NULL,'你大爷的','1','3','2018-08-10'),('3','2','1','哈哈',NULL,'你来呀，打我呀','0','2','2018-08-21');
+insert  into `store`(`id`,`book_id`,`store_id`,`store_name`,`store_url`,`store_content`,`pre_store_id`,`next_store_id`,`create_time`) values ('1','1','1','我去，阈值',NULL,'我去，你说吧，怎么玩','0','2','2018-08-20'),('2','1','2','你真来啊',NULL,'你大爷的','1','0','2018-08-10'),('3','2','1','哈哈',NULL,'你来呀，打我呀','0','2','2018-08-21');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

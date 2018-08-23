@@ -19,7 +19,7 @@ public class Store {
 
     private Date createTime;
 
-    private byte[] storeContent;
+    private String storeContent;
 
     public String getId() {
         return id;
@@ -85,11 +85,11 @@ public class Store {
         this.createTime = createTime;
     }
 
-    public byte[] getStoreContent() {
+    public String getStoreContent() {
         return storeContent;
     }
 
-    public void setStoreContent(byte[] storeContent) {
-        this.storeContent = storeContent;
+    public void setStoreContent(String storeContent) {
+        this.storeContent = storeContent == null ? null : storeContent.trim();
     }
 }

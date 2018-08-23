@@ -1,3 +1,4 @@
+
 window.onload =function(){
 	
 	$.ajax({
@@ -7,6 +8,9 @@ window.onload =function(){
 		dataType: "json",
 		asynchronous: true,
 		success: function(data){
+			$("div.lf").show();
+			$("div.wrapper").show();
+			$("div.nav").show();
 					//$("ul.nav_l").empty()
 					var catagoryData=data.data.cgl;
 					var modelData=data.data.mdl;
@@ -30,7 +34,9 @@ window.onload =function(){
 
 }
 
-function openHtml(type,id,name){
+function openHtml(type,id,name,bookId){
+	$("div.wrapper").show();
+	$("div.nav").show();
 	var rightcontent=document.getElementById("rightcontent");
 	if(type==0){
 		if(id==0){
@@ -44,7 +50,9 @@ function openHtml(type,id,name){
 	}else if(type==3){
 		rightcontent.src=encodeURI(encodeURI("/html/production.html?authorId="+id+"&authorName="+name));
 	}else if(type==4){
-		window.location=encodeURI(encodeURI("/html/store.html?authorId="+id+"&authorName="+name));
+		$("div.wrapper").hide();
+		$("div.nav").hide();
+		rightcontent.src=encodeURI(encodeURI("/html/store.html?storeId="+id+"&storeName="+name+"&bookId="+bookId));
 	}
 	
 	return true;

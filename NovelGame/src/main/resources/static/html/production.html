@@ -12,26 +12,24 @@
 <link rel="stylesheet" href="../css/index.css"/>
 <link rel="shortcut icon" href="https://txt2.cc/favicon-txt2.ico">
 <script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/me/production.js"></script>
+<script type="text/javascript">
+//设置域信息
+document.domain = 'xxx.com';
+//设置父级页面引用自身的iframe高度
+function setHeight(){
+  //判断是否为顶级页面
+  if(window.top!=window.self){
+      parent.document.getElementByIdx_x('rightcontent').height=document.body.scrollHeight+20
+  }
+}
+setHeight();
+</script>
 </head>
 <body>
-<div class="ops_two">
-    <div class="ops_lf">特约作者 <em>艾亭</em> 相关作品 <em>1</em> 部</div><div class="rt"></div>
-</div>
+<div class="ops_two"></div>
 
-<div class="ops_cover">
-    <div class="block">
-        <div class="block_img">
-            <a href="https://txt2.cc/book/woyoujiankezhan/" target="_blank"><img src="/data/book/44619/81029cf091d1.jpg" alt="我有间客栈" onerror="this.src='../images/nocover.jpg'" alt=""/></a>
-        </div>
-        <div class="block_txt">
-            <h2><a href="https://txt2.cc/book/woyoujiankezhan/" target="_blank">我有间客栈</a></h2>
-            <p></p>
-            <p>作者：艾亭</p>
-            <p>类型：玄幻</p>
-            <p>简介：本书简介：    “灵气复苏，鬼神现世。”<br>    “一台游戏机引发的血案。”</p>
-        </div>
-    </div>    </div>
+<div class="ops_cover"></div>
 <div class="pagelink" id="pagelink"><div><li class="rows">共<b>1</b>条记录&nbsp;第<b>1</b>页/共<b>1</b>页</li></div></div>
 </body>
 </html>

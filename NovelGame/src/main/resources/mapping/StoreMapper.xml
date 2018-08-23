@@ -12,7 +12,7 @@
     <result column="create_time" jdbcType="DATE" property="createTime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.Store">
-    <result column="store_content" jdbcType="LONGVARBINARY" property="storeContent" />
+    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time
@@ -20,6 +20,25 @@
   <sql id="Blob_Column_List">
     store_content
   </sql>
+   <select id="queryBookStore" parameterType="com.zyw.novelGame.model.Store" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    
+    from store
+    <where>
+    <if test="id != null">
+        id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="bookId != null">
+        and book_id = #{bookId,jdbcType=VARCHAR}
+    </if>
+    <if test="storeId != null">
+        and store_id = #{storeId,jdbcType=VARCHAR}
+    </if>
+    </where>
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
@@ -39,7 +58,7 @@
       )
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, 
       #{storeName,jdbcType=VARCHAR}, #{storeUrl,jdbcType=VARCHAR}, #{preStoreId,jdbcType=VARCHAR}, 
-      #{nextStoreId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{storeContent,jdbcType=LONGVARBINARY}
+      #{nextStoreId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{storeContent,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Store">
@@ -99,7 +118,7 @@
         #{createTime,jdbcType=DATE},
       </if>
       <if test="storeContent != null">
-        #{storeContent,jdbcType=LONGVARBINARY},
+        #{storeContent,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -128,7 +147,7 @@
         create_time = #{createTime,jdbcType=DATE},
       </if>
       <if test="storeContent != null">
-        store_content = #{storeContent,jdbcType=LONGVARBINARY},
+        store_content = #{storeContent,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -142,7 +161,7 @@
       pre_store_id = #{preStoreId,jdbcType=VARCHAR},
       next_store_id = #{nextStoreId,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=DATE},
-      store_content = #{storeContent,jdbcType=LONGVARBINARY}
+      store_content = #{storeContent,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.Store">
