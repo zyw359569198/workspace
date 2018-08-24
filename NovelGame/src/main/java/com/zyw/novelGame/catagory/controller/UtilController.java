@@ -50,6 +50,8 @@ import com.zyw.novelGame.model.Store;
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	
+	private static final int MAX_BOOK_NUMS=5;
+	
 	@Autowired
 	private BookService bookService;
 	
@@ -74,7 +76,7 @@ public class UtilController {
 		CloseableHttpClient httpclient = HttpClients.createDefault();  
         try {  
             // 创建httpget.    
-            HttpGet httpget = new HttpGet("https://txt2.cc/map/0/");  
+            HttpGet httpget = new HttpGet("https://txt2.cc/map/1/");  
             System.out.println("executing request " + httpget.getURI());  
             // 执行get请求.    
             CloseableHttpResponse response = httpclient.execute(httpget);  
@@ -89,6 +91,7 @@ public class UtilController {
                     System.out.println("Response content length: " + entity.getContentLength());  
                    Document doc = Jsoup.parse(EntityUtils.toString(entity));
                    Elements links = doc.getElementsByTag("a");
+                   int bookNums=0;
                    for(Element e:links) {
                 	   System.out.println(e.attr("href"));
                 	   System.out.println(e.text());
@@ -159,7 +162,7 @@ public class UtilController {
                     		       String curentStoreId="";
                     		       int count=0;
                     		       for(Element element:liClass) {
-                    		    	   Thread.sleep(500);
+                    		    	   Thread.sleep(200);
                     		    	   if(count==0) {
                     		    		   preStoreId="0";
                         		    	   curentStoreId=UUID.randomUUID().toString();
@@ -190,8 +193,10 @@ public class UtilController {
                                 	   preStoreId=curentStoreId;
                                 	   count++;
                     		       };
-                    		       
-                    	   break;
+                    		if(bookNums>MAX_BOOK_NUMS) {
+                         	   break;
+                    		}
+                    		bookNums++;
                 	   }
                    };
                    //System.out.println("Response content: " + doc);  
