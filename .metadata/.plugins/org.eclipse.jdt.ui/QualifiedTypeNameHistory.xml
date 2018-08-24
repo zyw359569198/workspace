@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.dom4j.Element"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="com.zyw.tmallgod.utils.CheckUtil"/>
-<fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-<fullyQualifiedTypeName name="org.slf4j.Logger"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="com.zyw.tmallgod.entity.TextMsg"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="com.thoughtworks.xstream.XStream"/>
-<fullyQualifiedTypeName name="com.zyw.tmallgod.entity.Article"/>
-<fullyQualifiedTypeName name="com.zyw.tmallgod.entity.PicAndTextMsg"/>
-<fullyQualifiedTypeName name="com.google.gson.Gson"/>
-<fullyQualifiedTypeName name="com.zyw.tmallgod.entity.Tkl"/>
-<fullyQualifiedTypeName name="com.taobao.api.TaobaoClient"/>
-<fullyQualifiedTypeName name="com.taobao.api.DefaultTaobaoClient"/>
-<fullyQualifiedTypeName name="com.taobao.api.request.TbkItemGetRequest"/>
-<fullyQualifiedTypeName name="com.taobao.api.response.TbkItemGetResponse"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
@@ -37,7 +15,6 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.mapper.CatagoryMapper"/>
 <fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Author"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
@@ -47,8 +24,6 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.ModelService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.model.Model"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.mapper.BookMapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.BookService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Book"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CatagoryService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.model.Catagory"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CompletionService"/>
@@ -59,5 +34,30 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.mapper.StoreMapper"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.StoreService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.model.Store"/>
+<fullyQualifiedTypeName name="java.sql.Blob"/>
+<fullyQualifiedTypeName name="org.apache.http.impl.client.HttpClients"/>
+<fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.CloseableHttpResponse"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
+<fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
+<fullyQualifiedTypeName name="org.apache.http.client.ClientProtocolException"/>
+<fullyQualifiedTypeName name="org.apache.http.ParseException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+<fullyQualifiedTypeName name="org.jsoup.Jsoup"/>
+<fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
+<fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
+<fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
+<fullyQualifiedTypeName name="ch.qos.logback.core.net.SyslogOutputStream"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.Book"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.mapper.AuthorMapper"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.impl.AuthorServiceImpl"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.Author"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.impl.BookServiceImpl"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.BookService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.AuthorService"/>
 </qualifiedTypeNameHistroy>

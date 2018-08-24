@@ -17,5 +17,5 @@ public interface CatagoryMapper {
 
     int updateByPrimaryKey(Catagory record);
     
-    List<Catagory> queryCatagory();
+    List<Catagory> queryCatagory(Catagory record);
 }

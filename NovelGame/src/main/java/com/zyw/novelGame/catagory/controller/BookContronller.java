@@ -50,7 +50,7 @@ public class BookContronller {
 		CompletableFuture<Object> bookUpdateInfoFuture=null;
 		try {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
-				return catagoryService.queryCatagory();
+				return catagoryService.queryCatagory(new Catagory());
 			}).thenApplyAsync(list->{
 				List<Object> li=new ArrayList<Object>();
 					list.stream().forEach(catagory->{

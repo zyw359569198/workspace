@@ -11,10 +11,15 @@
   <sql id="Base_Column_List">
     id, cata_id, cata_name, cata_name_en, order_desc
   </sql>
-  <select id="queryCatagory" resultMap="BaseResultMap">
+  <select id="queryCatagory" parameterType="com.zyw.novelGame.model.Catagory" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from catagory 
+    <where>
+    	<if test="cataName != null">
+        cata_name = #{cataName,jdbcType=VARCHAR}
+      </if>
+    </where>
     order by order_desc asc
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">

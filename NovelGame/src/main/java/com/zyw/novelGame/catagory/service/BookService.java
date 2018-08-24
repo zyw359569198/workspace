@@ -16,6 +16,8 @@ public interface BookService {
     List<HashMap> queryBookUpdateInfo(String cataId);
     
     List<Book> queryBookInfo(Book book);
+    
+    int insert(Book record);
 
 
 }

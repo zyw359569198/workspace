@@ -50,7 +50,7 @@ public class CatagoryContronller {
 		CompletableFuture<List<Model>> modelFuture=null;
 		try {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
-				return catagoryService.queryCatagory();
+				return catagoryService.queryCatagory(new Catagory());
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();

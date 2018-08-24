@@ -10,6 +10,22 @@
   <sql id="Base_Column_List">
     id, author_id, author_name, author_name_en
   </sql>
+  <select id="queryAuthorInfo" parameterType="com.zyw.novelGame.model.Author" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from author
+    <where>
+    	<if test="id != null">
+        id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="authorId != null">
+        and author_id = #{authorId,jdbcType=VARCHAR}
+      </if>
+      <if test="authorName != null">
+        and author_name = #{authorName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

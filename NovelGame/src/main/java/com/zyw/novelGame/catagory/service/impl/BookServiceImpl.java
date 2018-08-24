@@ -3,6 +3,8 @@ package com.zyw.novelGame.catagory.service.impl;
 import java.util.HashMap;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import com.zyw.novelGame.model.Book;
 
 @Service(value="bookService")
 public class BookServiceImpl implements BookService{
+	
+	public static final  Logger logger=LoggerFactory.getLogger(BookServiceImpl.class);
 	
 	@Autowired
 	private BookMapper bookMapper;
@@ -39,6 +43,11 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public List<Book> queryBookInfo(Book book) {
 		return bookMapper.queryBookInfo(book);
+	}
+
+	@Override
+	public int insert(Book record) {
+		return bookMapper.insert(record);
 	}
 
 }

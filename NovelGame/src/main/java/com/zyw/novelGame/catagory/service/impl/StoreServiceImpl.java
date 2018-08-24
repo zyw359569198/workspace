@@ -24,4 +24,9 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 		return storeMapper.queryBookStore(store);
 	}
 
+	@Override
+	public int insert(Store record) {
+		return storeMapper.insert(record);
+	}
+
 }

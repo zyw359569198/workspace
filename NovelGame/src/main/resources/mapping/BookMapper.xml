@@ -93,6 +93,12 @@ WHERE b.book_id = d.book_id
        <if test="authorId != null">
         and author_id = #{authorId,jdbcType=VARCHAR}
       </if>
+      <if test="bookName != null">
+        and book_name = #{bookName,jdbcType=VARCHAR}
+      </if>
+      <if test="authorName != null">
+        and author_name = #{authorName,jdbcType=VARCHAR}
+      </if>
     </where>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">

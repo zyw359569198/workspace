@@ -1,3 +1,10 @@
+function iframeHeight(){
+             // obj 这里是要获取父页面的iframe对象
+                 var obj = parent.document.getElementById('rightcontent');
+             // 调整父页面的高度为此页面的高度
+                 obj.height = this.document.body.scrollHeight+50;
+             }
+             
 function GetQueryString(name)
     {
          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -19,6 +26,7 @@ window.onload =function(){
 		success: function(data){
 					//$("ul.nav_l").empty()
 					loadBookInfoData(data.data.abl);
+					iframeHeight();
 		}
 	});
 }

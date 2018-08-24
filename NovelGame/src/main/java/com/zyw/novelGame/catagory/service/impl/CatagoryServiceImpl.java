@@ -19,9 +19,14 @@ public class CatagoryServiceImpl implements CatagoryService{
 	@Autowired
 	private CatagoryMapper catagoryMapper;
 
-	public  List<Catagory>  queryCatagory() {
-		return catagoryMapper.queryCatagory();
+	public  List<Catagory>  queryCatagory(Catagory record) {
+		return catagoryMapper.queryCatagory(record);
 		
+	}
+
+	@Override
+	public int insert(Catagory record) {
+		return catagoryMapper.insert(record);
 	}
 
 }

@@ -7,5 +7,7 @@ import com.zyw.novelGame.model.Store;
 public interface StoreService {
 	
 	List<Store> queryBookStore(Store store);
+	
+	int insert(Store record);
 
 }

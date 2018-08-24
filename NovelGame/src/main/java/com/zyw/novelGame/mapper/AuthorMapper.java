@@ -1,5 +1,7 @@
 package com.zyw.novelGame.mapper;
 
+import java.util.List;
+
 import com.zyw.novelGame.model.Author;
 
 public interface AuthorMapper {
@@ -14,4 +16,6 @@ public interface AuthorMapper {
     int updateByPrimaryKeySelective(Author record);
 
     int updateByPrimaryKey(Author record);
+    
+    List<Author> queryAuthorInfo(Author author);
 }

@@ -37,6 +37,7 @@
     <if test="storeId != null">
         and store_id = #{storeId,jdbcType=VARCHAR}
     </if>
+    order by create_time   limit 50 offset 0
     </where>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">

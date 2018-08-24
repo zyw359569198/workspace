@@ -21,8 +21,8 @@ USE `noval`;
 DROP TABLE IF EXISTS `author`;
 
 CREATE TABLE `author` (
-  `id` varchar(32) NOT NULL,
-  `author_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `author_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `author_name` varchar(100) DEFAULT NULL,
   `author_name_en` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -31,22 +31,20 @@ CREATE TABLE `author` (
 
 /*Data for the table `author` */
 
-insert  into `author`(`id`,`author_id`,`author_name`,`author_name_en`) values ('1','1','方想','fangxiang'),('2','2','我爱吃西红柿','woaichixihongshi'),('3','3','辰东','chendong'),('4','4','哈哈','haha'),('5','5','孤军总','asdas'),('6','6','六六大顺','dsadasd');
-
 /*Table structure for table `book` */
 
 DROP TABLE IF EXISTS `book`;
 
 CREATE TABLE `book` (
-  `id` varchar(32) NOT NULL,
-  `book_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `book_name` varchar(200) DEFAULT NULL,
   `book_name_en` varchar(200) DEFAULT NULL,
   `book_desc` varchar(500) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   `update_time` date DEFAULT NULL,
   `is_completion` int(11) DEFAULT '1',
-  `author_id` varchar(32) DEFAULT NULL,
+  `author_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `hits` bigint(20) DEFAULT '0',
   `image_url` varchar(200) DEFAULT NULL,
   `author_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -56,31 +54,27 @@ CREATE TABLE `book` (
 
 /*Data for the table `book` */
 
-insert  into `book`(`id`,`book_id`,`book_name`,`book_name_en`,`book_desc`,`create_time`,`update_time`,`is_completion`,`author_id`,`hits`,`image_url`,`author_name`) values ('1','1','卡徒','katu','方想的小说的方式发大水发大水发的撒个飞洒发打发第三方撒的发生大发送到','2018-08-01','2018-08-03',0,'1',12,NULL,'方想'),('2','2','师士传说','shishichuanshuo','方想的小说范德萨发的所发生的访问额外丰富的水果防守打法撒地方萨芬撒范德萨发的撒噶是的范德萨发生的范德萨','2018-06-26','2018-08-01',1,'1',2,NULL,'方想'),('3','3','神墓','shenmu','辰东的小说爱是范德萨发生的发问发送到发送到','2018-04-04','2018-07-04',0,'3',15,NULL,'辰东'),('4','4','你大爷是我','ss','撒大声地撒多撒多撒大发生的股份的功夫大使馆发的广泛地','2018-08-07','2018-08-17',1,'4',1,NULL,'哈哈'),('5','5','孤军总','asda','啊大大说的是发生大发送到大师法士大夫撒旦','2018-08-06','2018-08-31',1,'5',12,NULL,'孤军总'),('6','6','六六大顺','asdasda','三大发送到发发生的dsadadasdadasd','2018-08-20','2018-08-10',1,'6',6,NULL,'六六大顺');
-
 /*Table structure for table `cata_book_relation` */
 
 DROP TABLE IF EXISTS `cata_book_relation`;
 
 CREATE TABLE `cata_book_relation` (
-  `id` varchar(32) NOT NULL,
-  `cata_id` varchar(32) DEFAULT NULL,
-  `book_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `cata_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `cata_book_relation` */
 
-insert  into `cata_book_relation`(`id`,`cata_id`,`book_id`) values ('1','2','1'),('2','2','2'),('3','9','3'),('4','1','4'),('5','3','5'),('6','4','6');
-
 /*Table structure for table `catagory` */
 
 DROP TABLE IF EXISTS `catagory`;
 
 CREATE TABLE `catagory` (
-  `id` varchar(32) NOT NULL,
-  `cata_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `cata_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `cata_name` varchar(100) DEFAULT NULL,
   `cata_name_en` varchar(100) DEFAULT NULL,
   `order_desc` int(4) DEFAULT NULL,
@@ -97,8 +91,8 @@ insert  into `catagory`(`id`,`cata_id`,`cata_name`,`cata_name_en`,`order_desc`) 
 DROP TABLE IF EXISTS `model`;
 
 CREATE TABLE `model` (
-  `id` varchar(32) NOT NULL,
-  `model_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `model_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `model_name` varchar(200) DEFAULT NULL,
   `model_name_en` varchar(100) DEFAULT NULL,
   `order_desc` int(4) DEFAULT NULL,
@@ -115,22 +109,20 @@ insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`,`
 DROP TABLE IF EXISTS `store`;
 
 CREATE TABLE `store` (
-  `id` varchar(32) NOT NULL,
-  `book_id` varchar(32) DEFAULT NULL,
-  `store_id` varchar(32) DEFAULT NULL,
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `store_name` varchar(200) DEFAULT NULL,
   `store_url` varchar(200) DEFAULT NULL,
   `store_content` text,
-  `pre_store_id` varchar(32) DEFAULT NULL,
-  `next_store_id` varchar(32) DEFAULT NULL,
+  `pre_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `next_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `store` */
-
-insert  into `store`(`id`,`book_id`,`store_id`,`store_name`,`store_url`,`store_content`,`pre_store_id`,`next_store_id`,`create_time`) values ('1','1','1','我去，阈值',NULL,'我去，你说吧，怎么玩','0','2','2018-08-20'),('2','1','2','你真来啊',NULL,'你大爷的','1','0','2018-08-10'),('3','2','1','哈哈',NULL,'你来呀，打我呀','0','2','2018-08-21');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
