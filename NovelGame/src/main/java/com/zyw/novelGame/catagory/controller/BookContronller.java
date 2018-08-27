@@ -13,19 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.zyw.novelGame.catagory.service.BookService;
 import com.zyw.novelGame.catagory.service.CatagoryService;
+import com.zyw.novelGame.catagory.service.ModelService;
 import com.zyw.novelGame.catagory.service.StoreService;
 import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.Catagory;
+import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.Store;
 
-@RestController
+@Controller
 @RequestMapping("/book")
 public class BookContronller {
 	
@@ -39,15 +41,18 @@ public class BookContronller {
 	@Autowired
 	private StoreService storeService;
 	
-	@RequestMapping(value="/init",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
-	public Map init(HttpServletRequest request,HttpServletResponse response) {
+	@Autowired
+	private ModelService modelService;
+	
+	@RequestMapping(value="/init",method= {RequestMethod.GET})
+	public String init(org.springframework.ui.Model model) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
 		CompletableFuture<List<Book>> bookHitsFuture=null;
 		CompletableFuture<Object> bookCreateTimeFuture=null;
 		CompletableFuture<Object> catagoryFuture=null;
 		CompletableFuture<Object> bookUpdateInfoFuture=null;
+		CompletableFuture<List<Model>> modelFuture=null;
 		try {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -69,18 +74,24 @@ public class BookContronller {
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookUpdateInfo(null);
 			});
-			CompletableFuture.allOf(bookHitsFuture,catagoryFuture,bookCreateTimeFuture,bookUpdateInfoFuture);
+			modelFuture=CompletableFuture.supplyAsync(()->{
+				return modelService.queryModel();
+			});
+			CompletableFuture.allOf(bookHitsFuture,catagoryFuture,bookCreateTimeFuture,bookUpdateInfoFuture,modelFuture);
 			dataMap.put("bkl", bookHitsFuture.get(30, TimeUnit.SECONDS));
 			dataMap.put("bcl", bookCreateTimeFuture.get(30, TimeUnit.SECONDS));
 			dataMap.put("tjl", catagoryFuture.get(30, TimeUnit.SECONDS));
 			dataMap.put("bul", bookUpdateInfoFuture.get(30, TimeUnit.SECONDS));
+			dataMap.put("mdl", modelFuture.get(30, TimeUnit.SECONDS));
+			dataMap.put("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
 		}catch(Exception e) {
 			resultMap.put("errorCode", 10086);
 			e.printStackTrace();
 		}
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
-		return resultMap;
+		model.addAllAttributes(resultMap);
+		return "index";
 		}
 	
 	@RequestMapping(value="/queryBookByHits",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})

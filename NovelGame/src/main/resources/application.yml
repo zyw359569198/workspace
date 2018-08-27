@@ -21,6 +21,16 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  freemarker:
+    cache: true
+    charset: UTF-8
+    content-type: text/html
+    enabled: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.zyw.novelGame.model

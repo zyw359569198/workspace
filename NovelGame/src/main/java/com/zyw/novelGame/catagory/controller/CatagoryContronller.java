@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,7 +26,7 @@ import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.catagory.service.CatagoryService;
 import com.zyw.novelGame.catagory.service.ModelService;
 
-@RestController
+@Controller
 @RequestMapping("/catagory")
 public class CatagoryContronller {
 	public static final  Logger logger=LoggerFactory.getLogger(CatagoryContronller.class);
@@ -36,14 +37,13 @@ public class CatagoryContronller {
 	@Autowired
 	private ModelService modelService;
 	
-	@RequestMapping(value="/info",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	@RequestMapping(value="/info",method= {RequestMethod.GET})
 	public ModelAndView info() {
 		return null;
 	}
 	
-	@RequestMapping(value="/init",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
-	public Map init(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping(value="/init",method= {RequestMethod.GET})
+	public String init(org.springframework.ui.Model model) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
@@ -67,7 +67,8 @@ public class CatagoryContronller {
 		}
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
-		return resultMap;
+		model.addAllAttributes(resultMap);
+		return "main";
 	}
 
 }

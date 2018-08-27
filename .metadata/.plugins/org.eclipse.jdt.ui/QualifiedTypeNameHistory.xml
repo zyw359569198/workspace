@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
-<fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionFactoryBean"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
@@ -24,16 +20,12 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.ModelService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.model.Model"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.mapper.BookMapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CatagoryService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Catagory"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CompletionService"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CompletableFuture"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.mapper.StoreMapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.StoreService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Store"/>
 <fullyQualifiedTypeName name="java.sql.Blob"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.client.HttpClients"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.impl.BookServiceImpl"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.BookService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.AuthorService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CatagoryService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.Catagory"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.CataBookRelation"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.mapper.CataBookRelationMapper"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CataBookRelationService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.model.Store"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.StoreService"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
