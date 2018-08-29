@@ -31,6 +31,7 @@ spring:
     expose-request-attributes: true
     expose-session-attributes: true
     request-context-attribute: request
+    template_update_delay: 300
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.zyw.novelGame.model

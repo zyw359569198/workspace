@@ -44,13 +44,17 @@ import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.CataBookRelation;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Store;
+import com.zyw.utils.PingyingUtil;
 
 @RestController
 @RequestMapping("/util")
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	
-	private static final int MAX_BOOK_NUMS=5;
+	private static final int MAX_BOOK_NUMS=7;
+	
+	private static final int MAX_TOPIC_NUMS=100;
+
 	
 	@Autowired
 	private BookService bookService;
@@ -74,9 +78,10 @@ public class UtilController {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
 		CloseableHttpClient httpclient = HttpClients.createDefault();  
+		for(int i=0;i<8;i++) {
         try {  
             // 创建httpget.    
-            HttpGet httpget = new HttpGet("https://txt2.cc/map/1/");  
+            HttpGet httpget = new HttpGet("https://txt2.cc/map/"+i+"/");  
             System.out.println("executing request " + httpget.getURI());  
             // 执行get请求.    
             CloseableHttpResponse response = httpclient.execute(httpget);  
@@ -104,6 +109,7 @@ public class UtilController {
                     	   doc = Jsoup.parse(EntityUtils.toString(entity));
                     	   Elements h1=doc.getElementsByTag("h1");
                     	   book.setBookName(h1.text());
+                    	   book.setBookNameEn(PingyingUtil.ToPinyin(h1.text()));
                     	   Elements ems=doc.getElementsByTag("em");
                     	   for(Element em:ems) {
                     		   if(em.text().contains("作者")) {
@@ -131,6 +137,7 @@ public class UtilController {
             		           }
                     	       Elements introClass=doc.getElementsByClass("intro");
                     		   author.setAuthorName(book.getAuthorName());
+                    		   author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
                     		   Book qbook=new Book();
                 			   qbook.setBookName(book.getBookName());
                 			   qbook.setAuthorName(author.getAuthorName());
@@ -191,6 +198,9 @@ public class UtilController {
                                 	   store.setCreateTime(new Date());
                                 	   storeService.insert(store);
                                 	   preStoreId=curentStoreId;
+                                	   if(count>MAX_TOPIC_NUMS) {
+                                		   break;
+                                	   }
                                 	   count++;
                     		       };
                     		if(bookNums>MAX_BOOK_NUMS) {
@@ -225,6 +235,7 @@ public class UtilController {
                 e.printStackTrace();  
             }  
         }  
+		}
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
 		return resultMap;

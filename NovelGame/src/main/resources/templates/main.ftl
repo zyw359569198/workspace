@@ -27,13 +27,13 @@
 <div class="nav">
   <div class="main">
     <ul class="nav_l">
-      <li><a href="https://txt2.cc">首页</a></li>
-      <li><a href="https://txt2.cc/catagory/dushi/">都市</a></li><li><a href="https://txt2.cc/catagory/xuanfan/">玄幻</a></li><li><a href="https://txt2.cc/catagory/wuxia/">武侠</a></li><li><a href="https://txt2.cc/catagory/yanqing/">言情</a></li><li><a href="https://txt2.cc/catagory/chuanyue/">穿越</a></li><li><a href="https://txt2.cc/catagory/wangyou/">网游</a></li><li><a href="https://txt2.cc/catagory/kongbu/">恐怖</a></li><li><a href="https://txt2.cc/catagory/kefan/">科幻</a></li><li><a href="https://txt2.cc/catagory/xiuzhen/">修真</a></li><li><a href="https://txt2.cc/catagory/qita/">其它</a></li>    </ul>
+   <#list cgl as catagory> 
+      <li><a href="/book/queryBookByHits?cataId=${catagory.cataId}&cataName=${catagory.cataName}">${catagory.cataName}</a></li>
+      </#list>
+  </ul>
     <ul class="nav_r">
-              <li><a href="https://txt2.cc/hot/">新书</a></li>
-        <li><a href="https://txt2.cc/recommend/">推荐</a></li>
-        <li><a href="https://txt2.cc/full/">完本</a></li>
-        <li><a href="https://txt2.cc/top/">排行</a></li>
-        <li><a href="https://txt2.cc/author/">作者</a></li>    </ul>
+       <#list mdl as model> 
+       <li><a href="https://txt2.cc/hot/">${model.modelName}</a></li>
+      </#list>
   </div>
 </div>

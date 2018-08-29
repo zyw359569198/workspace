@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,6 +27,9 @@ import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.Store;
+import com.zyw.utils.Utils;
+
+import freemarker.template.Configuration;
 
 @Controller
 @RequestMapping("/book")
@@ -44,17 +48,19 @@ public class BookContronller {
 	@Autowired
 	private ModelService modelService;
 	
+	@Autowired
+	private  Configuration configuration;
+	
 	@RequestMapping(value="/init",method= {RequestMethod.GET})
-	public String init(org.springframework.ui.Model model) {
-		Map resultMap=new HashMap();
-		Map dataMap=new HashMap();
+	public String init(HttpServletRequest request,ModelMap  model) {
 		CompletableFuture<List<Book>> bookHitsFuture=null;
-		CompletableFuture<Object> bookCreateTimeFuture=null;
-		CompletableFuture<Object> catagoryFuture=null;
-		CompletableFuture<Object> bookUpdateInfoFuture=null;
+		CompletableFuture<List<HashMap>> bookCreateTimeFuture=null;
+		CompletableFuture<List<Object>> catagoryBookRelationFuture=null;
+		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
+		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
-			catagoryFuture=CompletableFuture.supplyAsync(()->{
+			catagoryBookRelationFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
 			}).thenApplyAsync(list->{
 				List<Object> li=new ArrayList<Object>();
@@ -77,20 +83,27 @@ public class BookContronller {
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();
 			});
-			CompletableFuture.allOf(bookHitsFuture,catagoryFuture,bookCreateTimeFuture,bookUpdateInfoFuture,modelFuture);
-			dataMap.put("bkl", bookHitsFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("bcl", bookCreateTimeFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("tjl", catagoryFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("bul", bookUpdateInfoFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("mdl", modelFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			catagoryFuture=CompletableFuture.supplyAsync(()->{
+				return catagoryService.queryCatagory(new Catagory());
+			});
+			CompletableFuture.allOf(bookHitsFuture,catagoryBookRelationFuture,bookCreateTimeFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture);
+			model.addAttribute("bkl", bookHitsFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("bcl", bookCreateTimeFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("tjl", catagoryBookRelationFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("bul", bookUpdateInfoFuture.get(300, TimeUnit.SECONDS));
+			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			Map mp=new HashMap();
+			mp.put("bkl", model.get("bkl"));
+			mp.put("bcl", model.get("bcl"));
+			mp.put("tjl", model.get("tjl"));
+			mp.put("bul", model.get("bul"));
+			mp.put("mdl", model.get("mdl"));
+			mp.put("cgl", model.get("cgl"));
+			Utils.saveHtml(configuration,request, "index", "index", mp);
 		}catch(Exception e) {
-			resultMap.put("errorCode", 10086);
 			e.printStackTrace();
 		}
-		resultMap.put("data", dataMap);
-		resultMap.put("errorCode", 200);
-		model.addAllAttributes(resultMap);
 		return "index";
 		}
 	

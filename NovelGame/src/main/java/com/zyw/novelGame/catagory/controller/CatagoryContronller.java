@@ -37,10 +37,6 @@ public class CatagoryContronller {
 	@Autowired
 	private ModelService modelService;
 	
-	@RequestMapping(value="/info",method= {RequestMethod.GET})
-	public ModelAndView info() {
-		return null;
-	}
 	
 	@RequestMapping(value="/init",method= {RequestMethod.GET})
 	public String init(org.springframework.ui.Model model) {
