@@ -9,11 +9,11 @@ public interface BookService {
 	
 	List<Book>  queryBookByHits(int count);
 	
-    List<HashMap> queryBookRelationByCataID(String cataId,int count);
+    List<HashMap> queryBookRelationByCataNameEn(String cataNameEn,int count);
     
     List<HashMap>  queryBookByCreateTime();
     
-    List<HashMap> queryBookUpdateInfo(String cataId);
+    List<HashMap> queryBookUpdateInfo(String cataNameEn);
     
     List<Book> queryBookInfo(Book book);
     

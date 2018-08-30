@@ -7,17 +7,17 @@ import com.zyw.novelGame.model.Store;
 public interface StoreMapper {
     int deleteByPrimaryKey(String id);
 
-    int insert(Store record);
+	int insert(Store record);
 
-    int insertSelective(Store record);
+	int insertSelective(Store record);
 
-    Store selectByPrimaryKey(String id);
+	Store selectByPrimaryKey(String id);
 
-    int updateByPrimaryKeySelective(Store record);
+	int updateByPrimaryKeySelective(Store record);
 
-    int updateByPrimaryKeyWithBLOBs(Store record);
+	int updateByPrimaryKeyWithBLOBs(Store record);
 
-    int updateByPrimaryKey(Store record);
-    
-    List<Store> queryBookStore(Store store);
+	int updateByPrimaryKey(Store record);
+	
+	List<Store> queryBookStore(Store store);
 }

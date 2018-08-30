@@ -12,8 +12,8 @@ public class PingyingUtil {
 		      * @param args
 		      */
 		     public static void main(String[] args) {
-		         System.out.println(ToFirstChar("汉字转换为拼音").toUpperCase()); //转为首字母大写
-		         System.out.println(ToPinyin("汉字转换为拼音")); 
+		         System.out.println(ToFirstChar("国民CP（娱乐圈）").toUpperCase()); //转为首字母大写
+		         System.out.println(ToPinyin("国民CP（娱乐圈）")); 
 		     }
 		     /**
 		      * 获取字符串拼音的第一个字母
@@ -21,6 +21,7 @@ public class PingyingUtil {
 		      * @return
 		      */
 		     public static String ToFirstChar(String chinese){         
+		    	 chinese=formatString(chinese);
 		         String pinyinStr = "";  
 		         char[] newChar = chinese.toCharArray();  //转为单个字符
 		         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat(); 
@@ -45,7 +46,8 @@ public class PingyingUtil {
 		      * @param chinese
 		      * @return
 		      */
-		     public static String ToPinyin(String chinese){          
+		     public static String ToPinyin(String chinese){
+		    	 chinese=formatString(chinese);
 		         String pinyinStr = "";  
 		         char[] newChar = chinese.toCharArray();  
 		         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();  
@@ -64,5 +66,9 @@ public class PingyingUtil {
 		         }  
 		         return pinyinStr;  
 		     }  
+		     
+		     public static String formatString(String str) {
+		    	return str.replace("）", "").replace("（", "").replace("，", "").replaceAll("。", "").replaceAll("：", "").replaceAll(":", "").replaceAll("-", "").replaceAll("<", "").replaceAll("《", "").replaceAll(">", "").replaceAll("》", "");
+		     }
 		 }
 

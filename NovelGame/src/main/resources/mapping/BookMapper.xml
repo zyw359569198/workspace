@@ -14,44 +14,53 @@
     <result column="hits" jdbcType="BIGINT" property="hits" />
     <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
   </resultMap>
     <resultMap id="BookRelationResultMap" type="java.util.HashMap">
     <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+    <result column="cata_name_en" jdbcType="VARCHAR" property="cataNameEn" />
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
      <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+     <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
   </resultMap>
       <resultMap id="BookUpdateInfoResultMap" type="java.util.HashMap">
     <result column="store_id" jdbcType="VARCHAR" property="storeId" />
     <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
     <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+     <result column="cata_name_en" jdbcType="VARCHAR" property="cataNameEn" />
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="is_completion" jdbcType="VARCHAR" property="isCompletion" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, book_name, book_name_en, book_desc, create_time, update_time, is_completion, 
-    author_id, hits, image_url, author_name
+    author_id, hits, image_url, author_name,author_name_en
   </sql>
   <select id="queryBookUpdateInfo"  parameterType="java.lang.String" resultMap="BookUpdateInfoResultMap">
    SELECT 
-  a.store_id,a.store_name,b.book_id,b.book_name,c.cata_id,c.cata_name,e.author_id,e.author_name,a.create_time,b.is_completion
+  a.store_id,a.store_name,a.order_index,b.book_id,b.book_name,b.book_name_en,c.cata_id,c.cata_name,c.cata_name_en,e.author_id,e.author_name,e.author_name_en,a.create_time,b.is_completion
 FROM
   (SELECT 
-    MAX(a.`create_time`) AS create_time,
+    a.order_index,
     a.store_id,
     a.store_name,
+    a.create_time,
     a.book_id 
   FROM
-    store a 
-  GROUP BY a.book_id) a,
+    store a  WHERE a.order_index=(SELECT MAX(order_index) FROM store WHERE book_id=a.book_id)) a,
   book b,
   catagory c,
   cata_book_relation d,
@@ -60,17 +69,17 @@ WHERE b.book_id = d.book_id
   AND a.book_id = b.book_id 
   AND d.cata_id=c.cata_id 
   AND b.author_id=e.author_id 
-  <if test="cataId != null">
-  AND c.cata_id =#{cataId,jdbcType=VARCHAR}
+  <if test="cataNameEn != null">
+  AND c.cata_name_en =#{cataNameEn,jdbcType=VARCHAR}
   </if>
   ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
   </select>
-   <select id="queryBookRelationByCataID"  resultMap="BookRelationResultMap">
-   SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.book_desc,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_id=#{cataId,jdbcType=VARCHAR}
+   <select id="queryBookRelationByCataNameEn"  resultMap="BookRelationResultMap">
+   SELECT b.cata_id,b.cata_name,b.cata_name_en,a.book_id,a.book_name,a.book_name_en,a.image_url,a.book_desc,a.author_id,a.author_name,a.author_name_en FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_name_en=#{cataNameEn,jdbcType=VARCHAR}
      ORDER BY a.hits DESC LIMIT #{count,jdbcType=INTEGER} OFFSET 0;
   </select>
        <select id="queryBookByCreateTime" resultMap="BookRelationResultMap">
-       SELECT b.cata_id,b.cata_name,a.book_id,a.book_name,a.book_desc,a.author_id,a.author_name FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
+       SELECT b.cata_id,b.cata_name,b.cata_name_en,a.book_id,a.book_name,a.image_url,a.book_name_en,a.book_desc,a.author_id,a.author_name,a.author_name_en FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
      ORDER BY a.create_time DESC LIMIT 25 OFFSET 0;
   </select>
      <select id="queryBookByHits" resultMap="BaseResultMap">
@@ -96,8 +105,14 @@ WHERE b.book_id = d.book_id
       <if test="bookName != null">
         and book_name = #{bookName,jdbcType=VARCHAR}
       </if>
+       <if test="bookNameEn != null">
+        and book_name_en = #{bookNameEn,jdbcType=VARCHAR}
+      </if>
       <if test="authorName != null">
         and author_name = #{authorName,jdbcType=VARCHAR}
+      </if>
+      <if test="authorNameEn != null">
+        and author_name_en = #{authorNameEn,jdbcType=VARCHAR}
       </if>
     </where>
   </select>
@@ -115,12 +130,12 @@ WHERE b.book_id = d.book_id
     insert into book (id, book_id, book_name, 
       book_name_en, book_desc, create_time, 
       update_time, is_completion, author_id, 
-      hits, image_url, author_name
+      hits, image_url, author_name,author_name_en
       )
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{bookName,jdbcType=VARCHAR}, 
       #{bookNameEn,jdbcType=VARCHAR}, #{bookDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
       #{updateTime,jdbcType=DATE}, #{isCompletion,jdbcType=INTEGER}, #{authorId,jdbcType=VARCHAR}, 
-      #{hits,jdbcType=BIGINT}, #{imageUrl,jdbcType=VARCHAR}, #{authorName,jdbcType=VARCHAR}
+      #{hits,jdbcType=BIGINT}, #{imageUrl,jdbcType=VARCHAR}, #{authorName,jdbcType=VARCHAR},#{authorNameEn,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Book">
@@ -162,6 +177,9 @@ WHERE b.book_id = d.book_id
       <if test="authorName != null">
         author_name,
       </if>
+      <if test="authorNameEn != null">
+        author_name_en,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -199,6 +217,9 @@ WHERE b.book_id = d.book_id
       </if>
       <if test="authorName != null">
         #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="authorNameEn != null">
+        #{authorNameEn,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -238,6 +259,9 @@ WHERE b.book_id = d.book_id
       <if test="authorName != null">
         author_name = #{authorName,jdbcType=VARCHAR},
       </if>
+      <if test="authorNameEn != null">
+        author_name_en = #{authorNameEn,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -253,7 +277,8 @@ WHERE b.book_id = d.book_id
       author_id = #{authorId,jdbcType=VARCHAR},
       hits = #{hits,jdbcType=BIGINT},
       image_url = #{imageUrl,jdbcType=VARCHAR},
-      author_name = #{authorName,jdbcType=VARCHAR}
+      author_name = #{authorName,jdbcType=VARCHAR},
+      author_name_en = #{authorNameEn,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

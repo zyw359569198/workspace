@@ -26,6 +26,8 @@ public class Book {
     private String imageUrl;
 
     private String authorName;
+    
+    private String authorNameEn;
 
     public String getId() {
         return id;
@@ -121,5 +123,13 @@ public class Book {
 
     public void setAuthorName(String authorName) {
         this.authorName = authorName == null ? null : authorName.trim();
+    }
+    
+    public String getAuthorNameEn() {
+        return authorNameEn;
+    }
+
+    public void setAuthorNameEn(String authorNameEn) {
+        this.authorNameEn = authorNameEn == null ? null : authorNameEn.trim();
     }
 }

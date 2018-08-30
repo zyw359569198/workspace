@@ -9,20 +9,20 @@
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc">
 <meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.txt2.cc">
-<link rel="stylesheet" href="../css/index.css"/>
-<link rel="shortcut icon" href="https://txt2.cc/favicon-txt2.ico">
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<link rel="stylesheet" href="${request.contextPath }/css/index.css"/>
+<link rel="shortcut icon" href="/favicon-txt2.ico">
+<script type="text/javascript" src="${request.contextPath }/js/jquery.js"></script>
+<script type="text/javascript" src="${request.contextPath }/js/index.js"></script>
 </head>
 <body>
 <#include "main.ftl" >
 <div class="fengtui">
 <#list bkl as book>
   <dl>
-      <dt><a href="https://txt2.cc/book/shanhunhouai/"><img src="${book.imageUrl}" alt="${book.bookName}" onerror="this.src='../images/nocover.jpg'" alt=""/></a></dt>
+      <dt><a href="/book/${book.bookNameEn}/"><img src="${request.contextPath }${book.imageUrl}" alt="${book.bookName}" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt=""/></a></dt>
       <dd>
-        <h3><a href="https://txt2.cc/book/shanhunhouai/">${book.bookName}</a></h3>
-        <span><a target="_blank" href="https://txt2.cc/author/jiushimianmian/">${book.authorName}</a></span>        
+        <h3><a href="/book/${book.bookNameEn}/">${book.bookName}</a></h3>
+        <span><a target="_blank" href="/author/${book.authorNameEn}/">${book.authorName}</a></span>        
         <#if  book.bookDesc?length gt 50>
         <p>&emsp;&emsp;${book.bookDesc?substring(0,50)}...</p>
         <#else>
@@ -42,9 +42,9 @@
 </#if>
    <#list catagoryItem as cbook>
    <#if cbook_index==0>
-    <li class="t"><h2><a href="https://txt2.cc/catagory/dushi/">${cbook.cataName}</a></h2></li>
+    <li class="t"><h2><a href="/catagory/${cbook.cataNameEn}/">${cbook.cataName}</a></h2></li>
     </#if>
-    <li><a href="https://txt2.cc/book/fengshuidishi/">${cbook.bookName}</a>/<a target="_blank" href="https://txt2.cc/author/jingpinxiangyan/">${cbook.authorName}</a></li>
+    <li><a href="/book/${cbook.bookNameEn}/">${cbook.bookName}</a>/<a target="_blank" href="/author/${cbook.authorNameEn}/">${cbook.authorName}</a></li>
 </#list>
     </ul>
  <#if i==(tjl?size)||i==3||i==7>
@@ -59,9 +59,9 @@
       <li class="t"><span class="lx">类型</span><span class="sm">书名</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">时间</span></li>
       <#list bul as bookInfo>
       <li><span class="lx">[${bookInfo.cataName}]</span>
-      <span class="sm"><a href="https://txt2.cc/book/qixingdaozun/">${bookInfo.bookName}</a></span>
-      <span class="zj">&nbsp;<a href="https://txt2.cc/book/qixingdaozun/105/">${bookInfo.storeName}</a></span>
-      <span class="zz"><a target="_blank" href="https://txt2.cc/author/ziyunshan/">${bookInfo.authorName}</a></span>
+      <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName}</a></span>
+      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${bookInfo.orderIndex}/">${bookInfo.storeName}</a></span>
+      <span class="zz"><a target="_blank" href="/author/${bookInfo.authorNameEn}/">${bookInfo.authorName}</a></span>
       <#list bookInfo.createTime?split("-") as item>
       <#if item_index==1>
       <span class="sj">${item} <#elseif item_index==2>/${item}</span></li>
@@ -75,7 +75,7 @@
     <ul>
     <#list bcl as bookCata>
       <li><span class="lx">[${bookCata.cataName}]</span>
-      <span class="rx"><a href="https://txt2.cc/book/dushihuobaobingwang/">${bookCata.bookName}</a></span></li>
+      <span class="rx"><a href="/book/${bookCata.bookNameEn}/">${bookCata.bookName}</a></span></li>
       </#list>
       </ul>
   </div>

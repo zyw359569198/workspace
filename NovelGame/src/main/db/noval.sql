@@ -48,6 +48,7 @@ CREATE TABLE `book` (
   `hits` bigint(20) DEFAULT '0',
   `image_url` varchar(200) DEFAULT NULL,
   `author_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `author_name_en` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -114,15 +115,29 @@ CREATE TABLE `store` (
   `store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `store_name` varchar(200) DEFAULT NULL,
   `store_url` varchar(200) DEFAULT NULL,
-  `store_content` text,
   `pre_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `next_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `create_time` date DEFAULT NULL,
+  `order_index` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `store_id_index` (`book_id`,`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `store` */
+
+/*Table structure for table `store_data` */
+
+DROP TABLE IF EXISTS `store_data`;
+
+CREATE TABLE `store_data` (
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `store_id` varchar(36) DEFAULT NULL,
+  `store_content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `store_data` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

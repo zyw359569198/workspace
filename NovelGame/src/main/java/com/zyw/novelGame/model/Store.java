@@ -5,91 +5,92 @@ import java.util.Date;
 public class Store {
     private String id;
 
-    private String bookId;
+	private String bookId;
 
-    private String storeId;
+	private String storeId;
 
-    private String storeName;
+	private String storeName;
 
-    private String storeUrl;
+	private String storeUrl;
 
-    private String preStoreId;
+	private String preStoreId;
 
-    private String nextStoreId;
+	private String nextStoreId;
 
-    private Date createTime;
+	private Date createTime;
 
-    private String storeContent;
+	private Long orderIndex;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
+	public void setId(String id) {
+		this.id = id == null ? null : id.trim();
+	}
 
-    public String getBookId() {
-        return bookId;
-    }
+	public String getBookId() {
+		return bookId;
+	}
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId == null ? null : bookId.trim();
-    }
+	public void setBookId(String bookId) {
+		this.bookId = bookId == null ? null : bookId.trim();
+	}
 
-    public String getStoreId() {
-        return storeId;
-    }
+	public String getStoreId() {
+		return storeId;
+	}
 
-    public void setStoreId(String storeId) {
-        this.storeId = storeId == null ? null : storeId.trim();
-    }
+	public void setStoreId(String storeId) {
+		this.storeId = storeId == null ? null : storeId.trim();
+	}
 
-    public String getStoreName() {
-        return storeName;
-    }
+	public String getStoreName() {
+		return storeName;
+	}
 
-    public void setStoreName(String storeName) {
-        this.storeName = storeName == null ? null : storeName.trim();
-    }
+	public void setStoreName(String storeName) {
+		this.storeName = storeName == null ? null : storeName.trim();
+	}
 
-    public String getStoreUrl() {
-        return storeUrl;
-    }
+	public String getStoreUrl() {
+		return storeUrl;
+	}
 
-    public void setStoreUrl(String storeUrl) {
-        this.storeUrl = storeUrl == null ? null : storeUrl.trim();
-    }
+	public void setStoreUrl(String storeUrl) {
+		this.storeUrl = storeUrl == null ? null : storeUrl.trim();
+	}
 
-    public String getPreStoreId() {
-        return preStoreId;
-    }
+	public String getPreStoreId() {
+		return preStoreId;
+	}
 
-    public void setPreStoreId(String preStoreId) {
-        this.preStoreId = preStoreId == null ? null : preStoreId.trim();
-    }
+	public void setPreStoreId(String preStoreId) {
+		this.preStoreId = preStoreId == null ? null : preStoreId.trim();
+	}
 
-    public String getNextStoreId() {
-        return nextStoreId;
-    }
+	public String getNextStoreId() {
+		return nextStoreId;
+	}
 
-    public void setNextStoreId(String nextStoreId) {
-        this.nextStoreId = nextStoreId == null ? null : nextStoreId.trim();
-    }
+	public void setNextStoreId(String nextStoreId) {
+		this.nextStoreId = nextStoreId == null ? null : nextStoreId.trim();
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public String getStoreContent() {
-        return storeContent;
-    }
+	public Long getOrderIndex() {
+		return orderIndex;
+	}
 
-    public void setStoreContent(String storeContent) {
-        this.storeContent = storeContent == null ? null : storeContent.trim();
-    }
+	public void setOrderIndex(Long orderIndex) {
+		this.orderIndex = orderIndex;
+	}
+
 }

@@ -22,9 +22,9 @@ public interface BookMapper {
     
     List<Book> queryBookByHits(@Param("count")int count);
         
-    List<HashMap> queryBookRelationByCataID(@Param("cataId")String cataId,@Param("count")int count);
+    List<HashMap> queryBookRelationByCataNameEn(@Param("cataNameEn")String cataId,@Param("count")int count);
     
     List<HashMap> queryBookByCreateTime();
-    List<HashMap> queryBookUpdateInfo(@Param("cataId")String cataId);
+    List<HashMap> queryBookUpdateInfo(@Param("cataNameEn")String cataNameEn);
     List<Book> queryBookInfo(Book book);
 }

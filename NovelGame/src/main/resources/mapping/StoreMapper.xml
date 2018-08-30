@@ -10,22 +10,15 @@
     <result column="pre_store_id" jdbcType="VARCHAR" property="preStoreId" />
     <result column="next_store_id" jdbcType="VARCHAR" property="nextStoreId" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.Store">
-    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
+    <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time
+    id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time, 
+    order_index
   </sql>
-  <sql id="Blob_Column_List">
-    store_content
-  </sql>
-   <select id="queryBookStore" parameterType="com.zyw.novelGame.model.Store" resultMap="ResultMapWithBLOBs">
+     <select id="queryBookStore" parameterType="com.zyw.novelGame.model.Store" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    
+    <include refid="Base_Column_List" />    
     from store
     <where>
     <if test="id != null">
@@ -37,14 +30,12 @@
     <if test="storeId != null">
         and store_id = #{storeId,jdbcType=VARCHAR}
     </if>
-    order by create_time   limit 50 offset 0
+    order by order_index   limit 50 offset 0
     </where>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from store
     where id = #{id,jdbcType=VARCHAR}
   </select>
@@ -55,12 +46,10 @@
   <insert id="insert" parameterType="com.zyw.novelGame.model.Store">
     insert into store (id, book_id, store_id, 
       store_name, store_url, pre_store_id, 
-      next_store_id, create_time, store_content
-      )
+      next_store_id, create_time, order_index)
     values (#{id,jdbcType=VARCHAR}, #{bookId,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, 
       #{storeName,jdbcType=VARCHAR}, #{storeUrl,jdbcType=VARCHAR}, #{preStoreId,jdbcType=VARCHAR}, 
-      #{nextStoreId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{storeContent,jdbcType=LONGVARCHAR}
-      )
+      #{nextStoreId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{orderIndex,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Store">
     insert into store
@@ -89,8 +78,8 @@
       <if test="createTime != null">
         create_time,
       </if>
-      <if test="storeContent != null">
-        store_content,
+      <if test="orderIndex != null">
+        order_index,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -118,8 +107,8 @@
       <if test="createTime != null">
         #{createTime,jdbcType=DATE},
       </if>
-      <if test="storeContent != null">
-        #{storeContent,jdbcType=LONGVARCHAR},
+      <if test="orderIndex != null">
+        #{orderIndex,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -147,8 +136,8 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=DATE},
       </if>
-      <if test="storeContent != null">
-        store_content = #{storeContent,jdbcType=LONGVARCHAR},
+      <if test="orderIndex != null">
+        order_index = #{orderIndex,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -162,7 +151,7 @@
       pre_store_id = #{preStoreId,jdbcType=VARCHAR},
       next_store_id = #{nextStoreId,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=DATE},
-      store_content = #{storeContent,jdbcType=LONGVARCHAR}
+      order_index = #{orderIndex,jdbcType=BIGINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.Store">
@@ -173,7 +162,8 @@
       store_url = #{storeUrl,jdbcType=VARCHAR},
       pre_store_id = #{preStoreId,jdbcType=VARCHAR},
       next_store_id = #{nextStoreId,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=DATE}
+      create_time = #{createTime,jdbcType=DATE},
+      order_index = #{orderIndex,jdbcType=BIGINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

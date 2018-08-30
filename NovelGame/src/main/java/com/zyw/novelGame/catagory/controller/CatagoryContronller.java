@@ -15,6 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +25,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
+import com.zyw.utils.Utils;
+
+import freemarker.template.Configuration;
+
+import com.zyw.novelGame.catagory.service.BookService;
 import com.zyw.novelGame.catagory.service.CatagoryService;
 import com.zyw.novelGame.catagory.service.ModelService;
 
@@ -36,6 +43,12 @@ public class CatagoryContronller {
 	
 	@Autowired
 	private ModelService modelService;
+	
+	@Autowired
+	private BookService bookService;
+	
+	@Autowired
+	private  Configuration configuration;
 	
 	
 	@RequestMapping(value="/init",method= {RequestMethod.GET})
@@ -66,5 +79,41 @@ public class CatagoryContronller {
 		model.addAllAttributes(resultMap);
 		return "main";
 	}
+	
+	@RequestMapping(value="/{cataNameEn}",method= {RequestMethod.GET})
+	public String queryBookByHits(HttpServletRequest request,ModelMap  model,@PathVariable String cataNameEn) {
+		CompletableFuture<List<HashMap>> bookHitsFuture=null;
+		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
+		CompletableFuture<List<Model>> modelFuture=null;
+		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		try {
+			bookHitsFuture=CompletableFuture.supplyAsync(()->{
+				return bookService.queryBookRelationByCataNameEn(cataNameEn,6);
+			});
+			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
+				return bookService.queryBookUpdateInfo(cataNameEn);
+			});
+			modelFuture=CompletableFuture.supplyAsync(()->{
+				return modelService.queryModel();
+			});
+			catagoryFuture=CompletableFuture.supplyAsync(()->{
+				return catagoryService.queryCatagory(new Catagory());
+			});
+			CompletableFuture.allOf(bookHitsFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture);
+			model.addAttribute("bcl", bookHitsFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("bul", bookUpdateInfoFuture.get(30,TimeUnit.SECONDS));
+			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			Map mp=new HashMap();
+			mp.put("bcl", model.get("bcl"));
+			mp.put("bul", model.get("bul"));
+			mp.put("mdl", model.get("mdl"));
+			mp.put("cgl", model.get("cgl"));
+			Utils.saveHtml(configuration,request, "catagory", "catagory", mp);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "catagory";
+		}
 
 }

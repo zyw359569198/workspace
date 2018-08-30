@@ -44,6 +44,7 @@ import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.CataBookRelation;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Store;
+import com.zyw.novelGame.model.StoreData;
 import com.zyw.utils.PingyingUtil;
 
 @RestController
@@ -51,9 +52,9 @@ import com.zyw.utils.PingyingUtil;
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	
-	private static final int MAX_BOOK_NUMS=7;
+	private static final int MAX_BOOK_NUMS=6;
 	
-	private static final int MAX_TOPIC_NUMS=100;
+	private static final int MAX_TOPIC_NUMS=10;
 
 	
 	@Autowired
@@ -77,8 +78,8 @@ public class UtilController {
 	public Map init(HttpServletRequest request,HttpServletResponse response1) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
-		CloseableHttpClient httpclient = HttpClients.createDefault();  
 		for(int i=0;i<8;i++) {
+		CloseableHttpClient httpclient = HttpClients.createDefault();  
         try {  
             // 创建httpget.    
             HttpGet httpget = new HttpGet("https://txt2.cc/map/"+i+"/");  
@@ -114,6 +115,7 @@ public class UtilController {
                     	   for(Element em:ems) {
                     		   if(em.text().contains("作者")) {
                     			   book.setAuthorName(em.text().substring(em.text().indexOf("：")+1).trim());
+                    			   book.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
                     		   }else if(em.text().contains("状态")) {
                     			   if("已完结".equalsIgnoreCase(em.text().substring(em.text().indexOf("：")+1).trim())) {
                         			   book.setIsCompletion(0);
@@ -167,7 +169,7 @@ public class UtilController {
                     		       String preStoreId="";
                     		       String nextStoreId="";
                     		       String curentStoreId="";
-                    		       int count=0;
+                    		       long count=0;
                     		       for(Element element:liClass) {
                     		    	   Thread.sleep(200);
                     		    	   if(count==0) {
@@ -182,6 +184,7 @@ public class UtilController {
                     		    		   nextStoreId=UUID.randomUUID().toString();
                     		    	   }
                     		    	   Store store=new Store();
+                    		    	   StoreData storeData=new StoreData();
                     		    	   store.setBookId(book.getBookId());
                     		    	   store.setId(UUID.randomUUID().toString());
                     		    	   store.setStoreName(element.text());
@@ -194,9 +197,13 @@ public class UtilController {
                                 	   entity = response.getEntity();
                                 	   doc = Jsoup.parse(EntityUtils.toString(entity));
                                 	   Element ydClass=doc.getElementsByClass("yd_text2").get(0);
-                                	   store.setStoreContent(ydClass.html());
+                                	   storeData.setStoreContent(ydClass.html());
+                                	   storeData.setId(UUID.randomUUID().toString());
+                                	   storeData.setStoreId(curentStoreId);
                                 	   store.setCreateTime(new Date());
+                                	   store.setOrderIndex(count);
                                 	   storeService.insert(store);
+                                	   storeService.insertStoreData(storeData);
                                 	   preStoreId=curentStoreId;
                                 	   if(count>MAX_TOPIC_NUMS) {
                                 		   break;

@@ -26,8 +26,8 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<HashMap> queryBookRelationByCataID(String cataId,int count) {
-		return bookMapper.queryBookRelationByCataID(cataId,count);
+	public List<HashMap> queryBookRelationByCataNameEn(String cataNameEn,int count) {
+		return bookMapper.queryBookRelationByCataNameEn(cataNameEn,count);
 	}
 
 	@Override
@@ -36,8 +36,8 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<HashMap> queryBookUpdateInfo(String cataId) {
-		return bookMapper.queryBookUpdateInfo(cataId);
+	public List<HashMap> queryBookUpdateInfo(String cataNameEn) {
+		return bookMapper.queryBookUpdateInfo(cataNameEn);
 	}
 
 	@Override

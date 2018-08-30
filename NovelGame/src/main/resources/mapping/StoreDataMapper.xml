@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.StoreDataMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.StoreData">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="store_id" jdbcType="VARCHAR" property="storeId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.StoreData">
+    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, store_id
+  </sql>
+  <sql id="Blob_Column_List">
+    store_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from store_data
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from store_data
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.StoreData">
+    insert into store_data (id, store_id, store_content
+      )
+    values (#{id,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, #{storeContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.StoreData">
+    insert into store_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="storeContent != null">
+        store_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeContent != null">
+        #{storeContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.StoreData">
+    update store_data
+    <set>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeContent != null">
+        store_content = #{storeContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zyw.novelGame.model.StoreData">
+    update store_data
+    set store_id = #{storeId,jdbcType=VARCHAR},
+      store_content = #{storeContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.StoreData">
+    update store_data
+    set store_id = #{storeId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
