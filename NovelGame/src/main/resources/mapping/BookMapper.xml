@@ -16,6 +16,23 @@
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
   </resultMap>
+    <resultMap id="BookInfoResultMap" type="java.util.HashMap">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
+    <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+    <result column="cata_name_en" jdbcType="VARCHAR" property="cataNameEn" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="is_completion" jdbcType="INTEGER" property="isCompletion" />
+    <result column="author_id" jdbcType="VARCHAR" property="authorId" />
+    <result column="hits" jdbcType="BIGINT" property="hits" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
+  </resultMap>
     <resultMap id="BookRelationResultMap" type="java.util.HashMap">
     <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
@@ -88,33 +105,23 @@ WHERE b.book_id = d.book_id
     from book
      order by hits desc limit #{count,jdbcType=INTEGER} offset 0  
   </select>
-    <select id="queryBookInfo" parameterType="com.zyw.novelGame.model.Book" resultMap="BaseResultMap">
+    <select id="queryBookInfo" resultMap="BookInfoResultMap">
     select 
-    <include refid="Base_Column_List" />
-    from book
-    <where>
-        <if test="id != null">
-        id = #{id,jdbcType=VARCHAR}
-      </if>
-       <if test="bookId != null">
-        and book_id = #{bookId,jdbcType=VARCHAR}
-      </if>
-       <if test="authorId != null">
-        and author_id = #{authorId,jdbcType=VARCHAR}
-      </if>
+    a.id, a.book_id, book_name, book_name_en, book_desc, a.create_time, a.update_time, is_completion, 
+    author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en  
+    FROM book a,cata_book_relation b,catagory c WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id  
       <if test="bookName != null">
-        and book_name = #{bookName,jdbcType=VARCHAR}
+        and a.book_name = #{bookName,jdbcType=VARCHAR}
       </if>
        <if test="bookNameEn != null">
-        and book_name_en = #{bookNameEn,jdbcType=VARCHAR}
+        and a.book_name_en = #{bookNameEn,jdbcType=VARCHAR}
       </if>
       <if test="authorName != null">
-        and author_name = #{authorName,jdbcType=VARCHAR}
+        and a.author_name = #{authorName,jdbcType=VARCHAR}
       </if>
       <if test="authorNameEn != null">
-        and author_name_en = #{authorNameEn,jdbcType=VARCHAR}
+        and a.author_name_en = #{authorNameEn,jdbcType=VARCHAR}
       </if>
-    </where>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

@@ -12,26 +12,49 @@
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
   </resultMap>
+      <resultMap id="BookStoreResultMap" type="java.util.HashMap">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="store_id" jdbcType="VARCHAR" property="storeId" />
+    <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
+    <result column="cata_name_en" jdbcType="VARCHAR" property="cataNameEn" />
+    <result column="store_url" jdbcType="VARCHAR" property="storeUrl" />
+    <result column="pre_store_id" jdbcType="VARCHAR" property="preStoreId" />
+    <result column="next_store_id" jdbcType="VARCHAR" property="nextStoreId" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
+    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
+  </resultMap>
   <sql id="Base_Column_List">
     id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time, 
     order_index
   </sql>
-     <select id="queryBookStore" parameterType="com.zyw.novelGame.model.Store" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />    
-    from store
+     <select id="queryBookStore"  resultMap="BookStoreResultMap">
+    select  a.id, a.book_id, b.book_name,b.book_name_en,store_id, store_name, store_url, pre_store_id, next_store_id, a.create_time, order_index,c.cata_name,c.cata_name_en 
+    from store a,book b,catagory c,cata_book_relation d 
     <where>
-    <if test="id != null">
-        id = #{id,jdbcType=VARCHAR}
-    </if>
-    <if test="bookId != null">
-        and book_id = #{bookId,jdbcType=VARCHAR}
-    </if>
-    <if test="storeId != null">
-        and store_id = #{storeId,jdbcType=VARCHAR}
-    </if>
-    order by order_index   limit 50 offset 0
+     c.cata_id=d.cata_id and d.book_id=b.book_id and b.book_id=a.book_id 
+    <if test="bookNameEn != null">
+        and  b.book_name_en=#{bookNameEn,jdbcType=VARCHAR} 
+      </if> 
+      <if test="storeId != null">
+        and  a.store_id=#{storeId,jdbcType=VARCHAR} 
+      </if> 
     </where>
+     order by order_index
+  </select>
+       <select id="queryBookStoreData"  resultMap="BookStoreResultMap">
+    select  a.*,b.store_content  from store a,store_data b 
+    <where>
+    a.store_id=b.store_id 
+      <if test="storeId != null">
+        and  a.store_id=#{storeId,jdbcType=VARCHAR} 
+      </if> 
+    </where>
+     order by a.order_index
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

@@ -1,5 +1,6 @@
 package com.zyw.novelGame.catagory.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -25,8 +26,8 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 	private StoreDataMapper storeDataMapper;
 
 	@Override
-	public List<Store> queryBookStore(Store store) {
-		return storeMapper.queryBookStore(store);
+	public List<HashMap> queryBookStore(String bookNameEn,String storeId) {
+		return storeMapper.queryBookStore(bookNameEn,storeId);
 	}
 
 	@Override
@@ -37,6 +38,11 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 	@Override
 	public int insertStoreData(StoreData storeData) {
 		return storeDataMapper.insert(storeData);
+	}
+
+	@Override
+	public List<HashMap> queryBookStoreData(String storeId) {
+		return storeMapper.queryBookStoreData(storeId);
 	}
 
 }

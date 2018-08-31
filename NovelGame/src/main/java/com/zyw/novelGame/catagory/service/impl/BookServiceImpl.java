@@ -41,8 +41,8 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<Book> queryBookInfo(Book book) {
-		return bookMapper.queryBookInfo(book);
+	public List<HashMap> queryBookInfo(String authorName,String authorNameEn,String bookName,String bookNameEn) {
+		return bookMapper.queryBookInfo(authorName,authorNameEn,bookName,bookNameEn);
 	}
 
 	@Override

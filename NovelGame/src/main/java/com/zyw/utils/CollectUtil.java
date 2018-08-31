@@ -2,6 +2,7 @@ package com.zyw.utils;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -77,10 +78,7 @@ public class CollectUtil {
                     	   }
                     	       Elements introClass=doc.getElementsByClass("intro");
                     		   author.setAuthorName(book.getBookName());
-                    		   Book qbook=new Book();
-                			   qbook.setBookName(book.getBookName());
-                			   qbook.setAuthorName(author.getAuthorName());
-                			   List<Book> blist=bookService.queryBookInfo(qbook);
+                			   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),null,book.getBookName(),null);
                 			   if(blist.size()>0) {
                 				   break;
                 			   }

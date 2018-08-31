@@ -134,7 +134,8 @@ CREATE TABLE `store_data` (
   `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `store_id` varchar(36) DEFAULT NULL,
   `store_content` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_store_id` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `store_data` */

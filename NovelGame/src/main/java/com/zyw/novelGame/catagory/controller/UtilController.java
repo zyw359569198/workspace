@@ -140,10 +140,7 @@ public class UtilController {
                     	       Elements introClass=doc.getElementsByClass("intro");
                     		   author.setAuthorName(book.getAuthorName());
                     		   author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
-                    		   Book qbook=new Book();
-                			   qbook.setBookName(book.getBookName());
-                			   qbook.setAuthorName(author.getAuthorName());
-                			   List<Book> blist=bookService.queryBookInfo(qbook);
+                    		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),null,book.getBookName(),null);
                 			   if(blist.size()>0) {
                 				   break;
                 			   }

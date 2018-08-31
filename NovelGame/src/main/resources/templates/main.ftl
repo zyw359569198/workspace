@@ -13,7 +13,7 @@
 </div>
 <div class="wrapper">
   <div class="logo">
-     <a href="" style="background: url(../images/logo-txt2.png) no-repeat;">txt2小说网</a>
+     <a href="" style="background: url(${request.contextPath}/images/logo-txt2.png) no-repeat;">txt2小说网</a>
   </div>
   <div class="seach">
       <form action="/search/" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
@@ -37,7 +37,7 @@
   </ul>
     <ul class="nav_r">
        <#list mdl as model> 
-       <li><a href="/hot/">${model.modelName}</a></li>
+       <li><a href="/model/${model.modelNameEn}/">${model.modelName}</a></li>
       </#list>
   </div>
 </div>

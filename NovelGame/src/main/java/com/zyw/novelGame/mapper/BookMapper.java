@@ -26,5 +26,5 @@ public interface BookMapper {
     
     List<HashMap> queryBookByCreateTime();
     List<HashMap> queryBookUpdateInfo(@Param("cataNameEn")String cataNameEn);
-    List<Book> queryBookInfo(Book book);
+    List<HashMap> queryBookInfo(@Param("authorName")String authorName,@Param("authorNameEn")String authorNameEn,@Param("bookName")String bookName,@Param("bookNameEn")String bookNameEn);
 }

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,6 +40,7 @@ public class BookContronller {
 	
 	@Autowired
 	private BookService bookService;
+	
 	@Autowired
 	private CatagoryService catagoryService;
 	
@@ -52,62 +54,70 @@ public class BookContronller {
 	private  Configuration configuration;
 	
 	
-	@RequestMapping(value="/initBookData",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
-	public Map initBookData(HttpServletRequest request,HttpServletResponse response) {
-		Map resultMap=new HashMap();
-		Map dataMap=new HashMap();
-		String bookId=request.getParameter("bookId");
-		Book book=new Book();
-		book.setBookId(bookId);
-		Store store=new Store();
-		store.setBookId(bookId);
-		CompletableFuture<List<Book>> bookFuture=null;
-		CompletableFuture<List<Store>> StoreFuture=null;
+	@RequestMapping(value="/{bookNameEn}",method= {RequestMethod.GET})
+	public String initBookData(HttpServletRequest request,ModelMap  model,@PathVariable String bookNameEn) {
+		CompletableFuture<List<HashMap>> bookFuture=null;
+		CompletableFuture<List<HashMap>> StoreFuture=null;
 		CompletableFuture<List<Book>> bookHitsFuture=null;
+		CompletableFuture<List<Model>> modelFuture=null;
+		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookInfo(book);
+				return bookService.queryBookInfo(null,null,null,bookNameEn);
 			});
 			StoreFuture=CompletableFuture.supplyAsync(()->{
-				return storeService.queryBookStore(store);
+				return storeService.queryBookStore(bookNameEn,null);
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookByHits(8);
 			});
-			CompletableFuture.allOf(bookFuture,StoreFuture,bookHitsFuture);
-			dataMap.put("bil",bookFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("sil",StoreFuture.get(30, TimeUnit.SECONDS));
-			dataMap.put("bkl",bookHitsFuture.get(30, TimeUnit.SECONDS));
+			modelFuture=CompletableFuture.supplyAsync(()->{
+				return modelService.queryModel();
+			});
+			catagoryFuture=CompletableFuture.supplyAsync(()->{
+				return catagoryService.queryCatagory(new Catagory());
+			});
+			CompletableFuture.allOf(bookFuture,StoreFuture,bookHitsFuture,modelFuture,catagoryFuture);
+			model.addAttribute("bil",bookFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("sil",StoreFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("bkl",bookHitsFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
 		}catch(Exception e) {
-			resultMap.put("errorCode", 10086);
 			e.printStackTrace();
 		}
-		resultMap.put("data", dataMap);
-		resultMap.put("errorCode", 200);
-		return resultMap;
+		Map mp=new HashMap();
+		mp.put("bil", model.get("bil"));
+		mp.put("sil", model.get("sil"));
+		mp.put("bkl", model.get("bkl"));
+		mp.put("mdl", model.get("mdl"));
+		mp.put("cgl", model.get("cgl"));
+		Utils.saveHtml(configuration,request, "book\\"+bookNameEn+"\\index", "book", mp);
+		return "book";
 		}
 	
-	@RequestMapping(value="/initAuthorBookData",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
-	public Map initAuthorBookData(HttpServletRequest request,HttpServletResponse response) {
-		Map resultMap=new HashMap();
-		Map dataMap=new HashMap();
-		String authorId=request.getParameter("authorId");
-		Book book=new Book();
-		book.setAuthorId(authorId);
-		List<Book> authorBookList=null;
+	@RequestMapping(value="/{bookNameEn}/{storeId}",method= {RequestMethod.GET})
+	public String init(HttpServletRequest request,ModelMap  model,@PathVariable String bookNameEn,@PathVariable String storeId) {
+		CompletableFuture<List<HashMap>> storeDataFuture=null;
+		CompletableFuture<List<HashMap>> storeFuture=null;
 		try {
-			authorBookList=bookService.queryBookInfo(book);
-			
-			dataMap.put("abl",authorBookList);
+			storeFuture=CompletableFuture.supplyAsync(()->{
+				return storeService.queryBookStore(bookNameEn,storeId);
+			});
+			storeDataFuture=CompletableFuture.supplyAsync(()->{
+				return storeService.queryBookStoreData(storeId);
+			});
+			CompletableFuture.allOf(storeFuture,storeDataFuture);
+			model.addAttribute("sdl",storeFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("sddl",storeDataFuture.get(30, TimeUnit.SECONDS));
 		}catch(Exception e) {
-			resultMap.put("errorCode", 10086);
 			e.printStackTrace();
 		}
-		resultMap.put("data", dataMap);
-		resultMap.put("errorCode", 200);
-		return resultMap;
+		Map mp=new HashMap();
+		mp.put("sdl", model.get("sdl"));
+		mp.put("sddl", model.get("sddl"));
+		Utils.saveHtml(configuration,request, "store\\"+bookNameEn+"\\"+storeId+"\\index", "store", mp);
+		return "store";
 		}
 
 }

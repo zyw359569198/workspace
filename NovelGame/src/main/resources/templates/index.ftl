@@ -9,10 +9,10 @@
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc">
 <meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.txt2.cc">
-<link rel="stylesheet" href="${request.contextPath }/css/index.css"/>
+<link rel="stylesheet" href="${request.contextPath}/css/index.css"/>
 <link rel="shortcut icon" href="/favicon-txt2.ico">
-<script type="text/javascript" src="${request.contextPath }/js/jquery.js"></script>
-<script type="text/javascript" src="${request.contextPath }/js/index.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/index.js"></script>
 </head>
 <body>
 <#include "main.ftl" >
@@ -59,8 +59,12 @@
       <li class="t"><span class="lx">类型</span><span class="sm">书名</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">时间</span></li>
       <#list bul as bookInfo>
       <li><span class="lx">[${bookInfo.cataName}]</span>
-      <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName}</a></span>
-      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${bookInfo.orderIndex}/">${bookInfo.storeName}</a></span>
+              <#if  bookInfo.bookName?length gt 9>
+              <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName?substring(0,9)}...</a></span>        
+        <#else>
+              <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName}</a></span>
+        </#if>
+      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${bookInfo.storeId}/">${bookInfo.storeName}</a></span>
       <span class="zz"><a target="_blank" href="/author/${bookInfo.authorNameEn}/">${bookInfo.authorName}</a></span>
       <#list bookInfo.createTime?split("-") as item>
       <#if item_index==1>
