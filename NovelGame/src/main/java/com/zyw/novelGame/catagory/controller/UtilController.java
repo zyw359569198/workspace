@@ -225,6 +225,12 @@ public class UtilController {
                                 	   store.setOrderIndex(count);
                                 	   storeService.insert(store);
                                 	   storeService.insertStoreData(storeData);
+                                	   if(count==liClass.size()||count==1) {
+                                		   Book record=new Book();
+                                		   record.setBookId(book.getBookId());
+                                		   record.setLastStoreId(curentStoreId);
+                                		   bookService.updateByBookID(record);
+                                	   }
                                 	   preStoreId=curentStoreId;
                                 	   if(count>MAX_TOPIC_NUMS) {
                                 		   break;

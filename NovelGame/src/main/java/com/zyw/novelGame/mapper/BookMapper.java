@@ -22,6 +22,8 @@ public interface BookMapper {
 
     int updateByPrimaryKey(Book record);
     
+    int updateByBookID(Book record);
+    
     List<Book> queryBook(@Param("count")int count,@Param("order")String order,@Param("isCompletion")int isCompletion);
         
     List<HashMap> queryBookRelationByCataNameEn(@Param("cataNameEn")String cataId,@Param("count")int count);

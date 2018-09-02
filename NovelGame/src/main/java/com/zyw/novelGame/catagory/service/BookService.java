@@ -20,6 +20,8 @@ public interface BookService {
     int insert(Book record);
     
     List<Book> queryBookByHits();
+    
+    int updateByBookID(Book record);
 
 
 }

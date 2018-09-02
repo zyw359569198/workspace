@@ -55,4 +55,9 @@ public class BookServiceImpl implements BookService{
 		return bookMapper.queryBookByHits();
 	}
 
+	@Override
+	public int updateByBookID(Book record) {
+		return bookMapper.updateByBookID(record);
+	}
+
 }
