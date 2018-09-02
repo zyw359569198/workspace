@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v12.08 (64 bit)
-MySQL - 8.0.12 : Database - noval
+SQLyog  v12.2.6 (64 bit)
+MySQL - 5.7.21-log : Database - noval
 *********************************************************************
 */
 
@@ -21,8 +21,8 @@ USE `noval`;
 DROP TABLE IF EXISTS `author`;
 
 CREATE TABLE `author` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `author_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `author_id` varchar(36) DEFAULT NULL,
   `author_name` varchar(100) DEFAULT NULL,
   `author_name_en` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -36,19 +36,20 @@ CREATE TABLE `author` (
 DROP TABLE IF EXISTS `book`;
 
 CREATE TABLE `book` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `book_id` varchar(36) DEFAULT NULL,
   `book_name` varchar(200) DEFAULT NULL,
   `book_name_en` varchar(200) DEFAULT NULL,
   `book_desc` varchar(500) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   `update_time` date DEFAULT NULL,
   `is_completion` int(11) DEFAULT '1',
-  `author_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `author_id` varchar(36) DEFAULT NULL,
   `hits` bigint(20) DEFAULT '0',
   `image_url` varchar(200) DEFAULT NULL,
-  `author_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `author_name` varchar(100) DEFAULT NULL,
   `author_name_en` varchar(100) DEFAULT NULL,
+  `last_store_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -60,9 +61,9 @@ CREATE TABLE `book` (
 DROP TABLE IF EXISTS `cata_book_relation`;
 
 CREATE TABLE `cata_book_relation` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `cata_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `cata_id` varchar(36) DEFAULT NULL,
+  `book_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -74,8 +75,8 @@ CREATE TABLE `cata_book_relation` (
 DROP TABLE IF EXISTS `catagory`;
 
 CREATE TABLE `catagory` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `cata_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `cata_id` varchar(36) DEFAULT NULL,
   `cata_name` varchar(100) DEFAULT NULL,
   `cata_name_en` varchar(100) DEFAULT NULL,
   `order_desc` int(4) DEFAULT NULL,
@@ -85,38 +86,53 @@ CREATE TABLE `catagory` (
 
 /*Data for the table `catagory` */
 
-insert  into `catagory`(`id`,`cata_id`,`cata_name`,`cata_name_en`,`order_desc`) values ('0','0','首页','shouye',1),('1','1','都市','dushi',2),('10','10','其它','qita',11),('2','2','玄幻','xuanhuan',3),('3','3','武侠','wuxia',4),('4','4','言情','yanqing',5),('5','5','穿越','chuanyue',6),('6','6','网游','wangyou',7),('7','7','恐怖','kongbu',8),('8','8','科幻','kehuan',9),('9','9','修真','xiuzhen',10);
+insert  into `catagory`(`id`,`cata_id`,`cata_name`,`cata_name_en`,`order_desc`) values 
+('0','0','首页','shouye',1),
+('1','1','都市','dushi',2),
+('10','10','其它','qita',11),
+('2','2','玄幻','xuanhuan',3),
+('3','3','武侠','wuxia',4),
+('4','4','言情','yanqing',5),
+('5','5','穿越','chuanyue',6),
+('6','6','网游','wangyou',7),
+('7','7','恐怖','kongbu',8),
+('8','8','科幻','kehuan',9),
+('9','9','修真','xiuzhen',10);
 
 /*Table structure for table `model` */
 
 DROP TABLE IF EXISTS `model`;
 
 CREATE TABLE `model` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `model_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `model_id` varchar(36) DEFAULT NULL,
   `model_name` varchar(200) DEFAULT NULL,
   `model_name_en` varchar(100) DEFAULT NULL,
   `order_desc` int(4) DEFAULT NULL,
-  `model_url` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `model` */
 
-insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`,`model_url`) values ('1','1','新书','xinshu',1,'/html/hot.html'),('2','2','推荐','tuijian',2,'/html/recommend.html'),('3','3','完本','wanben',3,'/html/full.html'),('4','4','排行','paihang',4,'/html/top.html'),('5','5','作者','zuozhe',5,'/html/author.html');
+insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`) values 
+('1','1','新书','hot',1),
+('2','2','推荐','recommend',2),
+('3','3','完本','full',3),
+('4','4','排行','top',4),
+('5','5','作者','authors',5);
 
 /*Table structure for table `store` */
 
 DROP TABLE IF EXISTS `store`;
 
 CREATE TABLE `store` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `book_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(36) NOT NULL,
+  `book_id` varchar(36) DEFAULT NULL,
+  `store_id` varchar(36) DEFAULT NULL,
   `store_name` varchar(200) DEFAULT NULL,
   `store_url` varchar(200) DEFAULT NULL,
-  `pre_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `next_store_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `pre_store_id` varchar(36) DEFAULT NULL,
+  `next_store_id` varchar(36) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   `order_index` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -131,9 +147,9 @@ CREATE TABLE `store` (
 DROP TABLE IF EXISTS `store_data`;
 
 CREATE TABLE `store_data` (
-  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `id` varchar(36) NOT NULL,
   `store_id` varchar(36) DEFAULT NULL,
-  `store_content` text,
+  `store_content` longtext,
   PRIMARY KEY (`id`),
   KEY `index_store_id` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

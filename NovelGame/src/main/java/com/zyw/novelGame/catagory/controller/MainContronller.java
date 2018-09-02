@@ -58,7 +58,7 @@ public class MainContronller {
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
 			catagoryBookRelationFuture=CompletableFuture.supplyAsync(()->{
-				return catagoryService.queryCatagory(new Catagory());
+				return catagoryService.queryCatagory(null);
 			}).thenApplyAsync(list->{
 				List<Object> li=new ArrayList<Object>();
 					list.stream().forEach(catagory->{
@@ -69,13 +69,13 @@ public class MainContronller {
 				return li;
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookByHits(6);
+				return bookService.queryBook(6,null,-1);
 			});
 			bookCreateTimeFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookByCreateTime();
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookUpdateInfo(null);
+				return bookService.queryBookUpdateInfo(null,"a.create_time",30,-1);
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();

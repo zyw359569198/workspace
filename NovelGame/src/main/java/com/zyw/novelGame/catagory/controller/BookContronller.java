@@ -69,7 +69,7 @@ public class BookContronller {
 				return storeService.queryBookStore(bookNameEn,null);
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookByHits(8);
+				return bookService.queryBook(8,"hits",-1);
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();
@@ -116,7 +116,7 @@ public class BookContronller {
 		Map mp=new HashMap();
 		mp.put("sdl", model.get("sdl"));
 		mp.put("sddl", model.get("sddl"));
-		Utils.saveHtml(configuration,request, "store\\"+bookNameEn+"\\"+storeId+"\\index", "store", mp);
+		Utils.saveHtml(configuration,request, "book\\"+bookNameEn+"\\"+storeId+"\\index", "store", mp);
 		return "store";
 		}
 

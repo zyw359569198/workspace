@@ -28,6 +28,8 @@ public class Book {
     private String authorName;
     
     private String authorNameEn;
+    
+    private String lastStoreId;
 
     public String getId() {
         return id;
@@ -131,5 +133,13 @@ public class Book {
 
     public void setAuthorNameEn(String authorNameEn) {
         this.authorNameEn = authorNameEn == null ? null : authorNameEn.trim();
+    }
+    
+    public String getLastStoreId() {
+        return lastStoreId;
+    }
+
+    public void setLastStoreId(String lastStoreId) {
+        this.lastStoreId = lastStoreId == null ? null : lastStoreId.trim();
     }
 }

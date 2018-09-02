@@ -7,10 +7,9 @@
     <result column="model_name" jdbcType="VARCHAR" property="modelName" />
     <result column="model_name_en" jdbcType="VARCHAR" property="modelNameEn" />
     <result column="order_desc" jdbcType="INTEGER" property="orderDesc" />
-    <result column="model_url" jdbcType="VARCHAR" property="modelUrl" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, model_id, model_name, model_name_en, order_desc, model_url
+    id, model_id, model_name, model_name_en, order_desc
   </sql>
       <select id="queryModel"  resultMap="BaseResultMap">
     select 
@@ -29,10 +28,10 @@
   </delete>
   <insert id="insert" parameterType="com.zyw.novelGame.model.Model">
     insert into model (id, model_id, model_name, 
-      model_name_en, order_desc, model_url
+      model_name_en, order_desc
       )
     values (#{id,jdbcType=VARCHAR}, #{modelId,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, 
-      #{modelNameEn,jdbcType=VARCHAR}, #{orderDesc,jdbcType=INTEGER}, #{modelUrl,jdbcType=VARCHAR}
+      #{modelNameEn,jdbcType=VARCHAR}, #{orderDesc,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Model">
@@ -53,9 +52,6 @@
       <if test="orderDesc != null">
         order_desc,
       </if>
-      <if test="modelUrl != null">
-        model_url,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -72,9 +68,6 @@
       </if>
       <if test="orderDesc != null">
         #{orderDesc,jdbcType=INTEGER},
-      </if>
-      <if test="modelUrl != null">
-        #{modelUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -93,9 +86,6 @@
       <if test="orderDesc != null">
         order_desc = #{orderDesc,jdbcType=INTEGER},
       </if>
-      <if test="modelUrl != null">
-        model_url = #{modelUrl,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -104,8 +94,7 @@
     set model_id = #{modelId,jdbcType=VARCHAR},
       model_name = #{modelName,jdbcType=VARCHAR},
       model_name_en = #{modelNameEn,jdbcType=VARCHAR},
-      order_desc = #{orderDesc,jdbcType=INTEGER},
-      model_url = #{modelUrl,jdbcType=VARCHAR}
+      order_desc = #{orderDesc,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -2,27 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="BookStoreResultMap" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="true" key="wholeword"/>
 		<list key="findhistory">
-			<item value="BookStoreResultMap"/>
 			<item value="https://txt2.cc"/>
+			<item value="isCompletion"/>
+			<item value="BookStoreResultMap"/>
 			<item value="orderIndex"/>
 			<item value="orderDesc"/>
 			<item value="order"/>
 			<item value="queryBookInfo"/>
 			<item value="initAuthorBookData"/>
-			<item value="BookInfoResultMap"/>
-			<item value="queryBookByHits"/>
-			<item value="loadStoreData"/>
-			<item value="loadBookInfoData"/>
-			<item value="queryBookStore"/>
-			<item value="size"/>
-			<item value="BookUpdateInfoResultMap"/>
-			<item value="../static/images/nocover.jpg"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -33,14 +26,13 @@
 			<item value="html/catagory"/>
 			<item value="html/book"/>
 			<item value="html/author"/>
-			<item value="/images/nocover.jpg"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="1173" key="DIALOG_X_ORIGIN"/>
+		<item value="1074" key="DIALOG_X_ORIGIN"/>
 		<item value="170" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

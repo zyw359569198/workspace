@@ -11,8 +11,6 @@ public class Model {
 
     private Integer orderDesc;
 
-    private String modelUrl;
-
     public String getId() {
         return id;
     }
@@ -53,11 +51,4 @@ public class Model {
         this.orderDesc = orderDesc;
     }
 
-    public String getModelUrl() {
-        return modelUrl;
-    }
-
-    public void setModelUrl(String modelUrl) {
-        this.modelUrl = modelUrl == null ? null : modelUrl.trim();
-    }
 }

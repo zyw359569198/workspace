@@ -91,7 +91,7 @@ public class CatagoryContronller {
 				return bookService.queryBookRelationByCataNameEn(cataNameEn,6);
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookUpdateInfo(cataNameEn);
+				return bookService.queryBookUpdateInfo(cataNameEn,"a.create_time",30,-1);
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();

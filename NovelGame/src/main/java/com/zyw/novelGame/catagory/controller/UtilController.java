@@ -1,6 +1,9 @@
 package com.zyw.novelGame.catagory.controller;
 
+import java.io.Closeable;
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +14,10 @@ import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import javax.security.cert.CertificateException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,8 +26,14 @@ import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -52,9 +65,9 @@ import com.zyw.utils.PingyingUtil;
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	
-	private static final int MAX_BOOK_NUMS=6;
+	private static final int MAX_BOOK_NUMS=8;
 	
-	private static final int MAX_TOPIC_NUMS=10;
+	private static final int MAX_TOPIC_NUMS=10000000;
 
 	
 	@Autowired
@@ -77,10 +90,20 @@ public class UtilController {
 	@ResponseBody
 	public Map init(HttpServletRequest request,HttpServletResponse response1) {
 		Map resultMap=new HashMap();
-		Map dataMap=new HashMap();
-		for(int i=0;i<8;i++) {
-		CloseableHttpClient httpclient = HttpClients.createDefault();  
+		Map dataMap=new HashMap();	
+		CloseableHttpClient  httpclient = null;
+		for(int i=0;i<10;i++) {
         try {  
+        	//采用绕过验证的方式处理https请求  
+			SSLContext sslcontext = createIgnoreVerifySSL();
+			//设置协议http和https对应的处理socket链接工厂的对象  
+	        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()  
+	            .register("http", PlainConnectionSocketFactory.INSTANCE)  
+	            .register("https", new SSLConnectionSocketFactory(sslcontext))  
+	            .build();  
+	        PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);  
+	        HttpClients.custom().setConnectionManager(connManager);
+    		httpclient =  HttpClients.custom().setConnectionManager(connManager).build();
             // 创建httpget.    
             HttpGet httpget = new HttpGet("https://txt2.cc/map/"+i+"/");  
             System.out.println("executing request " + httpget.getURI());  
@@ -111,6 +134,7 @@ public class UtilController {
                     	   Elements h1=doc.getElementsByTag("h1");
                     	   book.setBookName(h1.text());
                     	   book.setBookNameEn(PingyingUtil.ToPinyin(h1.text()));
+                    	   book.setHits(0L);
                     	   Elements ems=doc.getElementsByTag("em");
                     	   for(Element em:ems) {
                     		   if(em.text().contains("作者")) {
@@ -166,10 +190,10 @@ public class UtilController {
                     		       String preStoreId="";
                     		       String nextStoreId="";
                     		       String curentStoreId="";
-                    		       long count=0;
+                    		       long count=1;
                     		       for(Element element:liClass) {
                     		    	   Thread.sleep(200);
-                    		    	   if(count==0) {
+                    		    	   if(count==1) {
                     		    		   preStoreId="0";
                         		    	   curentStoreId=UUID.randomUUID().toString();
                     		    	   }else {
@@ -231,10 +255,16 @@ public class UtilController {
             e.printStackTrace();  
         } catch (IOException e) {  
             e.printStackTrace();  
-        } finally {  
+        } catch (KeyManagementException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (NoSuchAlgorithmException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} finally {  
             // 关闭连接,释放资源    
             try {  
-                httpclient.close();  
+				httpclient.close();  
             } catch (IOException e) {  
                 e.printStackTrace();  
             }  
@@ -244,5 +274,39 @@ public class UtilController {
 		resultMap.put("errorCode", 200);
 		return resultMap;
 		}
+	
+	/** 
+	* 绕过验证 
+	*   
+	* @return 
+	* @throws NoSuchAlgorithmException  
+	* @throws KeyManagementException  
+	*/  
+	public static SSLContext createIgnoreVerifySSL() throws NoSuchAlgorithmException, KeyManagementException {  
+	        SSLContext sc = SSLContext.getInstance("SSLv3");  
+
+	        // 实现一个X509TrustManager接口，用于绕过验证，不用修改里面的方法  
+	        X509TrustManager trustManager = new X509TrustManager() {  
+	            @Override  
+	            public void checkClientTrusted(  
+	                    java.security.cert.X509Certificate[] paramArrayOfX509Certificate,  
+	                    String paramString) {  
+	            }  
+
+	            @Override  
+	            public void checkServerTrusted(  
+	                    java.security.cert.X509Certificate[] paramArrayOfX509Certificate,  
+	                    String paramString) {  
+	            }  
+
+	            @Override  
+	            public java.security.cert.X509Certificate[] getAcceptedIssuers() {  
+	                return null;  
+	            }  
+	        };  
+
+	        sc.init(null, new TrustManager[] { trustManager }, null);  
+	        return sc;  
+	    }
 
 }

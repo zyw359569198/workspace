@@ -21,8 +21,8 @@
 <#if i==0>
 <div class="place">当前位置：<a href="/">txt2小说网</a> > <h2>${book.cataName}</h2></div>
 <div class="fengtui">
-<#assign i=i+1>
 </#if>
+<#assign i=i+1>
     <dl>
       <dt><a href="/book/${book.bookNameEn}/"><img src="${request.contextPath }${book.imageUrl}" alt="${book.bookName}" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt=""/></a></dt>
        <dd>
@@ -41,11 +41,28 @@
      </#if>
     </div>
 <div class="booklist">
-    <h1>穿越</h1>
+<#assign j=0>
+<#list bul as store>
+<#if j==0>
+    <h1>${store.cataName}</h1>
+    </#if>
+    <#assign j=j+1>
+    </#list>
     <ul>
         <li class="t"><span class="sm">小说名称</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">更新</span><span class="zt">状态</span></li>
         <#list bul as store>
-        <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${store.storeId}/">${store.storeName}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span><span class="sj">08/07</span><span class="zt">连载中</span></li>
+        <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${store.storeId}/">${store.storeName}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
+        <#list store.createTime?split("-") as item>
+      <#if item_index==1>
+      <span class="sj">${item} <#elseif item_index==2>/${item}</span>
+      </#if>
+      </#list>
+      <#if store.isCompletion==0>
+      <span class="zt">已完结</span>
+      <#else>
+      <span class="zt">连载中</span>
+      </#if>
+        </li>
  		</#list>
  </ul>     
 </div>
