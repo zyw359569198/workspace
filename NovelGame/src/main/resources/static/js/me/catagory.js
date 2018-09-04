@@ -1,38 +1,45 @@
-function iframeHeight(){
-             // obj 这里是要获取父页面的iframe对象
-                 var obj = parent.document.getElementById('rightcontent');
-             // 调整父页面的高度为此页面的高度
-                 obj.height = this.document.body.scrollHeight+50;
-             }
-             
-function GetQueryString(name)
-    {
-         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-         var r = window.location.search.substr(1).match(reg);
-         if(r!=null)return  unescape(r[2]); return null;
-    }
-
 window.onload =function(){
-	$("div.wrapper",parent.document).show();
-	$("div.nav",parent.document).show();
-	var catagoryId=GetQueryString("catagoryId");
-	var catagoryName=decodeURI(GetQueryString("catagoryName"));
-	$("#placeId").text(catagoryName);
+$.jqPaginator('#pagelink',{
+    totalPages: Math.ceil(parseInt($("div.pagelink:first").attr("value"))/24),
+    visiblePages: 24,
+    currentPage: 1,
+    first: '<a class="" href="javascript:;">首页</a>',
+    prev: '<a class="" href="javascript:;">上一页</a>',
+    next: '<a class="" href="javascript:;">下一页</a>',
+    last: '<a class="" href="javascript:;">末页</a>',
+    page: '<a class="" href="javascript:;">{{page}}</a>',
+    onPageChange: function (num, type) {
+    	if(type=='init'){
+    	}else{
+    		  pageSplit($("div.pagelink:first").attr("name"),24,num);
+    	}
+    	    $("div.pagelink:last").empty();
+    	   var rowLi=document.createElement("li");
+			rowLi.className="rows";
+		    rowLi.innerHTML="共<b>"+parseInt($("div.pagelink:first").attr("value"))+"</b>条记录&nbsp;第<b>"+num+"</b>页/共<b>"+(Math.ceil(parseInt($("div.pagelink:first").attr("value"))/24))+"</b>页";
+			$("div.pagelink:last").append(rowLi);
+    }
+});
+
+}
+
+
+
+function pageSplit(cataNameEn,pageSize,pageNum){
 		$.ajax({
 		type: 'GET',
-		url: "/book/queryBookByHits?cataId="+catagoryId,
+		url: "/pageApi/catagory/"+cataNameEn+"/"+pageSize+"/"+pageNum,
 		contentType: "application/json;cherset=utf-8",
 		dataType: "json",
 		asynchronous: true,
 		success: function(data){
-					//$("ul.nav_l").empty()
-					loadBookHitsData(data.data.bcl);
-					loadBookUpdateInfoData(data.data.bul,catagoryName);
-					iframeHeight();
+					$("div.booklist").empty()
+					loadBookUpdateInfoData(data.data.bul.list);
 		}
 	});
 }
-function loadBookUpdateInfoData(bookUpdateInfoData,catagoryName){
+
+function loadBookUpdateInfoData(bookUpdateInfoData){
 		var rowH1=document.createElement("h1");
 		var rowUl=document.createElement("ul");
 		var rowFixedLi=document.createElement("li");
@@ -52,7 +59,7 @@ function loadBookUpdateInfoData(bookUpdateInfoData,catagoryName){
 		rowFixedLi.appendChild(rowSpan3);
 		rowFixedLi.appendChild(rowSpan4);
 		rowFixedLi.appendChild(rowSpan5);
-		rowH1.innerHTML=catagoryName;
+		rowH1.innerHTML=bookUpdateInfoData[0].cataName;
 		rowUl.appendChild(rowFixedLi);
 	$.each(bookUpdateInfoData,function(index,n){
 		var rowLi=document.createElement("li");
@@ -62,9 +69,9 @@ function loadBookUpdateInfoData(bookUpdateInfoData,catagoryName){
 		var rowSpan4=document.createElement("span");
 		var rowSpan5=document.createElement("span");
 		var arrayTime=bookUpdateInfoData[index].createTime.split("-");
-		rowSpan1.className="sm";rowSpan2.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookUpdateInfoData[index].bookId+"'  name='"+bookUpdateInfoData[index].bookName+"'><b>"+bookUpdateInfoData[index].bookName+"</b></a>";
-		rowSpan2.className="zj";rowSpan3.innerHTML="&nbsp;<a href='javascript:void(0);'  onclick='parent.openHtml(4,this.id,this.name)'  id='"+bookUpdateInfoData[index].id+"'  name='"+bookUpdateInfoData[index].storeName+"'>"+bookUpdateInfoData[index].storeName+"</a>";
-		rowSpan3.className="zz";rowSpan4.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(3,this.id,this.name)'  id='"+bookUpdateInfoData[index].authorId+"'  name='"+bookUpdateInfoData[index].authorName+"'>"+bookUpdateInfoData[index].authorName+"</a>";
+		rowSpan1.className="sm";rowSpan2.innerHTML="<a href='/book/"+bookUpdateInfoData[index].bookNameEn+"'  ><b>"+bookUpdateInfoData[index].bookName+"</b></a>";
+		rowSpan2.className="zj";rowSpan3.innerHTML="&nbsp;<a href='/book/"+bookUpdateInfoData[index].bookNameEn+"/"+bookUpdateInfoData[index].storeId+"/'  >"+bookUpdateInfoData[index].storeName+"</a>";
+		rowSpan3.className="zz";rowSpan4.innerHTML="<a href='/author/"+bookUpdateInfoData[index].authorNameEn+"/'  >"+bookUpdateInfoData[index].authorName+"</a>";
 		rowSpan4.className="sj";rowSpan5.innerHTML=arrayTime[1]+"/"+arrayTime[2];
 		rowSpan5.className="zt";rowSpan1.innerHTML=bookUpdateInfoData[index].isCompletion==0?"已完结":"连载中";
 		rowLi.appendChild(rowSpan1);
@@ -76,25 +83,4 @@ function loadBookUpdateInfoData(bookUpdateInfoData,catagoryName){
 });
 		$("div.booklist").append(rowH1);
 		$("div.booklist").append(rowUl);
-}
-function loadBookHitsData(bookData){
-	$.each(bookData,function(index,n){
-		//alert(catagoryData[index].cataNameEn)
-		var rowDl=document.createElement("dl");
-		var rowDt=document.createElement("dt");
-		var rowDd=document.createElement("dd");
-		var rowH3=document.createElement("h3");
-		var rowP=document.createElement("p");
-		var rowSpan=document.createElement("span");
-		rowDt.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookData[index].bookId+"'  name='"+bookData[index].bookName+"'><img src='"+bookData[index].imageUrl+"' alt='"+bookData[index].bookName+"' onerror=\"this.src='/images/nocover.jpg/'\" alt=''/></a>";
-		rowH3.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookData[index].bookId+"'  name='"+bookData[index].bookName+"'>"+bookData[index].bookName+"</a>";
-		rowSpan.innerHTML="<a target='_blank' href='javascript:void(0);'  onclick='parent.openHtml(3,this.id,this.name)'  id='"+bookData[index].authorId+"'  name='"+bookData[index].authorName+"'>"+bookData[index].authorName+"</a>";
-		rowP.innerHTML="&emsp;&emsp;"+bookData[index].bookDesc;
-		rowDd.appendChild(rowH3);
-		rowDd.appendChild(rowSpan);
-		rowDd.appendChild(rowP);
-		rowDl.appendChild(rowDt);
-		rowDl.appendChild(rowDd);
-		$("div.fengtui").append(rowDl);
-});
 }

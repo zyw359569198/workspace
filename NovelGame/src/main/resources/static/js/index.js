@@ -1139,7 +1139,7 @@ function gotop() {
     };
     a.init()
 } (function() {
-    var c = document.createElement("script");
+/*    var c = document.createElement("script");
     var b = window.location.protocol.split(":")[0];
     if (b === "https") {
         c.src = "https://zz.bdstatic.com/linksubmit/push.js"
@@ -1147,5 +1147,5 @@ function gotop() {
         c.src = "http://push.zhanzhang.baidu.com/push.js"
     }
     var a = document.getElementsByTagName("script")[0];
-    a.parentNode.insertBefore(c, a)
+    a.parentNode.insertBefore(c, a)*/
 })();

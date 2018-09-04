@@ -7,7 +7,7 @@
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
-    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/noval?useSSL=false" driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/noval?useSSL=false" driverClass="com.mysql.jdbc.Driver" password="cloudos" userId="root" />
     <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>

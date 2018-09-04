@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.zyw.novelGame.mapper.AuthorMapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.impl.AuthorServiceImpl"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Author"/>
-<fullyQualifiedTypeName name="java.util.UUID"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.impl.BookServiceImpl"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.BookService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.AuthorService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CatagoryService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Catagory"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.CataBookRelation"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.mapper.CataBookRelationMapper"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.CataBookRelationService"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.model.Store"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.catagory.service.StoreService"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
@@ -60,4 +47,17 @@
 <fullyQualifiedTypeName name="org.apache.http.conn.ssl.SSLConnectionSocketFactory"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.conn.PoolingHttpClientConnectionManager"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.impl.BookServiceImpl"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.impl.AuthorServiceImpl"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.AuthorService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.CataBookRelationService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.BookService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.CatagoryService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.StoreService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.ModelService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.coreApi.controller.PageApiController"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="com.github.pagehelper.PageInfo"/>
+<fullyQualifiedTypeName name="com.github.pagehelper.PageHelper"/>
 </qualifiedTypeNameHistroy>

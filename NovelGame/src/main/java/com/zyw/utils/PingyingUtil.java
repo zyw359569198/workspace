@@ -13,8 +13,8 @@ public class PingyingUtil {
 		      * @param args
 		      */
 		     public static void main(String[] args) {
-		         System.out.println(ToFirstChar("国民CP（娱乐圈）").toUpperCase()); //转为首字母大写
-		         System.out.println(ToPinyin("国民CP（娱乐圈）")); 
+		         System.out.println(ToFirstChar("上将大人，真会撩！").toUpperCase()); //转为首字母大写
+		         System.out.println(ToPinyin("上将大人，真会撩！")); 
 		     }
 		     /**
 		      * 获取字符串拼音的第一个字母
@@ -22,7 +22,6 @@ public class PingyingUtil {
 		      * @return
 		      */
 		     public static String ToFirstChar(String chinese){         
-		    	 chinese=formatString(chinese);
 		         String pinyinStr = "";  
 		         char[] newChar = chinese.toCharArray();  //转为单个字符
 		         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat(); 
@@ -32,7 +31,9 @@ public class PingyingUtil {
 		         for (int i = 0; i < newChar.length; i++) {  
 		             if (newChar[i] > 128) {  
 		                 try {  
-		                     pinyinStr += PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)[0].charAt(0);  
+		                	 if(null!=PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)) {
+			                     pinyinStr += PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)[0];  
+		                	 }
 		                 } catch (BadHanyuPinyinOutputFormatCombination e) {  
 		                     e.printStackTrace();  
 		                 }  
@@ -49,7 +50,6 @@ public class PingyingUtil {
 		      * @return
 		      */
 		     public static String ToPinyin(String chinese){
-		    	 chinese=formatString(chinese);
 		         String pinyinStr = "";  
 		         char[] newChar = chinese.toCharArray();  
 		         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();  
@@ -59,7 +59,9 @@ public class PingyingUtil {
 		         for (int i = 0; i < newChar.length; i++) {  
 		             if (newChar[i] > 128) {  
 		                 try {  
-		                     pinyinStr += PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)[0];  
+		                	 if(null!=PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)) {
+			                     pinyinStr += PinyinHelper.toHanyuPinyinStringArray(newChar[i], defaultFormat)[0];  
+		                	 }
 		                 } catch (BadHanyuPinyinOutputFormatCombination e) {  
 		                     e.printStackTrace();  
 		                 }  
@@ -69,9 +71,5 @@ public class PingyingUtil {
 		         }  
 		         return pinyinStr;  
 		     }  
-		     
-		     public static String formatString(String str) {
-		    	return str.replace("）", "").replace("（", "").replace("，", "").replaceAll("。", "").replaceAll("：", "").replaceAll(":", "").replaceAll("-", "").replaceAll("<", "").replaceAll("《", "").replaceAll(">", "").replaceAll("》", "");
-		     }
 		 }
 

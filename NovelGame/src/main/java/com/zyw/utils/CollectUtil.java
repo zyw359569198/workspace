@@ -19,10 +19,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.zyw.novelGame.catagory.service.AuthorService;
-import com.zyw.novelGame.catagory.service.BookService;
-import com.zyw.novelGame.catagory.service.impl.AuthorServiceImpl;
-import com.zyw.novelGame.catagory.service.impl.BookServiceImpl;
+import com.zyw.novelGame.bussiness.service.AuthorService;
+import com.zyw.novelGame.bussiness.service.BookService;
+import com.zyw.novelGame.bussiness.service.impl.AuthorServiceImpl;
+import com.zyw.novelGame.bussiness.service.impl.BookServiceImpl;
 import com.zyw.novelGame.model.Author;
 import com.zyw.novelGame.model.Book;
 

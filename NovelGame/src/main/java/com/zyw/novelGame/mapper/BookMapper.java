@@ -29,6 +29,6 @@ public interface BookMapper {
     List<HashMap> queryBookRelationByCataNameEn(@Param("cataNameEn")String cataId,@Param("count")int count);
     
     List<HashMap> queryBookByCreateTime();
-    List<HashMap> queryBookUpdateInfo(@Param("cataNameEn")String cataNameEn,@Param("order") String order,@Param("count")int count,@Param("isCompletion")int isCompletion);
+    List<HashMap> queryBookUpdateInfo(@Param("cataNameEn")String cataNameEn,@Param("order") String order,@Param("isCompletion")int isCompletion);
     List<HashMap> queryBookInfo(@Param("authorName")String authorName,@Param("authorNameEn")String authorNameEn,@Param("bookName")String bookName,@Param("bookNameEn")String bookNameEn);
 }

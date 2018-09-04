@@ -109,7 +109,9 @@ a:hover{color:#336600;}
 /*翻页*/
 .pagelink{clear:both;margin-bottom:10px;text-align:center;}
 .pagelink a{padding:0px 8px;margin:0px 5px;height:23px;line-height:23px;color:#666;display:inline-block;border:1px solid #ccc;vertical-align:middle;}
+.pagelink a:visited{color:#49a9a9}
 .pagelink a:hover{background:#49a9a9;color:#fff;border:1px solid #208181;text-decoration:none;}
+.pagelink a.active{background:#49a9a9;color:#fff}
 .pagelink em{font-style:normal;padding-right:15px;font-weight:bold;}
 .pagelink strong{padding:0 5px; }
 .pagelink input{border:1px solid #ccc;line-height:25px;height:25px;vertical-align:middle;}

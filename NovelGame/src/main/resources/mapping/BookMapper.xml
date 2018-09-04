@@ -101,15 +101,15 @@ WHERE d.book_id = b.book_id
   AND b.is_completion =#{isCompletion,jdbcType=INTEGER}
   </if>
   <if test="order == 'a.create_time'">
-    ORDER BY  a.create_time  DESC LIMIT  #{count,jdbcType=INTEGER} OFFSET 0;
+    ORDER BY  a.create_time  DESC
   </if>
   <if test="order == 'b.create_time'">
-    ORDER BY  b.create_time  DESC LIMIT  #{count,jdbcType=INTEGER} OFFSET 0;
+    ORDER BY  b.create_time  DESC
   </if>
   </select>
    <select id="queryBookRelationByCataNameEn"  resultMap="BookRelationResultMap">
    SELECT b.cata_id,b.cata_name,b.cata_name_en,a.book_id,a.book_name,a.book_name_en,a.image_url,a.book_desc,a.author_id,a.author_name,a.author_name_en FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_name_en=#{cataNameEn,jdbcType=VARCHAR}
-     ORDER BY a.hits DESC LIMIT #{count,jdbcType=INTEGER} OFFSET 0;
+     ORDER BY a.hits DESC LIMIT #{count,jdbcType=INTEGER} OFFSET 0
   </select>
        <select id="queryBookByCreateTime" resultMap="BookRelationResultMap">
        SELECT b.cata_id,b.cata_name,b.cata_name_en,a.book_id,a.book_name,a.image_url,a.book_name_en,a.book_desc,a.author_id,a.author_name,a.author_name_en FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  
