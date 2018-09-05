@@ -16,7 +16,7 @@
      <a href="" style="background: url(${request.contextPath}/images/logo-txt2.png) no-repeat;">txt2小说网</a>
   </div>
   <div class="seach">
-      <form action="/search/" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
+      <form action="/model/search/" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
         <input type="text" autocomplete="off" name="keyword" class="searchinput" placeholder="请输入小说名和作者名来搜索，千万别输错字了！">
         <input type="submit" value="搜 索" class="searchgo">
       </form>

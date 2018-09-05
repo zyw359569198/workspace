@@ -136,7 +136,7 @@ WHERE d.book_id = b.book_id
   </select>
   
 <select id="queryBookByHits" resultMap="BaseResultMap">
-    SELECT * FROM (SELECT a.author_name,a.author_name_en,sum(hits) AS hits,a.book_name,a.book_name_en FROM book a GROUP BY a.author_name_en) c  ORDER BY hits desc limit 20 offset 0
+    SELECT * FROM (SELECT a.author_name,a.author_name_en,sum(hits) AS hits,a.book_name,a.book_name_en FROM book a GROUP BY a.author_name_en) c  ORDER BY hits desc 
 </select>
   
   
@@ -145,6 +145,11 @@ WHERE d.book_id = b.book_id
     a.id, a.book_id, book_name, book_name_en, book_desc, a.create_time, a.update_time, is_completion, 
     author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en  
     FROM book a,cata_book_relation b,catagory c WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id  
+    <choose>
+      <when test='bookName != null and authorName != null'>
+      	and (a.book_name = #{bookName,jdbcType=VARCHAR} or a.author_name = #{authorName,jdbcType=VARCHAR}) 
+      </when>
+       <otherwise>
       <if test="bookName != null">
         and a.book_name = #{bookName,jdbcType=VARCHAR}
       </if>
@@ -157,6 +162,8 @@ WHERE d.book_id = b.book_id
       <if test="authorNameEn != null">
         and a.author_name_en = #{authorNameEn,jdbcType=VARCHAR}
       </if>
+       </otherwise>
+      </choose>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

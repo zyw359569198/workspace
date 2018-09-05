@@ -36,7 +36,6 @@ public class PageApiController {
 	private BookService bookService;
 	
 	@RequestMapping(value="/catagory/{cataNameEn}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
 	public Map catagorySplitPage(HttpServletRequest request,HttpServletResponse response,@PathVariable String cataNameEn,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
@@ -55,7 +54,7 @@ public class PageApiController {
 		
 	}
 	
-	@RequestMapping(value="/hot/{pageSize}/{pageNum}",method= {RequestMethod.GET})
+	@RequestMapping(value="/hot/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
 	public Map hotSplitPage(HttpServletRequest request,HttpServletResponse response,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();
@@ -72,5 +71,80 @@ public class PageApiController {
 		resultMap.put("errorCode", 200);
 		return resultMap;
 	}
+	
+	@RequestMapping(value="/recommend/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map recommend(HttpServletRequest request,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+			PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+			bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1));
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+	}
+	
+	@RequestMapping(value="/full/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map full(HttpServletRequest request,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+			PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?20:pageSize, true);
+			bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0));
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+	}
+	
+	@RequestMapping(value="/authors/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map authors(HttpServletRequest request,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<Book> book=null;
+		try {
+			PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?20:pageSize, true);
+			book=new PageInfo<Book>(bookService.queryBookByHits());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bjl", book);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+	}
+	
+	@RequestMapping(value="/author/{authorNameEn}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map initAuthorBookData(HttpServletRequest request,ModelMap  model,@PathVariable String  authorNameEn,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap>  authorBook=null;
+		try {
+			PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?10:pageSize, true);
+			authorBook=new PageInfo<HashMap>(bookService.queryBookInfo(null,authorNameEn,null,null));
+		}catch(Exception e) {
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("abl", authorBook);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		}
 
 }

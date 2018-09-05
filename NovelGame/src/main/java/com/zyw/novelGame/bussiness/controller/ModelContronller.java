@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -94,7 +95,7 @@ public class ModelContronller {
 		CompletableFuture<List<Book>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
-		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
+		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBook(6,"hits",-1);
@@ -108,7 +109,7 @@ public class ModelContronller {
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
 				PageHelper.startPage(1, 24, true);
-				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1))).getList();
+				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1));
 			});
 			CompletableFuture.allOf(bookFuture,modelFuture,catagoryFuture,bookUpdateInfoFuture);
 			model.addAttribute("bil",bookFuture.get(30, TimeUnit.SECONDS));
@@ -133,7 +134,7 @@ public class ModelContronller {
 		CompletableFuture<List<Book>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
-		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
+		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBook(6,"create_time",0);
@@ -147,7 +148,7 @@ public class ModelContronller {
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
 				PageHelper.startPage(1, 20, true);
-				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0))).getList();
+				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0));
 			});
 			CompletableFuture.allOf(bookFuture,modelFuture,catagoryFuture,bookUpdateInfoFuture);
 			model.addAttribute("bil",bookFuture.get(30, TimeUnit.SECONDS));
@@ -170,12 +171,13 @@ public class ModelContronller {
 	
 	@RequestMapping(value="/authors",method= {RequestMethod.GET})
 	public String authors(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<Book>> bookFuture=null;
+		CompletableFuture<PageInfo<Book>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookByHits();
+				PageHelper.startPage(1,20, true);
+				return new PageInfo<Book>(bookService.queryBookByHits());
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
@@ -239,5 +241,38 @@ public class ModelContronller {
 		Utils.saveHtml(configuration,request, "model\\top\\index", "top", mp);
 		return "top";
 	}
+	
+	
+	@RequestMapping(value="/search",method= {RequestMethod.GET})
+	public String search(HttpServletRequest request,ModelMap  model) {
+		CompletableFuture<PageInfo<HashMap>> authorBookFuture=null;
+		CompletableFuture<List<Model>> modelFuture=null;
+		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		String keyword=request.getParameter("keyword");
+		try {
+			authorBookFuture=CompletableFuture.supplyAsync(()->{
+				PageHelper.startPage(1,10, true);
+				return new PageInfo<HashMap>(bookService.queryBookInfo(keyword,null,keyword,null));
+			});
+			modelFuture=CompletableFuture.supplyAsync(()->{
+				return modelService.queryModel();
+			});
+			catagoryFuture=CompletableFuture.supplyAsync(()->{
+				return catagoryService.queryCatagory(new Catagory());
+			});
+			CompletableFuture.allOf(authorBookFuture,modelFuture,catagoryFuture);
+			model.addAttribute("abl",authorBookFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		Map mp=new HashMap();
+		mp.put("abl", model.get("abl"));
+		mp.put("mdl", model.get("mdl"));
+		mp.put("cgl", model.get("cgl"));
+		Utils.saveHtml(configuration,request, "search\\index", "search", mp);
+		return "search";
+		}
 
 }

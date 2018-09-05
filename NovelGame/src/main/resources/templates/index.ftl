@@ -34,6 +34,7 @@
  </div>
  <#assign i=0>
  <#list tjl as catagoryItem>
+ <#if i < 8>
  <#if i==0||i==4>
 <div class="tuijian">
  <ul class="l">
@@ -51,6 +52,7 @@
 </div>
 </#if>
  <#assign i=i+1>
+ </#if>
  </#list>
 <div class="main">
   <div class="lastupdate">

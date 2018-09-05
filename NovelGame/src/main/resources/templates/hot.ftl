@@ -67,6 +67,7 @@
 </#if>
 </#list>
 <div class="pagelink" id="page">
-</div><#include "foots.ftl" >
+</div>
+<#include "foots.ftl" >
 </body>
 </html>

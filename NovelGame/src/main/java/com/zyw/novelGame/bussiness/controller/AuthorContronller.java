@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
@@ -48,12 +50,13 @@ public class AuthorContronller {
 	
 	@RequestMapping(value="/{authorNameEn}",method= {RequestMethod.GET})
 	public String initAuthorBookData(HttpServletRequest request,ModelMap  model,@PathVariable String authorNameEn) {
-		CompletableFuture<List<HashMap>> authorBookFuture=null;
+		CompletableFuture<PageInfo<HashMap>> authorBookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
 			authorBookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBookInfo(null,authorNameEn,null,null);
+				PageHelper.startPage(1,10, true);
+				return new PageInfo<HashMap>(bookService.queryBookInfo(null,authorNameEn,null,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel();

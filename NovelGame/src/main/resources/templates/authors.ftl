@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="${request.contextPath}/css/index.css"/>
 <link rel="shortcut icon" href="/favicon-txt2.ico">
 <script type="text/javascript" src="${request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/index.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/jqPaginator.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/me/authors.js"></script>
 </head>
 <body>
 <#include "main.ftl" >
@@ -19,9 +22,10 @@
     <div class="ops_lf">本站推出作者专栏，排序按本站热度排名，如有争议，请联系本站处理。</div><div class="rt"></div>
 </div>
 <div class="author-list">
-	<ul class="title"><li class="num">序号</li><li class="author">作者</li><li class="bookname">代表作品</li><li class="update"></li></ul>
+	<ul class="title"><li class="num">序号</li><li class="author">作者</li><li class="bookname">代表作品</li><li class="update"></li>
+	</ul>
 	<#assign i=1>
-	<#list bil as book>
+	<#list bil.list as book>
 	<ul>
 			<li class="num">${i}</li>
 			<li class="author"><a href="/author/${book.authorNameEn}/"  target="_blank">${book.authorName}</a></li>
@@ -31,7 +35,13 @@
 <#assign i=i+1>
 </#list>
 </div>
-<div class="pagelink" id="pagelink"><div><span class="current">1</span><a class="num" href="../index.php-m=Home&c=Author&a=index&p=2.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=2">2</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=3.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=3">3</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=4.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=4">4</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=5.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=5">5</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=6.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=6">6</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=7.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=7">7</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=8.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=8">8</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=9.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=9">9</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=10.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=10">10</a><a class="num" href="../index.php-m=Home&c=Author&a=index&p=11.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=11">11</a><a class="next" href="../index.php-m=Home&c=Author&a=index&p=2.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=2">下一页</a><a class="end" href="../index.php-m=Home&c=Author&a=index&p=12.htm" tppabs="http://localhost:8080/index.php?m=Home&c=Author&a=index&p=12">末页</a><li class="rows">共<b>240</b>条记录&nbsp;第<b>1</b>页/共<b>12</b>页</li></div></div>
-<#include "foots.ftl" >
+<#list bil.list as book>
+<#if book_index==0>
+<div class="pagelink" id="pagelink" value=${bil.total}">
+</div>
+</#if>
+</#list>
+<div class="pagelink" id="page">
+</div><#include "foots.ftl" >
 </body>
 </html>

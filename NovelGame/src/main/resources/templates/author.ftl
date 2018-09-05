@@ -13,14 +13,16 @@
 <link rel="shortcut icon" href="/favicon-txt2.ico">
 <script type="text/javascript" src="${request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/index.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/jqPaginator.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/me/author.js"></script>
 </head>
 <body>
 <#include "main.ftl" >
 <#assign i=0>
-<#list abl as bookInfoData>
+<#list abl.list as bookInfoData>
 <#if i==0>
 <div class="ops_two">
-    <div class="ops_lf">特约作者 <em>${bookInfoData.authorName}</em> 相关作品 <em>${abl?size}</em> 部</div><div class="rt"></div>
+    <div class="ops_lf">特约作者 <em>${bookInfoData.authorName}</em> 相关作品 <em>${abl.list?size}</em> 部</div><div class="rt"></div>
 </div>
 <#assign i=i+1>
 </#if>
@@ -39,7 +41,14 @@
     </div>
     </div>
   </#list>
-<div class="pagelink" id="pagelink"><div><li class="rows">共<b>1</b>条记录&nbsp;第<b>1</b>页/共<b>1</b>页</li></div></div>
+<#list abl.list as book>
+<#if book_index==0>
+<div class="pagelink" id="pagelink" value=${abl.total} name="${book.authorNameEn}">
+</div>
+</#if>
+</#list>
+<div class="pagelink" id="page">
+</div>
 <#include "foots.ftl" >
 </body>
 </html>

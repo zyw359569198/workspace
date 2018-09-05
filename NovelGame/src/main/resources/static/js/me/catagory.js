@@ -1,7 +1,7 @@
 window.onload =function(){
 $.jqPaginator('#pagelink',{
     totalPages: Math.ceil(parseInt($("div.pagelink:first").attr("value"))/24),
-    visiblePages: 24,
+    visiblePages: 11,
     currentPage: 1,
     first: '<a class="" href="javascript:;">首页</a>',
     prev: '<a class="" href="javascript:;">上一页</a>',
