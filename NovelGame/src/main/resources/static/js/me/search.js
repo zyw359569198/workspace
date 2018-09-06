@@ -1,6 +1,23 @@
+function GetQueryString(name)
+    {
+         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+         var r = window.location.search.substr(1).match(reg);
+         if(r!=null)return  r[2]; return null;
+    }
+
+
 window.onload =function(){
+	var keyword=decodeURI(GetQueryString("keyword"));
+	if(keyword==null||keyword==''||keyword=="null"){
+		$("div.ops_two").empty()
+		var rowDiv=document.createElement("div");
+	     rowDiv.className="ops_lf";
+		rowDiv.innerHTML="与 <em></em> 相关作品 <em>0</em> 部</div><div class=\"rt\">";
+		$("div.ops_two").append(rowDiv);
+	return;
+	}
 $.jqPaginator('#pagelink',{
-    totalPages: Math.ceil(parseInt($("div.pagelink:first").attr("value"))/20),
+    totalPages: Math.ceil(parseInt($("div.pagelink:first").attr("value"))/10),
     visiblePages: 11,
     currentPage: 1,
     first: '<a class="" href="javascript:;">首页</a>',
@@ -9,14 +26,11 @@ $.jqPaginator('#pagelink',{
     last: '<a class="" href="javascript:;">末页</a>',
     page: '<a class="" href="javascript:;">{{page}}</a>',
     onPageChange: function (num, type) {
-    	if(type=='init'){
-    	}else{
-    		  pageSplit($("div.pagelink:first").attr("name"),20,num);
-    	}
+    		  pageSplit(keyword,10,num);
     	    $("div.pagelink:last").empty();
     	   var rowLi=document.createElement("li");
 			rowLi.className="rows";
-		    rowLi.innerHTML="共<b>"+parseInt($("div.pagelink:first").attr("value"))+"</b>条记录&nbsp;第<b>"+num+"</b>页/共<b>"+(Math.ceil(parseInt($("div.pagelink:first").attr("value"))/20))+"</b>页";
+		    rowLi.innerHTML="共<b>"+parseInt($("div.pagelink:first").attr("value"))+"</b>条记录&nbsp;第<b>"+num+"</b>页/共<b>"+(Math.ceil(parseInt($("div.pagelink:first").attr("value"))/10))+"</b>页";
 			$("div.pagelink:last").append(rowLi);
     }
 });
@@ -25,27 +39,36 @@ $.jqPaginator('#pagelink',{
 
 
 
-function pageSplit(authorNameEn,pageSize,pageNum){
+function pageSplit(keyword,pageSize,pageNum){
 		$.ajax({
 		type: 'GET',
-		url: "/pageApi/author/"+authorNameEn+"/"+pageSize+"/"+pageNum,
+		url: "/pageApi/search/"+keyword+"/"+pageSize+"/"+pageNum,
 		contentType: "application/json;cherset=utf-8",
 		dataType: "json",
 		asynchronous: true,
 		success: function(data){
 					$("div.ops_cover").empty()
-					loadBookInfoData(data.data.abl.list);
+					$("div.ops_two").empty()
+					loadBookInfoData(data.data.abl.list,keyword);
 		}
 	});
 }
 
-function loadBookInfoData(bookInfoData){
+function loadBookInfoData(bookInfoData,keyword){
 	var rowDiv=document.createElement("div");
 	var flag=true;
 	rowDiv.className="ops_lf";
+	   if(bookInfoData.length<1){
+	   	var rowDivNo=document.createElement("div");
+		     rowDivNo.className="ops_no";
+			rowDiv.innerHTML="与 <em>"+keyword+"</em> 相关作品 <em>"+bookInfoData.length+"</em> 部</div><div class=\"rt\">";
+			$("div.ops_two").append(rowDiv);
+			rowDivNo.innerHTML="对不起本站还没有这本书，搜索时宁可少字也不要错字。";
+			$("div.ops_cover").append(rowDivNo);
+			}
 		$.each(bookInfoData,function(index,n){
 			if(flag){
-				rowDiv.innerHTML="与 <em>"+bookInfoData[index].authorName+"</em> 相关作品 <em>"+bookInfoData.length+"</em> 部</div><div class=\"rt\">";
+				rowDiv.innerHTML="与 <em>"+keyword+"</em> 相关作品 <em>"+bookInfoData.length+"</em> 部</div><div class=\"rt\">";
 				$("div.ops_two").append(rowDiv);
 				flag=false;
 			}
@@ -55,8 +78,8 @@ function loadBookInfoData(bookInfoData){
 		rowDiv2.className="block_img";
 		var rowDiv3=document.createElement("div");
 		rowDiv3.className="block_txt";
-		rowDiv2.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookInfoData[index].bookId+"'  name='"+bookInfoData[index].bookName+"' target=\"_blank\"><img src='"+bookInfoData[index].imageUrl+"' alt='"+bookInfoData[index].bookName+"' onerror=\"this.src='/images/nocover.jpg/'\" alt=''/></a>";
-		rowDiv3.innerHTML="<h2><a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookInfoData[index].bookId+"'  name='"+bookInfoData[index].bookName+"' target=\"_blank\">"+bookInfoData[index].bookName+"</a></h2><p></p><p>作者："+bookInfoData[index].authorName+"</p><p>类型：玄幻</p><p>简介："+bookInfoData[index].bookDesc+"</p>";
+		rowDiv2.innerHTML="<a href='/book/"+bookInfoData[index].bookNameEn+"/'   target=\"_blank\"><img src='"+bookInfoData[index].imageUrl+"' alt='"+bookInfoData[index].bookName+"' onerror=\"this.src='/images/nocover.jpg/'\" alt=''/></a>";
+		rowDiv3.innerHTML="<h2><a href='/book/"+bookInfoData[index].bookNameEn+"/'    target=\"_blank\">"+bookInfoData[index].bookName+"</a></h2><p></p><p>作者：<a href='/author/"+bookInfoData[index].authorNameEn+"/'    target=\"_blank\">"+bookInfoData[index].authorName+"</a></p><p>类型：玄幻</p><p>简介："+bookInfoData[index].bookDesc+"</p>";
 		rowDiv1.append(rowDiv2);
 		rowDiv1.append(rowDiv3);
 		$("div.ops_cover").append(rowDiv1);

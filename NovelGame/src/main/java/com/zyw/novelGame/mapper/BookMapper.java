@@ -10,6 +10,8 @@ import com.zyw.novelGame.model.Book;
 public interface BookMapper {
 	 List<Book> queryBookByHits();
 	 
+	 int updateHits(@Param("bookId")String  bookId);
+	 
     int deleteByPrimaryKey(String id);
 
     int insert(Book record);

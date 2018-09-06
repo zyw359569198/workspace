@@ -55,8 +55,8 @@ function loadBookInfoData(bookInfoData){
 		rowDiv2.className="block_img";
 		var rowDiv3=document.createElement("div");
 		rowDiv3.className="block_txt";
-		rowDiv2.innerHTML="<a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookInfoData[index].bookId+"'  name='"+bookInfoData[index].bookName+"' target=\"_blank\"><img src='"+bookInfoData[index].imageUrl+"' alt='"+bookInfoData[index].bookName+"' onerror=\"this.src='/images/nocover.jpg/'\" alt=''/></a>";
-		rowDiv3.innerHTML="<h2><a href='javascript:void(0);'  onclick='parent.openHtml(2,this.id,this.name)'  id='"+bookInfoData[index].bookId+"'  name='"+bookInfoData[index].bookName+"' target=\"_blank\">"+bookInfoData[index].bookName+"</a></h2><p></p><p>作者："+bookInfoData[index].authorName+"</p><p>类型：玄幻</p><p>简介："+bookInfoData[index].bookDesc+"</p>";
+		rowDiv2.innerHTML="<a href='/book/"+bookInfoData[index].bookNameEn+"/'   target=\"_blank\"><img src='"+bookInfoData[index].imageUrl+"' alt='"+bookInfoData[index].bookName+"' onerror=\"this.src='/images/nocover.jpg/'\" alt=''/></a>";
+		rowDiv3.innerHTML="<h2><a href='/book/"+bookInfoData[index].bookNameEn+"/'   target=\"_blank\">"+bookInfoData[index].bookName+"</a></h2><p></p><p>作者："+bookInfoData[index].authorName+"</p><p>类型：玄幻</p><p>简介："+bookInfoData[index].bookDesc+"</p>";
 		rowDiv1.append(rowDiv2);
 		rowDiv1.append(rowDiv3);
 		$("div.ops_cover").append(rowDiv1);

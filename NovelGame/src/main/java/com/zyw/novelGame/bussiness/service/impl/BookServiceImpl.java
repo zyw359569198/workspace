@@ -60,4 +60,9 @@ public class BookServiceImpl implements BookService{
 		return bookMapper.updateByBookID(record);
 	}
 
+	@Override
+	public int updateHits(String bookId) {
+		return bookMapper.updateHits(bookId);
+	}
+
 }

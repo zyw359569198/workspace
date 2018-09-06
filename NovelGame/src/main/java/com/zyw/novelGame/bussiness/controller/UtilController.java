@@ -59,15 +59,16 @@ import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Store;
 import com.zyw.novelGame.model.StoreData;
 import com.zyw.utils.PingyingUtil;
+import com.zyw.utils.Utils;
 
 @RestController
 @RequestMapping("/util")
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	
-	private static final int MAX_BOOK_NUMS=80;
+	private static final int MAX_BOOK_NUMS=1000000;
 	
-	private static final int MAX_TOPIC_NUMS=10;
+	private static final int MAX_TOPIC_NUMS=1000000;
 
 	
 	@Autowired
@@ -95,7 +96,7 @@ public class UtilController {
 		for(int i=0;i<10;i++) {
         try {  
         	//采用绕过验证的方式处理https请求  
-			SSLContext sslcontext = createIgnoreVerifySSL();
+			SSLContext sslcontext = Utils.createIgnoreVerifySSL();
 			//设置协议http和https对应的处理socket链接工厂的对象  
 	        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()  
 	            .register("http", PlainConnectionSocketFactory.INSTANCE)  
@@ -106,6 +107,7 @@ public class UtilController {
     		httpclient =  HttpClients.custom().setConnectionManager(connManager).build();
             // 创建httpget.    
             HttpGet httpget = new HttpGet("https://txt2.cc/map/"+i+"/");  
+            httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
             System.out.println("executing request " + httpget.getURI());  
             // 执行get请求.    
             CloseableHttpResponse response = httpclient.execute(httpget);  
@@ -128,6 +130,7 @@ public class UtilController {
                 		   Book book=new Book();
                 		   Author author=new Author();
                     	   httpget = new HttpGet(e.attr("href")); 
+                           httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
                     	   response = httpclient.execute(httpget); 
                     	   entity = response.getEntity();
                     	   doc = Jsoup.parse(EntityUtils.toString(entity));
@@ -181,11 +184,13 @@ public class UtilController {
                     		       book.setId(UUID.randomUUID().toString());
                     		       book.setBookDesc(introClass.get(0).text());
                     		       Element lfClass=doc.getElementsByClass("lf").get(1).getElementsByTag("img").get(0);
-                    		       book.setImageUrl(lfClass.attr("src"));
+                    		       String imageName=book.getBookId()+lfClass.attr("src").substring(lfClass.attr("src").lastIndexOf("."));
+                    		       book.setImageUrl("/images/data/"+imageName);
                     		       bookService.insert(book);
                     		       cataBookRelation.setBookId(book.getBookId());
                     		       cataBookRelation.setId(UUID.randomUUID().toString());
                     		       cataBookRelationService.insert(cataBookRelation);
+                    		       Utils.saveImages("https://txt2.cc"+lfClass.attr("src"),book.getImageUrl());
                     		       Elements liClass=doc.getElementsByClass("mulu").get(0).getElementsByTag("li");
                     		       String preStoreId="";
                     		       String nextStoreId="";
@@ -280,39 +285,5 @@ public class UtilController {
 		resultMap.put("errorCode", 200);
 		return resultMap;
 		}
-	
-	/** 
-	* 绕过验证 
-	*   
-	* @return 
-	* @throws NoSuchAlgorithmException  
-	* @throws KeyManagementException  
-	*/  
-	public static SSLContext createIgnoreVerifySSL() throws NoSuchAlgorithmException, KeyManagementException {  
-	        SSLContext sc = SSLContext.getInstance("SSLv3");  
-
-	        // 实现一个X509TrustManager接口，用于绕过验证，不用修改里面的方法  
-	        X509TrustManager trustManager = new X509TrustManager() {  
-	            @Override  
-	            public void checkClientTrusted(  
-	                    java.security.cert.X509Certificate[] paramArrayOfX509Certificate,  
-	                    String paramString) {  
-	            }  
-
-	            @Override  
-	            public void checkServerTrusted(  
-	                    java.security.cert.X509Certificate[] paramArrayOfX509Certificate,  
-	                    String paramString) {  
-	            }  
-
-	            @Override  
-	            public java.security.cert.X509Certificate[] getAcceptedIssuers() {  
-	                return null;  
-	            }  
-	        };  
-
-	        sc.init(null, new TrustManager[] { trustManager }, null);  
-	        return sc;  
-	    }
 
 }

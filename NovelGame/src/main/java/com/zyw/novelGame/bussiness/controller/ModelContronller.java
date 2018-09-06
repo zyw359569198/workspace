@@ -264,6 +264,7 @@ public class ModelContronller {
 			model.addAttribute("abl",authorBookFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			model.addAttribute("keyword",keyword);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -271,7 +272,8 @@ public class ModelContronller {
 		mp.put("abl", model.get("abl"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "search\\index", "search", mp);
+		mp.put("keyword", model.get("keyword"));
+		Utils.saveHtml(configuration,request, "model\\search\\index", "search", mp);
 		return "search";
 		}
 

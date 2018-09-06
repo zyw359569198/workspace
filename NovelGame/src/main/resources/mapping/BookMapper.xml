@@ -147,7 +147,7 @@ WHERE d.book_id = b.book_id
     FROM book a,cata_book_relation b,catagory c WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id  
     <choose>
       <when test='bookName != null and authorName != null'>
-      	and (a.book_name = #{bookName,jdbcType=VARCHAR} or a.author_name = #{authorName,jdbcType=VARCHAR}) 
+      	and (a.book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  or a.author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
       </when>
        <otherwise>
       <if test="bookName != null">
@@ -340,7 +340,9 @@ WHERE d.book_id = b.book_id
       last_store_id = #{lastStoreId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  
+  <update id="updateHits">
+  	update book set hits =(hits+1) where book_id = #{bookId,jdbcType=VARCHAR}
+  </update>
     <update id="updateByBookID" parameterType="com.zyw.novelGame.model.Book">
     update book
     <set>
