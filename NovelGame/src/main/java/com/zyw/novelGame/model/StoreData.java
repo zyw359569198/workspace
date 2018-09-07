@@ -5,7 +5,7 @@ public class StoreData {
 
     private String storeId;
 
-    private String storeContent;
+    private byte[] storeContent;
 
     public String getId() {
         return id;
@@ -23,11 +23,11 @@ public class StoreData {
         this.storeId = storeId == null ? null : storeId.trim();
     }
 
-    public String getStoreContent() {
+    public byte[] getStoreContent() {
         return storeContent;
     }
 
-    public void setStoreContent(String storeContent) {
-        this.storeContent = storeContent == null ? null : storeContent.trim();
+    public void setStoreContent(byte[] storeContent) {
+        this.storeContent = storeContent;
     }
 }

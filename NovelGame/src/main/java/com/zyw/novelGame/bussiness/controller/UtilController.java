@@ -223,19 +223,20 @@ public class UtilController {
                                 	   entity = response.getEntity();
                                 	   doc = Jsoup.parse(EntityUtils.toString(entity));
                                 	   Element ydClass=doc.getElementsByClass("yd_text2").get(0);
-                                	   storeData.setStoreContent(ydClass.html());
+                                	   storeData.setStoreContent(ydClass.html().getBytes());
                                 	   storeData.setId(UUID.randomUUID().toString());
                                 	   storeData.setStoreId(curentStoreId);
                                 	   store.setCreateTime(new Date());
                                 	   store.setOrderIndex(count);
                                 	   storeService.insert(store);
                                 	   storeService.insertStoreData(storeData);
-                                	   if(count==liClass.size()||count==1) {
+                                	   //更新最新章节
+                                	   //if(count==liClass.size()||count==1) {
                                 		   Book record=new Book();
                                 		   record.setBookId(book.getBookId());
                                 		   record.setLastStoreId(curentStoreId);
                                 		   bookService.updateByBookID(record);
-                                	   }
+                                	   //}
                                 	   preStoreId=curentStoreId;
                                 	   if(count>MAX_TOPIC_NUMS) {
                                 		   break;

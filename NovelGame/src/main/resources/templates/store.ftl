@@ -48,7 +48,7 @@
     </#if>
       </div>
   <div class="yd_text2">
-  ${storeDataItem.storeContent}
+  ${storeDataItem.vStoreContent}
    </div>
   <div class="pereview">
 <#if storeData.preStoreId == "0">

@@ -6,7 +6,7 @@
     <result column="store_id" jdbcType="VARCHAR" property="storeId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.StoreData">
-    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
+    <result column="store_content" jdbcType="LONGVARBINARY" property="storeContent" />
   </resultMap>
   <sql id="Base_Column_List">
     id, store_id
@@ -29,7 +29,7 @@
   <insert id="insert" parameterType="com.zyw.novelGame.model.StoreData">
     insert into store_data (id, store_id, store_content
       )
-    values (#{id,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, #{storeContent,jdbcType=LONGVARCHAR}
+    values (#{id,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, #{storeContent,jdbcType=LONGVARBINARY}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.StoreData">
@@ -53,7 +53,7 @@
         #{storeId,jdbcType=VARCHAR},
       </if>
       <if test="storeContent != null">
-        #{storeContent,jdbcType=LONGVARCHAR},
+        #{storeContent,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -64,7 +64,7 @@
         store_id = #{storeId,jdbcType=VARCHAR},
       </if>
       <if test="storeContent != null">
-        store_content = #{storeContent,jdbcType=LONGVARCHAR},
+        store_content = #{storeContent,jdbcType=LONGVARBINARY},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -72,7 +72,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zyw.novelGame.model.StoreData">
     update store_data
     set store_id = #{storeId,jdbcType=VARCHAR},
-      store_content = #{storeContent,jdbcType=LONGVARCHAR}
+      store_content = #{storeContent,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zyw.novelGame.model.StoreData">

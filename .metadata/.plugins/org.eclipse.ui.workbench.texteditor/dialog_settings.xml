@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="statistics" key="selection"/>
+		<item value="queryBookStoreData" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
-		<item value="true" key="wholeword"/>
+		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="queryBookStoreData"/>
+			<item value="BookStoreResultMap"/>
+			<item value="storeContent"/>
+			<item value="store_content"/>
+			<item value="store_Content"/>
+			<item value="getFileImage"/>
+			<item value="queryBook"/>
+			<item value="updateHits"/>
+			<item value="updateByBookID"/>
+			<item value="queryBookInfo"/>
+			<item value="queryBookByHits"/>
+			<item value="last"/>
+			<item value="push"/>
 			<item value="statistics"/>
 			<item value="getPages"/>
-			<item value="renderHtml"/>
-			<item value="render"/>
-			<item value="init"/>
-			<item value="options"/>
-			<item value="page"/>
-			<item value="activeClass"/>
-			<item value="active"/>
-			<item value="pagination"/>
-			<item value="a:active"/>
-			<item value="pagelink"/>
-			<item value="prev"/>
-			<item value="disabled"/>
-			<item value="end"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -39,7 +39,7 @@
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="868" key="DIALOG_X_ORIGIN"/>
-		<item value="139" key="DIALOG_Y_ORIGIN"/>
+		<item value="1197" key="DIALOG_X_ORIGIN"/>
+		<item value="129" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

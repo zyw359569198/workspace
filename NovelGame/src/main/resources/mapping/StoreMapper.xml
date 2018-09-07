@@ -12,6 +12,9 @@
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
   </resultMap>
+   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zyw.novelGame.model.BookData">
+    <result column="store_content" jdbcType="LONGVARBINARY" property="storeContent" />
+  </resultMap>
       <resultMap id="BookStoreResultMap" type="java.util.HashMap">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
@@ -26,7 +29,6 @@
     <result column="next_store_id" jdbcType="VARCHAR" property="nextStoreId" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="order_index" jdbcType="BIGINT" property="orderIndex" />
-    <result column="store_content" jdbcType="LONGVARCHAR" property="storeContent" />
   </resultMap>
   <sql id="Base_Column_List">
     id, book_id, store_id, store_name, store_url, pre_store_id, next_store_id, create_time, 
@@ -46,7 +48,7 @@
     </where>
      order by order_index
   </select>
-       <select id="queryBookStoreData"  resultMap="BookStoreResultMap">
+       <select id="queryBookStoreData"  resultMap="ResultMapWithBLOBs">
     select  a.*,b.store_content  from store a,store_data b 
     <where>
     a.store_id=b.store_id 

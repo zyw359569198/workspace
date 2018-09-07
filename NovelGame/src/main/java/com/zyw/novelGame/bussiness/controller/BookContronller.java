@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 import com.zyw.novelGame.bussiness.service.StoreService;
 import com.zyw.novelGame.model.Book;
+import com.zyw.novelGame.model.BookData;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.Store;
@@ -98,14 +100,14 @@ public class BookContronller {
 	
 	@RequestMapping(value="/{bookNameEn}/{storeId}",method= {RequestMethod.GET})
 	public String init(HttpServletRequest request,ModelMap  model,@PathVariable String bookNameEn,@PathVariable String storeId) {
-		CompletableFuture<List<HashMap>> storeDataFuture=null;
+		CompletableFuture<List<BookData>> storeDataFuture=null;
 		CompletableFuture<List<HashMap>> storeFuture=null;
 		try {
 			storeFuture=CompletableFuture.supplyAsync(()->{
 				return storeService.queryBookStore(bookNameEn,storeId);
 			});
 			storeDataFuture=CompletableFuture.supplyAsync(()->{
-				return storeService.queryBookStoreData(storeId);
+				return storeService.queryBookStoreData(storeId).stream().map(o->{o.setvStoreContent(new String(o.getStoreContent()));return o;}).collect(Collectors.toList());
 			});
 			CompletableFuture.allOf(storeFuture,storeDataFuture);
 			model.addAttribute("sdl",storeFuture.get(30, TimeUnit.SECONDS));

@@ -15,7 +15,7 @@ MySQL - 8.0.12 : Database - noval
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`noval` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `noval`;
-
+SET GLOBAL innodb_file_per_table=1;
 /*Table structure for table `author` */
 
 DROP TABLE IF EXISTS `author`;
@@ -52,7 +52,7 @@ CREATE TABLE `book` (
   `last_store_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED KEY_BLOCK_SIZE=8;
 
 /*Data for the table `book` */
 
@@ -122,7 +122,7 @@ CREATE TABLE `store` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `store_id_index` (`book_id`,`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED KEY_BLOCK_SIZE=8;
 
 /*Data for the table `store` */
 
@@ -133,10 +133,10 @@ DROP TABLE IF EXISTS `store_data`;
 CREATE TABLE `store_data` (
   `id` varchar(36) NOT NULL,
   `store_id` varchar(36) DEFAULT NULL,
-  `store_content` longtext,
+  `store_content` blob,
   PRIMARY KEY (`id`),
   KEY `index_store_id` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED KEY_BLOCK_SIZE=8;
 
 /*Data for the table `store_data` */
 

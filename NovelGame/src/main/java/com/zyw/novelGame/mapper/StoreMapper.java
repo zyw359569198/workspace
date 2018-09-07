@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.zyw.novelGame.model.BookData;
 import com.zyw.novelGame.model.Store;
 
 public interface StoreMapper {
@@ -24,5 +25,5 @@ public interface StoreMapper {
 	
 	List<HashMap> queryBookStore(@Param("bookNameEn")String bookNameEn,@Param("storeId")String storeId);
 	
-	List<HashMap> queryBookStoreData(@Param("storeId")String storeId);
+	List<BookData> queryBookStoreData(@Param("storeId")String storeId);
 }
