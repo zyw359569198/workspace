@@ -15,7 +15,7 @@ MySQL - 8.0.12 : Database - noval
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`noval` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `noval`;
-SET GLOBAL innodb_file_per_table=1;
+
 /*Table structure for table `author` */
 
 DROP TABLE IF EXISTS `author`;
@@ -26,7 +26,8 @@ CREATE TABLE `author` (
   `author_name` varchar(100) DEFAULT NULL,
   `author_name_en` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `index_author_id` (`author_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `author` */
@@ -51,7 +52,8 @@ CREATE TABLE `book` (
   `author_name_en` varchar(100) DEFAULT NULL,
   `last_store_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `index_book_id` (`book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED KEY_BLOCK_SIZE=8;
 
 /*Data for the table `book` */
@@ -121,7 +123,8 @@ CREATE TABLE `store` (
   `order_index` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `store_id_index` (`book_id`,`store_id`)
+  KEY `store_id_index` (`store_id`),
+  KEY `index_book_id` (`book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPRESSED KEY_BLOCK_SIZE=8;
 
 /*Data for the table `store` */

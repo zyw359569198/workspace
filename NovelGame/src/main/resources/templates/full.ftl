@@ -33,10 +33,6 @@
         </#if>      </dd>
     </dl>
      </#list>
-     <#if bil?size==0>
-     <div class="place">当前位置：<a href="/">txt2小说网</a> > <h2></h2></div>
-     <div class="fengtui">
-     </#if>
     </div>
 <div class="booklist">
     <h1>全本小说</h1>
