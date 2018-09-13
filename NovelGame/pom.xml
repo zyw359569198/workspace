@@ -89,21 +89,51 @@
 	
 		<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<!-- 添加index则不从mainfest中读取classpath，而是从Index.list中读取 -->
+						<!-- <index>true</index> -->
+						<manifest>
+							<mainClass>com.zyw.novelGame.NovelGameApplication</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>./</Class-Path>
+						</manifestEntries>
+					</archive>
+					<excludes>
+						<exclude>mapper/**</exclude>
+						<exclude>static/**</exclude>
+						<exclude>templates/**</exclude>
+						<exclude>*.yml</exclude>
+						<exclude>*.xml</exclude>
+						<exclude>*.properties</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
-			 <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                        <!-- 热部署 -->
-                        <dependency>
-                            <groupId>org.springframework</groupId>
-                            <artifactId>springloaded</artifactId>
-                            <version>2.1.0.BUILD-SNAPSHOT</version>
-                        </dependency>
-                    </dependencies>
+			<plugin>  
+                <artifactId>maven-assembly-plugin</artifactId>  
+                <configuration>  
+                    <!-- not append assembly id in release file name -->  
+                    <appendAssemblyId>false</appendAssemblyId>  
+                    <descriptors>  
+                        <descriptor>src/main/resources/package.xml</descriptor>  
+                    </descriptors>  
+                </configuration>  
+                <executions>  
+                    <execution>  
+                        <id>make-assembly</id>  
+                        <phase>package</phase>  
+                        <goals>  
+                            <goal>single</goal>  
+                        </goals>  
+                    </execution>  
+                </executions>  
             </plugin>
             <!-- mybatis generator 自动生成代码插件 -->
             <plugin>
