@@ -1,0 +1,7 @@
+ln -s 软连接静态文件夹目录，修改nginx.conf   user为root
+
+yum install -y libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
+yum clean all;
+
+move psol incubator-pagespeed-ngx-1.13.35.2-stable
+./configure --with-http_realip_module --with-http_stub_status_module --add-module=/root/incubator-pagespeed-ngx-1.13.35.2-stable;make && make install;
