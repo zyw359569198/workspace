@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -139,6 +140,7 @@ public class UtilController {
                     	   book.setBookNameEn(PingyingUtil.ToPinyin(h1.text()));
                     	   book.setHits(0L);
                     	   Elements ems=doc.getElementsByTag("em");
+                    	   SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                     	   for(Element em:ems) {
                     		   if(em.text().contains("作者")) {
                     			   book.setAuthorName(em.text().substring(em.text().indexOf("：")+1).trim());
@@ -150,8 +152,8 @@ public class UtilController {
                     				   book.setIsCompletion(1);
                     			   }
                     		   }else if(em.text().contains("更新时间")) {                    			   
-                    			   book.setUpdateTime(DateFormat.getDateInstance().parse(em.text().substring(em.text().indexOf("：")+1).trim()) );
-                    			   book.setCreateTime(DateFormat.getDateInstance().parse(em.text().substring(em.text().indexOf("：")+1).trim()) );
+                    			   book.setUpdateTime(sdf.parse(em.text().substring(em.text().indexOf("：")+1).trim()) );
+                    			   book.setCreateTime(sdf.parse(em.text().substring(em.text().indexOf("：")+1).trim()) );
                     		   }
                     	   }  
                     	       Elements placeClass=doc.getElementsByClass("place");

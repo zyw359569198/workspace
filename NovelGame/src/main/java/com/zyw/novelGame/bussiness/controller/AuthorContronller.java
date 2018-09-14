@@ -75,7 +75,7 @@ public class AuthorContronller {
 		mp.put("abl", model.get("abl"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "author\\"+authorNameEn+"\\index", "author", mp);
+		Utils.saveHtml(configuration,request, "author/"+authorNameEn+"/index", "author", mp);
 		return "author";
 		}
 

@@ -44,7 +44,7 @@ public class Utils {
 	public  static void  saveHtml(Configuration configuration,HttpServletRequest request,String htmlFileName,String modelName,Map content) {
 		if(Common.IS_GENERATE_HTML) {
 			//String htmlRealPath=request.getSession().getServletContext().getRealPath("/")+"\\html\\";
-			String htmlRealPath="C:\\Users\\Administrator\\Desktop\\nginx-1.15.3\\html\\";
+			String htmlRealPath="/usr/local/nginx/html";
 			System.out.println("保存的绝对路径是:"+htmlRealPath+ "/" + htmlFileName + ".html");
 			 File htmlFile = new File(htmlRealPath + "/" + htmlFileName + ".html");
 			 try {
@@ -78,7 +78,7 @@ public class Utils {
 	
 	public  static void  saveImages(String imageUrl,String imagePath) {
 		CloseableHttpClient  httpclient = null;
-		String path ="C:\\Users\\Administrator\\Desktop\\nginx-1.15.3\\html\\"+imagePath;
+		String path ="/usr/local/nginx/html"+imagePath;
         File storeFile = null;
 		try {
 			//采用绕过验证的方式处理https请求  

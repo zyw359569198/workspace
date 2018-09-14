@@ -84,7 +84,7 @@ public class ModelContronller {
 		mp.put("bul", model.get("bul"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "model\\hot\\index", "hot", mp);
+		Utils.saveHtml(configuration,request, "model/hot/index", "hot", mp);
 		return "hot";
 	}
 	
@@ -125,7 +125,7 @@ public class ModelContronller {
 		mp.put("bul", model.get("bul"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "model\\recommend\\index", "recommend", mp);
+		Utils.saveHtml(configuration,request, "model/recommend/index", "recommend", mp);
 		return "recommend";
 	}
 	
@@ -164,7 +164,7 @@ public class ModelContronller {
 		mp.put("bul", model.get("bul"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "model\\full\\index", "full", mp);
+		Utils.saveHtml(configuration,request, "model/full/index", "full", mp);
 		return "full";
 	}
 	
@@ -198,7 +198,7 @@ public class ModelContronller {
 		mp.put("bil", model.get("bil"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "model\\authors\\index", "authors", mp);
+		Utils.saveHtml(configuration,request, "model/authors/index", "authors", mp);
 		return "authors";
 	}
 	
@@ -238,7 +238,7 @@ public class ModelContronller {
 		mp.put("tjl", model.get("tjl"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "model\\top\\index", "top", mp);
+		Utils.saveHtml(configuration,request, "model/top/index", "top", mp);
 		return "top";
 	}
 	
@@ -273,7 +273,7 @@ public class ModelContronller {
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
 		mp.put("keyword", model.get("keyword"));
-		Utils.saveHtml(configuration,request, "model\\search\\index", "search", mp);
+		Utils.saveHtml(configuration,request, "model/search/index", "search", mp);
 		return "search";
 		}
 

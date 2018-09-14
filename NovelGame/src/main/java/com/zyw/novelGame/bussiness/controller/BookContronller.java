@@ -94,7 +94,7 @@ public class BookContronller {
 		mp.put("bkl", model.get("bkl"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
-		Utils.saveHtml(configuration,request, "book\\"+bookNameEn+"\\index", "book", mp);
+		Utils.saveHtml(configuration,request, "book/"+bookNameEn+"/index", "book", mp);
 		return "book";
 		}
 	
@@ -118,7 +118,7 @@ public class BookContronller {
 		Map mp=new HashMap();
 		mp.put("sdl", model.get("sdl"));
 		mp.put("sddl", model.get("sddl"));
-		Utils.saveHtml(configuration,request, "book\\"+bookNameEn+"\\"+storeId+"\\index", "store", mp);
+		Utils.saveHtml(configuration,request, "book/"+bookNameEn+"/"+storeId+"/index", "store", mp);
 		return "store";
 		}
 

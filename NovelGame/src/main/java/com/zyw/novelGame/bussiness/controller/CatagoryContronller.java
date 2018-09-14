@@ -112,7 +112,7 @@ public class CatagoryContronller {
 			mp.put("bul", model.get("bul"));
 			mp.put("mdl", model.get("mdl"));
 			mp.put("cgl", model.get("cgl"));
-			Utils.saveHtml(configuration,request, "catagory\\"+cataNameEn+"\\index", "catagory", mp);
+			Utils.saveHtml(configuration,request, "catagory/"+cataNameEn+"/index", "catagory", mp);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
