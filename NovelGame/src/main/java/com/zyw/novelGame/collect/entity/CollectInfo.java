@@ -7,9 +7,19 @@ public class CollectInfo {
 	
 	private String novelSiteUrl;
 	
+	private String novelCharset="utf-8";
+	
 	private Rule bookRule;
 	
 	private BookInfo bookInfo;
+
+	public String getNovelCharset() {
+		return novelCharset;
+	}
+
+	public void setNovelCharset(String novelCharset) {
+		this.novelCharset = novelCharset;
+	}
 
 	public String getNovelSiteName() {
 		return novelSiteName;

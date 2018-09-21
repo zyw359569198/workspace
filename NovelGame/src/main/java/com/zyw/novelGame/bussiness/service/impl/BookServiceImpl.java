@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.mapper.BookMapper;
@@ -46,6 +47,7 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
+	@Transactional
 	public int insert(Book record) {
 		return bookMapper.insert(record);
 	}
@@ -56,11 +58,13 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
+	@Transactional
 	public int updateByBookID(Book record) {
 		return bookMapper.updateByBookID(record);
 	}
 
 	@Override
+	@Transactional
 	public int updateHits(String bookId) {
 		return bookMapper.updateHits(bookId);
 	}

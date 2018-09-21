@@ -62,8 +62,8 @@ import com.zyw.novelGame.model.StoreData;
 import com.zyw.utils.PingyingUtil;
 import com.zyw.utils.Utils;
 
-@RestController
-@RequestMapping("/util")
+/*@RestController
+@RequestMapping("/util")*/
 public class UtilController {
 	public static final  Logger logger=LoggerFactory.getLogger(UtilController.class);
 	

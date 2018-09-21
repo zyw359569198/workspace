@@ -19,11 +19,31 @@ public class BookInfo {
 	
 	private Rule isCompletion;
 	
+	private Rule cataName;
+	
+	private Rule storeCataUrl;
+	
 	private Rule storeRule;
 	
 	private StoreInfo storeInfo;
 	
 	private String bookUrl;
+
+	public Rule getStoreCataUrl() {
+		return storeCataUrl;
+	}
+
+	public void setStoreCataUrl(Rule storeCataUrl) {
+		this.storeCataUrl = storeCataUrl;
+	}
+
+	public Rule getCataName() {
+		return cataName;
+	}
+
+	public void setCataName(Rule cataName) {
+		this.cataName = cataName;
+	}
 
 	public String getBookUrl() {
 		return bookUrl;

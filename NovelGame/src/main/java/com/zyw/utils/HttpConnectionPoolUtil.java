@@ -28,6 +28,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.NoHttpResponseException;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -69,6 +70,12 @@ public class HttpConnectionPoolUtil {
     private static ScheduledExecutorService monitorExecutor;
  
     private final static Object syncLock = new Object(); // 相当于线程锁,用于线程安全
+    
+    private static CookieStore cookieStore;
+    
+    public static void setCookieStore(CookieStore cook) {
+    	          cookieStore=cook;
+    }
  
     /**
      * 对http请求进行基本设置
@@ -230,8 +237,12 @@ public class HttpConnectionPoolUtil {
                 return false;
             }
         };
- 
-        CloseableHttpClient client = HttpClients.custom().setConnectionManager(manager).setRetryHandler(handler).build();
+        CloseableHttpClient client=null;
+        if(cookieStore==null) {
+            client = HttpClients.custom().setConnectionManager(manager).setRetryHandler(handler).build();
+        }else {
+            client = HttpClients.custom().setDefaultCookieStore(cookieStore).setConnectionManager(manager).setRetryHandler(handler).build();
+        }
         return client;
     }
  

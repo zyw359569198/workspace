@@ -7,6 +7,9 @@ move psol incubator-pagespeed-ngx-1.13.35.2-stable
 ./configure --with-http_realip_module --with-http_stub_status_module --add-module=/root/incubator-pagespeed-ngx-1.13.35.2-stable;make && make install;
 
 
+
+select @@global.sql_mode
+set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 mysql5.8  my.cnf增加以下配置
 在 [mysqld]和[mysql]下添加
 sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';

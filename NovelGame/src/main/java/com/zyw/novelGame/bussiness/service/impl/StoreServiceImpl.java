@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.xerial.snappy.Snappy;
 
 import com.sun.org.apache.bcel.internal.util.ByteSequence;
@@ -36,11 +37,13 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 	}
 
 	@Override
+	@Transactional
 	public int insert(Store record) {
 		return storeMapper.insert(record);
 	}
 
 	@Override
+	@Transactional
 	public int insertStoreData(StoreData storeData) {
 		try {
 			storeData.setStoreContent(Snappy.compress(storeData.getStoreContent()));

@@ -1,29 +1,30 @@
 package com.zyw.novelGame.collect.queue;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
-public class Consumer  extends Thread{
+import com.zyw.novelGame.collect.ApplicationContextProvider;
+
+
+@Component
+public class Consumer {
 	public static final  Logger logger=LoggerFactory.getLogger(Consumer.class);
 	
-	private Resource resource;
+	private Deal deal;
 	
-	private Consumer() {}
-	
-	public Consumer(Resource resource){
-		this.resource=resource;
-	}
-	
-	public void run() {
+	@Async(value = "taskExecutorNovel")
+	public void execute() {
 	         while (true) {
 	        	 try {
 		            Thread.sleep((long) (1000 * Math.random()));
 		             } catch (InterruptedException e) {
 		                 e.printStackTrace();
 		             }
-	        	 resource.remove();
+	        	 ApplicationContextProvider.getBean("deal", Deal.class).init(Resource.getInstance().remove());
 		         }
 		     }
+	
 	
 
 }

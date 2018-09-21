@@ -12,13 +12,22 @@ public class Resource {
 	
 	public static final  Logger logger=LoggerFactory.getLogger(Resource.class);
 	
-	private BlockingQueue<QueueInfo> resourceQueue ;
-	
-	private int capacity=0;
+	private static BlockingQueue<QueueInfo> resourceQueue ;
 		
-	public Resource(int capacity){
-		this.capacity=capacity;
-		this.resourceQueue= new LinkedBlockingQueue<QueueInfo>(capacity);
+	private static volatile Resource instance;
+	
+	private Resource() {}
+		
+	public static Resource getInstance(){
+		if(instance==null) {
+			synchronized(Resource.class) {
+				if(instance==null) {
+					instance=new Resource();
+					resourceQueue= new LinkedBlockingQueue<QueueInfo>(Common.BLOCKING_QUEUE_NUMS);
+				}
+			}
+		}
+		return instance;
 		
 	}
 	
@@ -53,13 +62,13 @@ public class Resource {
 	         return queueInfo;
 	    }
 	
-	public static void main(String[] args){
-		Resource resource=new Resource(Common.BLOCKING_QUEUE_NUMS);
-		Producer producer=new Producer(resource);
-		Consumer  consumer=new Consumer(resource);
+/*	public static void main(String[] args){
+		Producer producer=new Producer();
+		Consumer  consumer=new Consumer();
 		producer.start();
+		producer.add(new QueueInfo());
 		consumer.start();
 		
-	}
+	}*/
 
 }

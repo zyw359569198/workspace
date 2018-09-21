@@ -2,11 +2,18 @@ package com.zyw.utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +24,22 @@ import org.slf4j.LoggerFactory;
 public class JsoupParse {
 	private static Logger logger = LoggerFactory.getLogger(JsoupParse.class);
 	
+	// 删除ArrayList中重复元素，保持顺序     
+	 public static void removeDuplicateWithOrder(List list) { 
+		 Collections.reverse(list);
+	    Set set = new HashSet();    
+	     List newList = new ArrayList();    
+	   for (Iterator iter = list.iterator(); iter.hasNext();) {    
+	         Object element = iter.next();    
+	         if (set.add(element))    
+	            newList.add(element);    
+	      }     
+	     list.clear();    
+	     list.addAll(newList);  
+	     Collections.sort(list);
+	    //System.out.println( " remove duplicate " + list);    
+	 }
+	
 	public static List parse(Document doc,String tag) {
 		List resultList=new ArrayList();
 		Elements elements = null;
@@ -25,26 +48,40 @@ public class JsoupParse {
 		elements.forEach(element->{
 			if(element.hasAttr("href")&&tag.contains("href")) {
 				resultList.add(element.attr("href"));
+			}else if(element.hasAttr("src")&&tag.contains("src")){
+				resultList.add(element.attr("src"));
 			}else {
-				resultList.add(element.text());
+				resultList.add(element.html());
 			}
 		});
-		resultList.stream().forEach(x->{
-			System.out.println(x);
-		});
+/*        resultList.stream().forEach(x->{
+			logger.info(x.toString());
+		});*/
+	    removeDuplicateWithOrder(resultList);
 		return resultList;
 		
 	}
 	
 	public static void main(String[] args) {
-    		CloseableHttpClient httpClient=HttpConnectionPoolUtil.getHttpClient("https://txt2.cc");
-    		HttpGet httpget = new HttpGet("https://txt2.cc/book/douluozhizuixing/");  
-            httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
+/*        CookieStore cookieStore = new BasicCookieStore();
+        BasicClientCookie cookie = new BasicClientCookie("AST","1537521250443bc145d5bc3");
+        cookie.setDomain(".zongheng.com");
+        cookie.setPath("/");
+        cookieStore.addCookie(cookie);
+        BasicClientCookie cookie1 = new BasicClientCookie("ZHID","45D2FD7BC0C712C6D58717AA8FD1DE48");
+        cookie1.setDomain(".zongheng.com");
+        cookie1.setPath("/");
+        cookieStore.addCookie(cookie1);
+        HttpConnectionPoolUtil.setCookieStore(cookieStore);*/
+    		CloseableHttpClient httpClient=HttpConnectionPoolUtil.getHttpClient("http://www.shuhuangge.org");
+    		HttpGet httpget = new HttpGet("http://www.shuhuangge.org/26_26448/10220682.html"); 
+    		//httpget.setHeader("Referer","http://book.zongheng.com");
+            httpget.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36");
             try {
 				HttpResponse response = httpClient.execute(httpget);
-				Document doc = Jsoup.parse(EntityUtils.toString(response.getEntity()));
+				Document doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),"gbk"));
 				//parse(doc,"body > a[href]");
-				parse(doc,"div.jieshao div.rt div.msg em:eq(2)");
+				parse(doc,"div#fmimg .b");
 				//logger.info(EntityUtils.toString(response.getEntity()));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

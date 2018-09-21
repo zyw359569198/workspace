@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -40,6 +41,36 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public class Utils {
+	
+	public static String getUTF8StringFromGBKString(String gbkStr) {  
+        try {  
+            return new String(getUTF8BytesFromGBKString(gbkStr), "UTF-8");  
+        } catch (UnsupportedEncodingException e) {  
+            throw new InternalError();  
+        }  
+    }  
+      
+    public static byte[] getUTF8BytesFromGBKString(String gbkStr) {  
+        int n = gbkStr.length();  
+        byte[] utfBytes = new byte[3 * n];  
+        int k = 0;  
+        for (int i = 0; i < n; i++) {  
+            int m = gbkStr.charAt(i);  
+            if (m < 128 && m >= 0) {  
+                utfBytes[k++] = (byte) m;  
+                continue;  
+            }  
+            utfBytes[k++] = (byte) (0xe0 | (m >> 12));  
+            utfBytes[k++] = (byte) (0x80 | ((m >> 6) & 0x3f));  
+            utfBytes[k++] = (byte) (0x80 | (m & 0x3f));  
+        }  
+        if (k < utfBytes.length) {  
+            byte[] tmp = new byte[k];  
+            System.arraycopy(utfBytes, 0, tmp, 0, k);  
+            return tmp;  
+        }  
+        return utfBytes;  
+    }
 	
 	public  static void  saveHtml(Configuration configuration,HttpServletRequest request,String htmlFileName,String modelName,Map content) {
 		if(Common.IS_GENERATE_HTML) {

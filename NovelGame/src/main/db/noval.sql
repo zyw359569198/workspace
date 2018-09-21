@@ -41,7 +41,7 @@ CREATE TABLE `book` (
   `book_id` varchar(36) DEFAULT NULL,
   `book_name` varchar(200) DEFAULT NULL,
   `book_name_en` varchar(200) DEFAULT NULL,
-  `book_desc` varchar(500) DEFAULT NULL,
+  `book_desc` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `create_time` date DEFAULT NULL,
   `update_time` date DEFAULT NULL,
   `is_completion` int(11) DEFAULT '1',
@@ -89,6 +89,16 @@ CREATE TABLE `catagory` (
 /*Data for the table `catagory` */
 
 insert  into `catagory`(`id`,`cata_id`,`cata_name`,`cata_name_en`,`order_desc`) values ('0','0','首页','shouye',1),('1','1','都市','dushi',2),('10','10','其它','qita',11),('2','2','玄幻','xuanhuan',3),('3','3','武侠','wuxia',4),('4','4','言情','yanqing',5),('5','5','穿越','chuanyue',6),('6','6','网游','wangyou',7),('7','7','恐怖','kongbu',8),('8','8','科幻','kehuan',9),('9','9','修真','xiuzhen',10);
+
+/*Table structure for table `collect_collect_info` */
+
+DROP TABLE IF EXISTS `collect_collect_info`;
+
+CREATE TABLE `collect_collect_info` (
+  `id` varchar(36) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `collect_collect_info` */
 
 /*Table structure for table `model` */
 

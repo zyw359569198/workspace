@@ -5,9 +5,7 @@ public class StoreInfo {
 	private Rule storeName;
 		
 	private Rule storeContent;
-	
-	private Long orderIndex;
-	
+		
 	private String storeUrl;
 	
 
@@ -35,12 +33,5 @@ public class StoreInfo {
 		this.storeContent = storeContent;
 	}
 
-	public Long getOrderIndex() {
-		return orderIndex;
-	}
-
-	public void setOrderIndex(Long orderIndex) {
-		this.orderIndex = orderIndex;
-	}
 	
 }
