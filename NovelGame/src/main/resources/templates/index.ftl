@@ -69,8 +69,8 @@
       <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${bookInfo.storeId}/">${bookInfo.storeName}</a></span>
       <span class="zz"><a target="_blank" href="/author/${bookInfo.authorNameEn}/">${bookInfo.authorName}</a></span>
       <#list bookInfo.createTime?split("-") as item>
-      <#if item_index==1>
-      <span class="sj">${item} <#elseif item_index==2>/${item}</span></li>
+      <#if item_index==0>
+      <span class="sj">${item}<#elseif item_index==1>/${item}<#elseif item_index==2>/${item}</span></li>
       </#if>
       </#list>
       </#list>

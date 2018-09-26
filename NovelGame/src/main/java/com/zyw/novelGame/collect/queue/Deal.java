@@ -3,10 +3,16 @@ package com.zyw.novelGame.collect.queue;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import org.apache.http.HttpResponse;
@@ -140,6 +146,28 @@ public class Deal {
  		        author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
   		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),null,book.getBookName(),null);
 			   if(blist.size()>0) {
+				     int storeCount=storeService.queryStoreCountByBookId(blist.get(0).get("bookId").toString());
+				   if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
+		            	 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getCollect().getNovelSiteUrl());
+				    	 httpget = new HttpGet(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreCataUrl().getUrlMatch()).get(0).toString());  
+				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+						 response = httpClient.execute(httpget);
+						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+				   }
+						 List storeList=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreRule().getUrlMatch());
+						 for(int i=(storeCount-1);i>-1;i--) {
+							 storeList.remove(i);
+						 }
+					      Map mp=new HashMap();
+					      QueueInfo queue=new QueueInfo();
+						 mp.put("bookId", blist.get(0).get("bookId").toString());
+						 mp.put("updateTime", book.getUpdateTime());
+						 mp.put("count", storeCount);
+						 queue.setCollect(queueInfo.getCollect());
+						 queue.setType("2");
+						 queue.setMark(mp);
+						 queue.setResultList(storeList);
+						 producer.add(queue);		            
 				   return;
 			   }
   		   List<Author> alist=authorService.queryAuthorInfo(author);
@@ -177,6 +205,7 @@ public class Deal {
 				      Map mp=new HashMap();
 				      QueueInfo queue=new QueueInfo();
 					 mp.put("bookId", book.getBookId());
+					 mp.put("updateTime", book.getUpdateTime());
 					 queue.setCollect(queueInfo.getCollect());
 					 queue.setType("2");
 					 queue.setMark(mp);
@@ -196,6 +225,51 @@ public class Deal {
 		}
 	}
 	
+	// 删除ArrayList中重复元素，保持顺序     
+	 public static void removeDuplicateWithOrder(List list) {
+	    Set set = new HashSet();    
+	     List newList = new ArrayList();    
+	   for (Iterator iter = list.iterator(); iter.hasNext();) {
+	         Object element = iter.next();    
+	         if (set.add(element))    
+	            newList.add(element);    
+	      }     
+	     list.clear();    
+	     list.addAll(newList);  
+		 Collections.sort(list,new Comparator<Object>() {
+			 
+			 @Override
+			 public int compare(Object b1,Object b2) {
+				 int a=0;
+				 int b=0;
+				 if(b1.toString().contains("/")&&b1.toString().contains(".")&&b1.toString().lastIndexOf(".")>b1.toString().lastIndexOf("/")) {
+					 a=Integer.parseInt(b1.toString().substring(b1.toString().lastIndexOf("/")+1,b1.toString().lastIndexOf(".")));
+					 b=Integer.parseInt(b2.toString().substring(b2.toString().lastIndexOf("/")+1,b2.toString().lastIndexOf(".")));
+					 if(a>b) {
+						 return 1;
+					 }else if(a<b){
+						 return -1;
+					 }else {
+						 return 0;
+					 }
+				 }else if(b1.toString().contains("/")) {
+					 a=Integer.parseInt(b1.toString().substring(b1.toString().lastIndexOf("/", b1.toString().lastIndexOf("/")-1)+1,b1.toString().lastIndexOf("/")));
+					 b=Integer.parseInt(b2.toString().substring(b2.toString().lastIndexOf("/", b2.toString().lastIndexOf("/")-1)+1,b2.toString().lastIndexOf("/")));
+					 if(a>b) {
+						 return 1;
+					 }else if(a<b){
+						 return -1;
+					 }else {
+						 return 0;
+					 }
+				 }
+				 return b1.toString().compareTo(b2.toString());
+			 }
+			 
+		 });
+	    //System.out.println( " remove duplicate " + list);    
+	 }
+	 
 	public   void dealStore(QueueInfo queueInfo) {
 		String preStoreId="";
 	    String nextStoreId="";
@@ -203,6 +277,10 @@ public class Deal {
 	    long count=1;
 		String  storeName="";
 	       try {
+    		   if(queueInfo.getMark().get("count")!=null) {
+    			   count=Integer.parseInt(queueInfo.getMark().get("count").toString());
+    		   }
+    		   removeDuplicateWithOrder(queueInfo.getResultList());
 	    	   for(Object item:queueInfo.getResultList()) {
 	    		   if(!item.toString().contains("http")) {
 	    			   item=queueInfo.getCollect().getNovelSiteUrl()+item;
@@ -241,7 +319,7 @@ public class Deal {
      	   storeData.setId(UUID.randomUUID().toString());
      	   storeData.setStoreId(store.getStoreId());
 	    	   store.setStoreName(storeName);
-     	   store.setCreateTime(new Date());
+     	   store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
      	   store.setOrderIndex(count);
      	   storeService.insert(store);
      	   storeService.insertStoreData(storeData);
@@ -272,7 +350,7 @@ public class Deal {
 					 response = httpClient.execute(httpget);
 					 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 					 QueueInfo queue=null;
-					 int count=0;
+					// int count=0;
 					 List resultList=JsoupParse.parse(doc, queueInfo.getCollect().getBookRule().getUrlMatch());
 					 for(Object item:resultList) {
 						 queue=new QueueInfo();
@@ -283,7 +361,7 @@ public class Deal {
 						 /*if(count>10) {
 							 break;
 						 }*/
-						 count++;
+						// count++;
 					 };
 					
 					 
@@ -300,7 +378,7 @@ public class Deal {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("substr 0 2".split(" ")[2]);
+		System.out.println("http://dasdasdas/12/".substring("http://dasdasdas/12/".lastIndexOf("/", "http://dasdasdas/12/".lastIndexOf("/")-1)+1, "http://dasdasdas/12/".lastIndexOf("/")));
 	}
 
 }

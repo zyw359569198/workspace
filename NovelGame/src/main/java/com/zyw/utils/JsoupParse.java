@@ -3,6 +3,7 @@ package com.zyw.utils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -24,22 +25,6 @@ import org.slf4j.LoggerFactory;
 public class JsoupParse {
 	private static Logger logger = LoggerFactory.getLogger(JsoupParse.class);
 	
-	// 删除ArrayList中重复元素，保持顺序     
-	 public static void removeDuplicateWithOrder(List list) { 
-		 Collections.reverse(list);
-	    Set set = new HashSet();    
-	     List newList = new ArrayList();    
-	   for (Iterator iter = list.iterator(); iter.hasNext();) {    
-	         Object element = iter.next();    
-	         if (set.add(element))    
-	            newList.add(element);    
-	      }     
-	     list.clear();    
-	     list.addAll(newList);  
-	     Collections.sort(list);
-	    //System.out.println( " remove duplicate " + list);    
-	 }
-	
 	public static List parse(Document doc,String tag) {
 		List resultList=new ArrayList();
 		Elements elements = null;
@@ -57,7 +42,6 @@ public class JsoupParse {
 /*        resultList.stream().forEach(x->{
 			logger.info(x.toString());
 		});*/
-	    removeDuplicateWithOrder(resultList);
 		return resultList;
 		
 	}

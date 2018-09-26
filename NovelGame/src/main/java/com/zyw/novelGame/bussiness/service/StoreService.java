@@ -16,5 +16,7 @@ public interface StoreService {
 	int insertStoreData(StoreData storeData);
 	
 	List<BookData>  queryBookStoreData(String storeId);
+	
+	int queryStoreCountByBookId(String bookId);
 
 }

@@ -12,6 +12,9 @@ public class Common {
 	//采集停顿时间
 	public static final long COLLECT_WAIT_TIME=100;
 	
+	//采集线程数
+	public static final int CONSUMER_NUMS=6;
+	
 	
 
 }

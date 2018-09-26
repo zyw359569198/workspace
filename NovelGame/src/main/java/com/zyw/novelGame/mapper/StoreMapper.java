@@ -26,4 +26,6 @@ public interface StoreMapper {
 	List<HashMap> queryBookStore(@Param("bookNameEn")String bookNameEn,@Param("storeId")String storeId);
 	
 	List<BookData> queryBookStoreData(@Param("storeId")String storeId);
+	
+	int queryStoreCountByBookId(@Param("bookId")String bookId);
 }

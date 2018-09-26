@@ -1,9 +1,13 @@
 ln -s 软连接静态文件夹目录，修改nginx.conf   user为root
 
-yum install -y libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
+yum remove -y --skip-broken autoconf automake cdbs debhelper libtool mysql-devel mariadb-config mysql-libs mysql MySQL-server bc
+安装数据库
+yum install -y java libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
+yum install -y --skip-broken autoconf automake cdbs debhelper libtool  bc
+
 yum clean all;
 
-move psol incubator-pagespeed-ngx-1.13.35.2-stable
+mv psol incubator-pagespeed-ngx-1.13.35.2-stable
 ./configure --with-http_realip_module --with-http_stub_status_module --add-module=/root/incubator-pagespeed-ngx-1.13.35.2-stable;make && make install;
 
 
@@ -13,3 +17,59 @@ set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_F
 mysql5.8  my.cnf增加以下配置
 在 [mysqld]和[mysql]下添加
 sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ln -s 
+
+
+
+[client]
+port = 3306
+socket = /usr/local/mysqld/mysqld.sock
+
+[mysqld_safe]
+spcket = /usr/local/mysqld/mysqld.sock
+nice = 0
+
+[mysqld]
+user = root
+#default_authentication_plugin=mysql_native_password
+pid-file = /usr/local/mysqld/mysqld.pid
+socket = /usr/local/mysqld/mysqld.sock
+port = 3306
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+tmpdir = /tmp
+skip-external-locking
+skip-name-resolve
+
+slow_query_log = 1
+slow_query_log_file = /usr/local/mysql/mysql-slow.log
+log-error = /usr/local/mysql/mysql.err
+long_query_time = 8
+binlog_format = MIXED
+binlog_cache_size = 1M
+innodb_autoinc_lock_mode = 2
+binlog_expire_logs_seconds = 36000
+max_binlog_size = 100M
+
+default_storage_engine = InnoDB
+innodb_file_per_table
+innodb_log_file_size = 128M
+innodb_log_buffer_size = 8M
+innodb_log_files_in_group = 2
+innodb_buffer_pool_instances = 2
+innodb_buffer_pool_size = 512M
+innodb_flush_method = O_DIRECT
+sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
+
+
+
+
+
+vim /etc/profile
+export PATH="$PATH:/usr/local/mysql/bin"
+source /etc/profile
+
+
+
+修改密码长度：set global validate_password.policy=0;set global validate_password.length=1;再更新密码即可

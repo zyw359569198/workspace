@@ -12,18 +12,21 @@ import com.zyw.novelGame.collect.queue.QueueInfo;
 
 public class CollectData {
 	
-	public static QueueInfo  analyzeBookList(CollectInfo collect) {
+	public static List<QueueInfo>  analyzeBookList(CollectInfo collect) {
+		List<QueueInfo> queueInfoList=new ArrayList<QueueInfo>();
 		QueueInfo queueInfo=new QueueInfo();
 		if("0".equalsIgnoreCase(collect.getBookRule().getType())) {
 			if(Integer.parseInt(collect.getBookRule().getUrlStartNum())==-1||Integer.parseInt(collect.getBookRule().getUrlEndNum())==-1) {
 				queueInfo.setType("0");
 				queueInfo.setResult(collect.getBookRule().getUrl());
 				queueInfo.setCollect(collect);
+				queueInfoList.add(queueInfo);
 			}else {
 				for(int i=Integer.parseInt(collect.getBookRule().getUrlStartNum());i<(Integer.parseInt(collect.getBookRule().getUrlEndNum())+1);i++) {
 					queueInfo.setType("0");
 					queueInfo.setResult(addStr(collect.getBookRule().getUrl(),"@",i+""));
 					queueInfo.setCollect(collect);
+					queueInfoList.add(queueInfo);
 				}
 			}
 		}else if("1".equalsIgnoreCase(collect.getBookRule().getType())) {
@@ -32,14 +35,20 @@ public class CollectData {
 			
 		}		
 		
-		return queueInfo;
+		return queueInfoList;
 	}
 	
 	public static String addStr(String str,String parrent,String data) {
 		StringBuffer sb=new StringBuffer();
-		sb.append(str.split(parrent)[0]);
-		sb.append(data);
-		sb.append(str.split(parrent)[1]);
+		String[] strs=str.split(parrent);
+		if(strs.length<2) {
+			sb.append(strs[0]);
+			sb.append(data);
+		}else {
+			sb.append(strs[0]);
+			sb.append(data);
+			sb.append(strs[1]);
+		}
 		return sb.toString();
 		
 	}

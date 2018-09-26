@@ -55,8 +55,8 @@
         <#list bul.list as store>
         <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${store.storeId}/">${store.storeName}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
         <#list store.createTime?split("-") as item>
-      <#if item_index==1>
-      <span class="sj">${item} <#elseif item_index==2>/${item}</span>
+      <#if item_index==0>
+      <span class="sj">${item}<#elseif item_index==1>/${item}<#elseif item_index==2>/${item}</span>
       </#if>
       </#list>
       <#if store.isCompletion==0>

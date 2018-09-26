@@ -37,13 +37,11 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 	}
 
 	@Override
-	@Transactional
 	public int insert(Store record) {
 		return storeMapper.insert(record);
 	}
 
 	@Override
-	@Transactional
 	public int insertStoreData(StoreData storeData) {
 		try {
 			storeData.setStoreContent(Snappy.compress(storeData.getStoreContent()));
@@ -68,6 +66,11 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 			
 		}).collect(Collectors.toList());
 		return list;
+	}
+
+	@Override
+	public int queryStoreCountByBookId(String bookId) {
+		return storeMapper.queryStoreCountByBookId(bookId);
 	}
 
 }

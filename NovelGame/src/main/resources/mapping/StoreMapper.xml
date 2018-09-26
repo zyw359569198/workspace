@@ -58,6 +58,9 @@
     </where>
      order by a.order_index
   </select>
+<select id="queryStoreCountByBookId" resultType="java.lang.Integer">
+    select count(1) from store where book_id=#{bookId,jdbcType=VARCHAR}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="image" key="selection"/>
+		<item value="catagoryItem" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="catagoryItem"/>
+			<item value="setStoreCataUrl"/>
+			<item value="StoreCataUrl("/>
+			<item value="queryBookInfo"/>
+			<item value="insert"/>
+			<item value="queryBookUpdateInfo"/>
+			<item value="integer"/>
+			<item value="createHttpClient"/>
+			<item value="upda"/>
+			<item value="public"/>
+			<item value="createIgnoreVerifySSL"/>
+			<item value="setRequestConfig"/>
 			<item value="image"/>
 			<item value="queryBookStoreData"/>
 			<item value="BookStoreResultMap"/>
-			<item value="storeContent"/>
-			<item value="store_content"/>
-			<item value="store_Content"/>
-			<item value="getFileImage"/>
-			<item value="queryBook"/>
-			<item value="updateHits"/>
-			<item value="updateByBookID"/>
-			<item value="queryBookInfo"/>
-			<item value="queryBookByHits"/>
-			<item value="last"/>
-			<item value="push"/>
-			<item value="statistics"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

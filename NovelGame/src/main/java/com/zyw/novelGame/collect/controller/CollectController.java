@@ -1,6 +1,8 @@
 package com.zyw.novelGame.collect.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +30,6 @@ public class CollectController {
 	public static final  Logger logger=LoggerFactory.getLogger(CollectController.class);
 	
 	@Autowired
-	private Consumer consumer;
-	
-	@Autowired
 	private Producer producer;
 	
 	@RequestMapping(value="/init",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
@@ -39,15 +38,8 @@ public class CollectController {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();	
 		CollectInfo collect=new CollectInfo();
-		Rule bookRule=new Rule();
 		collect.setNovelSiteName("txt2小说网");		
 		collect.setNovelSiteUrl("https://txt2.cc");
-		bookRule.setType("0");
-		bookRule.setUrlStartNum("8");
-		bookRule.setUrlEndNum("8");
-		bookRule.setUrl("https://txt2.cc/map/@/");
-		bookRule.setUrlMatch("body > a[href]");
-		collect.setBookRule(bookRule);
 		BookInfo bookInfo=new BookInfo();
 		Rule authorName=new Rule();
 		authorName.setType("3");
@@ -96,10 +88,29 @@ public class CollectController {
 		storeInfo.setStoreName(storeName);
 		bookInfo.setStoreInfo(storeInfo);
 		collect.setBookInfo(bookInfo);
-		for(int i=0;i<10;i++) {
-			consumer.execute();
+		List<String> bookList=new ArrayList<String>();
+		bookList.add("dushi");
+		bookList.add("xuanfan");
+		bookList.add("wuxia");
+		bookList.add("yanqing");
+		bookList.add("chuanyue");
+		bookList.add("wangyou");
+		bookList.add("kongbu");
+		bookList.add("kefan");
+		bookList.add("xiuzhen");
+		bookList.add("qita");
+		for(int i=0;i<bookList.size();i++) {
+			Rule bookRule=new Rule();
+			bookRule.setType("0");
+			bookRule.setUrlStartNum("1");
+			bookRule.setUrlEndNum("10");
+			bookRule.setUrl("https://txt2.cc/index.php?m=Home&c=Book&a=clist&pinyin="+bookList.get(i)+"&p=@");
+			bookRule.setUrlMatch("div.booklist ul li span.sm a[href]");
+			collect.setBookRule(bookRule);
+			CollectData.analyzeBookList(collect).forEach(item->{
+				producer.add(item);
+			});
 		}
-		producer.add(CollectData.analyzeBookList(collect));
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
 		return resultMap;
@@ -112,16 +123,9 @@ public class CollectController {
 		Map resultMap=new HashMap();
 		Map dataMap=new HashMap();	
 		CollectInfo collect=new CollectInfo();
-		Rule bookRule=new Rule();
 		collect.setNovelSiteName("书荒阁");		
 		collect.setNovelSiteUrl("http://www.shuhuangge.org");
 		collect.setNovelCharset("gbk");
-		bookRule.setType("0");
-		bookRule.setUrlStartNum("1");
-		bookRule.setUrlEndNum("177");
-		bookRule.setUrl("http://www.shuhuangge.org/xuanhuanxiaoshuo/1_@.html");
-		bookRule.setUrlMatch("div#newscontent div.l span.s2 a[href]");
-		collect.setBookRule(bookRule);
 		BookInfo bookInfo=new BookInfo();
 		Rule authorName=new Rule();
 		authorName.setType("3");
@@ -171,10 +175,25 @@ public class CollectController {
 		storeInfo.setStoreName(storeName);
 		bookInfo.setStoreInfo(storeInfo);
 		collect.setBookInfo(bookInfo);
-		for(int i=0;i<2;i++) {
-			consumer.execute();
+		List<String> bookList=new ArrayList<String>();
+		bookList.add("xuanhuanxiaoshuo");
+		bookList.add("xiuzhenxiaoshuo");
+		bookList.add("dushixiaoshuo");
+		bookList.add("chuanyuexiaoshuo");
+		bookList.add("wangyouxiaoshuo");
+		bookList.add("kehuanxiaoshuo");
+		for(int i=0;i<bookList.size();i++) {
+			Rule bookRule=new Rule();
+			bookRule.setType("0");
+			bookRule.setUrlStartNum("1");
+			bookRule.setUrlEndNum("10");
+			bookRule.setUrl("http://www.shuhuangge.org/"+bookList.get(i)+"/"+(i+1)+"_@.html");
+			bookRule.setUrlMatch("div#newscontent div.l span.s2 a[href]");
+			collect.setBookRule(bookRule);
+			CollectData.analyzeBookList(collect).forEach(item->{
+				producer.add(item);
+			});
 		}
-		producer.add(CollectData.analyzeBookList(collect));
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
 		return resultMap;
@@ -248,10 +267,9 @@ public class CollectController {
 		storeInfo.setStoreName(storeName);
 		bookInfo.setStoreInfo(storeInfo);
 		collect.setBookInfo(bookInfo);
-		for(int i=0;i<1;i++) {
-			consumer.execute();
-		}
-		producer.add(CollectData.analyzeBookList(collect));
+		CollectData.analyzeBookList(collect).forEach(item->{
+			producer.add(item);
+		});
 		resultMap.put("data", dataMap);
 		resultMap.put("errorCode", 200);
 		return resultMap;
