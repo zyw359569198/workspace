@@ -18,10 +18,10 @@ public class Consumer {
 	         while (true) {
 	        	 try {
 		            Thread.sleep((long) (1000 * Math.random()));
+		        	 ApplicationContextProvider.getBean("deal", Deal.class).init(Resource.getInstance().remove());
 		             } catch (InterruptedException e) {
 		                 e.printStackTrace();
 		             }
-	        	 ApplicationContextProvider.getBean("deal", Deal.class).init(Resource.getInstance().remove());
 		         }
 		     }
 	

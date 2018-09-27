@@ -13,7 +13,7 @@ public class Common {
 	public static final long COLLECT_WAIT_TIME=100;
 	
 	//采集线程数
-	public static final int CONSUMER_NUMS=6;
+	public static final int CONSUMER_NUMS=2;
 	
 	
 

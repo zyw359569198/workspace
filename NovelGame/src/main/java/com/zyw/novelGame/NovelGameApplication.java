@@ -19,7 +19,7 @@ public class NovelGameApplication {
 		SpringApplication.run(NovelGameApplication.class, args);
 	}
 	
-	@Bean(name = "taskExecutorNovel")
+/*	@Bean(name = "taskExecutorNovel")
 	public Executor taskExecutorNovel() {
 	   ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 	   executor.setCorePoolSize(20);
@@ -32,5 +32,5 @@ public class NovelGameApplication {
 	   executor.setWaitForTasksToCompleteOnShutdown(true);
 	   executor.setAwaitTerminationSeconds(60);
 	    return executor;
-	}
+	}*/
 }

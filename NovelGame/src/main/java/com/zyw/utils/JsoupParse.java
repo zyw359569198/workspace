@@ -57,15 +57,15 @@ public class JsoupParse {
         cookie1.setPath("/");
         cookieStore.addCookie(cookie1);
         HttpConnectionPoolUtil.setCookieStore(cookieStore);*/
-    		CloseableHttpClient httpClient=HttpConnectionPoolUtil.getHttpClient("http://www.shuhuangge.org");
-    		HttpGet httpget = new HttpGet("http://www.shuhuangge.org/26_26448/10220682.html"); 
+    		CloseableHttpClient httpClient=HttpConnectionPoolUtil.getHttpClient("https://txt2.cc");
+    		HttpGet httpget = new HttpGet("https://txt2.cc/book/zhongshengnvxiuxianchuan/"); 
     		//httpget.setHeader("Referer","http://book.zongheng.com");
             httpget.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36");
             try {
 				HttpResponse response = httpClient.execute(httpget);
 				Document doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),"gbk"));
 				//parse(doc,"body > a[href]");
-				parse(doc,"div#fmimg .b");
+				parse(doc,"div.jieshao div.lf img[src]");
 				//logger.info(EntityUtils.toString(response.getEntity()));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

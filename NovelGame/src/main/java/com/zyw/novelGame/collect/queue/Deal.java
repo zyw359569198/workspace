@@ -21,6 +21,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -43,6 +45,7 @@ import com.zyw.utils.Utils;
 @Component
 @Scope("prototype")
 public class Deal {
+	public static final  Logger logger=LoggerFactory.getLogger(Deal.class);
 	@Autowired
 	private CatagoryService catagoryService;
 	
@@ -78,12 +81,16 @@ public class Deal {
     private CataBookRelation cataBookRelation=null;
 			
 	public  void init(QueueInfo queueInfo){
+		try {
    	 if("0".equalsIgnoreCase(queueInfo.getType())) {
 		 deal(queueInfo);
 	 }else if("1".equalsIgnoreCase(queueInfo.getType())) {
 		 dealBook(queueInfo);
 	 }else if("2".equalsIgnoreCase(queueInfo.getType())) {
 		 dealStore(queueInfo);
+	 }
+   	 }catch(Exception e){
+		 e.printStackTrace();
 	 }
 	}
 	
@@ -183,7 +190,12 @@ public class Deal {
 	            book.setId(UUID.randomUUID().toString());
 	            book.setBookDesc(bookDesc);
     		    imageUrl=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getImageUrl().getUrlMatch()).get(0).toString();
-	           imageName=book.getBookId()+imageUrl.substring(imageUrl.lastIndexOf("."));
+    		    //logger.info("image url:"+imageUrl);
+    		    if(imageUrl.contains(".")) {
+    		           imageName=book.getBookId()+imageUrl.substring(imageUrl.lastIndexOf("."));
+    		    }else {
+    	 	           imageName=book.getBookId();
+    		    }
 		       book.setImageUrl("/images/data/"+imageName);
 		       bookService.insert(book);
 		        cataBookRelation.setBookId(book.getBookId());

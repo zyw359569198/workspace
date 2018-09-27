@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="catagoryItem" key="selection"/>
+		<item value="LoggerFactory" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="LoggerFactory"/>
+			<item value="substring"/>
 			<item value="catagoryItem"/>
 			<item value="setStoreCataUrl"/>
 			<item value="StoreCataUrl("/>
@@ -21,8 +23,6 @@
 			<item value="createIgnoreVerifySSL"/>
 			<item value="setRequestConfig"/>
 			<item value="image"/>
-			<item value="queryBookStoreData"/>
-			<item value="BookStoreResultMap"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

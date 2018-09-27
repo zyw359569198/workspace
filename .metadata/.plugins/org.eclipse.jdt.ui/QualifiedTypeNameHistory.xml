@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
-<fullyQualifiedTypeName name="sun.misc.IOUtils"/>
-<fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.IOUtils"/>
-<fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.collect.entity.Rule"/>
-<fullyQualifiedTypeName name="org.jsoup.nodes.Document"/>
-<fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.collect.entity.BookInfo"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.QueueInfo"/>
 <fullyQualifiedTypeName name="com.zyw.utils.HttpConnectionPoolUtil"/>
 <fullyQualifiedTypeName name="com.zyw.utils.JsoupParse"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.CatagoryService"/>
 <fullyQualifiedTypeName name="com.zyw.utils.SpringContextUtils"/>
-<fullyQualifiedTypeName name="org.springframework.scheduling.annotation.EnableAsync"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
-<fullyQualifiedTypeName name="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"/>
-<fullyQualifiedTypeName name="java.util.concurrent.ThreadPoolExecutor"/>
 <fullyQualifiedTypeName name="org.springframework.scheduling.annotation.Async"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.CollectData"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.Consumer"/>
@@ -33,7 +21,6 @@
 <fullyQualifiedTypeName name="java.util.concurrent.CompletableFuture"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
 <fullyQualifiedTypeName name="org.springframework.context.ApplicationContextAware"/>
 <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.beans.BeansException"/>
@@ -60,4 +47,17 @@
 <fullyQualifiedTypeName name="org.springframework.core.annotation.Order"/>
 <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
 <fullyQualifiedTypeName name="com.zyw.utils.Common"/>
+<fullyQualifiedTypeName name="com.sun.media.jfxmedia.logging.Logger"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.scheduling.annotation.EnableAsync"/>
+<fullyQualifiedTypeName name="org.springframework.scheduling.annotation.AsyncConfigurer"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Executor"/>
+<fullyQualifiedTypeName name="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ThreadPoolExecutor"/>
+<fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.Class.Method"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+<fullyQualifiedTypeName name="org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler"/>
 </qualifiedTypeNameHistroy>
