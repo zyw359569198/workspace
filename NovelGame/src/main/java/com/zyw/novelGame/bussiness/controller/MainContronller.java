@@ -30,7 +30,7 @@ import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
 
-@Controller
+@Controller("pcMainController")
 @RequestMapping("")
 public class MainContronller {
 	
@@ -52,7 +52,7 @@ public class MainContronller {
 	
 	@RequestMapping(value="",method= {RequestMethod.GET})
 	public String init(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<Book>> bookHitsFuture=null;
+		CompletableFuture<List<HashMap>> bookHitsFuture=null;
 		CompletableFuture<List<HashMap>> bookCreateTimeFuture=null;
 		CompletableFuture<List<Object>> catagoryBookRelationFuture=null;
 		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
@@ -71,17 +71,18 @@ public class MainContronller {
 				return li;
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBook(6,null,-1);
+				PageHelper.startPage(1, 6, false);
+				return (new PageInfo<HashMap>(bookService.queryBook(null,-1))).getList();
 			});
 			bookCreateTimeFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookByCreateTime();
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 30, true);
+				PageHelper.startPage(1, 30, false);
 				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1))).getList();
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());

@@ -73,4 +73,14 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 		return storeMapper.queryStoreCountByBookId(bookId);
 	}
 
+	@Override
+	public List<Store> queryLastStoreIdByBookId(String bookId) {
+		return storeMapper.queryLastStoreIdByBookId(bookId);
+	}
+	
+	@Override
+	public int updateByStoreIdBySelective(Store record) {
+		return storeMapper.updateByStoreIdBySelective(record);
+	}
+
 }

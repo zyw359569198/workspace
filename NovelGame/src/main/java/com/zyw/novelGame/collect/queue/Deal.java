@@ -151,7 +151,7 @@ public class Deal {
 		           }
 		            author.setAuthorName(book.getAuthorName());
  		        author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
-  		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),null,book.getBookName(),null);
+  		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),author.getAuthorName(),book.getBookName(),book.getBookName());
 			   if(blist.size()>0) {
 				     int storeCount=storeService.queryStoreCountByBookId(blist.get(0).get("bookId").toString());
 				   if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
@@ -165,11 +165,14 @@ public class Deal {
 						 for(int i=(storeCount-1);i>-1;i--) {
 							 storeList.remove(i);
 						 }
+						 List<Store> sList=storeService.queryLastStoreIdByBookId(blist.get(0).get("bookId").toString());
 					      Map mp=new HashMap();
 					      QueueInfo queue=new QueueInfo();
 						 mp.put("bookId", blist.get(0).get("bookId").toString());
 						 mp.put("updateTime", book.getUpdateTime());
 						 mp.put("count", storeCount);
+						 mp.put("preStoreId", (sList.size()==0)?"":sList.get(0).getStoreId());
+						 mp.put("currentStoreId", (sList.size()==0)?"":sList.get(0).getNextStoreId());
 						 queue.setCollect(queueInfo.getCollect());
 						 queue.setType("2");
 						 queue.setMark(mp);
@@ -286,11 +289,18 @@ public class Deal {
 		String preStoreId="";
 	    String nextStoreId="";
 	    String curentStoreId="";
-	    long count=1;
+	    long count=0;
 		String  storeName="";
+		boolean updateFlag=false;
 	       try {
-    		   if(queueInfo.getMark().get("count")!=null) {
+    		   if(queueInfo.getMark().get("count")!=null&&Integer.parseInt(queueInfo.getMark().get("count").toString())>0) {
     			   count=Integer.parseInt(queueInfo.getMark().get("count").toString());
+    			   preStoreId=queueInfo.getMark().get("preStoreId").toString();
+    			   nextStoreId=queueInfo.getMark().get("currentStoreId").toString();
+    			   if(nextStoreId.equalsIgnoreCase("0")) {
+    				   nextStoreId=UUID.randomUUID().toString();
+    				   updateFlag=true;
+    			   }
     		   }
     		   removeDuplicateWithOrder(queueInfo.getResultList());
 	    	   for(Object item:queueInfo.getResultList()) {
@@ -298,7 +308,7 @@ public class Deal {
 	    			   item=queueInfo.getCollect().getNovelSiteUrl()+item;
 	    		   }
 				 Thread.sleep((long) (5000 * Math.random()));
-				 if(count==1) {
+				 if(count==0) {
 		    		   preStoreId="0";
 			    	   curentStoreId=UUID.randomUUID().toString();
 		    	   }else {
@@ -309,8 +319,8 @@ public class Deal {
 		    	   }else {
 		    		   nextStoreId=UUID.randomUUID().toString();
 		    	   }
-	    	   Store store=new Store();
-	    	   StoreData storeData=new StoreData();
+		        Store store=new Store();
+		       StoreData storeData=new StoreData();
 	    	   store.setBookId(queueInfo.getMark().get("bookId").toString());
 	    	   store.setId(UUID.randomUUID().toString());
 	    	   store.setStoreUrl(item.toString());
@@ -332,19 +342,26 @@ public class Deal {
      	   storeData.setStoreId(store.getStoreId());
 	    	   store.setStoreName(storeName);
      	   store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
-     	   store.setOrderIndex(count);
+     	   store.setOrderIndex(count+1);
      	   storeService.insert(store);
      	   storeService.insertStoreData(storeData);
      	   //更新最新章节
-     	   //if(count==liClass.size()||count==1) {
-     		   Book record=new Book();
+     	   if(count==queueInfo.getResultList().size()||0==(count%10)) {
+     		  Book record=new Book();
      		   record.setBookId(store.getBookId());
      		   record.setLastStoreId(store.getStoreId());
      		   bookService.updateByBookID(record);
-     		    preStoreId=curentStoreId;
-		     	 count++;
 	    	   }
-     	   //}
+    	   if(updateFlag) {
+    		   store=new Store();
+    		   store.setStoreId(preStoreId);
+    		   store.setNextStoreId(curentStoreId);
+    		   storeService.updateByStoreIdBySelective(store);
+    		   updateFlag=false;
+    	   }
+		    preStoreId=curentStoreId;
+	     	 count++;
+     	   }
 	       } catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -370,7 +387,7 @@ public class Deal {
 						 queue.setType("1");
 						 queue.setResult(item.toString());
 						 producer.add(queue);
-						 /*if(count>10) {
+/*						 if(count>10) {
 							 break;
 						 }*/
 						// count++;
@@ -390,7 +407,8 @@ public class Deal {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("http://dasdasdas/12/".substring("http://dasdasdas/12/".lastIndexOf("/", "http://dasdasdas/12/".lastIndexOf("/")-1)+1, "http://dasdasdas/12/".lastIndexOf("/")));
+		System.out.println(35%10);
+		//System.out.println("http://dasdasdas/12/".substring("http://dasdasdas/12/".lastIndexOf("/", "http://dasdasdas/12/".lastIndexOf("/")-1)+1, "http://dasdasdas/12/".lastIndexOf("/")));
 	}
 
 }

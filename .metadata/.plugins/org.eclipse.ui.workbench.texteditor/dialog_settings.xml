@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="LoggerFactory" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="LoggerFactory"/>
-			<item value="substring"/>
-			<item value="catagoryItem"/>
-			<item value="setStoreCataUrl"/>
-			<item value="StoreCataUrl("/>
 			<item value="queryBookInfo"/>
-			<item value="insert"/>
+			<item value="updateByStoreIdBySelective"/>
+			<item value="queryBook"/>
+			<item value="BookInfoResultMap"/>
+			<item value="queryStoreCountByBookId"/>
 			<item value="queryBookUpdateInfo"/>
-			<item value="integer"/>
-			<item value="createHttpClient"/>
-			<item value="upda"/>
-			<item value="public"/>
-			<item value="createIgnoreVerifySSL"/>
-			<item value="setRequestConfig"/>
-			<item value="image"/>
+			<item value="bookInfo"/>
+			<item value="cata_name_en"/>
+			<item value="queryBookStore"/>
+			<item value="store"/>
+			<item value="https://m.txt2.cc"/>
+			<item value="new"/>
+			<item value="tppabs"/>
+			<item value="js/mobile/layer.css"/>
+			<item value="BookUpdateInfoResultMap"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -39,7 +39,7 @@
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="1197" key="DIALOG_X_ORIGIN"/>
-		<item value="129" key="DIALOG_Y_ORIGIN"/>
+		<item value="1228" key="DIALOG_X_ORIGIN"/>
+		<item value="384" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -110,12 +110,13 @@ CREATE TABLE `model` (
   `model_name` varchar(200) DEFAULT NULL,
   `model_name_en` varchar(100) DEFAULT NULL,
   `order_desc` int(4) DEFAULT NULL,
+  `is_mobile` varchar(4) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `model` */
 
-insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`) values ('1','1','新书','hot',1),('2','2','推荐','recommend',2),('3','3','完本','full',3),('4','4','排行','top',4),('5','5','作者','authors',5);
+insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`,`is_mobile`) values ('1','1','新书','hot',1,'0'),('10','10','书架','mobile/my',10,'1'),('2','2','推荐','recommend',2,'0'),('3','3','完本','full',3,'0'),('4','4','排行','top',4,'0'),('5','5','作者','authors',5,'0'),('6','6','分类','mobile/catagory',6,'1'),('7','7','排行','mobile/top',7,'1'),('8','8','全本','mobile/full',8,'1'),('9','9','新书','mobile/new',9,'1');
 
 /*Table structure for table `store` */
 

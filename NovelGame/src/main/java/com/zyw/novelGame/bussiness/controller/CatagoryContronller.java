@@ -35,7 +35,7 @@ import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 
-@Controller
+@Controller("pcCatagory")
 @RequestMapping("/catagory")
 public class CatagoryContronller {
 	public static final  Logger logger=LoggerFactory.getLogger(CatagoryContronller.class);
@@ -64,7 +64,7 @@ public class CatagoryContronller {
 				return catagoryService.queryCatagory(new Catagory());
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			CompletableFuture.allOf(catagoryFuture,modelFuture);
 			dataMap.put("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
@@ -97,7 +97,7 @@ public class CatagoryContronller {
 				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(cataNameEn,"a.create_time",-1));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());

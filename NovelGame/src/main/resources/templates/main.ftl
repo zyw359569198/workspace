@@ -6,7 +6,7 @@
     <div class="rt">
       <a href="/model/search/" target="_blank"><font color="#FF0000">站内搜索</font></a> |
       <!-- <a href="/index.php?m=Home&c=Feedback&a=add" target="_blank">反馈留言</a> | -->
-      <a href="https://m.txt2.cc" target="_blank">手机版</a> | 
+      <a href="/mobile" target="_blank">手机版</a> | 
       <a href="javascript:void(0);" onclick="AddFavorite('txt2小说网',location.href)" target="_self" rel="nofollow">收藏本站</a>
     </div>
   </div>
@@ -39,5 +39,6 @@
        <#list mdl as model> 
        <li><a href="/model/${model.modelNameEn}/">${model.modelName}</a></li>
       </#list>
+        </ul>
   </div>
 </div>

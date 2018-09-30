@@ -6,6 +6,6 @@ import com.zyw.novelGame.model.Model;
 
 public interface ModelService {
 	
-	public  List<Model> queryModel();
+	public  List<Model> queryModel(String isMobile);
 
 }

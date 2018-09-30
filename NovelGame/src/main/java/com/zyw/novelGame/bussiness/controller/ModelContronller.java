@@ -51,17 +51,18 @@ public class ModelContronller {
 	
 	@RequestMapping(value="/hot",method= {RequestMethod.GET})
 	public String hot(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<Book>> bookFuture=null;
+		CompletableFuture<List<HashMap>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBook(6,"create_time",-1);
+				PageHelper.startPage(1, 6, false);
+				return (new PageInfo<HashMap>(bookService.queryBook("a.create_time",-1))).getList();
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -92,17 +93,18 @@ public class ModelContronller {
 	
 	@RequestMapping(value="/recommend",method= {RequestMethod.GET})
 	public String recommend(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<Book>> bookFuture=null;
+		CompletableFuture<List<HashMap>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBook(6,"hits",-1);
+				PageHelper.startPage(1, 6, false);
+				return (new PageInfo<HashMap>(bookService.queryBook("a.hits",-1))).getList();
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -131,17 +133,18 @@ public class ModelContronller {
 	
 	@RequestMapping(value="/full",method= {RequestMethod.GET})
 	public String full(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<Book>> bookFuture=null;
+		CompletableFuture<List<HashMap>> bookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBook(6,"create_time",0);
+				PageHelper.startPage(1, 6, false);
+				return (new PageInfo<HashMap>(bookService.queryBook("create_time",0))).getList();
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -181,7 +184,7 @@ public class ModelContronller {
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -221,7 +224,7 @@ public class ModelContronller {
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
@@ -255,7 +258,7 @@ public class ModelContronller {
 				return new PageInfo<HashMap>(bookService.queryBookInfo(keyword,null,keyword,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());

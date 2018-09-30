@@ -39,12 +39,16 @@
  <ul>
         <li class="t"><span class="sm">小说名称</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">更新</span><span class="zt">状态</span></li>
         <#list bul.list as store>
-        <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${store.storeId}/">${store.storeName}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
+        <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${(store.storeId)!''}/">${(store.storeName)!''}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
+        <#if store.createTime??>
         <#list store.createTime?split("-") as item>
       <#if item_index==1>
       <span class="sj">${item} <#elseif item_index==2>/${item}</span>
       </#if>
       </#list>
+      <#else>
+       <span class="sj"></span>
+      </#if>
       <#if store.isCompletion==0>
       <span class="zt">已完结</span>
       <#else>

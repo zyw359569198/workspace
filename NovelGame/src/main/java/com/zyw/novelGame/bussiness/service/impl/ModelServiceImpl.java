@@ -20,8 +20,8 @@ public class ModelServiceImpl implements ModelService{
 	private ModelMapper modelMapper;
 
 	@Override
-	public List<Model> queryModel() {
-		return modelMapper.queryModel();
+	public List<Model> queryModel(String isMobile) {
+		return modelMapper.queryModel(isMobile);
 	}
 
 }

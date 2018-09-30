@@ -10,8 +10,19 @@ public class Model {
     private String modelNameEn;
 
     private Integer orderDesc;
+    
+    private String isMobile;
+    
 
-    public String getId() {
+    public String getIsMobile() {
+		return isMobile;
+	}
+
+	public void setIsMobile(String isMobile) {
+		this.isMobile = isMobile;
+	}
+
+	public String getId() {
         return id;
     }
 

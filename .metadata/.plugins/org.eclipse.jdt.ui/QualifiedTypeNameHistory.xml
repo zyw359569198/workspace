@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.QueueInfo"/>
 <fullyQualifiedTypeName name="com.zyw.utils.HttpConnectionPoolUtil"/>
 <fullyQualifiedTypeName name="com.zyw.utils.JsoupParse"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.CatagoryService"/>
@@ -10,7 +8,6 @@
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.CollectData"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.Consumer"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.Producer"/>
-<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.BookService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.AuthorService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.CataBookRelationService"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.StoreService"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.Class.Method"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
 <fullyQualifiedTypeName name="org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.mobile.controller.FullController"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.bussiness.service.BookService"/>
+<fullyQualifiedTypeName name="com.zyw.novelGame.collect.queue.QueueInfo"/>
 </qualifiedTypeNameHistroy>

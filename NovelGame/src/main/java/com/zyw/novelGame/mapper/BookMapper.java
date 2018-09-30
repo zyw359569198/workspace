@@ -26,11 +26,13 @@ public interface BookMapper {
     
     int updateByBookID(Book record);
     
-    List<Book> queryBook(@Param("count")int count,@Param("order")String order,@Param("isCompletion")int isCompletion);
+    List<HashMap> queryBook(@Param("order")String order,@Param("isCompletion")int isCompletion);
         
     List<HashMap> queryBookRelationByCataNameEn(@Param("cataNameEn")String cataId,@Param("count")int count);
     
     List<HashMap> queryBookByCreateTime();
     List<HashMap> queryBookUpdateInfo(@Param("cataNameEn")String cataNameEn,@Param("order") String order,@Param("isCompletion")int isCompletion);
     List<HashMap> queryBookInfo(@Param("authorName")String authorName,@Param("authorNameEn")String authorNameEn,@Param("bookName")String bookName,@Param("bookNameEn")String bookNameEn);
+    List<HashMap> queryMobileBookInfo(@Param("authorName")String authorName,@Param("authorNameEn")String authorNameEn,@Param("bookName")String bookName,@Param("bookNameEn")String bookNameEn);
+
 }

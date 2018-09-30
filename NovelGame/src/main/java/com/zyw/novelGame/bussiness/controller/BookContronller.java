@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
@@ -34,7 +36,7 @@ import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
 
-@Controller
+@Controller("pcBook")
 @RequestMapping("/book")
 public class BookContronller {
 	
@@ -60,7 +62,7 @@ public class BookContronller {
 	public String initBookData(HttpServletRequest request,ModelMap  model,@PathVariable String bookNameEn) {
 		CompletableFuture<List<HashMap>> bookFuture=null;
 		CompletableFuture<List<HashMap>> StoreFuture=null;
-		CompletableFuture<List<Book>> bookHitsFuture=null;
+		CompletableFuture<List<HashMap>> bookHitsFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
 		try {
@@ -71,10 +73,11 @@ public class BookContronller {
 				return storeService.queryBookStore(bookNameEn,null);
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				return bookService.queryBook(8,"hits",-1);
+				PageHelper.startPage(1, 8, false);
+				return (new PageInfo<HashMap>(bookService.queryBook("hits",-1))).getList();
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());

@@ -59,7 +59,7 @@ public class AuthorContronller {
 				return new PageInfo<HashMap>(bookService.queryBookInfo(null,authorNameEn,null,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
-				return modelService.queryModel();
+				return modelService.queryModel("0");
 			});
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());

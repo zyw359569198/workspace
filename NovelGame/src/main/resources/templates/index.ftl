@@ -26,7 +26,7 @@
         <#if  book.bookDesc?length gt 50>
         <p>&emsp;&emsp;${book.bookDesc?substring(0,50)}...</p>
         <#else>
-        <p>&emsp;&emsp;${book.bookDesc}...</p>
+        <p>&emsp;&emsp;${book.bookDesc}</p>
         </#if>
       </dd>
  </dl>
@@ -66,13 +66,17 @@
         <#else>
               <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName}</a></span>
         </#if>
-      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${bookInfo.storeId}/">${bookInfo.storeName}</a></span>
+      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${(bookInfo.storeId)!''}/">${(bookInfo.storeName)!''}</a></span>
       <span class="zz"><a target="_blank" href="/author/${bookInfo.authorNameEn}/">${bookInfo.authorName}</a></span>
+      <#if bookInfo.createTime??>
       <#list bookInfo.createTime?split("-") as item>
       <#if item_index==0>
       <span class="sj">${item}<#elseif item_index==1>/${item}<#elseif item_index==2>/${item}</span></li>
       </#if>
       </#list>
+      <#else>
+      <span class="sj"></span></li>
+      </#if>
       </#list>
       </ul>
   </div>

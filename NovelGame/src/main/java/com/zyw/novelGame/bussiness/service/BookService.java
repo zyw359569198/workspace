@@ -11,7 +11,7 @@ public interface BookService {
 	
 	int updateHits(String  bookId);
 	
-	List<Book>  queryBook(int count,String order,int isCompletion);
+	List<HashMap>  queryBook(String order,int isCompletion);
 	
     List<HashMap> queryBookRelationByCataNameEn(String cataNameEn,int count);
     
@@ -20,6 +20,8 @@ public interface BookService {
     List<HashMap> queryBookUpdateInfo(String cataNameEn,String order,int isCompletion);
     
     List<HashMap> queryBookInfo(String authorName,String authorNameEn,String bookName,String bookNameEn);
+    
+    List<HashMap> queryMobileBookInfo(String authorName,String authorNameEn,String bookName,String bookNameEn);
     
     int insert(Book record);
     

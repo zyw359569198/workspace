@@ -17,7 +17,7 @@ public interface StoreMapper {
 
 	Store selectByPrimaryKey(String id);
 
-	int updateByPrimaryKeySelective(Store record);
+	int updateByStoreIdBySelective(Store record);
 
 	int updateByPrimaryKeyWithBLOBs(Store record);
 
@@ -28,4 +28,6 @@ public interface StoreMapper {
 	List<BookData> queryBookStoreData(@Param("storeId")String storeId);
 	
 	int queryStoreCountByBookId(@Param("bookId")String bookId);
+	
+	List<Store> queryLastStoreIdByBookId(@Param("bookId")String bookId);
 }

@@ -22,7 +22,7 @@
   当前位置：<a href="/" >txt2小说网</a> > <a href="/catagory/${bookInfoData.cataNameEn}" >${bookInfoData.cataName}</a> > ${bookInfoData.bookName}</div>
 <div class="jieshao">
   <div class="lf">
-    <img src="${bookInfoData.imageUrl}" onerror="this.src=&#39;${request.contextPath }/images/nocover.jpg&#39;" alt="${bookInfoData.bookName}">
+    <img src="${request.contextPath }${bookInfoData.imageUrl}" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt="${bookInfoData.bookName}">
   </div>
   <div class="rt">
     <h1>${bookInfoData.bookName}</h1>

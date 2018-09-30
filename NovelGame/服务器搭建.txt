@@ -2,7 +2,7 @@ ln -s 软连接静态文件夹目录，修改nginx.conf   user为root
 
 yum remove -y --skip-broken autoconf automake cdbs debhelper libtool mysql-devel mariadb-config mysql-libs mysql MySQL-server bc
 安装数据库
-yum install -y java libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
+yum install -y java java-devel-debug libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
 yum install -y --skip-broken autoconf automake cdbs debhelper libtool  bc
 
 yum clean all;

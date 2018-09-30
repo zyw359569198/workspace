@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zyw.novelGame.mapper.BookMapper">
-  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.Book">
+  <resultMap id="BaseResultMap" type="java.util.HashMap">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
@@ -16,6 +16,7 @@
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
     <result column="last_store_id" jdbcType="VARCHAR" property="lastStoreId" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
   </resultMap>
     <resultMap id="BookInfoResultMap" type="java.util.HashMap">
     <id column="id" jdbcType="VARCHAR" property="id" />
@@ -33,6 +34,8 @@
     <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
+    <result column="last_store_id" jdbcType="VARCHAR" property="lastStoreId" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
   </resultMap>
     <resultMap id="BookRelationResultMap" type="java.util.HashMap">
     <result column="cata_id" jdbcType="VARCHAR" property="cataId" />
@@ -57,6 +60,8 @@
     <result column="book_id" jdbcType="VARCHAR" property="bookId" />
     <result column="book_name" jdbcType="VARCHAR" property="bookName" />
     <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
+    <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
     <result column="author_id" jdbcType="VARCHAR" property="authorId" />
     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="author_name_en" jdbcType="VARCHAR" property="authorNameEn" />
@@ -69,31 +74,32 @@
     author_id, hits, image_url, author_name,author_name_en,last_store_id
   </sql>
   <select id="queryBookUpdateInfo"  parameterType="java.lang.String" resultMap="BookUpdateInfoResultMap">
-   SELECT
+SELECT
   a.store_id,
   a.store_name,
   a.order_index,
   b.book_id,
   b.book_name,
   b.book_name_en,
+  b.image_url,
+  b.book_desc,
   c.cata_id,
   c.cata_name,
   c.cata_name_en,
-  e.author_id,
-  e.author_name,
-  e.author_name_en,
+  b.author_id,
+ b.author_name,
+  b.author_name_en,
   a.create_time,
   b.is_completion
 FROM
   store a,
   book b,
   catagory c,
-  cata_book_relation d,
-  author e
+  cata_book_relation d
 WHERE d.book_id = b.book_id
   AND d.cata_id = c.cata_id
+  and b.book_id=a.book_id 
   AND b.last_store_id = a.store_id
-  AND b.author_id = e.author_id
   <if test="cataNameEn != null">
   AND c.cata_name_en =#{cataNameEn,jdbcType=VARCHAR}
   </if>
@@ -116,22 +122,17 @@ WHERE d.book_id = b.book_id
      ORDER BY a.create_time DESC LIMIT 31 OFFSET 0;
   </select>
      <select id="queryBook" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from book
-    <where>
-     <if test="isCompletion !=-1">
-             is_completion = #{isCompletion,jdbcType=INTEGER}
+    select a.*,b.store_name 
+    from (select * from book  where 1=1 
+    <if test="isCompletion !=-1">
+             and is_completion = #{isCompletion,jdbcType=INTEGER}
       </if>
-    </where>
+      ) a  left join store b on  a.last_store_id=b.store_id 
      <if test="order == 'hits'">
-     order by hits desc limit #{count,jdbcType=INTEGER} offset 0  
+     order by hits desc 
       </if>
        <if test="order == 'create_time'">
-     order by create_time desc limit #{count,jdbcType=INTEGER} offset 0  
-      </if>
-      <if test="order == null">
-      limit #{count,jdbcType=INTEGER} offset 0  
+     order by a.create_time desc  
       </if>
   </select>
   
@@ -141,30 +142,56 @@ WHERE d.book_id = b.book_id
   
   
     <select id="queryBookInfo" resultMap="BookInfoResultMap">
-    select 
-    a.id, a.book_id, book_name, book_name_en, book_desc, a.create_time, a.update_time, is_completion, 
-    author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en  
-    FROM book a,cata_book_relation b,catagory c WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id  
+    	    SELECT a.id, a.book_id, book_name,last_store_id,book_name_en, book_desc, a.create_time, a.update_time, is_completion, author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en 
+    FROM book a,cata_book_relation b,catagory c  WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id   
     <choose>
       <when test='bookName != null and authorName != null'>
-      	and (a.book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  or a.author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
+      	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  or  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
+      </when>
+            <when test='bookName != null and bookNameEn != null and authorName != null and authorNameEn != null'>
+      	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  and  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
       </when>
        <otherwise>
       <if test="bookName != null">
-        and a.book_name = #{bookName,jdbcType=VARCHAR}
+        and book_name = #{bookName,jdbcType=VARCHAR}
       </if>
        <if test="bookNameEn != null">
-        and a.book_name_en = #{bookNameEn,jdbcType=VARCHAR}
+        and book_name_en = #{bookNameEn,jdbcType=VARCHAR}
       </if>
       <if test="authorName != null">
-        and a.author_name = #{authorName,jdbcType=VARCHAR}
+        and author_name = #{authorName,jdbcType=VARCHAR}
       </if>
       <if test="authorNameEn != null">
-        and a.author_name_en = #{authorNameEn,jdbcType=VARCHAR}
+        and author_name_en = #{authorNameEn,jdbcType=VARCHAR}
       </if>
        </otherwise>
-      </choose>
+      </choose>   
   </select>
+  
+      <select id="queryMobileBookInfo" resultMap="BookInfoResultMap">
+      	     SELECT a.id, a.book_id, book_name,last_store_id,d.store_name,book_name_en, book_desc, a.create_time, a.update_time, is_completion, author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en 
+    FROM book a,cata_book_relation b,catagory c ,store d  WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id  and a.book_id=d.book_id and a.last_store_id=d.store_id  
+    <choose>
+      <when test='bookName != null and authorName != null'>  
+      	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  or  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
+      </when>
+       <otherwise>
+      <if test="bookName != null">
+        and book_name = #{bookName,jdbcType=VARCHAR}
+      </if>
+       <if test="bookNameEn != null">
+        and book_name_en = #{bookNameEn,jdbcType=VARCHAR}
+      </if>
+      <if test="authorName != null">
+        and author_name = #{authorName,jdbcType=VARCHAR}
+      </if>
+      <if test="authorNameEn != null">
+        and author_name_en = #{authorNameEn,jdbcType=VARCHAR}
+      </if>
+       </otherwise>
+      </choose>   
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

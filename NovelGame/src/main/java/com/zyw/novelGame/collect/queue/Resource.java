@@ -12,7 +12,7 @@ public class Resource {
 	
 	public static final  Logger logger=LoggerFactory.getLogger(Resource.class);
 	
-	private static BlockingQueue<QueueInfo> resourceQueue ;
+	private static volatile BlockingQueue<QueueInfo> resourceQueue ;
 		
 	private static volatile Resource instance;
 	
@@ -48,7 +48,7 @@ public class Resource {
 	/**
 	  * 向资源池中移除资源
 	  */
-	public QueueInfo remove(){
+	public synchronized QueueInfo remove(){
 		QueueInfo queueInfo=null;
 	         try {
 	        	 queueInfo=resourceQueue.take();

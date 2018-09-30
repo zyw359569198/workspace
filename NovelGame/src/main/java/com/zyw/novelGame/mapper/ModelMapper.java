@@ -2,6 +2,8 @@ package com.zyw.novelGame.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zyw.novelGame.model.Model;
 
 public interface ModelMapper {
@@ -17,5 +19,5 @@ public interface ModelMapper {
 
     int updateByPrimaryKey(Model record);
     
-    List<Model> queryModel();
+    List<Model> queryModel(@Param("isMobile")String isMobile);
 }

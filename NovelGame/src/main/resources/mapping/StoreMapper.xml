@@ -61,6 +61,9 @@
 <select id="queryStoreCountByBookId" resultType="java.lang.Integer">
     select count(1) from store where book_id=#{bookId,jdbcType=VARCHAR}
   </select>
+  <select id="queryLastStoreIdByBookId" resultMap="BaseResultMap">
+    select store_id,next_store_id from store where order_index=(select max(order_index) from store ) and book_id=#{bookId,jdbcType=VARCHAR}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -140,14 +143,11 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zyw.novelGame.model.Store">
+  <update id="updateByStoreIdBySelective" parameterType="com.zyw.novelGame.model.Store">
     update store
     <set>
       <if test="bookId != null">
         book_id = #{bookId,jdbcType=VARCHAR},
-      </if>
-      <if test="storeId != null">
-        store_id = #{storeId,jdbcType=VARCHAR},
       </if>
       <if test="storeName != null">
         store_name = #{storeName,jdbcType=VARCHAR},
@@ -168,7 +168,7 @@
         order_index = #{orderIndex,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where store_id = #{storeId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zyw.novelGame.model.Store">
     update store

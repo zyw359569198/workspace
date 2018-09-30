@@ -22,8 +22,8 @@ public class BookServiceImpl implements BookService{
 	private BookMapper bookMapper;
 
 	@Override
-	public List<Book> queryBook(int count,String order,int isCompletion) {
-		return bookMapper.queryBook(count,order,isCompletion);
+	public List<HashMap> queryBook(String order,int isCompletion) {
+		return bookMapper.queryBook(order,isCompletion);
 	}
 
 	@Override
@@ -67,6 +67,12 @@ public class BookServiceImpl implements BookService{
 	@Transactional
 	public int updateHits(String bookId) {
 		return bookMapper.updateHits(bookId);
+	}
+
+	@Override
+	public List<HashMap> queryMobileBookInfo(String authorName, String authorNameEn, String bookName,
+			String bookNameEn) {
+		return bookMapper.queryMobileBookInfo(authorName, authorNameEn, bookName, bookNameEn);
 	}
 
 }

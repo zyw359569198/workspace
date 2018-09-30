@@ -7,14 +7,15 @@
     <result column="model_name" jdbcType="VARCHAR" property="modelName" />
     <result column="model_name_en" jdbcType="VARCHAR" property="modelNameEn" />
     <result column="order_desc" jdbcType="INTEGER" property="orderDesc" />
+    <result column="is_mobile" jdbcType="VARCHAR" property="isMobile" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, model_id, model_name, model_name_en, order_desc
+    id, model_id, model_name, model_name_en, order_desc,is_mobile
   </sql>
       <select id="queryModel"  resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from model order by order_desc asc;
+    from model where is_mobile=#{isMobile,jdbcType=VARCHAR} order by order_desc asc;
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -28,10 +29,10 @@
   </delete>
   <insert id="insert" parameterType="com.zyw.novelGame.model.Model">
     insert into model (id, model_id, model_name, 
-      model_name_en, order_desc
+      model_name_en, order_desc,is_mobile
       )
     values (#{id,jdbcType=VARCHAR}, #{modelId,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, 
-      #{modelNameEn,jdbcType=VARCHAR}, #{orderDesc,jdbcType=INTEGER}
+      #{modelNameEn,jdbcType=VARCHAR}, #{orderDesc,jdbcType=INTEGER},#{isMobile,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zyw.novelGame.model.Model">
@@ -52,6 +53,9 @@
       <if test="orderDesc != null">
         order_desc,
       </if>
+            <if test="isMobile != null">
+        is_mobile,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -68,6 +72,9 @@
       </if>
       <if test="orderDesc != null">
         #{orderDesc,jdbcType=INTEGER},
+      </if>
+            <if test="isMobile != null">
+        #{isMobile,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -86,6 +93,9 @@
       <if test="orderDesc != null">
         order_desc = #{orderDesc,jdbcType=INTEGER},
       </if>
+            <if test="isMobile != null">
+        is_mobile = #{isMobile,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -94,7 +104,8 @@
     set model_id = #{modelId,jdbcType=VARCHAR},
       model_name = #{modelName,jdbcType=VARCHAR},
       model_name_en = #{modelNameEn,jdbcType=VARCHAR},
-      order_desc = #{orderDesc,jdbcType=INTEGER}
+      order_desc = #{orderDesc,jdbcType=INTEGER},
+      is_mobile = #{isMobile,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
