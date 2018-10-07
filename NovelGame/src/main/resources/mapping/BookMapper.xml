@@ -145,11 +145,11 @@ WHERE d.book_id = b.book_id
     	    SELECT a.id, a.book_id, book_name,last_store_id,book_name_en, book_desc, a.create_time, a.update_time, is_completion, author_id, hits, image_url, author_name,author_name_en,c.cata_name,c.cata_name_en 
     FROM book a,cata_book_relation b,catagory c  WHERE b.book_id=a.book_id AND b.cata_id=c.cata_id   
     <choose>
+      <when test='bookName != null and bookNameEn != null and authorName != null and authorNameEn != null'>
+      	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  and  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
+      </when>
       <when test='bookName != null and authorName != null'>
       	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  or  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
-      </when>
-            <when test='bookName != null and bookNameEn != null and authorName != null and authorNameEn != null'>
-      	and (book_name LIKE CONCAT('%',#{bookName,jdbcType=VARCHAR},'%')  and  author_name LIKE CONCAT('%',#{authorName,jdbcType=VARCHAR},'%')) 
       </when>
        <otherwise>
       <if test="bookName != null">

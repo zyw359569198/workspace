@@ -8,15 +8,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.zyw.novelGame.collect.ApplicationContextProvider;
+import com.zyw.novelGame.collect.controller.CollectController;
 
 @SpringBootApplication
 @MapperScan("com.zyw.novelGame.mapper")
 @EnableAsync
+@EnableTransactionManagement
 public class NovelGameApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(NovelGameApplication.class, args);
+		//ApplicationContextProvider.getBean("collect", CollectController.class).init(null, null);
 	}
 	
 /*	@Bean(name = "taskExecutorNovel")

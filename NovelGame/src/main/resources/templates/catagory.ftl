@@ -2,9 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>穿越小说_txt2小说网</title>
-<meta name="keywords" content="穿越小说,好看的穿越小说,2018年穿越小说排行榜">
-<meta name="description" content="txt2小说网提供最新最快的穿越小说，网站收录了当前最好看的穿越小说，是广大书友值得收藏的穿越小说阅读网。">
+<#list bcl as book>
+<#if book_index==0>
+<title>${book.cataName}小说_txt2小说网</title>
+<meta name="keywords" content="${book.cataName}小说,好看的${book.cataName}小说,2018年${book.cataName}小说排行榜">
+<meta name="description" content="txt2小说网提供最新最快的${book.cataName}小说，网站收录了当前最好看的${book.cataName}小说，是广大书友值得收藏的${book.cataName}小说阅读网。">
+</#if>
+</#list>
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc">

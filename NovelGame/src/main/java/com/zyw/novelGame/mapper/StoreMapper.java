@@ -27,7 +27,7 @@ public interface StoreMapper {
 	
 	List<BookData> queryBookStoreData(@Param("storeId")String storeId);
 	
-	int queryStoreCountByBookId(@Param("bookId")String bookId);
+	int queryStoreCount(Store record);
 	
 	List<Store> queryLastStoreIdByBookId(@Param("bookId")String bookId);
 }

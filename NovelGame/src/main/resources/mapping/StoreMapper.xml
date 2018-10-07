@@ -22,6 +22,7 @@
     <result column="book_name_en" jdbcType="VARCHAR" property="bookNameEn" />
     <result column="store_name" jdbcType="VARCHAR" property="storeName" />
      <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+     <result column="author_name" jdbcType="VARCHAR" property="authorName" />
     <result column="cata_name" jdbcType="VARCHAR" property="cataName" />
     <result column="cata_name_en" jdbcType="VARCHAR" property="cataNameEn" />
     <result column="store_url" jdbcType="VARCHAR" property="storeUrl" />
@@ -35,7 +36,7 @@
     order_index
   </sql>
      <select id="queryBookStore"  resultMap="BookStoreResultMap">
-    select  a.id, a.book_id, b.book_name,b.book_name_en,store_id, store_name, store_url, pre_store_id, next_store_id, a.create_time, order_index,c.cata_name,c.cata_name_en 
+    select  a.id, a.book_id, b.book_name,b.book_name_en,b.author_name,store_id, store_name, store_url, pre_store_id, next_store_id, a.create_time, order_index,c.cata_name,c.cata_name_en 
     from store a,book b,catagory c,cata_book_relation d 
     <where>
      c.cata_id=d.cata_id and d.book_id=b.book_id and b.book_id=a.book_id 
@@ -58,8 +59,19 @@
     </where>
      order by a.order_index
   </select>
-<select id="queryStoreCountByBookId" resultType="java.lang.Integer">
-    select count(1) from store where book_id=#{bookId,jdbcType=VARCHAR}
+<select id="queryStoreCount" parameterType="com.zyw.novelGame.model.Store" resultType="java.lang.Integer">
+    select count(1) from store 
+    <where>
+    <if test="bookId != null">
+    and book_id=#{bookId,jdbcType=VARCHAR}
+      </if>
+    <if test="storeUrl != null">
+      and  store_url=#{storeUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="storeName != null">
+        and store_name=#{storeName,jdbcType=VARCHAR}
+      </if>
+    </where>
   </select>
   <select id="queryLastStoreIdByBookId" resultMap="BaseResultMap">
     select store_id,next_store_id from store where order_index=(select max(order_index) from store ) and book_id=#{bookId,jdbcType=VARCHAR}

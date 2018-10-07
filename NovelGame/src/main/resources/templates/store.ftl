@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>北宅，出击:第十章：金刚-txt2小说网</title>
-<meta name="keywords" content="北宅，出击,第十章：金刚,北宅喝冰渴落,txt2小说网">
-<meta name="description" content="txt2小说网提供了《北宅，出击》干净清爽的最新文字章节：第十章：金刚在线免费阅读。">
+<#list sdl as storeData>
+<title>${storeData.storeName}-txt2小说网</title>
+<meta name="keywords" content="${storeData.storeName},${storeData.authorName},txt2小说网">
+<meta name="description" content="txt2小说网提供了《${storeData.bookName}》干净清爽的最新文字章节：${storeData.storeName}在线免费阅读。">
+</#list>
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc">

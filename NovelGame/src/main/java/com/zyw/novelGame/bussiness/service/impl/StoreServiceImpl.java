@@ -69,8 +69,8 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 	}
 
 	@Override
-	public int queryStoreCountByBookId(String bookId) {
-		return storeMapper.queryStoreCountByBookId(bookId);
+	public int queryStoreCount(Store record) {
+		return storeMapper.queryStoreCount(record);
 	}
 
 	@Override

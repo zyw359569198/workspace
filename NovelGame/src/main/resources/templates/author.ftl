@@ -2,9 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>艾亭的小说专辑_txt2小说网</title>
-<meta name="keywords" content="艾亭,网络小说作家专辑,艾亭的小说专栏">
-<meta name="description" content="txt2小说网收录了当前网络上最火的网络小说作者艾亭的小说，提供了作者艾亭的小说专栏，艾亭的代表作品为《》">
+<#list abl.list as bookInfoData>
+<#if bookInfoData_index==0>
+<title>${bookInfoData.authorName}的小说专辑_txt2小说网</title>
+<meta name="keywords" content="${bookInfoData.authorName},网络小说作家专辑,${bookInfoData.authorName}的小说专栏">
+<meta name="description" content="txt2小说网收录了当前网络上最火的网络小说作者${bookInfoData.authorName}的小说，提供了作者${bookInfoData.authorName}的小说专栏，${bookInfoData.authorName}的代表作品为《${bookInfoData.bookName}》">
+</#if>
+</#list>
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc">

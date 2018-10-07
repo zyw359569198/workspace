@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zyw.novelGame.bussiness.service.AuthorService;
 import com.zyw.novelGame.bussiness.service.BookService;
@@ -60,9 +61,6 @@ public class Deal {
 	
 	@Autowired
 	private StoreService storeService;
-	
-	@Autowired
-	private Producer producer;
 		
 	private HttpGet httpget=null;
 	private CloseableHttpClient httpClient=null;
@@ -94,6 +92,7 @@ public class Deal {
 	 }
 	}
 	
+	@Transactional
 	public  void dealBook(QueueInfo queueInfo) {
 		book=new Book();
 		author=new Author();
@@ -153,7 +152,9 @@ public class Deal {
  		        author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
   		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),author.getAuthorName(),book.getBookName(),book.getBookName());
 			   if(blist.size()>0) {
-				     int storeCount=storeService.queryStoreCountByBookId(blist.get(0).get("bookId").toString());
+				     Store record=new Store();
+				     record.setBookId(blist.get(0).get("bookId").toString());
+				     int storeCount=storeService.queryStoreCount(record);
 				   if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
 		            	 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getCollect().getNovelSiteUrl());
 				    	 httpget = new HttpGet(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreCataUrl().getUrlMatch()).get(0).toString());  
@@ -170,14 +171,14 @@ public class Deal {
 					      QueueInfo queue=new QueueInfo();
 						 mp.put("bookId", blist.get(0).get("bookId").toString());
 						 mp.put("updateTime", book.getUpdateTime());
-						 mp.put("count", storeCount);
+						 mp.put("storeCount", storeCount);
 						 mp.put("preStoreId", (sList.size()==0)?"":sList.get(0).getStoreId());
 						 mp.put("currentStoreId", (sList.size()==0)?"":sList.get(0).getNextStoreId());
 						 queue.setCollect(queueInfo.getCollect());
 						 queue.setType("2");
 						 queue.setMark(mp);
 						 queue.setResultList(storeList);
-						 producer.add(queue);		            
+						 Resource.getInstance().add(queue);		            
 				   return;
 			   }
   		   List<Author> alist=authorService.queryAuthorInfo(author);
@@ -225,7 +226,7 @@ public class Deal {
 					 queue.setType("2");
 					 queue.setMark(mp);
 					 queue.setResultList(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreRule().getUrlMatch()));
-					 producer.add(queue);
+					 Resource.getInstance().add(queue);
 				//logger.info(EntityUtils.toString(response.getEntity()));
 			 
 		} catch (IOException e) {
@@ -241,9 +242,9 @@ public class Deal {
 	}
 	
 	// 删除ArrayList中重复元素，保持顺序     
-	 public static void removeDuplicateWithOrder(List list) {
+	 public void removeDuplicateWithOrder(List list) {
 	    Set set = new HashSet();    
-	     List newList = new ArrayList();    
+	    List newList = new ArrayList();    
 	   for (Iterator iter = list.iterator(); iter.hasNext();) {
 	         Object element = iter.next();    
 	         if (set.add(element))    
@@ -284,17 +285,19 @@ public class Deal {
 		 });
 	    //System.out.println( " remove duplicate " + list);    
 	 }
-	 
-	public   void dealStore(QueueInfo queueInfo) {
+	
+	 @Transactional
+	public void dealStore(QueueInfo queueInfo) {
 		String preStoreId="";
 	    String nextStoreId="";
 	    String curentStoreId="";
-	    long count=0;
+	    long storeCount=0;
+	    long count=1;
 		String  storeName="";
 		boolean updateFlag=false;
 	       try {
-    		   if(queueInfo.getMark().get("count")!=null&&Integer.parseInt(queueInfo.getMark().get("count").toString())>0) {
-    			   count=Integer.parseInt(queueInfo.getMark().get("count").toString());
+    		   if(queueInfo.getMark().get("storeCount")!=null&&Integer.parseInt(queueInfo.getMark().get("storeCount").toString())>0) {
+    			   storeCount=Integer.parseInt(queueInfo.getMark().get("storeCount").toString());
     			   preStoreId=queueInfo.getMark().get("preStoreId").toString();
     			   nextStoreId=queueInfo.getMark().get("currentStoreId").toString();
     			   if(nextStoreId.equalsIgnoreCase("0")) {
@@ -308,7 +311,7 @@ public class Deal {
 	    			   item=queueInfo.getCollect().getNovelSiteUrl()+item;
 	    		   }
 				 Thread.sleep((long) (5000 * Math.random()));
-				 if(count==0) {
+				 if(storeCount==0) {
 		    		   preStoreId="0";
 			    	   curentStoreId=UUID.randomUUID().toString();
 		    	   }else {
@@ -342,11 +345,13 @@ public class Deal {
      	   storeData.setStoreId(store.getStoreId());
 	    	   store.setStoreName(storeName);
      	   store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
-     	   store.setOrderIndex(count+1);
-     	   storeService.insert(store);
-     	   storeService.insertStoreData(storeData);
+     	   store.setOrderIndex(storeCount+1);
+     	   if(storeService.queryStoreCount(store)==0){
+         	   storeService.insert(store);
+         	   storeService.insertStoreData(storeData);
+     	   }
      	   //更新最新章节
-     	   if(count==queueInfo.getResultList().size()||0==(count%10)) {
+     	   if(count==queueInfo.getResultList().size()||0==(storeCount%10)) {
      		  Book record=new Book();
      		   record.setBookId(store.getBookId());
      		   record.setLastStoreId(store.getStoreId());
@@ -361,6 +366,7 @@ public class Deal {
     	   }
 		    preStoreId=curentStoreId;
 	     	 count++;
+	     	 storeCount++;
      	   }
 	       } catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -370,7 +376,7 @@ public class Deal {
 				e.printStackTrace();
 			}
 	}
-	public   void deal(QueueInfo queueInfo) {		
+	public void deal(QueueInfo queueInfo) {		
 			 try {
 					 Thread.sleep((long) (5000 * Math.random()));
 					 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getResult().toString());
@@ -386,7 +392,7 @@ public class Deal {
 						 queue.setCollect(queueInfo.getCollect());
 						 queue.setType("1");
 						 queue.setResult(item.toString());
-						 producer.add(queue);
+						 Resource.getInstance().add(queue);
 /*						 if(count>10) {
 							 break;
 						 }*/

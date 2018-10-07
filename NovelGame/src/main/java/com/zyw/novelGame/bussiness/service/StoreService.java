@@ -19,7 +19,7 @@ public interface StoreService {
 	
 	List<BookData>  queryBookStoreData(String storeId);
 	
-	int queryStoreCountByBookId(String bookId);
+	int queryStoreCount(Store record);
 	
 	List<Store> queryLastStoreIdByBookId(String bookId);
 	

@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>海贼之文斯莫克最新章节,海贼之文斯莫克免费在线阅读,txt2小说网</title>
-<meta name="keywords" content="海贼之文斯莫克最新章节,海贼之文斯莫克免费在线阅读,老婆用我换糖的小说">
-<meta name="description" content="txt2小说网提供《海贼之文斯莫克》最新章节在线免费阅读，每天更新《海贼之文斯莫克》最新章节，页面简洁无弹窗，访问速度快！">
+<#list bil as bookInfoData>
+<title>${bookInfoData.bookName}最新章节,${bookInfoData.bookName}免费在线阅读,txt2小说网</title>
+<meta name="keywords" content="${bookInfoData.bookName}最新章节,${bookInfoData.bookName}免费在线阅读,${bookInfoData.authorName}的小说">
+<meta name="description" content="txt2小说网提供《${bookInfoData.bookName}》最新章节在线免费阅读，每天更新《${bookInfoData.bookName}》最新章节，页面简洁无弹窗，访问速度快！">
+</#list>
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="mobile-agent" content="format=html5; url=https://m.txt2.cc/">
