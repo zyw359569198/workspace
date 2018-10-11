@@ -49,6 +49,15 @@
     </where>
      order by order_index
   </select>
+  
+  <select id="queryBookStoreAll"  parameterType="java.util.List" resultMap="BookStoreResultMap">
+    select  a.*,b.store_id,b.store_name from book a,store b  where a.book_id=b.book_id 
+        and  b.store_id in 
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+  </select>
+  
        <select id="queryBookStoreData"  resultMap="ResultMapWithBLOBs">
     select  a.*,b.store_content  from store a,store_data b 
     <where>
@@ -74,7 +83,7 @@
     </where>
   </select>
   <select id="queryLastStoreIdByBookId" resultMap="BaseResultMap">
-    select store_id,next_store_id from store where order_index=(select max(order_index) from store ) and book_id=#{bookId,jdbcType=VARCHAR}
+    select store_id,next_store_id from store where order_index=(select max(order_index) from store where  book_id=#{bookId,jdbcType=VARCHAR}) and book_id=#{bookId,jdbcType=VARCHAR}
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

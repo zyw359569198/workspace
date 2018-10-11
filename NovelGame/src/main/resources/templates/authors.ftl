@@ -37,7 +37,7 @@
 </div>
 <#list bil.list as book>
 <#if book_index==0>
-<div class="pagelink" id="pagelink" value=${bil.total}">
+<div class="pagelink" id="pagelink" value=${bil.total?replace(",","")}>
 </div>
 </#if>
 </#list>

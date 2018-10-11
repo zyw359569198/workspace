@@ -57,7 +57,18 @@
     <ul>
         <li class="t"><span class="sm">小说名称</span><span class="zj">最新章节</span><span class="zz">作者</span><span class="sj">更新</span><span class="zt">状态</span></li>
         <#list bul.list as store>
-        <li><span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span><span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${(store.storeId)!''}/">${(store.storeName)!''}</a></span><span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
+        <li>
+        <#if  store.bookName?length gt 9>
+        <span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName?substring(0,9)}...</b></a></span>
+        <#else>
+        <span class="sm"><a href="/book/${store.bookNameEn}/"><b>${store.bookName}</b></a></span>
+        </#if>
+        <#if  store.storeName?length gt 20>
+        <span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${(store.storeId)!''}/">${store.storeName?substring(0,20)}...</a></span>
+        <#else>
+                <span class="zj">&nbsp;<a href="/book/${store.bookNameEn}/${(store.storeId)!''}/">${store.storeName}</a></span>
+          </#if>
+        <span class="zz"><a target="_blank" href="/author/${store.authorNameEn}/">${store.authorName}</a></span>
         <#if store.createTime??>
         <#list store.createTime?split("-") as item>
       <#if item_index==0>
@@ -79,7 +90,7 @@
 <br>
 <#list bul.list as store>
 <#if store_index==0>
-<div class="pagelink" id="pagelink" value=${bul.total} name="${store.cataNameEn}">
+<div class="pagelink" id="pagelink" value=${bul.total?replace(",","")} name="${store.cataNameEn}">
 </div>
 </#if>
 </#list>

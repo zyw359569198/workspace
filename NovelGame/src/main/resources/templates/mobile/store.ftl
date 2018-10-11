@@ -17,6 +17,7 @@
 <script src="${request.contextPath}/js/mobile/jq.js"></script>
 <link rel="stylesheet" type="text/css" href="${request.contextPath}/js/mobile/m.css" >
 <script src="${request.contextPath}/js/mobile/m.js" ></script>
+<script src="${request.contextPath}/js/mobile/store.js" ></script>
 <link href="${request.contextPath}/js/mobile/layer.css"  type="text/css" rel="styleSheet" id="layermcss">
 
 </head>
@@ -26,7 +27,7 @@
 		<a href="javascript:history.go(-1);">返回</a>
 	</div>
 	<#list sdl as storeData>
-	<h1><a href="/mobile/book/${storeData.bookNameEn}/"  id="bookname">${storeData.bookName}</a></h1>
+	<h1><a href="/mobile/book/${storeData.bookNameEn}/"  id="bookname"  bookName=${storeData.bookNameEn}  storeId=${storeData.storeId}>${storeData.bookName}</a></h1>
 	</#list>
 	<div class="reg">
 		<a href="javascript:st();void 0;" id="st" rel="nofollow" class="login_topbtn c_index_login">繁</a><a href="/mobile" class="login_topbtn c_index_login">首页</a>

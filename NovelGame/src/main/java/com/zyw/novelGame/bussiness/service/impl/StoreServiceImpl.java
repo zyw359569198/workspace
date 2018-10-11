@@ -83,4 +83,9 @@ public static final  Logger logger=LoggerFactory.getLogger(StoreServiceImpl.clas
 		return storeMapper.updateByStoreIdBySelective(record);
 	}
 
+	@Override
+	public List<HashMap> queryBookStoreAll(List<String> ids) {
+		return storeMapper.queryBookStoreAll(ids);
+	}
+
 }

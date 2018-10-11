@@ -61,6 +61,9 @@ public class Deal {
 	
 	@Autowired
 	private StoreService storeService;
+	
+	@Autowired
+	private Producer producer;
 		
 	private HttpGet httpget=null;
 	private CloseableHttpClient httpClient=null;
@@ -150,18 +153,20 @@ public class Deal {
 		           }
 		            author.setAuthorName(book.getAuthorName());
  		        author.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
-  		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),author.getAuthorName(),book.getBookName(),book.getBookName());
-			   if(blist.size()>0) {
-				     Store record=new Store();
-				     record.setBookId(blist.get(0).get("bookId").toString());
-				     int storeCount=storeService.queryStoreCount(record);
-				   if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
+ 		        
+		if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
 		            	 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getCollect().getNovelSiteUrl());
 				    	 httpget = new HttpGet(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreCataUrl().getUrlMatch()).get(0).toString());  
 				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 						 response = httpClient.execute(httpget);
 						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
-				   }
+		}
+		
+  		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),author.getAuthorName(),book.getBookName(),book.getBookName());
+			   if(blist.size()>0) {
+				     Store record=new Store();
+				     record.setBookId(blist.get(0).get("bookId").toString());
+				     int storeCount=storeService.queryStoreCount(record);
 						 List storeList=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreRule().getUrlMatch());
 						 for(int i=(storeCount-1);i>-1;i--) {
 							 storeList.remove(i);
@@ -178,7 +183,7 @@ public class Deal {
 						 queue.setType("2");
 						 queue.setMark(mp);
 						 queue.setResultList(storeList);
-						 Resource.getInstance().add(queue);		            
+						 producer.add(queue);		            
 				   return;
 			   }
   		   List<Author> alist=authorService.queryAuthorInfo(author);
@@ -226,7 +231,7 @@ public class Deal {
 					 queue.setType("2");
 					 queue.setMark(mp);
 					 queue.setResultList(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreRule().getUrlMatch()));
-					 Resource.getInstance().add(queue);
+					 producer.add(queue);
 				//logger.info(EntityUtils.toString(response.getEntity()));
 			 
 		} catch (IOException e) {
@@ -306,7 +311,13 @@ public class Deal {
     			   }
     		   }
     		   removeDuplicateWithOrder(queueInfo.getResultList());
-	    	   for(Object item:queueInfo.getResultList()) {
+    		   /*Store cStore=new Store();*/
+	    	   for(Object item:queueInfo.getResultList()) {	    		  
+	    		  /* cStore.setStoreUrl(item.toString());
+	    		   cStore.setBookId(queueInfo.getMark().get("bookId").toString());
+	    		   if(storeService.queryStoreCount(cStore)>0){
+	    			        continue;
+	    		   }*/
 	    		   if(!item.toString().contains("http")) {
 	    			   item=queueInfo.getCollect().getNovelSiteUrl()+item;
 	    		   }
@@ -343,13 +354,11 @@ public class Deal {
      	   storeData.setStoreContent(storeContent.getBytes());
      	   storeData.setId(UUID.randomUUID().toString());
      	   storeData.setStoreId(store.getStoreId());
-	    	   store.setStoreName(storeName);
+	       store.setStoreName(storeName);
      	   store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
      	   store.setOrderIndex(storeCount+1);
-     	   if(storeService.queryStoreCount(store)==0){
-         	   storeService.insert(store);
-         	   storeService.insertStoreData(storeData);
-     	   }
+           storeService.insertStoreData(storeData);
+           storeService.insert(store);
      	   //更新最新章节
      	   if(count==queueInfo.getResultList().size()||0==(storeCount%10)) {
      		  Book record=new Book();
@@ -392,7 +401,7 @@ public class Deal {
 						 queue.setCollect(queueInfo.getCollect());
 						 queue.setType("1");
 						 queue.setResult(item.toString());
-						 Resource.getInstance().add(queue);
+						 producer.add(queue);
 /*						 if(count>10) {
 							 break;
 						 }*/

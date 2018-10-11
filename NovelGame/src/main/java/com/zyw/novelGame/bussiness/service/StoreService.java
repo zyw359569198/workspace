@@ -24,6 +24,8 @@ public interface StoreService {
 	List<Store> queryLastStoreIdByBookId(String bookId);
 	
 	int updateByStoreIdBySelective(Store record);
+	
+	List<HashMap> queryBookStoreAll(List<String> ids);
 
 
 }

@@ -30,4 +30,6 @@ public interface StoreMapper {
 	int queryStoreCount(Store record);
 	
 	List<Store> queryLastStoreIdByBookId(@Param("bookId")String bookId);
+	
+	List<HashMap> queryBookStoreAll(List<String> ids);
 }

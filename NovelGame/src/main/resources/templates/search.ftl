@@ -19,12 +19,12 @@
 <body>
 <#include "main.ftl" >
  <div class="ops_two">
-    <div class="ops_lf">与 <em></em> 相关作品 <em>0</em> 部</div><div class="rt"></div>
+    <div class="ops_lf">与 <em>${keyword}</em> 相关作品 <em>0</em> 部</div><div class="rt"></div>
 </div>
 
 <div class="ops_cover">
-        <div class="ops_no">对不起本站还没有这本书，搜索时宁可少字也不要错字。</div></div></div>
-<div class="pagelink" id="pagelink" value=${abl.total}">
+        <div class="ops_no">对不起本站还没有这本书，搜索时宁可少字也不要错字。</div></div>
+<div class="pagelink" id="pagelink" value=${abl.total?replace(",","")}>
 </div>
 <div class="pagelink" id="page">
 </div>

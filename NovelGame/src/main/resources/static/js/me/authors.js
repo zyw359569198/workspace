@@ -61,7 +61,7 @@ function loadBookData(bookUpdateInfoData,pageSize,pageNum){
 		var rowLi3=document.createElement("li");
 		var rowLi4=document.createElement("li");
 		rowLi1.className="num";rowLi1.innerHTML=(pageSize*(pageNum-1)+index+1);
-		rowLi2.className="author";rowLi2.innerHTML="<a href='/author/"+bookUpdateInfoData[index].authorNameEn+"}/'  target='_blank''>"+bookUpdateInfoData[index].authorName+"</a>";
+		rowLi2.className="author";rowLi2.innerHTML="<a href='/author/"+bookUpdateInfoData[index].authorNameEn+"/'  target='_blank'>"+bookUpdateInfoData[index].authorName+"</a>";
 		rowLi3.className="bookname";rowLi3.innerHTML="<a class='bn vip' target='_blank' href='/book/"+bookUpdateInfoData[index].bookNameEn+"/'>"+bookUpdateInfoData[index].bookName+"</a>";
 		rowLi4.className="update";rowLi4.innerHTML="";
 		rowUl.appendChild(rowLi1);

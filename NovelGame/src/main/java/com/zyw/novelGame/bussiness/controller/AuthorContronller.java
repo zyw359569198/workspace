@@ -24,9 +24,11 @@ import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
+import com.zyw.novelGame.bussiness.service.SearchInfoService;
 import com.zyw.novelGame.bussiness.service.StoreService;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
+import com.zyw.novelGame.model.SearchInfo;
 import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
@@ -48,11 +50,15 @@ public class AuthorContronller {
 	@Autowired
 	private  Configuration configuration;
 	
+	@Autowired
+	private SearchInfoService searchInfoService;
+	
 	@RequestMapping(value="/{authorNameEn}",method= {RequestMethod.GET})
 	public String initAuthorBookData(HttpServletRequest request,ModelMap  model,@PathVariable String authorNameEn) {
 		CompletableFuture<PageInfo<HashMap>> authorBookFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			authorBookFuture=CompletableFuture.supplyAsync(()->{
 				PageHelper.startPage(1,10, true);
@@ -64,10 +70,14 @@ public class AuthorContronller {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
 			});
-			CompletableFuture.allOf(authorBookFuture,modelFuture,catagoryFuture);
+			searchInfoFuture=CompletableFuture.supplyAsync(()->{
+				return searchInfoService.querySearchInfo(new SearchInfo());
+			});
+			CompletableFuture.allOf(authorBookFuture,modelFuture,catagoryFuture,searchInfoFuture);
 			model.addAttribute("abl",authorBookFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			model.addAttribute("sif", searchInfoFuture.get(30,TimeUnit.SECONDS));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +85,7 @@ public class AuthorContronller {
 		mp.put("abl", model.get("abl"));
 		mp.put("mdl", model.get("mdl"));
 		mp.put("cgl", model.get("cgl"));
+		mp.put("sif", model.get("sif"));
 		Utils.saveHtml(configuration,request, "author/"+authorNameEn+"/index", "author", mp);
 		return "author";
 		}

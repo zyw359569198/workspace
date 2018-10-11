@@ -66,7 +66,11 @@
         <#else>
               <span class="sm"><a href="/book/${bookInfo.bookNameEn}/">${bookInfo.bookName}</a></span>
         </#if>
-      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${(bookInfo.storeId)!''}/">${(bookInfo.storeName)!''}</a></span>
+        <#if bookInfo.storeName?length gt 20>
+      <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${(bookInfo.storeId)!''}/">${bookInfo.storeName?substring(0,20)}...</a></span>
+      <#else>
+            <span class="zj">&nbsp;<a href="/book/${bookInfo.bookNameEn}/${(bookInfo.storeId)!''}/">${bookInfo.storeName}</a></span>
+      </#if>
       <span class="zz"><a target="_blank" href="/author/${bookInfo.authorNameEn}/">${bookInfo.authorName}</a></span>
       <#if bookInfo.createTime??>
       <#list bookInfo.createTime?split("-") as item>

@@ -22,10 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
+import com.zyw.novelGame.bussiness.service.SearchInfoService;
 import com.zyw.novelGame.model.Book;
-import com.zyw.novelGame.model.Catagory;
-import com.zyw.novelGame.model.Model;
-import com.zyw.utils.Utils;
+import com.zyw.novelGame.model.SearchInfo;
 
 @RestController
 @RequestMapping("/pageApi")
@@ -34,6 +33,9 @@ public class PageApiController {
 	
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private SearchInfoService searchInfoService;
 	
 	@RequestMapping(value="/catagory/{cataNameEn}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
 	public Map catagorySplitPage(HttpServletRequest request,HttpServletResponse response,@PathVariable String cataNameEn,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
@@ -153,6 +155,11 @@ public class PageApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap>  authorBook=null;
 		try {
+			if((keyword!=null||keyword.length()>0)&&pageNum==1) {
+				SearchInfo searchInfo=new SearchInfo();
+				searchInfo.setKeyword(keyword);
+				searchInfoService.updateRecord(searchInfo);
+			}
 			PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?10:pageSize, true);
 			authorBook=new PageInfo<HashMap>(bookService.queryBookInfo(keyword,null,keyword,null));
 		}catch(Exception e) {

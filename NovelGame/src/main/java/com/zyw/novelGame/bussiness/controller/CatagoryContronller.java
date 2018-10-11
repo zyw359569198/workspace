@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
+import com.zyw.novelGame.model.SearchInfo;
 import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
@@ -34,6 +35,7 @@ import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
+import com.zyw.novelGame.bussiness.service.SearchInfoService;
 
 @Controller("pcCatagory")
 @RequestMapping("/catagory")
@@ -51,6 +53,9 @@ public class CatagoryContronller {
 	
 	@Autowired
 	private  Configuration configuration;
+	
+	@Autowired
+	private SearchInfoService searchInfoService;
 	
 	
 	@RequestMapping(value="/init",method= {RequestMethod.GET})
@@ -88,6 +93,7 @@ public class CatagoryContronller {
 		CompletableFuture<PageInfo<HashMap>> bookUpdateInfoFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookRelationByCataNameEn(cataNameEn,6);
@@ -102,16 +108,21 @@ public class CatagoryContronller {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
 			});
-			CompletableFuture.allOf(bookHitsFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture);
+			searchInfoFuture=CompletableFuture.supplyAsync(()->{
+				return searchInfoService.querySearchInfo(new SearchInfo());
+			});
+			CompletableFuture.allOf(bookHitsFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture,searchInfoFuture);
 			model.addAttribute("bcl", bookHitsFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("bul", bookUpdateInfoFuture.get(30,TimeUnit.SECONDS));
 			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			model.addAttribute("sif", searchInfoFuture.get(30,TimeUnit.SECONDS));
 			Map mp=new HashMap();
 			mp.put("bcl", model.get("bcl"));
 			mp.put("bul", model.get("bul"));
 			mp.put("mdl", model.get("mdl"));
 			mp.put("cgl", model.get("cgl"));
+			mp.put("sif", model.get("sif"));
 			Utils.saveHtml(configuration,request, "catagory/"+cataNameEn+"/index", "catagory", mp);
 		}catch(Exception e) {
 			e.printStackTrace();

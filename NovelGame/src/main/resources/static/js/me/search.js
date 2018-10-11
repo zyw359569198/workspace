@@ -8,6 +8,7 @@ function GetQueryString(name)
 
 window.onload =function(){
 	var keyword=decodeURI(GetQueryString("keyword"));
+	document.getElementById('search').value =keyword;
 	if(keyword==null||keyword==''||keyword=="null"){
 		$("div.ops_two").empty()
 		var rowDiv=document.createElement("div");
@@ -47,8 +48,8 @@ function pageSplit(keyword,pageSize,pageNum){
 		dataType: "json",
 		asynchronous: true,
 		success: function(data){
-					$("div.ops_cover").empty()
-					$("div.ops_two").empty()
+					$("div.ops_cover").empty();
+					$("div.ops_two").empty();
 					loadBookInfoData(data.data.abl.list,keyword);
 		}
 	});

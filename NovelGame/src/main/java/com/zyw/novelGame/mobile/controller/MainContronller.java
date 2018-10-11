@@ -42,9 +42,6 @@ public class MainContronller {
 	private CatagoryService catagoryService;
 	
 	@Autowired
-	private StoreService storeService;
-	
-	@Autowired
 	private ModelService modelService;
 	
 	@Autowired

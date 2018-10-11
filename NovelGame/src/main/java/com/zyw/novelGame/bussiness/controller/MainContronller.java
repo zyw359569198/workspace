@@ -22,10 +22,12 @@ import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
+import com.zyw.novelGame.bussiness.service.SearchInfoService;
 import com.zyw.novelGame.bussiness.service.StoreService;
 import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
+import com.zyw.novelGame.model.SearchInfo;
 import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
@@ -50,6 +52,9 @@ public class MainContronller {
 	@Autowired
 	private  Configuration configuration;
 	
+	@Autowired
+	private SearchInfoService searchInfoService;
+	
 	@RequestMapping(value="",method= {RequestMethod.GET})
 	public String init(HttpServletRequest request,ModelMap  model) {
 		CompletableFuture<List<HashMap>> bookHitsFuture=null;
@@ -58,6 +63,7 @@ public class MainContronller {
 		CompletableFuture<List<HashMap>> bookUpdateInfoFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		CompletableFuture<List<Catagory>> catagoryFuture=null;
+		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			catagoryBookRelationFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(null);
@@ -87,13 +93,17 @@ public class MainContronller {
 			catagoryFuture=CompletableFuture.supplyAsync(()->{
 				return catagoryService.queryCatagory(new Catagory());
 			});
-			CompletableFuture.allOf(bookHitsFuture,catagoryBookRelationFuture,bookCreateTimeFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture);
+			searchInfoFuture=CompletableFuture.supplyAsync(()->{
+				return searchInfoService.querySearchInfo(new SearchInfo());
+			});
+			CompletableFuture.allOf(bookHitsFuture,catagoryBookRelationFuture,bookCreateTimeFuture,bookUpdateInfoFuture,modelFuture,catagoryFuture,searchInfoFuture);
 			model.addAttribute("bkl", bookHitsFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("bcl", bookCreateTimeFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("tjl", catagoryBookRelationFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("bul", bookUpdateInfoFuture.get(300, TimeUnit.SECONDS));
 			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("cgl", catagoryFuture.get(30,TimeUnit.SECONDS));
+			model.addAttribute("sif", searchInfoFuture.get(30,TimeUnit.SECONDS));
 			Map mp=new HashMap();
 			mp.put("bkl", model.get("bkl"));
 			mp.put("bcl", model.get("bcl"));
@@ -101,6 +111,7 @@ public class MainContronller {
 			mp.put("bul", model.get("bul"));
 			mp.put("mdl", model.get("mdl"));
 			mp.put("cgl", model.get("cgl"));
+			mp.put("sif", model.get("sif"));
 			Utils.saveHtml(configuration,request, "index", "index", mp);
 		}catch(Exception e) {
 			e.printStackTrace();

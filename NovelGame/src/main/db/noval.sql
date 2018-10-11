@@ -90,16 +90,6 @@ CREATE TABLE `catagory` (
 
 insert  into `catagory`(`id`,`cata_id`,`cata_name`,`cata_name_en`,`order_desc`) values ('0','0','首页','shouye',1),('1','1','都市','dushi',2),('10','10','其它','qita',11),('2','2','玄幻','xuanhuan',3),('3','3','武侠','wuxia',4),('4','4','言情','yanqing',5),('5','5','穿越','chuanyue',6),('6','6','网游','wangyou',7),('7','7','恐怖','kongbu',8),('8','8','科幻','kehuan',9),('9','9','修真','xiuzhen',10);
 
-/*Table structure for table `collect_collect_info` */
-
-DROP TABLE IF EXISTS `collect_collect_info`;
-
-CREATE TABLE `collect_collect_info` (
-  `id` varchar(36) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `collect_collect_info` */
-
 /*Table structure for table `model` */
 
 DROP TABLE IF EXISTS `model`;
@@ -117,6 +107,22 @@ CREATE TABLE `model` (
 /*Data for the table `model` */
 
 insert  into `model`(`id`,`model_id`,`model_name`,`model_name_en`,`order_desc`,`is_mobile`) values ('1','1','新书','hot',1,'0'),('10','10','书架','mobile/my',10,'1'),('2','2','推荐','recommend',2,'0'),('3','3','完本','full',3,'0'),('4','4','排行','top',4,'0'),('5','5','作者','authors',5,'0'),('6','6','分类','mobile/catagory',6,'1'),('7','7','排行','mobile/top',7,'1'),('8','8','全本','mobile/full',8,'1'),('9','9','新书','mobile/new',9,'1');
+
+/*Table structure for table `search_info` */
+
+DROP TABLE IF EXISTS `search_info`;
+
+CREATE TABLE `search_info` (
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `keyword` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `keyvalue` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `create_time` date DEFAULT NULL,
+  `hits` bigint(20) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `search_info` */
+
+insert  into `search_info`(`id`,`keyword`,`keyvalue`,`create_time`,`hits`) values ('670f7ccb-8a61-454e-9518-7058704a9c57','都市养魔','/model/search/?keyword=都市养魔','2018-10-09',7),('3ebde737-8aba-4781-9b59-a53b40a3a44c','哈哈哈','/model/search/?keyword=哈哈哈','2018-10-09',16),('9061662d-8f5d-426a-b704-cc3f51e3332c','keyword','/model/search/?keyword=keyword','2018-10-09',0),('dd227fa2-dc98-4cf8-832f-768e73067e56','阿诗丹顿撒','/model/search/?keyword=阿诗丹顿撒','2018-10-09',1),('2b3f6103-5ac7-41c8-90a7-d686d7e967d3','哈哈哈2','/model/search/?keyword=哈哈哈2','2018-10-09',0),('623e5878-9ebd-4d07-95c3-e4d3a1397d33','哈哈哈3','/model/search/?keyword=哈哈哈3','2018-10-09',0),('2bc3bdbd-d9f6-4b27-87ed-c92cea6613d0','','/model/search/?keyword=','2018-10-09',6);
 
 /*Table structure for table `store` */
 

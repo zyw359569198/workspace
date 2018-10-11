@@ -62,7 +62,7 @@
 <br>
 <#list bul.list as store>
 <#if store_index==0>
-<div class="pagelink" id="pagelink" value=${bul.total}">
+<div class="pagelink" id="pagelink" value=${bul.total?replace(",","")}>
 </div>
 </#if>
 </#list>

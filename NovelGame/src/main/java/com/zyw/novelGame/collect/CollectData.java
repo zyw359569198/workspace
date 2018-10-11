@@ -14,15 +14,17 @@ public class CollectData {
 	
 	public static List<QueueInfo>  analyzeBookList(CollectInfo collect) {
 		List<QueueInfo> queueInfoList=new ArrayList<QueueInfo>();
-		QueueInfo queueInfo=new QueueInfo();
+		QueueInfo queueInfo=null;
 		if("0".equalsIgnoreCase(collect.getBookRule().getType())) {
 			if(Integer.parseInt(collect.getBookRule().getUrlStartNum())==-1||Integer.parseInt(collect.getBookRule().getUrlEndNum())==-1) {
+				queueInfo=new QueueInfo();
 				queueInfo.setType("0");
 				queueInfo.setResult(collect.getBookRule().getUrl());
 				queueInfo.setCollect(collect);
 				queueInfoList.add(queueInfo);
 			}else {
 				for(int i=Integer.parseInt(collect.getBookRule().getUrlStartNum());i<(Integer.parseInt(collect.getBookRule().getUrlEndNum())+1);i++) {
+					queueInfo=new QueueInfo();
 					queueInfo.setType("0");
 					queueInfo.setResult(addStr(collect.getBookRule().getUrl(),"@",i+""));
 					queueInfo.setCollect(collect);

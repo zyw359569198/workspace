@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyw.novelGame.mapper.SearchInfoMapper">
+  <resultMap id="BaseResultMap" type="com.zyw.novelGame.model.SearchInfo">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="keyvalue" jdbcType="VARCHAR" property="keyvalue" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="hits" jdbcType="BIGINT" property="hits" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,keyword,keyvalue,create_time,hits 
+  </sql>
+  <select id="querySearchInfo"  resultMap="BaseResultMap">
+  	select  
+    <include refid="Base_Column_List" /> 
+    from search_info  
+    <where>
+    	<if test="id != null">
+         and id=#{id,jdbcType=VARCHAR} 
+      </if>
+      <if test="keyword != null">
+         and keyword=#{keyword,jdbcType=VARCHAR}
+      </if>
+      <if test="keyvalue != null">
+         and keyvalue=#{keyvalue,jdbcType=VARCHAR} 
+      </if>
+      <if test="createTime != null">
+         and create_time=#{createTime,jdbcType=DATE} 
+      </if>
+    <if test="hits != null">
+         and hits=#{hits,jdbcType=BIGINT} 
+      </if>
+    </where>
+    order by hits DESC  LIMIT 6 OFFSET 0 
+  </select>
+  <insert id="insert" parameterType="com.zyw.novelGame.model.SearchInfo">
+    insert into search_info (id, keyword, keyvalue, 
+      create_time,hits)
+    values (#{id,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{keyvalue,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE},#{hits,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyw.novelGame.model.SearchInfo">
+    insert into search_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="keyvalue != null">
+        keyvalue,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    <if test="hits != null">
+        hits,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyvalue != null">
+        #{keyvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+            <if test="hits != null">
+        #{hits,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateById" parameterType="com.zyw.novelGame.model.SearchInfo">
+    update search_info
+    <set>
+      <if test="keyword != null">
+         keyword=#{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyvalue != null">
+         keyvalue=#{keyvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+         createTime=#{createTime,jdbcType=DATE},
+      </if>
+        <if test="hits != null">
+         hits=#{hits,jdbcType=BIGINT},
+      </if>
+    </set>
+     where  id=#{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
