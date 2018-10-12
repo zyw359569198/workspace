@@ -1,9 +1,10 @@
  <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<title>不良痞妻，束手就寝最新章节,不良痞妻，束手就寝免费在线阅读,txt2小说网</title>
-<meta name="keywords" content="不良痞妻，束手就寝最新章节,不良痞妻，束手就寝免费在线阅读,玉司司的小说">
-<meta name="description" content="txt2小说网提供《不良痞妻，束手就寝》最新章节在线免费阅读，每天更新《不良痞妻，束手就寝》最新章节，页面简洁无弹窗，访问速度快！">
+<#list bil as bookInfoData>
+<title>${bookInfoData.bookName}最新章节,${bookInfoData.bookName}免费在线阅读,txt2小说网</title>
+<meta name="keywords" content="${bookInfoData.bookName}最新章节,${bookInfoData.bookName}免费在线阅读,${bookInfoData.authorName}的小说">
+<meta name="description" content="txt2小说网提供《${bookInfoData.bookName}》最新章节在线免费阅读，每天更新《${bookInfoData.bookName}》最新章节，页面简洁无弹窗，访问速度快！">
+</#list>
 <meta name="MobileOptimized" content="240">
 <meta name="applicable-device" content="mobile">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">

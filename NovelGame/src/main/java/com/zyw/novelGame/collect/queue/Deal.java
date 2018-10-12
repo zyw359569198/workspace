@@ -171,11 +171,16 @@ public class Deal {
 						 for(int i=(storeCount-1);i>-1;i--) {
 							 storeList.remove(i);
 						 }
+						 
+						 if(storeList.size()<1) {
+							 return;
+						 }
+						 
 						 List<Store> sList=storeService.queryLastStoreIdByBookId(blist.get(0).get("bookId").toString());
 					      Map mp=new HashMap();
 					      QueueInfo queue=new QueueInfo();
 						 mp.put("bookId", blist.get(0).get("bookId").toString());
-						 mp.put("updateTime", book.getUpdateTime());
+						 //mp.put("updateTime", book.getUpdateTime());
 						 mp.put("storeCount", storeCount);
 						 mp.put("preStoreId", (sList.size()==0)?"":sList.get(0).getStoreId());
 						 mp.put("currentStoreId", (sList.size()==0)?"":sList.get(0).getNextStoreId());
@@ -226,7 +231,7 @@ public class Deal {
 				      Map mp=new HashMap();
 				      QueueInfo queue=new QueueInfo();
 					 mp.put("bookId", book.getBookId());
-					 mp.put("updateTime", book.getUpdateTime());
+					 //mp.put("updateTime", book.getUpdateTime());
 					 queue.setCollect(queueInfo.getCollect());
 					 queue.setType("2");
 					 queue.setMark(mp);
@@ -355,7 +360,8 @@ public class Deal {
      	   storeData.setId(UUID.randomUUID().toString());
      	   storeData.setStoreId(store.getStoreId());
 	       store.setStoreName(storeName);
-     	   store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
+	       //store.setCreateTime((Date) queueInfo.getMark().get("updateTime"));
+     	   store.setCreateTime(new Date());
      	   store.setOrderIndex(storeCount+1);
            storeService.insertStoreData(storeData);
            storeService.insert(store);
@@ -364,6 +370,7 @@ public class Deal {
      		  Book record=new Book();
      		   record.setBookId(store.getBookId());
      		   record.setLastStoreId(store.getStoreId());
+     		   record.setUpdateTime(new Date());
      		   bookService.updateByBookID(record);
 	    	   }
     	   if(updateFlag) {

@@ -14,6 +14,7 @@
 </head>
 <body>
  <#include "main.ftl">
+  <div class="toptab"><span class="active">最近阅读过的小说</span></div>
 <div class="wrap">
         &nbsp;
     <div id="viewlog-list" class="block">   

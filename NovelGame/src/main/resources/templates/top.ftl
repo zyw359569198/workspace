@@ -36,7 +36,7 @@
         <div class="rank-list-row cf mb20">
           
           <#list tjl as catagoryItem>
-          <#if catagoryItem_index <9 >
+          <#if (catagoryItem_index <9) >
           <#assign i=1>
        <#list catagoryItem as cbook>
    <#if cbook_index==0>

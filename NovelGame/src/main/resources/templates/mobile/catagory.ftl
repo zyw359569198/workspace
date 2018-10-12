@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<title>穿越小说,好看的穿越小说,2018年穿越小说排行榜,txt2小说网</title>
-<meta name="keywords" content="穿越小说,好看的穿越小说,2018年穿越小说排行榜">
-<meta name="description" content="txt2小说网提供最新最快的穿越小说，网站收录了当前最好看的穿越小说，是广大书友值得收藏的穿越小说阅读网。">
+<#list bul.list as store>
+<#if store_index==0>
+<title>${store.cataName}小说,好看的${store.cataName}小说,2018年${store.cataName}小说排行榜,txt2小说网</title>
+<meta name="keywords" content="${store.cataName}小说,好看的${store.cataName}小说,2018年${store.cataName}小说排行榜">
+<meta name="description" content="txt2小说网提供最新最快的${store.cataName}小说，网站收录了当前最好看的${store.cataName}小说，是广大书友值得收藏的${store.cataName}小说阅读网。">
+</#if>
+</#list>
 <meta name="MobileOptimized" content="240">
 <meta name="applicable-device" content="mobile">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -27,8 +30,8 @@
     <p class="author">作者：<a href="/mobile/author/${store.authorNameEn}/" >${store.authorName}</a></p>
     <p class="update"><span>更新至：</span><a href="/mobile/book/${store.bookNameEn}/${store.storeId}/" >${store.storeName}</a></p>
     <p class="intro_line"><span>简介：</span>
-        <#if  store.bookDesc?length gt 200>
-        ${store.bookDesc?substring(0,200)}...
+        <#if  store.bookDesc?length gt 50>
+        ${store.bookDesc?substring(0,50)}...
         <#else>
         ${store.bookDesc}
         </#if>

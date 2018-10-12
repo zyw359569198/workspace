@@ -4,9 +4,11 @@
 <meta http-equiv="Cache-Control" content="max-age=0">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta http-equiv="Cache-Control" content="no-transform">
-<title>第83章 没有对比就没有伤害,不良痞妻，束手就寝,玉司司,txt2小说网手机版</title>
-<meta name="keywords" content="第83章 没有对比就没有伤害,不良痞妻，束手就寝,玉司司,txt2小说网手机版">
-<meta name="description" content="第83章 没有对比就没有伤害是由作家玉司司所作不良痞妻，束手就寝的最新章节,更多小说尽在txt2小说网，好看记得告诉您的朋友哦！">
+<#list sdl as storeData>
+<title>${storeData.storeName},${storeData.bookName},${storeData.authorName},txt2小说网手机版</title>
+<meta name="keywords" content="${storeData.storeName},${storeData.bookName},${storeData.authorName},txt2小说网手机版">
+<meta name="description" content="${storeData.storeName}是由作家${storeData.authorName}所作${storeData.bookName}的最新章节,更多小说尽在txt2小说网，好看记得告诉您的朋友哦！">
+</#list>
 <meta name="MobileOptimized" content="240">
 <meta name="applicable-device" content="mobile">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">

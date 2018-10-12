@@ -29,8 +29,8 @@
             <h2><a href="/mobile/book/${book.bookNameEn}/" >${book.bookName}</a></h2>
             <p>作者：<a href="/mobile/author/${book.authorNameEn}/" >${book.authorName}</a></p>
             <p><a href="/mobile/book/${book.bookNameEn}/"  title="${book.bookName}小说介绍">
-            <#if  book.bookDesc?length gt 200>
-        ${book.bookDesc?substring(0,200)}...
+            <#if  book.bookDesc?length gt 50>
+        ${book.bookDesc?substring(0,50)}...
         <#else>
         ${book.bookDesc}
         </#if>
@@ -61,8 +61,8 @@
             <h2><a href="/mobile/book/${cbook.bookNameEn}/" >${cbook.bookName}</a></h2>
             <p>作者：<a href="/mobile/author/${cbook.authorNameEn}/" >${cbook.authorName}</a></p>
             <p><a href="/mobile/book/${cbook.bookNameEn}/"  title="${cbook.bookName}小说介绍">
-            <#if  cbook.bookDesc?length gt 200>
-        ${cbook.bookDesc?substring(0,200)}...
+            <#if  cbook.bookDesc?length gt 50>
+        ${cbook.bookDesc?substring(0,50)}...
         <#else>
         ${cbook.bookDesc}
         </#if>

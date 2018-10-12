@@ -25,8 +25,8 @@
     <p class="author">作者：<a href="/mobile/author/${book.authorNameEn}/" >${book.authorName}</a></p>
     <p class="update"><span>更新至：</span><a href="/mobile/book/${book.bookNameEn}/${(book.lastStoreId)!''}/">${(book.storeName)!''}</a></p>
     <p class="intro_line"><span>简介：</span>
-    <#if  book.bookDesc?length gt 200>
-        ${book.bookDesc?substring(0,200)}...
+    <#if  book.bookDesc?length gt 50>
+        ${book.bookDesc?substring(0,50)}...
         <#else>
         ${book.bookDesc}
         </#if>

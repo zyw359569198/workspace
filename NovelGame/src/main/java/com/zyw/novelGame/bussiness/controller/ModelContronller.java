@@ -300,7 +300,7 @@ public class ModelContronller {
 				return searchInfoService.querySearchInfo(new SearchInfo());
 			});
 			CompletableFuture.allOf(authorBookFuture,modelFuture,catagoryFuture,searchInfoFuture);
-			if(keyword!=null||keyword.length()>0) {
+			if(keyword!=null||keyword.replaceAll(" ","").length()>0) {
 				SearchInfo searchInfo=new SearchInfo();
 				searchInfo.setKeyword(keyword);
 				searchInfoService.updateRecord(searchInfo);
