@@ -61,22 +61,22 @@ public class BookContronller {
 	@RequestMapping(value="/{bookNameEn}",method= {RequestMethod.GET})
 	public String initBookData(HttpServletRequest request,ModelMap  model,@PathVariable String bookNameEn) {
 		CompletableFuture<List<HashMap>> bookFuture=null;
-		CompletableFuture<List<HashMap>> StoreFuture=null;
+		CompletableFuture<PageInfo<HashMap>> storeFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryMobileBookInfo(null,null,null,bookNameEn);
 			});
-			StoreFuture=CompletableFuture.supplyAsync(()->{
+			storeFuture=CompletableFuture.supplyAsync(()->{
 				PageHelper.startPage(1, 100, true);
-				return (new PageInfo<HashMap>(storeService.queryBookStore(bookNameEn,null))).getList();
+				return new PageInfo<HashMap>(storeService.queryBookStore(bookNameEn,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{
 				return modelService.queryModel("1");
 			});
-			CompletableFuture.allOf(bookFuture,StoreFuture,modelFuture);
+			CompletableFuture.allOf(bookFuture,storeFuture,modelFuture);
 			model.addAttribute("bil",bookFuture.get(30, TimeUnit.SECONDS));
-			model.addAttribute("sil",StoreFuture.get(30, TimeUnit.SECONDS));
+			model.addAttribute("sil",storeFuture.get(30, TimeUnit.SECONDS));
 			model.addAttribute("mdl", modelFuture.get(30, TimeUnit.SECONDS));
 		}catch(Exception e) {
 			e.printStackTrace();

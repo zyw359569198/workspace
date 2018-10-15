@@ -10,14 +10,15 @@
 <link rel="shortcut icon" href="/favicon-txt2.ico">
 <meta http-equiv="Cache-Control" content="max-age=300">
 <meta http-equiv="Cache-Control" content="no-transform ">
-<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/m.css" ></head>
+<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/m.css" >
+</head>
 <body>
 <#include "main.ftl">
 <div class="sortcontent">
 	<ul>
-		<li><a id="dayvisit" href="/weekrank/index.htm">周点击榜</a></li>
-		<li><a id="dayvisit" href="/monthrank/index.htm">月点击榜</a></li>
-		<li><a id="dayvisit" href="/recommend/index.htm">总点击榜</a></li>
+		<li><a id="dayvisit" href="/mobile/rank/week/">周点击榜</a></li>
+		<li><a id="dayvisit" href="/mobile/rank/month/">月点击榜</a></li>
+		<li><a id="dayvisit" href="/mobile/rank/all/">总点击榜</a></li>
 		<#list cgl as catagory>
 		<#if (catagory_index >0) >
 		<#if (catagory_index <10) >
@@ -25,9 +26,9 @@
 		</#if>
 		</#if>
 		</#list>
-		<li><a id="dayvisit" href="/newrank/index.htm">最新入库</a></li>
-		<li><a id="dayvisit" href="/updaterank/index.htm">最近更新</a></li>
-		<li><a id="dayvisit" href="/full/index.htm">全本排行</a></li>
+		<li><a id="dayvisit" href="/mobile/rank/newrank/">最新入库</a></li>
+		<li><a id="dayvisit" href="/mobile/rank/updaterank/">最近更新</a></li>
+		<li><a id="dayvisit" href="/mobile/full/">全本排行</a></li>
 	</ul>
 </div>
  <#include "foots.ftl">

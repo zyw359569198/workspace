@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="https://m.txt2.cc"/>
 			<item value="size"/>
 			<item value="queryBookStoreAll"/>
 			<item value="queryBookStore"/>
@@ -15,13 +16,6 @@
 			<item value="queryLastStoreIdByBookId"/>
 			<item value="Resource.getInstance()"/>
 			<item value="StoreCataUrl"/>
-			<item value="queryBookInfo"/>
-			<item value="BookStoreResultMap"/>
-			<item value="updateByStoreIdBySelective"/>
-			<item value="queryBook"/>
-			<item value="BookInfoResultMap"/>
-			<item value="queryStoreCountByBookId"/>
-			<item value="queryBookUpdateInfo"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

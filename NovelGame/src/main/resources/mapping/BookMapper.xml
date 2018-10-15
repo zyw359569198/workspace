@@ -108,15 +108,33 @@ WHERE d.book_id = b.book_id
   </if>
   <choose>
   	<when test="order == 'week'">
-    AND  b.update_time between and  ORDER BY  b.hits  DESC
+    AND  b.update_time BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()  ORDER BY  b.hits  DESC 
   	</when>
-  </choose>
-  <if test="order == 'a.create_time'">
+  	<when test="order == 'month'">
+    AND  b.update_time BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW()  ORDER BY  b.hits  DESC 
+  	</when>
+  	<when test="order == 'all'">
+    ORDER BY  b.hits  DESC 
+  	</when>
+  	<when test="order == 'all'">
+    ORDER BY  b.hits  DESC 
+  	</when>
+  	<when test="order == 'newrank'">
+    ORDER BY  b.create_time  DESC 
+  	</when>
+  	<when test="order == 'updaterank'">
+    ORDER BY  a.create_time  DESC 
+  	</when>
+    <when test="order == 'a.create_time'">
     ORDER BY  a.create_time  DESC
-  </if>
-  <if test="order == 'b.create_time'">
+    </when>
+    <when test="order == 'b.create_time'">
     ORDER BY  b.create_time  DESC
-  </if>
+    </when>
+  	<otherwise>
+      	and (b.book_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')  and  b.author_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')) 
+    </otherwise>
+  </choose>
   </select>
    <select id="queryBookRelationByCataNameEn"  resultMap="BookRelationResultMap">
    SELECT b.cata_id,b.cata_name,b.cata_name_en,a.book_id,a.book_name,a.book_name_en,a.image_url,a.book_desc,a.author_id,a.author_name,a.author_name_en FROM book a,catagory b,cata_book_relation c WHERE a.book_id=c.book_id AND b.cata_id=c.cata_id  and  b.cata_name_en=#{cataNameEn,jdbcType=VARCHAR}

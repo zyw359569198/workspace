@@ -17,7 +17,7 @@
  <#include "main.ftl" >
  <div class="cover">
 <#list bil as bookInfoData>
-    <div class="block">
+    <div class="block" name="${bookInfoData.bookNameEn}">
         <div class="block_img2"><img src="${request.contextPath }${bookInfoData.imageUrl}"  border="0" width="92" height="116" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt="${bookInfoData.bookName}"></div>
         <div class="block_txt2">
             <p></p><h2>${bookInfoData.bookName}</h2><p></p>
@@ -38,12 +38,27 @@
     </div>
     <div class="intro">正文</div>
     <ul class="chapter">
-    <#list sil as storeData>
+    <#list sil.list as storeData>
         <li><a href="/mobile/book/${storeData.bookNameEn}/${storeData.storeId}/" >${storeData.storeName}</a></li>
     </#list>
     </ul>
     </#list>
-    <div class="listpage"><span class="left"><a class="before">上一页</a></span><span class="middle"><select name="pageselect" onchange="self.location.href=options[selectedIndex].value"><option value="/book/blpq_ssjq/?&p=1" selected="selected">第1页 - 第2章 按我说的做</option><option value="/book/blpq_ssjq/?&p=2" >第2页 - 第102章 要杀要剐给个痛快</option></select></span><span class="right"><a class="onclick" href="-&p=2.htm" tppabs="/book/blpq_ssjq/?&p=2">下一页</a></span></div>
+    <div class="listpage">
+    <span class="left"><a class="before" value="" onclick="changeClick(value-1)">上一页</a></span>
+    <span class="middle">
+    <select id="pageselect" onchange="changeClick(options[selectedIndex].value)">
+    <#list sil as storeInfo>
+    <#list 1..sil.total?replace(",","") as i>
+    <#if i==1 >
+    <option value="${i}" selected="selected">第${i}页</option>
+    <#else>
+    <option value="${i}" >第${i}页</option>
+    </#if>
+    </#list>
+    </#list>
+    </select>
+    </span>
+    <span class="right"><a class="onclick" value="2" onclick="changeClick(value+1)">下一页</a></span></div>
 </div>
  <#include "foots.ftl">
     </body>
