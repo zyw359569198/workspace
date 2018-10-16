@@ -11,11 +11,14 @@
 <meta http-equiv="Cache-Control" content="max-age=300">
 <meta http-equiv="Cache-Control" content="no-transform ">
 <link rel="stylesheet" type="text/css" href="${request.contextPath}/css/m.css" >
+<script type="text/javascript" src="${request.contextPath}/js/mobile/jq.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/mobile/recommend.js"></script>
 </head>
 <body>
   <#include "main.ftl">
 <div class="toptab"><span class="active">推荐小说</span></div>
-<#list bkl as book>
+<div id="div_test">
+<#list bkl.list as book>
 <div class="bookbox">
     <div class="bookimg">
     <a href="/mobile/book/${book.bookNameEn}/"  title="${book.bookName}"><img src="${request.contextPath }${book.imageUrl}"  width="78" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt="${book.bookName}"></a>
@@ -32,10 +35,19 @@
         </#if>
           </p>
     </div>
-</div>
-</#list>
-<div class="listpage">
-<span class="left"><a class="before">上一页</a></span><span class="middle"><select name="pageselect" onchange="self.location.href=options[selectedIndex].value"><option value="/recommend/?p=1" selected="selected">第1页</option><option value="/recommend/?p=2" >第2页</option><option value="/recommend/?p=3" >第3页</option><option value="/recommend/?p=4" >第4页</option><option value="/recommend/?p=5" >第5页</option><option value="/recommend/?p=6" >第6页</option><option value="/recommend/?p=7" >第7页</option><option value="/recommend/?p=8" >第8页</option><option value="/recommend/?p=9" >第9页</option><option value="/recommend/?p=10" >第10页</option></select></span><span class="right"><a class="onclick" href="-p=2.htm" tppabs="/recommend/?p=2">下一页</a></span>
+    </div>
+    </#list>
+    </div>
+    <div class="listpage" value=${bkl.pages?replace(",","")}>
+    <span class="left"><a href="javascript:void(0);" class="before" value=1 onclick="changeClick(this,-1)">上一页</a></span>
+    <span class="middle">
+    <select id="pageselect" onchange="changeClick(options[selectedIndex].value,-999)">
+    <#list 1..(bkl.pages?replace(",","")) ?eval as i>
+    <option value="${i}" >第${i}页</option>
+    </#list>
+    </select>
+    </span>
+    <span class="right"><a href="javascript:void(0);" class="onclick" value=1 onclick="changeClick(this,1)">下一页</a></span></div>
 </div>
  <#include "foots.ftl">
     </body>

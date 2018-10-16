@@ -47,12 +47,12 @@ public class RecommendController {
 	
 	@RequestMapping(value="",method= {RequestMethod.GET})
 	public String init(HttpServletRequest request,ModelMap  model) {
-		CompletableFuture<List<HashMap>> bookHitsFuture=null;
+		CompletableFuture<PageInfo<HashMap>> bookHitsFuture=null;
 		CompletableFuture<List<Model>> modelFuture=null;
 		try {
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
 				PageHelper.startPage(1, 24, true);
-				return (new PageInfo<HashMap>(bookService.queryBook("hits",-1))).getList();
+				return (new PageInfo<HashMap>(bookService.queryBook("hits",-1)));
 			});
 			
 			modelFuture=CompletableFuture.supplyAsync(()->{

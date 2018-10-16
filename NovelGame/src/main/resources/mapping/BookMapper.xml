@@ -132,7 +132,7 @@ WHERE d.book_id = b.book_id
     ORDER BY  b.create_time  DESC
     </when>
   	<otherwise>
-      	and (b.book_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')  and  b.author_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')) 
+      	and (b.book_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')  or  b.author_name LIKE CONCAT('%',substring(#{order,jdbcType=VARCHAR},2),'%')) 
     </otherwise>
   </choose>
   </select>

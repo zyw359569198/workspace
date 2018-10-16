@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.StoreService;
 
 @RestController
@@ -28,6 +29,9 @@ public class MobileApiController {
 	
 	@Autowired
 	private StoreService storeService;
+	
+	@Autowired
+	private BookService bookService;
 	
 	/*@RequestMapping(value="/book/{bookNameEn}/{storeId}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
 	public Map catagorySplitPage(HttpServletRequest request,HttpServletResponse response,@PathVariable String bookNameEn,@PathVariable String storeId) {
@@ -71,6 +75,101 @@ public class MobileApiController {
 		return resultMap;
 		
 	}*/
+	
+	@RequestMapping(value="/new/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map New(HttpServletRequest request,HttpServletResponse response,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",-1));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
+	
+	@RequestMapping(value="/full/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map full(HttpServletRequest request,HttpServletResponse response,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
+	
+	@RequestMapping(value="/rank/{hits}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map hot(HttpServletRequest request,HttpServletResponse response,@PathVariable String hits,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,hits,-1));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
+	
+	@RequestMapping(value="/catagory/{cataNameEn}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map queryBookByHits(HttpServletRequest request,HttpServletResponse response,@PathVariable String cataNameEn,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(cataNameEn,"a.create_time",-1));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
+	
+	@RequestMapping(value="/recommend/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map recommend(HttpServletRequest request,HttpServletResponse response,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookHitsInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookHitsInfo=new PageInfo<HashMap>(bookService.queryBook("hits",-1));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bkl", bookHitsInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
 	
 	@RequestMapping(value="/book/{bookNameEn}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
 	public Map initBookData(HttpServletRequest request,HttpServletResponse response,@PathVariable String bookNameEn,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {

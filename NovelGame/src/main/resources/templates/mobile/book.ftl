@@ -12,6 +12,8 @@
 <meta http-equiv="Cache-Control" content="max-age=300">
 <meta http-equiv="Cache-Control" content="no-transform ">
 <link rel="stylesheet" type="text/css" href="${request.contextPath}/css/m.css" >
+<script type="text/javascript" src="${request.contextPath}/js/mobile/jq.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/mobile/book.js"></script>
 </head>
 <body>
  <#include "main.ftl" >
@@ -43,22 +45,16 @@
     </#list>
     </ul>
     </#list>
-    <div class="listpage">
-    <span class="left"><a class="before" value="" onclick="changeClick(value-1)">上一页</a></span>
+    <div class="listpage" value=${sil.pages?replace(",","")}>
+    <span class="left"><a href="javascript:void(0);" class="before" value=1 onclick="changeClick(this,-1)">上一页</a></span>
     <span class="middle">
-    <select id="pageselect" onchange="changeClick(options[selectedIndex].value)">
-    <#list sil as storeInfo>
-    <#list 1..sil.total?replace(",","") as i>
-    <#if i==1 >
-    <option value="${i}" selected="selected">第${i}页</option>
-    <#else>
+    <select id="pageselect" onchange="changeClick(options[selectedIndex].value,-999)">
+    <#list 1..(sil.pages?replace(",","")) ?eval as i>
     <option value="${i}" >第${i}页</option>
-    </#if>
-    </#list>
     </#list>
     </select>
     </span>
-    <span class="right"><a class="onclick" value="2" onclick="changeClick(value+1)">下一页</a></span></div>
+    <span class="right"><a href="javascript:void(0);" class="onclick" value=1 onclick="changeClick(this,1)">下一页</a></span></div>
 </div>
  <#include "foots.ftl">
     </body>
