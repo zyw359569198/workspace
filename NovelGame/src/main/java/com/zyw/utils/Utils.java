@@ -42,6 +42,8 @@ import freemarker.template.TemplateException;
 
 public class Utils {
 	
+	private static CloseableHttpClient  httpclient = null;
+	
 	public static String getUTF8StringFromGBKString(String gbkStr) {  
         try {  
             return new String(getUTF8BytesFromGBKString(gbkStr), "UTF-8");  
@@ -108,11 +110,10 @@ public class Utils {
 	}
 	
 	public  static void  saveImages(String imageUrl,String imagePath) {
-		CloseableHttpClient  httpclient = null;
 		String path ="/usr/local/nginx/html"+imagePath;
         File storeFile = null;
 		try {
-			//采用绕过验证的方式处理https请求  
+/*			//采用绕过验证的方式处理https请求  
 			SSLContext sslcontext = createIgnoreVerifySSL();
 			//设置协议http和https对应的处理socket链接工厂的对象  
 	        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()  
@@ -121,7 +122,8 @@ public class Utils {
 	            .build();  
 	        PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);  
 	        HttpClients.custom().setConnectionManager(connManager);
-    		httpclient =  HttpClients.custom().setConnectionManager(connManager).build();
+    		httpclient =  HttpClients.custom().setConnectionManager(connManager).build();*/
+    		httpclient=HttpConnectionPoolUtil.getHttpClient(imageUrl);
             // 创建httpget.    
             HttpGet httpget = new HttpGet(imageUrl);  
             httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
