@@ -17,6 +17,7 @@
 <body>
 <#include "main.ftl">
   <div class="toptab"><span class="active">最新小说</span></div>
+ <div id="div_test">
 <#list bul.list as store>
 <div class="bookbox">
     <div class="bookimg">
@@ -36,6 +37,7 @@
     </div>
 </div>
 </#list>
+  </div>
     <div class="listpage" value=${bul.pages?replace(",","")}>
     <span class="left"><a href="javascript:void(0);" class="before" value=1 onclick="changeClick(this,-1)">上一页</a></span>
     <span class="middle">

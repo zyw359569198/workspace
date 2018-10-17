@@ -54,7 +54,7 @@ function pageSplit(pageNum){
 	asynchronous: true,
 	success: function(data){
 				$("#div_test").empty()
-				loadBookStoreInfoData(data.data.bkl.list);
+				loadBookStoreInfoData(data.data.bul.list);
 	}
 });
 }

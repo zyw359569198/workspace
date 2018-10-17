@@ -1,3 +1,21 @@
+function GetQueryString(name)
+    {
+         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+         var r = window.location.search.substr(1).match(reg);
+         if(r!=null)return  r[2]; return null;
+    }
+    
+window.onload =function(){
+	var keyword=decodeURI(GetQueryString("keyword"));
+	document.getElementById('s_key').value =keyword;
+	if(keyword==null||keyword==''||keyword=="null"){
+		$("#div_test").empty();
+		return;
+	}
+	pageSplit(1);
+}
+
+
 function changeClick(object,type){
 	var thisObj;
     var value;  
@@ -45,11 +63,11 @@ function changeClick(object,type){
     }
 }
 function pageSplit(pageNum){
-	var hits=$("#div_test").attr("value");
+	var keyword=$("#div_test").attr("value");
 	var pageSize=24;
 	$.ajax({
 	type: 'GET',
-	url: "/mobile/mobileApi/rank/"+hits+"/"+pageSize+"/"+pageNum,
+	url: "/mobile/mobileApi/search/"+keyword+"/"+pageSize+"/"+pageNum,
 	contentType: "application/json;cherset=utf-8",
 	dataType: "json",
 	asynchronous: true,

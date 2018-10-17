@@ -7,9 +7,9 @@ undertow:
     worker-threads: 20
     # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
     # 每块buffer的空间大小,越小的空间被利用越充分
-    buffer-size: 1024
+    buffer-size: 256
     # 是否分配的直接内存
-    direct-buffers: true
+    direct-buffers: false
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/noval?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8

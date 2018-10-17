@@ -1,5 +1,6 @@
 package com.zyw.novelGame.mobile.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +54,9 @@ public class SearchController {
 				return modelService.queryModel("1");
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 24, true);
-				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"@"+keyword,-1));
+				//PageHelper.startPage(1, 24, false);
+				//return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"@"+keyword,-1));
+				return new PageInfo<HashMap>(new ArrayList<HashMap>());
 			});
 			CompletableFuture.allOf(modelFuture,bookUpdateInfoFuture);
 			model.addAttribute("bul", bookUpdateInfoFuture.get(30,TimeUnit.SECONDS));

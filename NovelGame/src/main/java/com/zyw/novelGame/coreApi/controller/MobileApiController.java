@@ -76,6 +76,25 @@ public class MobileApiController {
 		
 	}*/
 	
+	@RequestMapping(value="/search/{keyword}/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
+	public Map search(HttpServletRequest request,HttpServletResponse response,@PathVariable String keyword,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
+		Map resultMap=new HashMap();
+		Map dataMap=new HashMap();
+		PageInfo<HashMap> bookUpdateInfo=null;
+		try {
+				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"@"+keyword,-1));
+		}catch(Exception e){
+			e.printStackTrace();
+			resultMap.put("errorCode", 10086);
+		}
+		dataMap.put("bul", bookUpdateInfo);
+		resultMap.put("data", dataMap);
+		resultMap.put("errorCode", 200);
+		return resultMap;
+		
+	}
+	
 	@RequestMapping(value="/new/{pageSize}/{pageNum}",method= {RequestMethod.GET},produces = {"application/json;charset=UTF-8"})
 	public Map New(HttpServletRequest request,HttpServletResponse response,@PathVariable Integer pageNum,@PathVariable Integer pageSize) {
 		Map resultMap=new HashMap();

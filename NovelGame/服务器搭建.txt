@@ -1,7 +1,7 @@
-ln -s ÈíÁ¬½Ó¾²Ì¬ÎÄ¼ş¼ĞÄ¿Â¼£¬ĞŞ¸Änginx.conf   userÎªroot
+ln -s è½¯è¿æ¥é™æ€æ–‡ä»¶å¤¹ç›®å½•ï¼Œä¿®æ”¹nginx.conf   userä¸ºroot
 
 yum remove -y --skip-broken autoconf automake cdbs debhelper libtool mysql-devel mariadb-config mysql-libs mysql MySQL-server bc
-°²×°Êı¾İ¿â
+å®‰è£…æ•°æ®åº“
 yum install -y java java-devel-debug libuuid-devel wget pcre-devel zlib-devel cmake unzip zip vim net-tools make automake gcc curl-devel gcc-c++ glibc-headers mhash openssl openssl-devel crontabs;
 yum install -y --skip-broken autoconf automake cdbs debhelper libtool  bc
 
@@ -10,12 +10,12 @@ yum clean all;
 mv psol incubator-pagespeed-ngx-1.13.35.2-stable
 ./configure --with-http_realip_module --with-http_stub_status_module --add-module=/root/incubator-pagespeed-ngx-1.13.35.2-stable;make && make install;
 
-ĞŞ¸Änginx userÎªroot
+ä¿®æ”¹nginx userä¸ºroot
 
 select @@global.sql_mode
 set @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-mysql5.8  my.cnfÔö¼ÓÒÔÏÂÅäÖÃ
-ÔÚ [mysqld]ºÍ[mysql]ÏÂÌí¼Ó
+mysql5.8  my.cnfå¢åŠ ä»¥ä¸‹é…ç½®
+åœ¨ [mysqld]å’Œ[mysql]ä¸‹æ·»åŠ 
 sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 ln -s 
@@ -47,18 +47,25 @@ slow_query_log_file = /usr/local/mysql/mysql-slow.log
 log-error = /usr/local/mysql/mysql.err
 long_query_time = 8
 binlog_format = MIXED
-binlog_cache_size = 1M
+binlog_cache_size = 4M
 innodb_autoinc_lock_mode = 2
 binlog_expire_logs_seconds = 36000
 max_binlog_size = 100M
 
 default_storage_engine = InnoDB
 innodb_file_per_table
-innodb_log_file_size = 128M
-innodb_log_buffer_size = 8M
+innodb_log_file_size = 32M
+innodb_log_buffer_size = 2M
 innodb_log_files_in_group = 2
+innodb_max_dirty_pages_pct = 50
 innodb_buffer_pool_instances = 2
-innodb_buffer_pool_size = 512M
+innodb_buffer_pool_size = 256M
+tmp_table_size=16M
+key_buffer_size = 8M
+read_buffer_size = 1M
+read_rnd_buffer_size = 8M
+bulk_insert_buffer_size = 32M
+max_connections=512
 innodb_flush_method = O_DIRECT
 sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
 
@@ -72,4 +79,4 @@ source /etc/profile
 
 
 
-ĞŞ¸ÄÃÜÂë³¤¶È£ºset global validate_password.policy=0;set global validate_password.length=1;ÔÙ¸üĞÂÃÜÂë¼´¿É
+ä¿®æ”¹å¯†ç é•¿åº¦ï¼šset global validate_password.policy=0;set global validate_password.length=1;å†æ›´æ–°å¯†ç å³å¯
