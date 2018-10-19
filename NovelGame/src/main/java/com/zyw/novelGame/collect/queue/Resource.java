@@ -31,6 +31,9 @@ public class Resource {
 		
 	}
 	
+	public int size() {
+		return resourceQueue.size();
+	}
 	/**
 	  * 向资源池中添加资源
 	  */

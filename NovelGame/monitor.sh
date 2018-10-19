@@ -8,7 +8,7 @@ do
                 systemctl restart mysql
                 echo "restart mysql!"
                 sleep 30
-                nohup java -jar -Xms256m -Xmx256m -XX:+PrintGCDetails  -XX:+PrintGCDateStamps -XX:MetaspaceSize=50M -XX:MaxMetaspaceSize=128m -XX:CompressedClassSpaceSize=128m -XX:MinMetaspaceFreeRatio=40 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/root/  /root/NovelGame-0.0.1-SNAPSHOT/NovelGame-0.0.1-SNAPSHOT.jar >/root/nova.log &
+                nohup java -jar -Xms256m -Xmx256m -XX:+PrintGCDetails  -XX:+PrintGCDateStamps -XX:MetaspaceSize=20M -XX:MaxMetaspaceSize=128m -XX:CompressedClassSpaceSize=128m -XX:MinMetaspaceFreeRatio=40 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/root/  /root/NovelGame-0.0.1-SNAPSHOT/NovelGame-0.0.1-SNAPSHOT.jar >/root/nova.log &
                 echo "restart novelGame!"
                 sleep 300
                 curl http://localhost:8080/collect/initData

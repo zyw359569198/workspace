@@ -2,22 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="queryBook" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="https://m.txt2.cc"/>
-			<item value="size"/>
-			<item value="queryBookStoreAll"/>
-			<item value="queryBookStore"/>
-			<item value="searchInfoService"/>
-			<item value="queryLastStoreIdByBookId"/>
-			<item value="Resource.getInstance()"/>
-			<item value="StoreCataUrl"/>
+			<item value="queryBook"/>
+			<item value="max_binlog_cache_size"/>
+			<item value="innodb_log_buffer_size"/>
+			<item value="binlog_cache_size"/>
+			<item value="read_buffer_size"/>
+			<item value="innodb_additional_mem_pool_size"/>
+			<item value="query_cache_size"/>
+			<item value="table_definition_cache"/>
+			<item value="innodb_flush_log_at_trx_commit"/>
+			<item value="EntityUtils"/>
+			<item value="producer"/>
+			<item value="pro"/>
+			<item value="EntityUtils.toString"/>
+			<item value="Utils.toString"/>
+			<item value="innodb_file_per_table"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Resource.getInstance()"/>
+			<item value="Resource"/>
+			<item value="Utils.toString"/>
 			<item value=""/>
 			<item value="../images/nocover.jpg"/>
 			<item value="../static/images/nocover.jpg"/>

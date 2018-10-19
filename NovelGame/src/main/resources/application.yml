@@ -19,7 +19,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat
-    maxActive: 20
+    maxActive: 4
     initialSize: 1
     maxWait: 60000
     minIdle: 1
@@ -29,8 +29,8 @@ spring:
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
+    poolPreparedStatements: false
+    maxOpenPreparedStatements: -1
   freemarker:
     cache: true
     charset: UTF-8

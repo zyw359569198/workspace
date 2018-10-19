@@ -17,7 +17,7 @@ public class Consumer {
 	public void execute() {
 	         while (true) {
 	        	 try {
-		            Thread.sleep((long) (1000 * Math.random()));
+		            Thread.sleep((long) (5000 * Math.random()));
 		        	 ApplicationContextProvider.getBean("deal", Deal.class).init(Resource.getInstance().remove());
 		             } catch (InterruptedException e) {
 		                 e.printStackTrace();

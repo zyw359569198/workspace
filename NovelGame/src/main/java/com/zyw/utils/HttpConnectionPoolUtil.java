@@ -90,6 +90,12 @@ public class HttpConnectionPoolUtil {
     }
  
     public static CloseableHttpClient getHttpClient(String url){
+    	try {
+			Thread.sleep((long) (Common.COLLECT_WAIT_TIME * Math.random()));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         String hostName = url.split("/")[2];
         System.out.println(hostName);
         int port = 80;

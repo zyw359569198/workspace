@@ -2,6 +2,8 @@ package com.zyw.novelGame;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import org.slf4j.Logger;
@@ -17,6 +19,11 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @EnableAsync
 public class SpringAsyncConfiguration implements AsyncConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(SpringAsyncConfiguration.class);
+    
+    @Bean
+    public ExecutorService getThreadPool(){
+        return Executors.newFixedThreadPool(1);
+    }
     
     @Bean(name = "taskExecutorNovel")
     @Override

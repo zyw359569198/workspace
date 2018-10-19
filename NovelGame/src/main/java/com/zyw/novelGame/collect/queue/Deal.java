@@ -103,12 +103,12 @@ public class Deal {
 	     catagory=new Catagory();
        cataBookRelation=new CataBookRelation();
 		try {
-				 Thread.sleep((long) (5000 * Math.random()));
 				 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getResult().toString());
 		    	 httpget = new HttpGet(queueInfo.getResult().toString());  
 		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 				 response = httpClient.execute(httpget);
 				 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+				 EntityUtils.consume(response.getEntity());
 				 authorName=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getAuthorName().getUrlMatch()).get(0).toString();
          	    book.setAuthorName(authorName.trim());
 			    book.setAuthorNameEn(PingyingUtil.ToPinyin(book.getAuthorName()));
@@ -160,6 +160,7 @@ public class Deal {
 				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 						 response = httpClient.execute(httpget);
 						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+						 EntityUtils.consume(response.getEntity());
 		}
 		
   		   List<HashMap> blist=bookService.queryBookInfo(author.getAuthorName(),author.getAuthorName(),book.getBookName(),book.getBookName());
@@ -227,6 +228,7 @@ public class Deal {
 				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 						 response = httpClient.execute(httpget);
 						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+						 EntityUtils.consume(response.getEntity());
 		             }
 				      Map mp=new HashMap();
 				      QueueInfo queue=new QueueInfo();
@@ -243,9 +245,6 @@ public class Deal {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -326,7 +325,6 @@ public class Deal {
 	    		   if(!item.toString().contains("http")) {
 	    			   item=queueInfo.getCollect().getNovelSiteUrl()+item;
 	    		   }
-				 Thread.sleep((long) (5000 * Math.random()));
 				 if(storeCount==0) {
 		    		   preStoreId="0";
 			    	   curentStoreId=UUID.randomUUID().toString();
@@ -351,6 +349,7 @@ public class Deal {
 		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 				 response = httpClient.execute(httpget);
 				 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+				 EntityUtils.consume(response.getEntity());
 		   storeName=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreInfo().getStoreName().getUrlMatch()).get(0).toString();
 		   String storeContent=JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreInfo().getStoreContent().getUrlMatch()).get(0).toString();
 		   if(queueInfo.getCollect().getNovelCharset().equalsIgnoreCase("gbk")) {
@@ -387,19 +386,16 @@ public class Deal {
 	       } catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 	}
 	public void deal(QueueInfo queueInfo) {		
 			 try {
-					 Thread.sleep((long) (5000 * Math.random()));
 					 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getResult().toString());
 			    	 httpget = new HttpGet(queueInfo.getResult().toString());  
 			         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
 					 response = httpClient.execute(httpget);
 					 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
+					 EntityUtils.consume(response.getEntity());
 					 QueueInfo queue=null;
 					// int count=0;
 					 List resultList=JsoupParse.parse(doc, queueInfo.getCollect().getBookRule().getUrlMatch());
@@ -419,9 +415,6 @@ public class Deal {
 					//logger.info(EntityUtils.toString(response.getEntity()));
 				 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
