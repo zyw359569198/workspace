@@ -127,6 +127,7 @@ public class Utils {
             // 创建httpget.    
             HttpGet httpget = new HttpGet(imageUrl);  
             httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
+            HttpConnectionPoolUtil.setRequestConfig(httpget);
             HttpResponse response = httpclient.execute(httpget);
             storeFile=new File(path);
             storeFile.getParentFile().mkdirs();

@@ -105,7 +105,8 @@ public class Deal {
 		try {
 				 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getResult().toString());
 		    	 httpget = new HttpGet(queueInfo.getResult().toString());  
-		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");  
+		         HttpConnectionPoolUtil.setRequestConfig(httpget);
 				 response = httpClient.execute(httpget);
 				 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 				 EntityUtils.consume(response.getEntity());
@@ -158,6 +159,7 @@ public class Deal {
 		            	 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getCollect().getNovelSiteUrl());
 				    	 httpget = new HttpGet(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreCataUrl().getUrlMatch()).get(0).toString());  
 				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+				         HttpConnectionPoolUtil.setRequestConfig(httpget);
 						 response = httpClient.execute(httpget);
 						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 						 EntityUtils.consume(response.getEntity());
@@ -225,7 +227,8 @@ public class Deal {
 		             if(queueInfo.getCollect().getBookInfo().getStoreCataUrl()!=null) {
 		            	 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getCollect().getNovelSiteUrl());
 				    	 httpget = new HttpGet(JsoupParse.parse(doc, queueInfo.getCollect().getBookInfo().getStoreCataUrl().getUrlMatch()).get(0).toString());  
-				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+				         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");  
+				         HttpConnectionPoolUtil.setRequestConfig(httpget);
 						 response = httpClient.execute(httpget);
 						 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 						 EntityUtils.consume(response.getEntity());
@@ -346,7 +349,8 @@ public class Deal {
 	    	   store.setStoreId(curentStoreId);
 	    	   httpClient=HttpConnectionPoolUtil.getHttpClient(item.toString());
 		    	 httpget = new HttpGet(item.toString());  
-		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+		         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");     
+		         HttpConnectionPoolUtil.setRequestConfig(httpget);
 				 response = httpClient.execute(httpget);
 				 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 				 EntityUtils.consume(response.getEntity());
@@ -392,7 +396,8 @@ public class Deal {
 			 try {
 					 httpClient=HttpConnectionPoolUtil.getHttpClient(queueInfo.getResult().toString());
 			    	 httpget = new HttpGet(queueInfo.getResult().toString());  
-			         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");          
+			         httpget.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");      
+			         HttpConnectionPoolUtil.setRequestConfig(httpget);
 					 response = httpClient.execute(httpget);
 					 doc = Jsoup.parse(EntityUtils.toString(response.getEntity(),queueInfo.getCollect().getNovelCharset()));
 					 EntityUtils.consume(response.getEntity());

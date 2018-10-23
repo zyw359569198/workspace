@@ -63,7 +63,7 @@ public class HttpConnectionPoolUtil {
     private static final int CONNECT_TIMEOUT = 10*1000;// 设置连接建立的超时时间为10s
     private static final int SOCKET_TIMEOUT = 10*1000;
     private static final int MAX_CONN = 400; // 最大连接数
-    private static final int Max_PRE_ROUTE = 80;
+    private static final int MAX_PRE_ROUTE = 80;
     private static final int MAX_ROUTE = 80;
     private static CloseableHttpClient httpClient; // 发送请求的客户端单例
     private static PoolingHttpClientConnectionManager manager; //连接池管理类
@@ -81,12 +81,10 @@ public class HttpConnectionPoolUtil {
      * 对http请求进行基本设置
      * @param httpRequestBase http请求
      */
-    private static void setRequestConfig(HttpRequestBase httpRequestBase){
-        RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
+    public static void setRequestConfig(HttpRequestBase httpRequestBase){
+        httpRequestBase.setConfig(RequestConfig.custom().setConnectionRequestTimeout(CONNECT_TIMEOUT)
                 .setConnectTimeout(CONNECT_TIMEOUT)
-                .setSocketTimeout(SOCKET_TIMEOUT).build();
- 
-        httpRequestBase.setConfig(requestConfig);
+                .setSocketTimeout(SOCKET_TIMEOUT).build());
     }
  
     public static CloseableHttpClient getHttpClient(String url){
@@ -190,8 +188,7 @@ public class HttpConnectionPoolUtil {
         manager = new PoolingHttpClientConnectionManager(registry);
         //设置连接参数
         manager.setMaxTotal(MAX_CONN); // 最大连接数
-        manager.setDefaultMaxPerRoute(Max_PRE_ROUTE); // 路由最大连接数
- 
+        manager.setDefaultMaxPerRoute(MAX_PRE_ROUTE); // 路由最大连接数
         HttpHost httpHost = new HttpHost(host, port);
         manager.setMaxPerRoute(new HttpRoute(httpHost), MAX_ROUTE);
  
@@ -281,6 +278,7 @@ public class HttpConnectionPoolUtil {
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 String result = EntityUtils.toString(entity);
+                EntityUtils.consume(entity);
                 Gson gson = new Gson();
                 object = gson.fromJson(result, JsonObject.class);
             }
@@ -294,6 +292,31 @@ public class HttpConnectionPoolUtil {
             }
         }
         return object;
+    }
+    
+    public static String get(String url,String defaultCharset){
+    	HttpGet httpGet = new HttpGet(url);
+    	httpGet.setHeader("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"); 
+        setRequestConfig(httpGet);
+        CloseableHttpResponse response = null;
+        String result = null;
+        try {
+            response = getHttpClient(url).execute(httpGet, HttpClientContext.create());
+            HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                result = EntityUtils.toString(entity,defaultCharset);
+                EntityUtils.consume(entity);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try{
+                if (response != null) response.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
  
     /**

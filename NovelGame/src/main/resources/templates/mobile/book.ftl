@@ -14,11 +14,13 @@
 <link rel="stylesheet" type="text/css" href="${request.contextPath}/css/m.css" >
 <script type="text/javascript" src="${request.contextPath}/js/mobile/jq.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/mobile/book.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/me/hits.js"></script>
 </head>
 <body>
  <#include "main.ftl" >
  <div class="cover">
 <#list bil as bookInfoData>
+<div id="placeId" value="${bookInfoData.bookId}"/>
     <div class="block" name="${bookInfoData.bookNameEn}">
         <div class="block_img2"><img src="${request.contextPath }${bookInfoData.imageUrl}"  border="0" width="92" height="116" onerror="this.src='${request.contextPath }/images/nocover.jpg'" alt="${bookInfoData.bookName}"></div>
         <div class="block_txt2">

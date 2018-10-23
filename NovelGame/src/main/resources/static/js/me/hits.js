@@ -1,7 +1,7 @@
 window.onload =function(){
 			$.ajax({
 		type: 'POST',
-		url: "/pageApi/hits/"+$("div.place").attr("value"),
+		url: "/pageApi/hits/"+$("#placeId").attr("value"),
 		contentType: "application/json;cherset=utf-8",
 		dataType: "json",
 		asynchronous: true,

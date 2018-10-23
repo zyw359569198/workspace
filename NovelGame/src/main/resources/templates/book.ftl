@@ -20,7 +20,7 @@
 <body>
 <#include "main.ftl" >
 <#list bil as bookInfoData>
-<div class="place" value="${bookInfoData.bookId}">
+<div id="placeId" class="place" value="${bookInfoData.bookId}">
   当前位置：<a href="/" >txt2小说网</a> > <a href="/catagory/${bookInfoData.cataNameEn}" >${bookInfoData.cataName}</a> > ${bookInfoData.bookName}</div>
 <div class="jieshao">
   <div class="lf">

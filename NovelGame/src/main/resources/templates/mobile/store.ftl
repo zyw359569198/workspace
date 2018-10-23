@@ -32,7 +32,7 @@
 	<h1><a href="/mobile/book/${storeData.bookNameEn}/"  id="bookname"  bookName=${storeData.bookNameEn}  storeId=${storeData.storeId}>${storeData.bookName}</a></h1>
 	</#list>
 	<div class="reg">
-		<a href="javascript:st();void 0;" id="st" rel="nofollow" class="login_topbtn c_index_login">繁</a><a href="/mobile" class="login_topbtn c_index_login">首页</a>
+		<a href="/mobile/my" id="st" rel="nofollow" class="login_topbtn c_index_login">阅读记录</a><a href="/mobile" class="login_topbtn c_index_login">首页</a>
 	</div>
 </div>
 	<div class="nr_set">
