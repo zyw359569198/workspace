@@ -16,11 +16,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.ModelService;
-import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.utils.Utils;
 
@@ -52,7 +51,7 @@ public class NewController {
 				return modelService.queryModel("1");
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 24, true);
+				PageMethod.startPage(1, 24, true);
 				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",-1)));
 			});
 			CompletableFuture.allOf(modelFuture,bookUpdateInfoFuture);

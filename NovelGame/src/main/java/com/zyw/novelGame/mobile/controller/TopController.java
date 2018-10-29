@@ -1,6 +1,5 @@
 package com.zyw.novelGame.mobile.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +16,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;

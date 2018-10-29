@@ -1,6 +1,5 @@
 package com.zyw.utils;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,12 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -25,17 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.conn.socket.ConnectionSocketFactory;
-import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-
-import com.sun.imageio.plugins.common.ImageUtil;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -77,7 +62,7 @@ public class Utils {
 	public  static void  saveHtml(Configuration configuration,HttpServletRequest request,String htmlFileName,String modelName,Map content) {
 		if(Common.IS_GENERATE_HTML) {
 			//String htmlRealPath=request.getSession().getServletContext().getRealPath("/")+"\\html\\";
-			String htmlRealPath="/usr/local/nginx/html";
+			String htmlRealPath=Common.HTML_FILE_PATH;
 			System.out.println("保存的绝对路径是:"+htmlRealPath+ "/" + htmlFileName + ".html");
 			 File htmlFile = new File(htmlRealPath + "/" + htmlFileName + ".html");
 			 try {
@@ -110,7 +95,7 @@ public class Utils {
 	}
 	
 	public  static void  saveImages(String imageUrl,String imagePath) {
-		String path ="/usr/local/nginx/html"+imagePath;
+		String path =Common.HTML_FILE_PATH+imagePath;
         File storeFile = null;
 		try {
 /*			//采用绕过验证的方式处理https请求  

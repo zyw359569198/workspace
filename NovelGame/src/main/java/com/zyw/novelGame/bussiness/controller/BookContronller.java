@@ -1,6 +1,5 @@
 package com.zyw.novelGame.bussiness.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,21 +18,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 import com.zyw.novelGame.bussiness.service.SearchInfoService;
 import com.zyw.novelGame.bussiness.service.StoreService;
-import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.BookData;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.SearchInfo;
-import com.zyw.novelGame.model.Store;
 import com.zyw.utils.Utils;
 
 import freemarker.template.Configuration;
@@ -80,7 +74,7 @@ public class BookContronller {
 				return storeService.queryBookStore(bookNameEn,null);
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 8, false);
+				PageMethod.startPage(1, 8, false);
 				return (new PageInfo<HashMap>(bookService.queryBook("hits",-1))).getList();
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{

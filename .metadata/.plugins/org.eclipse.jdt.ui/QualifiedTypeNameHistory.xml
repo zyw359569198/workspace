@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.concurrent.LinkedBlockingQueue"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Scope"/>
 <fullyQualifiedTypeName name="com.zyw.novelGame.collect.ApplicationContextProvider"/>
 <fullyQualifiedTypeName name="org.apache.http.client.CookieStore"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.client.BasicCookieStore"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 <fullyQualifiedTypeName name="org.apache.http.params.HttpConnectionParams"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="com.alibaba.druid.stat.DruidStatManagerFacade"/>
 </qualifiedTypeNameHistroy>

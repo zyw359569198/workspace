@@ -14,13 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
@@ -63,7 +60,7 @@ public class ModelContronller {
 		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 6, false);
+				PageMethod.startPage(1, 6, false);
 				return (new PageInfo<HashMap>(bookService.queryBook("a.create_time",-1))).getList();
 			});
 			
@@ -74,7 +71,7 @@ public class ModelContronller {
 				return catagoryService.queryCatagory(new Catagory());
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 20, true);
+				PageMethod.startPage(1, 20, true);
 				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",-1)));
 			});
 			searchInfoFuture=CompletableFuture.supplyAsync(()->{
@@ -111,7 +108,7 @@ public class ModelContronller {
 		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 6, false);
+				PageMethod.startPage(1, 6, false);
 				return (new PageInfo<HashMap>(bookService.queryBook("a.hits",-1))).getList();
 			});
 			
@@ -122,7 +119,7 @@ public class ModelContronller {
 				return catagoryService.queryCatagory(new Catagory());
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 24, true);
+				PageMethod.startPage(1, 24, true);
 				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1));
 			});
 			searchInfoFuture=CompletableFuture.supplyAsync(()->{
@@ -157,7 +154,7 @@ public class ModelContronller {
 		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 6, false);
+				PageMethod.startPage(1, 6, false);
 				return (new PageInfo<HashMap>(bookService.queryBook("create_time",0))).getList();
 			});
 			
@@ -168,7 +165,7 @@ public class ModelContronller {
 				return catagoryService.queryCatagory(new Catagory());
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 20, true);
+				PageMethod.startPage(1, 20, true);
 				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0));
 			});
 			searchInfoFuture=CompletableFuture.supplyAsync(()->{
@@ -202,7 +199,7 @@ public class ModelContronller {
 		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			bookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1,20, true);
+				PageMethod.startPage(1,20, true);
 				return new PageInfo<Book>(bookService.queryBookByHits());
 			});
 			
@@ -287,7 +284,7 @@ public class ModelContronller {
 		String keyword=request.getParameter("keyword");
 		try {
 			authorBookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1,10, true);
+				PageMethod.startPage(1,10, true);
 				return new PageInfo<HashMap>(bookService.queryBookInfo(keyword,null,keyword,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{

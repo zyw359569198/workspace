@@ -1,5 +1,4 @@
 package com.zyw.novelGame.collect.entity;
-import java.util.List;
 
 public class CollectInfo {
 	

@@ -1,17 +1,9 @@
 package com.zyw.novelGame;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
-
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.zyw.novelGame.collect.ApplicationContextProvider;
-import com.zyw.novelGame.collect.controller.CollectController;
 
 @SpringBootApplication
 @MapperScan("com.zyw.novelGame.mapper")

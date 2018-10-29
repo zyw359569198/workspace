@@ -14,25 +14,13 @@ import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zyw.novelGame.collect.CollectData;
-import com.zyw.novelGame.collect.entity.BookInfo;
-import com.zyw.novelGame.collect.entity.CollectInfo;
-import com.zyw.novelGame.collect.entity.Rule;
-import com.zyw.novelGame.collect.entity.StoreInfo;
 import com.zyw.novelGame.collect.novelSite.BasicNovelSite;
 import com.zyw.novelGame.collect.novelSite.ShuHuangGeNovelSite;
-import com.zyw.novelGame.collect.novelSite.TXT2NovelSite;
-import com.zyw.novelGame.collect.queue.Consumer;
-import com.zyw.novelGame.collect.queue.Producer;
-import com.zyw.novelGame.collect.queue.Resource;
-import com.zyw.utils.Common;
 
 @RestController
 @RequestMapping("/collect")

@@ -7,8 +7,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +15,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 import com.zyw.novelGame.bussiness.service.SearchInfoService;
-import com.zyw.novelGame.bussiness.service.StoreService;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.SearchInfo;
@@ -61,7 +56,7 @@ public class AuthorContronller {
 		CompletableFuture<List<SearchInfo>> searchInfoFuture=null;
 		try {
 			authorBookFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1,10, true);
+				PageMethod.startPage(1,10, true);
 				return new PageInfo<HashMap>(bookService.queryBookInfo(null,authorNameEn,null,null));
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{

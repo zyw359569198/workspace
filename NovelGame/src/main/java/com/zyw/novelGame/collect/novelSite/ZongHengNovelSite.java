@@ -3,11 +3,6 @@ package com.zyw.novelGame.collect.novelSite;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zyw.novelGame.collect.CollectData;
-import com.zyw.novelGame.collect.entity.BookInfo;
-import com.zyw.novelGame.collect.entity.CollectInfo;
-import com.zyw.novelGame.collect.entity.Rule;
-import com.zyw.novelGame.collect.entity.StoreInfo;
 import com.zyw.novelGame.collect.queue.QueueInfo;
 
 public class ZongHengNovelSite extends BasicNovelSite{

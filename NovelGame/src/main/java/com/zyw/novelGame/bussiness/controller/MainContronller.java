@@ -17,14 +17,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.CatagoryService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 import com.zyw.novelGame.bussiness.service.SearchInfoService;
 import com.zyw.novelGame.bussiness.service.StoreService;
-import com.zyw.novelGame.model.Book;
 import com.zyw.novelGame.model.Catagory;
 import com.zyw.novelGame.model.Model;
 import com.zyw.novelGame.model.SearchInfo;
@@ -77,14 +76,14 @@ public class MainContronller {
 				return li;
 			});
 			bookHitsFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 6, false);
+				PageMethod.startPage(1, 6, false);
 				return (new PageInfo<HashMap>(bookService.queryBook(null,-1))).getList();
 			});
 			bookCreateTimeFuture=CompletableFuture.supplyAsync(()->{
 				return bookService.queryBookByCreateTime();
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 30, false);
+				PageMethod.startPage(1, 30, false);
 				return (new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"a.create_time",-1))).getList();
 			});
 			modelFuture=CompletableFuture.supplyAsync(()->{

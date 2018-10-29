@@ -9,10 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.xerial.snappy.Snappy;
 
-import com.sun.org.apache.bcel.internal.util.ByteSequence;
 import com.zyw.novelGame.bussiness.service.StoreService;
 import com.zyw.novelGame.mapper.StoreDataMapper;
 import com.zyw.novelGame.mapper.StoreMapper;

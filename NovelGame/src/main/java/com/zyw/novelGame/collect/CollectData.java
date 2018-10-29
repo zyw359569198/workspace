@@ -3,11 +3,7 @@ package com.zyw.novelGame.collect;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zyw.novelGame.collect.entity.BookInfo;
 import com.zyw.novelGame.collect.entity.CollectInfo;
-import com.zyw.novelGame.collect.entity.Rule;
-import com.zyw.novelGame.collect.queue.Consumer;
-import com.zyw.novelGame.collect.queue.Producer;
 import com.zyw.novelGame.collect.queue.QueueInfo;
 
 public class CollectData {

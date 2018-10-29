@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.ModelService;
 import com.zyw.novelGame.model.Model;
@@ -52,7 +52,7 @@ public class RankController {
 				return modelService.queryModel("1");
 			});
 			bookUpdateInfoFuture=CompletableFuture.supplyAsync(()->{
-				PageHelper.startPage(1, 24, true);
+				PageMethod.startPage(1, 24, true);
 				return new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,hits,-1));
 			});
 			CompletableFuture.allOf(modelFuture,bookUpdateInfoFuture);

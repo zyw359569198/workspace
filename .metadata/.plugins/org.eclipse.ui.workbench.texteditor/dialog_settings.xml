@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="CONNECT_TIMEOUT" key="selection"/>
+		<item value="read_rnd_buffer_size" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="CONNECT_TIMEOUT"/>
-			<item value="httpclient"/>
-			<item value="HttpGet"/>
-			<item value="setRequestConfig"/>
-			<item value="ClientConnectionManager"/>
-			<item value="ThreadSafeClientConnManager"/>
-			<item value="syncLock"/>
-			<item value="setConnectionTimeout"/>
-			<item value="queryBook"/>
-			<item value="max_binlog_cache_size"/>
-			<item value="innodb_log_buffer_size"/>
-			<item value="binlog_cache_size"/>
+			<item value="read_rnd_buffer_size"/>
 			<item value="read_buffer_size"/>
-			<item value="innodb_additional_mem_pool_size"/>
+			<item value="sort_buffer_size"/>
+			<item value="innodb_log_buffer_size"/>
 			<item value="query_cache_size"/>
+			<item value="key_buffer_size"/>
+			<item value="tmp_table_size"/>
+			<item value="innodb_additional_mem_pool_size"/>
+			<item value="thread_stack"/>
+			<item value="binlog_cache_size"/>
+			<item value="join_buffer_size"/>
+			<item value="max_connections"/>
+			<item value="innodb_buffer_pool_size"/>
+			<item value="log-bin"/>
+			<item value="log-queries-not-using-indexes"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Resource.getInstance()"/>

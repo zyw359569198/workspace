@@ -1,11 +1,7 @@
 package com.zyw.novelGame.coreApi.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.zyw.novelGame.bussiness.service.BookService;
 import com.zyw.novelGame.bussiness.service.StoreService;
 
@@ -82,7 +78,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookUpdateInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"@"+keyword,-1));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -101,7 +97,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookUpdateInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",-1));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -120,7 +116,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookUpdateInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,"b.create_time",0));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -139,7 +135,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookUpdateInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(null,hits,-1));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -158,7 +154,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookUpdateInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookUpdateInfo=new PageInfo<HashMap>(bookService.queryBookUpdateInfo(cataNameEn,"a.create_time",-1));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -177,7 +173,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> bookHitsInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?24:pageSize, true);
 				bookHitsInfo=new PageInfo<HashMap>(bookService.queryBook("hits",-1));
 		}catch(Exception e){
 			e.printStackTrace();
@@ -196,7 +192,7 @@ public class MobileApiController {
 		Map dataMap=new HashMap();
 		PageInfo<HashMap> storeInfo=null;
 		try {
-				PageHelper.startPage(pageNum==null?1:pageNum, pageSize==null?100:pageSize, true);
+				PageMethod.startPage(pageNum==null?1:pageNum, pageSize==null?100:pageSize, true);
 				storeInfo=new PageInfo<HashMap>(storeService.queryBookStore(bookNameEn,null));
 		}catch(Exception e){
 			e.printStackTrace();

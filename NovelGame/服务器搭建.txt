@@ -20,6 +20,9 @@ sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_B
 
 ln -s 
 
+mkdir mysql/logs
+mysql内存计算：http://www.mysqlcalculator.com/
+
 
 
 [client]
@@ -45,13 +48,17 @@ skip-external-locking
 #skip-name-resolve
 
 slow_query_log = 1
-slow_query_log_file = /usr/local/mysql/mysql-slow.log
-log-error = /usr/local/mysql/mysql.err
+slow_query_log_file = /usr/local/mysql/logs/mysql-slow.log
+log-error = /usr/local/mysql/logs/mysql.err
+log-queries-not-using-indexes = on
+log-bin = /usr/local/mysql/logs
+general_log = off
+general_log_file = /usr/local/mysql/logs/mysql.log
 long_query_time = 8
 binlog_format = MIXED
-binlog_cache_size = 4M
-max_binlog_cache_size = 4M
-max_binlog_stmt_cache_size = 4M
+binlog_cache_size = 1M
+max_binlog_cache_size = 1M
+max_binlog_stmt_cache_size = 2M
 innodb_autoinc_lock_mode = 2
 binlog_expire_logs_seconds = 36000
 max_binlog_size = 100M
@@ -63,19 +70,21 @@ innodb_log_buffer_size = 2M
 innodb_log_files_in_group = 2
 innodb_max_dirty_pages_pct = 50
 innodb_buffer_pool_instances = 2
-innodb_buffer_pool_size = 256M
+innodb_buffer_pool_size = 128M
 innodb_flush_log_at_trx_commit = 2
 sync_binlog=500
 table_definition_cache = 400
 table_open_cache = 500
 performance_schema_max_table_instances = 400
-query_cache_size
-tmp_table_size=16M
+tmp_table_size=32M
 key_buffer_size = 8M
-read_buffer_size = 1M
-read_rnd_buffer_size = 8M
+read_buffer_size = 128K
+read_rnd_buffer_size = 256K
+join_buffer_size = 128K
+thread_stack = 196K
 bulk_insert_buffer_size = 16M
-max_connections=512
+sort_buffer_size = 2M
+max_connections=150
 innodb_flush_method = O_DIRECT
 transaction_isolation = READ-COMMITTED
 sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
