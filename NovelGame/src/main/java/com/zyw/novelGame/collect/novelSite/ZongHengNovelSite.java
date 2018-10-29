@@ -3,8 +3,10 @@ package com.zyw.novelGame.collect.novelSite;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zyw.novelGame.collect.queue.QueueInfo;
+import org.springframework.stereotype.Component;
 
+import com.zyw.novelGame.collect.entity.CollectInfo;
+import com.zyw.novelGame.collect.queue.QueueInfo;
 public class ZongHengNovelSite extends BasicNovelSite{
 
 	@Override
@@ -69,6 +71,12 @@ public class ZongHengNovelSite extends BasicNovelSite{
 		collect.setBookInfo(bookInfo);
 		list.addAll(CollectData.analyzeBookList(collect));*/
 		return list;
+	}
+
+	@Override
+	public CollectInfo getCollectInfo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

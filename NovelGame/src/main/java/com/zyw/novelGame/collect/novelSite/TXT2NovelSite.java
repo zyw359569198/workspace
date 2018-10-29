@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.reflections.Reflections;
+import org.springframework.stereotype.Component;
 
 import com.zyw.novelGame.collect.CollectData;
 import com.zyw.novelGame.collect.entity.BookInfo;
@@ -14,12 +15,57 @@ import com.zyw.novelGame.collect.entity.CollectInfo;
 import com.zyw.novelGame.collect.entity.Rule;
 import com.zyw.novelGame.collect.entity.StoreInfo;
 import com.zyw.novelGame.collect.queue.QueueInfo;
-
 public class TXT2NovelSite extends BasicNovelSite{
 
 	@Override
 	public List<QueueInfo> getNovelSite() {
 		List<QueueInfo> list=new ArrayList<QueueInfo>();
+		CollectInfo collect=getCollectInfo();
+		List<String> bookList=new ArrayList<String>();
+		bookList.add("dushi");
+		bookList.add("xuanfan");
+		bookList.add("wuxia");
+		bookList.add("yanqing");
+		bookList.add("chuanyue");
+		bookList.add("wangyou");
+		bookList.add("kongbu");
+		bookList.add("kefan");
+		bookList.add("xiuzhen");
+		bookList.add("qita");
+		for(int i=0;i<bookList.size();i++) {
+			Rule bookRule=new Rule();
+			bookRule.setType("0");
+			bookRule.setUrlStartNum("1");
+			bookRule.setUrlEndNum("10");
+			bookRule.setUrl("https://txt2.cc/index.php?m=Home&c=Book&a=clist&pinyin="+bookList.get(i)+"&p=@");
+			bookRule.setUrlMatch("div.booklist ul li span.sm a[href]");
+			collect.setBookRule(bookRule);
+			list.addAll(CollectData.analyzeBookList(collect));
+		}
+		return list;
+	}
+	
+	public static void main(String[] args) {
+		ExecutorService executorService=Executors.newFixedThreadPool(1);
+		List<BasicNovelSite> monitorLists = new ArrayList<>();
+		Reflections reflections = new Reflections("com.zyw.novelGame.collect.novelSite");
+		Set<Class<? extends BasicNovelSite>> monitorClasses = reflections.getSubTypesOf(BasicNovelSite.class);
+        for (Class<? extends BasicNovelSite> monitor : monitorClasses) { 
+        	//monitorLists.add(ApplicationContext.getBean(monitor)); 
+        	executorService.execute(new Runnable() {
+
+				@Override
+				public void run() {
+		        	System.out.println(monitor.getName());
+					
+				}
+        		
+        	});
+        } 
+	}
+
+	@Override
+	public CollectInfo getCollectInfo() {
 		CollectInfo collect=new CollectInfo();
 		collect.setNovelSiteName("txt2小说网");		
 		collect.setNovelSiteUrl("https://txt2.cc");
@@ -71,47 +117,7 @@ public class TXT2NovelSite extends BasicNovelSite{
 		storeInfo.setStoreName(storeName);
 		bookInfo.setStoreInfo(storeInfo);
 		collect.setBookInfo(bookInfo);
-		List<String> bookList=new ArrayList<String>();
-		bookList.add("dushi");
-		bookList.add("xuanfan");
-		bookList.add("wuxia");
-		bookList.add("yanqing");
-		bookList.add("chuanyue");
-		bookList.add("wangyou");
-		bookList.add("kongbu");
-		bookList.add("kefan");
-		bookList.add("xiuzhen");
-		bookList.add("qita");
-		for(int i=0;i<bookList.size();i++) {
-			Rule bookRule=new Rule();
-			bookRule.setType("0");
-			bookRule.setUrlStartNum("1");
-			bookRule.setUrlEndNum("10");
-			bookRule.setUrl("https://txt2.cc/index.php?m=Home&c=Book&a=clist&pinyin="+bookList.get(i)+"&p=@");
-			bookRule.setUrlMatch("div.booklist ul li span.sm a[href]");
-			collect.setBookRule(bookRule);
-			list.addAll(CollectData.analyzeBookList(collect));
-		}
-		return list;
-	}
-	
-	public static void main(String[] args) {
-		ExecutorService executorService=Executors.newFixedThreadPool(1);
-		List<BasicNovelSite> monitorLists = new ArrayList<>();
-		Reflections reflections = new Reflections("com.zyw.novelGame.collect.novelSite");
-		Set<Class<? extends BasicNovelSite>> monitorClasses = reflections.getSubTypesOf(BasicNovelSite.class);
-        for (Class<? extends BasicNovelSite> monitor : monitorClasses) { 
-        	//monitorLists.add(ApplicationContext.getBean(monitor)); 
-        	executorService.execute(new Runnable() {
-
-				@Override
-				public void run() {
-		        	System.out.println(monitor.getName());
-					
-				}
-        		
-        	});
-        } 
+		return collect;
 	}
 
 

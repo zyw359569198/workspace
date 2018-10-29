@@ -2,12 +2,17 @@ package com.zyw.novelGame.collect.novelSite;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+import com.zyw.novelGame.collect.entity.CollectInfo;
 import com.zyw.novelGame.collect.queue.QueueInfo;
 import com.zyw.novelGame.collect.queue.Resource;
 import com.zyw.utils.Common;
 
 public abstract class BasicNovelSite implements Runnable{
-		
+	
+	public abstract CollectInfo getCollectInfo() ;
+			
 	public abstract List<QueueInfo> getNovelSite() ;
 	 
 	@Override

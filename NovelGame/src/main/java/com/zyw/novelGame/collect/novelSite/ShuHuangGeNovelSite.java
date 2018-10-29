@@ -3,18 +3,42 @@ package com.zyw.novelGame.collect.novelSite;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.zyw.novelGame.collect.CollectData;
 import com.zyw.novelGame.collect.entity.BookInfo;
 import com.zyw.novelGame.collect.entity.CollectInfo;
 import com.zyw.novelGame.collect.entity.Rule;
 import com.zyw.novelGame.collect.entity.StoreInfo;
 import com.zyw.novelGame.collect.queue.QueueInfo;
-
 public class ShuHuangGeNovelSite extends BasicNovelSite{
 
 	@Override
 	public List<QueueInfo> getNovelSite() {
 		List<QueueInfo> list=new ArrayList<QueueInfo>();
+		CollectInfo collect=getCollectInfo();
+		List<String> bookList=new ArrayList<String>();
+		bookList.add("xuanhuanxiaoshuo");
+		bookList.add("xiuzhenxiaoshuo");
+		bookList.add("dushixiaoshuo");
+		bookList.add("chuanyuexiaoshuo");
+		bookList.add("wangyouxiaoshuo");
+		bookList.add("kehuanxiaoshuo");
+		for(int i=0;i<bookList.size();i++) {
+			Rule bookRule=new Rule();
+			bookRule.setType("0");
+			bookRule.setUrlStartNum("1");
+			bookRule.setUrlEndNum("10");
+			bookRule.setUrl("http://www.shuhuangge.org/"+bookList.get(i)+"/"+(i+1)+"_@.html");
+			bookRule.setUrlMatch("div#newscontent div.l span.s2 a[href]");
+			collect.setBookRule(bookRule);
+			list.addAll(CollectData.analyzeBookList(collect));
+		}
+		return list;
+	}
+
+	@Override
+	public CollectInfo getCollectInfo() {
 		CollectInfo collect=new CollectInfo();
 		collect.setNovelSiteName("书荒阁");		
 		collect.setNovelSiteUrl("http://www.shuhuangge.org");
@@ -68,24 +92,7 @@ public class ShuHuangGeNovelSite extends BasicNovelSite{
 		storeInfo.setStoreName(storeName);
 		bookInfo.setStoreInfo(storeInfo);
 		collect.setBookInfo(bookInfo);
-		List<String> bookList=new ArrayList<String>();
-		bookList.add("xuanhuanxiaoshuo");
-		bookList.add("xiuzhenxiaoshuo");
-		bookList.add("dushixiaoshuo");
-		bookList.add("chuanyuexiaoshuo");
-		bookList.add("wangyouxiaoshuo");
-		bookList.add("kehuanxiaoshuo");
-		for(int i=0;i<bookList.size();i++) {
-			Rule bookRule=new Rule();
-			bookRule.setType("0");
-			bookRule.setUrlStartNum("1");
-			bookRule.setUrlEndNum("10");
-			bookRule.setUrl("http://www.shuhuangge.org/"+bookList.get(i)+"/"+(i+1)+"_@.html");
-			bookRule.setUrlMatch("div#newscontent div.l span.s2 a[href]");
-			collect.setBookRule(bookRule);
-			list.addAll(CollectData.analyzeBookList(collect));
-		}
-		return list;
+		return collect;
 	}
 
 }

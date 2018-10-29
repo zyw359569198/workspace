@@ -18,9 +18,10 @@
 		<item value="false" key="expanded2"/>
 		<item value="false" key="expanded1"/>
 		<item value="false" key="expanded4"/>
-		<item value="true" key="expanded3"/>
+		<item value="false" key="expanded3"/>
 		<item value="false" key="expanded6"/>
-		<item value="false" key="expanded5"/>
+		<item value="true" key="expanded5"/>
+		<item value="false" key="expanded8"/>
 		<item value="false" key="expanded7"/>
 		<item value="false" key="expanded0"/>
 	</section>
@@ -109,7 +110,7 @@
 		<item value="2" key="index"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="2" key="pageIndex"/>
+		<item value="0" key="pageIndex"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
