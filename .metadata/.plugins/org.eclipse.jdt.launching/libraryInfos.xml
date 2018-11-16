@@ -95,6 +95,25 @@
 <entry path="C:\Program Files\Java\jdk1.8.0_181\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="C:\MRGJZServer\jdk6u31" version="1.6.0_31">
+<bootpath>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\resources.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\rt.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\sunrsasign.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\jsse.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\jce.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\charsets.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\modules\jdk.boot.jar"/>
+<entry path="C:\MRGJZServer\jdk6u31\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\MRGJZServer\jdk6u31\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 <libraryInfo home="C:\Program Files\Java\jre1.8.0_112" version="1.8.0_112">
 <bootpath>
 <entry path="C:\Program Files\Java\jre1.8.0_112\lib\resources.jar"/>

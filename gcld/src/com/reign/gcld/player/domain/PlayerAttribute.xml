@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerAttribute"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" /> 
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerAttributeResultMap" type="PlayerAttribute">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="MAX_STORE_NUM" property="maxStoreNum" />
+        <result column="IS_AREA_NEW" property="isAreaNew" />
+        <result column="FUNCTION_ID" property="functionId" />
+        <result column="FULL_RECRUIT_NUM" property="fullRecruitNum" />
+        <result column="ENTER_COUNT" property="enterCount" />
+        <result column="LAST_RESET_TIME" property="lastResetTime" />
+        <result column="BATTLE_WIN_TIMES" property="battleWinTimes" />
+        <result column="BATTLE_REWARD_TIMES" property="battleRewardTimes" />
+        <result column="RECRUIT_TOKEN" property="recruitToken" />
+        <result column="PAY_POINT" property="payPoint" />
+        <result column="LAST_GIFT_TIME" property="lastGiftTime" />
+        <result column="IRON_FORCEMINE_TIME" property="ironForcemineTime" />
+        <result column="GEM_FORCEMINE_TIME" property="gemForcemineTime" />
+        <result column="BLACK_MARKET_CD" property="blackMarketCd" />
+        <result column="IRON_CONVERT" property="ironConvert" />
+        <result column="GUIDE_ID" property="guideId" />
+        <result column="IRON_DISPLAY" property="ironDisplay" />
+        <result column="TECH_OPEN" property="techOpen" />
+        <result column="TECH_RESEARCH" property="techResearch" />
+        <result column="INTIMACY" property="intimacy" />
+        <result column="FREE_CONSTRUCTION_NUM" property="freeConstructionNum" />
+        <result column="HAS_BANDIT" property="hasBandit" />
+        <result column="KIDNAPPER" property="kidnapper" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerAttributeResultMap">
+        SELECT * FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerAttributeResultMap">
+        SELECT * FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerAttributeResultMap">
+        SELECT * FROM PLAYER_ATTRIBUTE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_ATTRIBUTE
+    </select>
+    
+    <insert id="create" parameterType="PlayerAttribute" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_ATTRIBUTE(
+           PLAYER_ID,
+           MAX_STORE_NUM,
+           IS_AREA_NEW,
+           FUNCTION_ID,
+           FULL_RECRUIT_NUM,
+           ENTER_COUNT,
+           LAST_RESET_TIME,
+           BATTLE_WIN_TIMES,
+           BATTLE_REWARD_TIMES,
+           RECRUIT_TOKEN,
+           PAY_POINT,
+           LAST_GIFT_TIME,
+           IRON_FORCEMINE_TIME,
+           GEM_FORCEMINE_TIME,
+           BLACK_MARKET_CD,
+           IRON_CONVERT,
+           GUIDE_ID,
+           IRON_DISPLAY,
+           TECH_OPEN,
+           TECH_RESEARCH,
+           INTIMACY,
+           FREE_CONSTRUCTION_NUM,
+           HAS_BANDIT,
+           KIDNAPPER
+        ) VALUES (
+           #{ playerId },
+           #{ maxStoreNum },
+           #{ isAreaNew },
+           #{ functionId },
+           #{ fullRecruitNum },
+           #{ enterCount },
+           #{ lastResetTime },
+           #{ battleWinTimes },
+           #{ battleRewardTimes },
+           #{ recruitToken },
+           #{ payPoint },
+           #{ lastGiftTime },
+           #{ ironForcemineTime },
+           #{ gemForcemineTime },
+           #{ blackMarketCd },
+           #{ ironConvert },
+           #{ guideId },
+           #{ ironDisplay },
+           #{ techOpen },
+           #{ techResearch },
+           #{ intimacy },
+           #{ freeConstructionNum },
+           #{ hasBandit },
+           #{ kidnapper }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	 <resultMap id="PlayerIdResultMap" type="int">
+        <id column="PLAYER_ID" property="playerId" />
+     </resultMap>
+
+	<update id="updateFunction" flushCache="true">
+		<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET FUNCTION_ID = #{functionId} WHERE PLAYER_ID = #{playerId}
+    	]]>	
+    </update> 
+    
+    <update id="addMaxStoreNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET MAX_STORE_NUM = MAX_STORE_NUM + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update> 
+    
+    <update id="setIsNewArea" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET IS_AREA_NEW = #{isAreaNew} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update> 
+    
+    <update id="updateEnterCount" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET ENTER_COUNT = #{enterCount} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+     <update id = "updateLastResetTime" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET LAST_RESET_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id = "updateLastGiftTime" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET LAST_GIFT_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id = "resetData" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET LAST_RESET_TIME = #{date}, BATTLE_WIN_TIMES = 0, RECRUIT_TOKEN = GREATEST(RECRUIT_TOKEN, LEAST( #{max} , RECRUIT_TOKEN + #{recruitToken})),  
+    			BATTLE_REWARD_TIMES=0 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+          
+    <update id="addBattleWinTimes" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET BATTLE_WIN_TIMES = BATTLE_WIN_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+     <update id="addBattleRewardTimes" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET BATTLE_REWARD_TIMES = BATTLE_REWARD_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id = "updateRecruitToken" flushCache="true">
+   		<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET RECRUIT_TOKEN = RECRUIT_TOKEN - #{reduceNum} WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+    <update id = "addRecruitToken" flushCache="true">
+   		<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET RECRUIT_TOKEN = RECRUIT_TOKEN + #{addNum} WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+     <update id = "addPayPoint" flushCache="true">
+   		<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET PAY_POINT = PAY_POINT + #{addPoint} WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+    <update id="updateOnlineNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET ONLINE_NUM = #{onlineNum},LAST_ONLINE_GIFT_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateIronMineTime" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET IRON_FORCEMINE_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateGemMineTime" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET GEM_FORCEMINE_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+        
+    <select id="getMaxStoreNum" resultType="int">
+     	<![CDATA[
+    		SELECT MAX_STORE_NUM FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="setMaxStoreNum" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET MAX_STORE_NUM = #{maxStoreNum} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateGuideId" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET GUIDE_ID = #{guideId} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="setBlackMarketCd" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET BLACK_MARKET_CD = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getBlackMarketCd" resultType="java.util.Date">
+     	<![CDATA[
+    		SELECT BLACK_MARKET_CD FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+     
+    <select id="getFunctionId" resultType="java.lang.String">
+     	<![CDATA[
+    		SELECT FUNCTION_ID FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="setTechResearch" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET TECH_RESEARCH = #{techResearch} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="setTechOpenAndTechResearch" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET TECH_OPEN = #{techOpen}, TECH_RESEARCH = #{techResearch} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+         
+    <update id="setTechOpen" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET TECH_OPEN = #{techOpen} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    
+    <update id="setRecruitToken" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET RECRUIT_TOKEN = #{recruitToken} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="incrementIntimacy" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET INTIMACY = #{intimacy} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+         
+    <update id="addFreeConstructionNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET FREE_CONSTRUCTION_NUM = FREE_CONSTRUCTION_NUM + #{num} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getFreeConstructionNum" parameterType="int" resultType="int">
+     	<![CDATA[
+    		SELECT FREE_CONSTRUCTION_NUM FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="consumeFreeConstructionNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET FREE_CONSTRUCTION_NUM = FREE_CONSTRUCTION_NUM - 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id = "getRecruitTokenNum" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT RECRUIT_TOKEN FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<update id="setHasBandit" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET HAS_BANDIT = #{hasBandit} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="setKidnapper" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET KIDNAPPER = #{kidnapper} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id = "getHasBandit" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT HAS_BANDIT FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<select id = "getKidnapper" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT KIDNAPPER FROM PLAYER_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<update id="killBandit" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET HAS_BANDIT = HAS_BANDIT & #{alive} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="killKidnapper" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_ATTRIBUTE SET KIDNAPPER = KIDNAPPER & #{alive} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+</mapper>

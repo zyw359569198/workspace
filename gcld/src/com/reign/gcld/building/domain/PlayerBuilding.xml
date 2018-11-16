@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.building.domain.PlayerBuilding">
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerBuildingResultMap" type="PlayerBuilding">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="BUILDING_ID" property="buildingId" />
+        <result column="LV" property="lv" />
+        <result column="AREA_ID" property="areaId" />
+        <result column="OUTPUT_TYPE" property="outputType" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="STATE" property="state" />
+        <result column="IS_NEW" property="isNew" />
+        <result column="EVENT_ID" property="eventId" />
+        <result column="SPEED_UP_NUM" property="speedUpNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBuildingResultMap">
+        SELECT * FROM PLAYER_BUILDING WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBuildingResultMap">
+        SELECT * FROM PLAYER_BUILDING WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBuildingResultMap">
+        SELECT * FROM PLAYER_BUILDING
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BUILDING
+    </select>
+    
+    <insert id="create" parameterType="PlayerBuilding" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BUILDING(
+           V_ID,
+           PLAYER_ID,
+           BUILDING_ID,
+           LV,
+           AREA_ID,
+           OUTPUT_TYPE,
+           UPDATE_TIME,
+           STATE,
+           IS_NEW,
+           EVENT_ID,
+           SPEED_UP_NUM
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ buildingId },
+           #{ lv },
+           #{ areaId },
+           #{ outputType },
+           #{ updateTime },
+           #{ state },
+           #{ isNew },
+           #{ eventId },
+           #{ speedUpNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BUILDING WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+            
+    <update id="update" flushCache="true">
+<!--          UPDATE PLAYER_BUILDING  -->
+<!--          <set>-->
+<!--	          <if test="buildingId!=null and buildingId!='' ">-->
+<!--	          		BUILDING_ID = #{buildingId}-->
+<!--	          </if>-->
+<!--	          -->
+<!--	          <if test="lv!=null and lv!='' ">-->
+<!--	          		, LV = #{lv}-->
+<!--	          </if>-->
+<!--	          -->
+<!--	          <if test="updateTime!=null ">-->
+<!--	          		, UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}-->
+<!--	          </if>-->
+<!--	          -->
+<!--	          <if test="state!=null and state!='' ">-->
+<!--	          		, STATE = #{state}-->
+<!--	          </if>-->
+<!--	          -->
+<!--	          <if test="isNew!=null and isNew!='' ">-->
+<!--	          		, IS_NEW = #{isNew}-->
+<!--	          </if>-->
+<!---->
+<!--              <if test="eventId!=null and eventId!='' ">-->
+<!--	          		, EVENT_ID = #{eventId}-->
+<!--	          </if>-->
+<!--	          -->
+<!--	          <if test="speedUpNum!=null and speedUpNum!='' ">-->
+<!--	          		, SPEED_UP_NUM = #{speedUpNum}-->
+<!--	          </if>-->
+<!--	          WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId};-->
+<!--          </set>          -->
+		<![CDATA[
+        	UPDATE PLAYER_BUILDING SET LV = #{lv}, IS_NEW = #{isNew}, UPDATE_TIME = #{updateTime}, STATE = #{state}, EVENT_ID = #{eventId}, SPEED_UP_NUM = #{speedUpNum} WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId}
+        ]]>
+    </update>
+    
+    <select id="getPlayerBuilding" parameterType="int" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId}
+        ]]>
+    </select>
+    
+    <select id="getPlayerBuildingByType" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND OUTPUT_TYPE = #{outputType}
+        ]]>
+    </select>
+    
+    <select id="getPlayerBuildingByAreaId" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND AREA_ID = #{areaId}
+         ]]>
+    </select>
+    
+     <select id="getPlayerBuildings" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getNextBuildingWithEvent" resultMap="PlayerBuildingResultMap">
+     	<![CDATA[
+    		SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND EVENT_ID > 0 AND BUILDING_ID <> #{buildingId} LIMIT 1
+    	]]>
+    </select>
+    <select id="getPlayerBuildingWithoutEvent" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+    		SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND EVENT_ID = 0
+    	]]>
+    </select>
+    
+    <select id="getPlayerBuildingWithoutEvent2" resultMap="PlayerBuildingResultMap">
+    	<![CDATA[
+    		SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND EVENT_ID = 0 AND AREA_ID = #{areaId}
+    	]]>
+    </select>
+    
+    <select id="getPlayerBuildingWithEvent" resultMap="PlayerBuildingResultMap">
+     	<![CDATA[
+    		SELECT * FROM PLAYER_BUILDING WHERE PLAYER_ID = #{playerId} AND EVENT_ID > 0
+    	]]>
+    </select>
+    
+    
+    
+    <update id="updateCalcTime" parameterType="date" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET UPDATE_TIME = #{date}
+        ]]>
+    </update>
+    
+    <update id="upgradeBuilding" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET LV = LV + #{plusLv}, STATE = #{state} , SPEED_UP_NUM = #{speedUpNum} WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId} AND LV < #{maxLv}
+        ]]>
+    </update>
+    
+    <update id="upgradeBuildingState" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET STATE = #{state}, SPEED_UP_NUM = #{speedUpNum} WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId}
+         ]]>
+    </update>
+    
+    <update id="updateBuildingNewState" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET IS_NEW = #{isNew} WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId}
+        ]]>
+    </update>
+    
+    <update id="updateEventId" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_BUILDING SET EVENT_ID = #{eventId} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    <update id="upgradeBuildingLv" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET LV = #{lv} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="reduceSpeedUpNum" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_BUILDING SET SPEED_UP_NUM = SPEED_UP_NUM - #{reduceNum} WHERE PLAYER_ID = #{playerId} AND BUILDING_ID = #{buildingId}
+        ]]>
+    </update>
+    
+    
+</mapper>

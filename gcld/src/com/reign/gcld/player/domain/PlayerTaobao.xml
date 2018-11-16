@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerTaobao">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTaobaoResultMap" type="PlayerTaobao">
+        <id column="PLAYER_ID" property="playerId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTaobaoResultMap">
+        SELECT * FROM PLAYER_TAOBAO WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTaobaoResultMap">
+        SELECT * FROM PLAYER_TAOBAO WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTaobaoResultMap">
+        SELECT * FROM PLAYER_TAOBAO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TAOBAO
+    </select>
+    
+    <insert id="create" parameterType="PlayerTaobao" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TAOBAO(
+           PLAYER_ID
+        ) VALUES (
+           #{ playerId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_TAOBAO WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.mail.domain.Mail">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="MailResultMap" type="Mail">
+        <id column="ID" property="id" />
+        <result column="F_ID" property="fId" />
+        <result column="F_NAME" property="fName" />
+        <result column="T_ID" property="tId" />
+        <result column="TITLE" property="title" />
+        <result column="CONTENT" property="content" />
+        <result column="SENDTIME" property="sendtime" />
+        <result column="IS_READ" property="isRead" />
+        <result column="IS_DELETE" property="isDelete" />
+        <result column="MAIL_TYPE" property="mailType" />
+        <result column="LINK_ID" property="linkId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="MailResultMap">
+        SELECT * FROM MAIL WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="MailResultMap">
+        SELECT * FROM MAIL WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="MailResultMap">
+        SELECT * FROM MAIL
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM MAIL
+    </select>
+    
+    <insert id="create" parameterType="Mail" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO MAIL(
+           ID,
+           F_ID,
+           F_NAME,
+           T_ID,
+           TITLE,
+           CONTENT,
+           SENDTIME,
+           IS_READ,
+           IS_DELETE,
+           MAIL_TYPE,
+           LINK_ID
+        ) VALUES (
+           #{ id },
+           #{ fId },
+           #{ fName },
+           #{ tId },
+           #{ title },
+           #{ content },
+           #{ sendtime },
+           #{ isRead },
+           #{ isDelete },
+           #{ mailType },
+           #{ linkId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM MAIL WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+	<select id="getTodayNum" parameterType="int" resultType="int">
+	 	<![CDATA[
+        	SELECT COUNT(1) FROM MAIL m WHERE m.F_ID = #{id} AND TO_DAYS(m.SENDTIME) = TO_DAYS(now())
+         ]]> 
+	</select>
+	
+	<select id="getMailCount" resultType="int">
+	 	<![CDATA[
+        	SELECT COUNT(1) FROM MAIL m WHERE m.T_ID = #{playerId} AND m.IS_DELETE = 0 AND m.MAIL_TYPE != #{excludeType}
+     	]]> 
+	</select>
+	
+	<select id="getMailByPlayerId" resultMap="MailResultMap">
+		<![CDATA[
+        	SELECT * FROM mail m WHERE m.T_ID = #{id} AND m.IS_DELETE = 0 AND MAIL_TYPE != #{excludeType} ORDER BY m.SENDTIME DESC limit #{offset}, #{pageCount}
+        ]]> 
+	</select>
+	
+	<update id="readMail" flushCache="true">
+		<![CDATA[
+        	UPDATE MAIL SET IS_READ = 1 WHERE ID= #{id}
+        ]]>
+	</update>  
+	
+	<update id="updateMailDeleteState" flushCache="true">
+		<![CDATA[
+        	UPDATE MAIL SET IS_DELETE = #{isDelete} WHERE ID= #{id}
+         ]]>
+	</update> 
+	
+	<select id="getMailByType" resultMap="MailResultMap">
+		<![CDATA[
+        	SELECT * FROM mail m WHERE m.T_ID = #{id} AND m.MAIL_TYPE = #{type} AND m.IS_DELETE = 0 ORDER BY m.SENDTIME DESC limit #{offset}, #{pageCount}
+        ]]>
+	</select> 
+	
+	<select id="getMailCountByType" resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM MAIL m WHERE m.T_ID = #{id} AND m.IS_DELETE = 0 AND m.MAIL_TYPE = #{type}
+        ]]>
+	</select>
+	
+	<select id="getDeleteMailCount"  parameterType="int" resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM MAIL m WHERE m.T_ID = #{id} AND m.IS_DELETE = 1
+        ]]>  
+	</select>
+	
+	<update id="deleteUserMail" flushCache="true">
+		<![CDATA[
+        	UPDATE MAIL m SET IS_DELETE=1 WHERE m.T_ID = #{id} AND m.ID in ${league}
+        ]]>
+	</update> 
+	
+	<select id="getDeleteMail" resultMap="MailResultMap">
+		<![CDATA[
+        	SELECT * FROM mail m WHERE m.T_ID = #{id} AND m.IS_DELETE = 1 ORDER BY m.SENDTIME DESC limit #{offset}, #{pageCount}
+        ]]>
+	</select>
+  
+    <delete id="clearExpiredMail" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM MAIL WHERE IS_DELETE = 1 OR (SENDTIME <= #{expireDate} AND MAIL_TYPE != #{mailType}) 
+	 	]]> 
+	</delete> 
+	
+	<select id="haveNewMail" resultType="int">
+		<![CDATA[
+       		SELECT COUNT(1) FROM MAIL m WHERE m.T_ID = #{id} AND m.IS_DELETE = 0 AND m.IS_READ = 0
+        ]]>
+	</select>
+	
+	<update id="updateType" flushCache="true">
+		<![CDATA[
+			UPDATE MAIL SET MAIL_TYPE = #{type} WHERE ID = #{mailId}
+		]]>
+	</update>
+	
+	<select id="getFirstReceivedMailId" parameterType="int" resultType="int">
+		<![CDATA[
+        	SELECT id FROM MAIL WHERE T_ID = #{playerId} AND IS_DELETE = 0 AND MAIL_TYPE != 3 ORDER BY SENDTIME LIMIT 0, 1
+        ]]> 
+    </select>
+    
+    <delete id="thoroughDeleteMail" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM MAIL WHERE T_ID = #{playerId} AND IS_DELETE = 1
+        ]]> 
+    </delete>
+    
+    <update id="sendMail" flushCache="true">
+		<![CDATA[
+			INSERT INTO MAIL(ID, F_ID, F_NAME, T_ID, TITLE, CONTENT, SENDTIME, IS_READ, IS_DELETE, MAIL_TYPE) SELECT NULL, 0 , #{f_name},PLAYER_ID,  #{title}, #{content}, NOW(), 0, 0, 1 FROM `PLAYER` WHERE YX = #{yx} AND PLAYER_LV >= #{playerLv};
+		]]>
+	</update>
+	
+	 <update id="sendMailByForceId" flushCache="true">
+		<![CDATA[
+			INSERT INTO MAIL(ID, F_ID, F_NAME, T_ID, TITLE, CONTENT, SENDTIME, IS_READ, IS_DELETE, MAIL_TYPE) SELECT NULL, 0 , #{f_name},PLAYER_ID,  #{title}, #{content}, NOW(), 0, 0, 1 FROM `PLAYER` WHERE YX = #{yx} AND FORCE_ID = #{forceId} AND PLAYER_LV >= #{playerLv};
+		]]>
+	</update>
+
+</mapper>

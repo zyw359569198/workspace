@@ -1,4 +1,4 @@
-ln -s 软连接静态文件夹目录，修改nginx.conf   user为root
+﻿ln -s 软连接静态文件夹目录，修改nginx.conf   user为root
 
 yum remove -y --skip-broken autoconf automake cdbs debhelper libtool mysql-devel mariadb-config mysql-libs mysql MySQL-server bc
 安装数据库
@@ -22,6 +22,10 @@ ln -s
 
 mkdir mysql/logs
 mysql内存计算：http://www.mysqlcalculator.com/
+
+
+mysqldump -uroot -pcloudos --hex-blob --databases noval >noval.dump
+source noval.dump
 
 
 

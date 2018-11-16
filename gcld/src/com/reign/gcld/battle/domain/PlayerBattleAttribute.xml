@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerBattleAttribute">
+	<!-- ##generate by template begin## -->
+    <resultMap id="PlayerBattleAttributeResultMap" type="PlayerBattleAttribute">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="TYPE" property="type" />
+        <result column="SUPPORT_TIME" property="supportTime" />
+        <result column="ARMIES_BATTLE_ORDER" property="armiesBattleOrder" />
+        <result column="ARMIES_AUTO_COUNT" property="armiesAutoCount" />
+        <result column="YOUDI_TIME" property="youdiTime" />
+        <result column="CHUJI_TIME" property="chujiTime" />
+        <result column="PHANTOM_WORK_SHOP_LV" property="phantomWorkShopLv" />
+        <result column="PHANTOM_TODAY" property="phantomToday" />
+        <result column="VIP3_PHANTOM_COUNT" property="vip3PhantomCount" />
+        <result column="AUTO_STRATEGY" property="autoStrategy" />
+        <result column="TEAM_TIMES" property="teamTimes" />
+        <result column="SHOUMAI_MANZU_TIME" property="shoumaiManzuTime" />
+        <result column="WIN_TIMES" property="winTimes" />
+        <result column="FAIL_TIMES" property="failTimes" />
+        <result column="CHANGEBAT" property="changebat" />
+        <result column="EVENT_GEM_COUNT" property="eventGemCount" />
+        <result column="EVENT_GEM_COUNT_TODAY" property="eventGemCountToday" />
+        <result column="EVENT_JIEBING_COUNT_TODAY" property="eventJiebingCountToday" />
+        <result column="EVENT_XTYS_COUNT_TODAY" property="eventXtysCountToday" />
+        <result column="EVENT_NATIONAL_TREASURE_COUNT_TODAY" property="eventNationalTreasureCountToday" />
+        <result column="EVENT_SDLR_COUNT_TODAY" property="eventSdlrCountToday" />
+        <result column="ACTIVITY_BAT_EXP" property="activityBatExp" />
+        <result column="EVENT_WORLD_DRAMA_COUNT_TODAY" property="eventWorldDramaCountToday" />
+        <result column="EVENT_TRAINNING_TOKEN_COUNT_TODAY" property="eventTrainningTokenCountToday" />
+        <result column="EVENT_SLAVE_COUNT_TODAY" property="eventSlaveCountToday" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBattleAttributeResultMap">
+        SELECT * FROM PLAYER_BATTLE_ATTRIBUTE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBattleAttributeResultMap">
+        SELECT * FROM PLAYER_BATTLE_ATTRIBUTE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBattleAttributeResultMap">
+        SELECT * FROM PLAYER_BATTLE_ATTRIBUTE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BATTLE_ATTRIBUTE
+    </select>
+    
+    <insert id="create" parameterType="PlayerBattleAttribute" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BATTLE_ATTRIBUTE(
+           PLAYER_ID,
+           TYPE,
+           SUPPORT_TIME,
+           ARMIES_BATTLE_ORDER,
+           ARMIES_AUTO_COUNT,
+           YOUDI_TIME,
+           CHUJI_TIME,
+           PHANTOM_WORK_SHOP_LV,
+           PHANTOM_TODAY,
+           VIP3_PHANTOM_COUNT,
+           AUTO_STRATEGY,
+           TEAM_TIMES,
+           SHOUMAI_MANZU_TIME,
+           WIN_TIMES,
+           FAIL_TIMES,
+           CHANGEBAT,
+           EVENT_GEM_COUNT,
+           EVENT_GEM_COUNT_TODAY,
+           EVENT_JIEBING_COUNT_TODAY,
+           EVENT_XTYS_COUNT_TODAY,
+           EVENT_NATIONAL_TREASURE_COUNT_TODAY,
+           EVENT_SDLR_COUNT_TODAY,
+           ACTIVITY_BAT_EXP,
+           EVENT_WORLD_DRAMA_COUNT_TODAY,
+           EVENT_TRAINNING_TOKEN_COUNT_TODAY,
+           EVENT_SLAVE_COUNT_TODAY
+        ) VALUES (
+           #{ playerId },
+           #{ type },
+           #{ supportTime },
+           #{ armiesBattleOrder },
+           #{ armiesAutoCount },
+           #{ youdiTime },
+           #{ chujiTime },
+           #{ phantomWorkShopLv },
+           #{ phantomToday },
+           #{ vip3PhantomCount },
+           #{ autoStrategy },
+           #{ teamTimes },
+           #{ shoumaiManzuTime },
+           #{ winTimes },
+           #{ failTimes },
+           #{ changebat },
+           #{ eventGemCount },
+           #{ eventGemCountToday },
+           #{ eventJiebingCountToday },
+           #{ eventXtysCountToday },
+           #{ eventNationalTreasureCountToday },
+           #{ eventSdlrCountToday },
+           #{ activityBatExp },
+           #{ eventWorldDramaCountToday },
+           #{ eventTrainningTokenCountToday },
+           #{ eventSlaveCountToday }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BATTLE_ATTRIBUTE WHERE PLAYER_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+	<update id="updateModeTime" flushCache="true">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET SUPPORT_TIME = #{supportTime}, TYPE = #{type} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	<update id="updateArmiesBattleOrder" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET ARMIES_BATTLE_ORDER = #{battleOrder} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	<update id="updateArmiesAutoCount" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET ARMIES_AUTO_COUNT = #{autoCount} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="updateYoudiTime" flushCache="true">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET YOUDI_TIME = #{youdiTime} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="updateChujiTime" flushCache="true">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET CHUJI_TIME = #{chujiTime} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="resetVip3PhantomCount" flushCache="true">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET VIP3_PHANTOM_COUNT = #{phantomNum} WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE CONSUME_LV >= #{vipLv})
+        ]]>
+	</update>
+
+
+	<update id="updateVip3PhantomCount" flushCache="true">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET VIP3_PHANTOM_COUNT = #{phantomNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="addVip3PhantomCount" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET PHANTOM_TODAY = PHANTOM_TODAY + #{addNum}, VIP3_PHANTOM_COUNT = VIP3_PHANTOM_COUNT + #{addNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	
+	<update id="addVip3PhantomCountMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET VIP3_PHANTOM_COUNT = GREATEST(VIP3_PHANTOM_COUNT, LEAST(#{max}, VIP3_PHANTOM_COUNT + #{addNum})) WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	
+	<update id="decreaseSomeVip3PhantomCount">
+    	<![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET VIP3_PHANTOM_COUNT = VIP3_PHANTOM_COUNT - #{num} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="updateAutoStrategy" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET AUTO_STRATEGY = #{autoStrategy} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+
+	<update id="reduceTeamTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET TEAM_TIMES = TEAM_TIMES - #{reduceTeamTimes} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	
+	<update id="addTeamTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET TEAM_TIMES = TEAM_TIMES + #{addTeamTimes} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	
+	<update id="updateShouMaiManZuTime" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET SHOUMAI_MANZU_TIME = #{shouMaiTime} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="clearWinTimesAndFailTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET WIN_TIMES = 0, FAIL_TIMES = 0
+        ]]>
+    </update>
+    
+    <update id="addWinTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET WIN_TIMES = WIN_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addFailTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET FAIL_TIMES = FAIL_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="updateChangeBat" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET CHANGEBAT = CHANGEBAT ^ 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <update id="resetEventNationalTreasureCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_NATIONAL_TREASURE_COUNT_TODAY = 0
+        ]]>
+    </update>
+    
+     <update id="addEventGemCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_GEM_COUNT_TODAY = EVENT_GEM_COUNT_TODAY + #{addNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    
+     <update id="addEventJiebingCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_JIEBING_COUNT_TODAY = EVENT_JIEBING_COUNT_TODAY + #{addNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    
+     <update id="addEventGemCount" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_GEM_COUNT = EVENT_GEM_COUNT  + #{addNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="clearBatExpActivity" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET ACTIVITY_BAT_EXP = 0 Where ACTIVITY_BAT_EXP > 0
+        ]]>
+    </update>
+    
+    <update id="updateBatExpActivity" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET ACTIVITY_BAT_EXP = #{activityBatExp} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <select id="getVip3PhantomCount" parameterType="int" resultType="int">
+        <![CDATA[
+        SELECT VIP3_PHANTOM_COUNT FROM PLAYER_BATTLE_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    
+    <update id="updatePhantomWorkShopLv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET PHANTOM_WORK_SHOP_LV = #{pwkLv} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addEventXtysCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_XTYS_COUNT_TODAY = EVENT_XTYS_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addEventSdlrCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_SDLR_COUNT_TODAY = EVENT_SDLR_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addEventNationalTreasureCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_NATIONAL_TREASURE_COUNT_TODAY = EVENT_NATIONAL_TREASURE_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    
+    <select id="getHasPhantomWorkShopModels" resultMap="PlayerBattleAttributeResultMap">
+        SELECT * FROM PLAYER_BATTLE_ATTRIBUTE WHERE PHANTOM_WORK_SHOP_LV > 0
+    </select>
+    
+    
+      <!-- <update id="resetPhantomToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET PHANTOM_TODAY = 0
+        ]]>
+    </update> -->
+    
+    <select id="getChangebat" parameterType="int" resultType="int">
+        <![CDATA[
+        SELECT CHANGEBAT FROM PLAYER_BATTLE_ATTRIBUTE WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <update id="addEventWorldDramaCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_WORLD_DRAMA_COUNT_TODAY = EVENT_WORLD_DRAMA_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="resetEventNumToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET 
+        EVENT_GEM_COUNT_TODAY = 0, 
+        EVENT_JIEBING_COUNT_TODAY = 0, 
+        EVENT_XTYS_COUNT_TODAY = 0, 
+        EVENT_NATIONAL_TREASURE_COUNT_TODAY = 0, 
+        EVENT_WORLD_DRAMA_COUNT_TODAY = 0,
+        EVENT_TRAINNING_TOKEN_COUNT_TODAY = 0,
+        EVENT_SDLR_COUNT_TODAY = 0,
+        EVENT_SLAVE_COUNT_TODAY = 0;
+        ]]>
+    </update>
+    
+    <update id="addEventLblCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_TRAINNING_TOKEN_COUNT_TODAY = EVENT_TRAINNING_TOKEN_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addEventSlaveCountToday" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BATTLE_ATTRIBUTE SET EVENT_SLAVE_COUNT_TODAY = EVENT_SLAVE_COUNT_TODAY + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+</mapper>

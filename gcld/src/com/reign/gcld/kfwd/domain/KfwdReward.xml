@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfwd.domain.KfwdReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfwdRewardResultMap" type="KfwdReward">
+        <id column="PK" property="pk" />
+        <result column="SEASON_ID" property="seasonId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="CID" property="cid" />
+        <result column="VERSION" property="version" />
+        <result column="TICKETS" property="tickets" />
+        <result column="REWARDINFO" property="rewardinfo" />  
+        <result column="DAYRANKING" property="dayRanking" />  
+        <result column="DAYREWARD" property="dayReward" />  
+        <result column="GETTREASURE" property="getTreasure" />  
+        <result column="DAYREWARDTICKET" property="dayRewardTicket" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfwdRewardResultMap">
+        SELECT * FROM KFWD_REWARD WHERE PK = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfwdRewardResultMap">
+        SELECT * FROM KFWD_REWARD WHERE PK = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfwdRewardResultMap">
+        SELECT * FROM KFWD_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFWD_REWARD
+    </select>
+     <select id="getRewardByPlayerIdAndSeasonId" parameterType="int" resultMap="KfwdRewardResultMap">
+        SELECT * FROM KFWD_REWARD WHERE PLAYER_ID=#{playerId} AND SEASON_ID=#{seasonId}
+    </select>
+     <select id="getRewardBySeasonId" parameterType="int" resultMap="KfwdRewardResultMap">
+        SELECT * FROM KFWD_REWARD WHERE SEASON_ID=#{seasonId}
+    </select>
+    <select id="getMaxSeasonId" resultType="int">
+        SELECT MAX(SEASON_ID) FROM KFWD_REWARD
+    </select>
+    <insert id="create" parameterType="KfwdReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="pk">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFWD_REWARD(
+           PK,
+           SEASON_ID,
+           PLAYER_ID,
+           CID,
+           VERSION,
+           TICKETS,
+           REWARDINFO,
+           DAYRANKING,
+           DAYREWARD,
+           GETTREASURE,
+           DAYREWARDTICKET
+        ) VALUES (
+           #{ pk },
+           #{ seasonId },
+           #{ playerId },
+           #{ cid },
+           #{ version },
+           #{ tickets },
+           #{ rewardinfo },
+           #{ dayRanking },
+           #{ dayReward },
+           #{ getTreasure },
+           #{ dayRewardTicket }
+        )
+    </insert>
+
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		DELETE FROM KFWD_REWARD WHERE PK = #{id}
+    </delete>
+	<update id="updateNewTicketReward" flushCache="true">
+        <![CDATA[
+            UPDATE KFWD_REWARD SET TICKETS=#{ticket},REWARDINFO=#{rewardinfo},DAYREWARD=#{dayReward},DAYRANKING=#{dayRanking}, DAYREWARDTICKET=#{dayRewardTicket}  WHERE PK = #{pk}
+        ]]>
+	</update>
+	<update id="updateGetTreasure" flushCache="true">
+        <![CDATA[
+            UPDATE KFWD_REWARD SET GETTREASURE=1  WHERE PK = #{pk}
+        ]]>
+    </update>
+	
+<!-- ##generate by template end## -->    
+</mapper>

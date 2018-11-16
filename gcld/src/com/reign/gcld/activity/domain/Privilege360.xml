@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.activity.domain.Privilege360">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="Privilege360ResultMap" type="Privilege360">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="STATUS" property="status" />
+        <result column="TITLE" property="title" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="Privilege360ResultMap">
+        SELECT * FROM PRIVILEGE_360 WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="Privilege360ResultMap">
+        SELECT * FROM PRIVILEGE_360 WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="Privilege360ResultMap">
+        SELECT * FROM PRIVILEGE_360
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PRIVILEGE_360
+    </select>
+    
+    <insert id="create" parameterType="Privilege360" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PRIVILEGE_360(
+           PLAYER_ID,
+           STATUS,
+           TITLE
+        ) VALUES (
+           #{ playerId },
+           #{ status },
+           #{ title }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PRIVILEGE_360 WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <update id="setStatusByPid" flushCache="true">
+    	<![CDATA[
+      		UPDATE PRIVILEGE_360 SET STATUS = INSERT(STATUS, #{seq}, 1, '1') WHERE PLAYER_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="setTitleByPid" flushCache="true">
+    	<![CDATA[
+      		UPDATE PRIVILEGE_360 SET TITLE = #{title} WHERE PLAYER_ID = #{id}
+    	]]>
+    </update>
+    
+    <select id="getTitleList" parameterType="int" resultMap="Privilege360ResultMap">
+        SELECT * FROM PRIVILEGE_360 WHERE LENGTH(TITLE) > 0
+    </select>
+
+</mapper>

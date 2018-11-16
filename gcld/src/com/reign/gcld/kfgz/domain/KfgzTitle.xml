@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfgz.domain.KfgzTitle">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfgzTitleResultMap" type="KfgzTitle">
+        <id column="ID" property="id" />
+        <result column="KFGZ_SEASON_ID" property="kfgzSeasonId" />
+        <result column="PLAYER_NAME" property="playerName" />
+        <result column="TITLE" property="title" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfgzTitleResultMap">
+        SELECT * FROM KFGZ_TITLE WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfgzTitleResultMap">
+        SELECT * FROM KFGZ_TITLE WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfgzTitleResultMap">
+        SELECT * FROM KFGZ_TITLE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFGZ_TITLE
+    </select>
+    
+    <insert id="create" parameterType="KfgzTitle" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFGZ_TITLE(
+           ID,
+           KFGZ_SEASON_ID,
+           PLAYER_NAME,
+           TITLE
+        ) VALUES (
+           #{ id },
+           #{ kfgzSeasonId },
+           #{ playerName },
+           #{ title }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM KFGZ_TITLE WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <select id="getKfgzTitleListBySeasonId" resultMap="KfgzTitleResultMap">
+        SELECT * FROM KFGZ_TITLE WHERE KFGZ_SEASON_ID = #{seasonId}
+    </select>
+</mapper>

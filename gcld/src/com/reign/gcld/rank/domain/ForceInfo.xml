@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.rank.domain.ForceInfo">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="ForceInfoResultMap" type="ForceInfo">
+        <id column="FORCE_ID" property="forceId" />
+        <result column="FORCE_LV" property="forceLv" />
+        <result column="FORCE_EXP" property="forceExp" />
+        <result column="ENDTIME" property="endtime" />
+        <result column="ISWIN" property="iswin" />
+        <result column="BEIDI_SHOUMAI_COUNT" property="beidiShoumaiCount" />
+        <result column="XIRONG_SHOUMAI_COUNT" property="xirongShoumaiCount" />
+        <result column="DONGYI_SHOUMAI_COUNT" property="dongyiShoumaiCount" />
+        <result column="BEIDI_QINMIDU" property="beidiQinmidu" />
+        <result column="XIRONG_QINMIDU" property="xirongQinmidu" />
+        <result column="DONGYI_QINMIDU" property="dongyiQinmidu" />
+        <result column="BEIDI_SHOUMAI_SUM" property="beidiShoumaiSum" />
+        <result column="XIRONG_SHOUMAI_SUM" property="xirongShoumaiSum" />
+        <result column="DONGYI_SHOUMAI_SUM" property="dongyiShoumaiSum" />
+        <result column="IDS" property="ids" />
+        <result column="ID" property="id" />
+        <result column="TRY_END_TIME" property="tryEndTime" />
+        <result column="STAGE" property="stage" />
+        <result column="TRY_WIN" property="tryWin" />
+        <result column="GENERAL_NUM" property="generalNum" />
+        <result column="P_WIN" property="pWin" />
+        <result column="P_FORCE_ID" property="pForceId" />
+        <result column="P_CITY_ID" property="pCityId" />
+        <result column="P_ID" property="pId" />
+        <result column="FARM_INVEST_SUM" property="farmInvestSum" />
+        <result column="LV" property="lv" />
+        <result column="NATION_INDIV_INFO" property="nationIndivInfo" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="ForceInfoResultMap">
+        SELECT * FROM FORCE_INFO WHERE FORCE_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="ForceInfoResultMap">
+        SELECT * FROM FORCE_INFO WHERE FORCE_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="ForceInfoResultMap">
+        SELECT * FROM FORCE_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM FORCE_INFO
+    </select>
+    
+    <insert id="create" parameterType="ForceInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="forceId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO FORCE_INFO(
+           FORCE_ID,
+           FORCE_LV,
+           FORCE_EXP,
+           ENDTIME,
+           ISWIN,
+           BEIDI_SHOUMAI_COUNT,
+           XIRONG_SHOUMAI_COUNT,
+           DONGYI_SHOUMAI_COUNT,
+           BEIDI_QINMIDU,
+           XIRONG_QINMIDU,
+           DONGYI_QINMIDU,
+           BEIDI_SHOUMAI_SUM,
+           XIRONG_SHOUMAI_SUM,
+           DONGYI_SHOUMAI_SUM,
+           IDS,
+           ID,
+           TRY_END_TIME,
+           STAGE,
+           TRY_WIN,
+           GENERAL_NUM,
+           P_WIN,
+           P_FORCE_ID,
+           P_CITY_ID,
+           P_ID,
+           FARM_INVEST_SUM,
+           LV,
+           NATION_INDIV_INFO
+        ) VALUES (
+           #{ forceId },
+           #{ forceLv },
+           #{ forceExp },
+           #{ endtime },
+           #{ iswin },
+           #{ beidiShoumaiCount },
+           #{ xirongShoumaiCount },
+           #{ dongyiShoumaiCount },
+           #{ beidiQinmidu },
+           #{ xirongQinmidu },
+           #{ dongyiQinmidu },
+           #{ beidiShoumaiSum },
+           #{ xirongShoumaiSum },
+           #{ dongyiShoumaiSum },
+           #{ ids },
+           #{ id },
+           #{ tryEndTime },
+           #{ stage },
+           #{ tryWin },
+           #{ generalNum },
+           #{ pWin },
+           #{ pForceId },
+           #{ pCityId },
+           #{ pId },
+           #{ farmInvestSum },
+           #{ lv },
+           #{ nationIndivInfo }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM FORCE_INFO WHERE FORCE_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<update id="updateEndTime" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET ENDTIME = #{date} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateEndTimeAndIsWin" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET ENDTIME = #{date} ,ISWIN = 0 WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateNationExp" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET FORCE_EXP = #{maxExp} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateIsWin" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET ISWIN = #{isWin} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateIsWinAndLvAndExp" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET ISWIN = #{isWin} ,FORCE_LV = FORCE_LV + 1 , FORCE_EXP = 0 WHERE FORCE_ID = #{forceId} AND FORCE_EXP >= #{exp}
+     	]]> 
+    </update>
+    
+     <update id="addBeiDiShouMaiSum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET BEIDI_SHOUMAI_SUM = BEIDI_SHOUMAI_SUM + #{beiDiAddNum} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+     <update id="addXiRongShouMaiSum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET XIRONG_SHOUMAI_SUM = XIRONG_SHOUMAI_SUM + #{xiRongAddNum} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+     <update id="addDongYiShouMaiSum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET DONGYI_SHOUMAI_SUM = DONGYI_SHOUMAI_SUM + #{DongYiAddNum} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    
+    <update id="decreaseLeftCountAndAddQmdAndResetShouMaiSumOfBeiDi" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET 
+    	 	BEIDI_SHOUMAI_COUNT = BEIDI_SHOUMAI_COUNT - 1, 
+    	 	BEIDI_QINMIDU = BEIDI_QINMIDU + 1,
+    	 	BEIDI_SHOUMAI_SUM = 0 
+    	 	WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+     <update id="decreaseLeftCountAndAddQmdAndResetShouMaiSumOfXiRong" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET 
+    	 	XIRONG_SHOUMAI_COUNT = XIRONG_SHOUMAI_COUNT - 1, 
+    	 	XIRONG_QINMIDU = XIRONG_QINMIDU + 1,
+    	 	XIRONG_SHOUMAI_SUM = 0 
+    	 	WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+     <update id="decreaseLeftCountAndAddQmdAndResetShouMaiSumOfDongYi" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET 
+    	 	DONGYI_SHOUMAI_COUNT = DONGYI_SHOUMAI_COUNT - 1, 
+    	 	DONGYI_QINMIDU = DONGYI_QINMIDU + 1,
+    	 	DONGYI_SHOUMAI_SUM = 0 
+    	 	WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+     <update id="resetShouMaiCount" parameterType="int" flushCache="true">
+        <![CDATA[
+            UPDATE FORCE_INFO SET 
+            BEIDI_SHOUMAI_COUNT = #{countPerDay}, 
+            XIRONG_SHOUMAI_COUNT = #{countPerDay}, 
+            DONGYI_SHOUMAI_COUNT = #{countPerDay}
+        ]]> 
+    </update>
+    
+     <update id="decreaseLeftCountAndResetShouMaiSumOfBeiDi" flushCache="true">
+        <![CDATA[
+            UPDATE FORCE_INFO SET 
+            BEIDI_SHOUMAI_COUNT = BEIDI_SHOUMAI_COUNT - 1, 
+            BEIDI_SHOUMAI_SUM = 0 
+            WHERE FORCE_ID = #{forceId}
+        ]]> 
+    </update>
+    
+     <update id="decreaseLeftCountAndResetShouMaiSumOfXiRong" flushCache="true">
+        <![CDATA[
+            UPDATE FORCE_INFO SET 
+            XIRONG_SHOUMAI_COUNT = XIRONG_SHOUMAI_COUNT - 1, 
+            XIRONG_SHOUMAI_SUM = 0 
+            WHERE FORCE_ID = #{forceId}
+        ]]> 
+    </update>
+    
+     <update id="decreaseLeftCountAndResetShouMaiSumOfDongYi" flushCache="true">
+        <![CDATA[
+            UPDATE FORCE_INFO SET 
+            DONGYI_SHOUMAI_COUNT = DONGYI_SHOUMAI_COUNT - 1, 
+            DONGYI_SHOUMAI_SUM = 0 
+            WHERE FORCE_ID = #{forceId}
+        ]]> 
+    </update>
+    
+    
+     <select id="getMaxLv" resultType="int">
+        SELECT MAX(FORCE_LV) FROM FORCE_INFO
+    </select>
+    
+    <update id="addIds" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET IDS = IF(ISNULL(IDS), #{addedIds}, CONCAT(IDS, #{addedIds})) WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateTryInfo" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET ID = #{id}, TRY_END_TIME = #{date}, STAGE = #{stage}, TRY_WIN = #{tryWin}, GENERAL_NUM = #{generalNum}  WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateTryWin" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET IDS = SUBSTRING(IDS,POSITION(';' in IDS) + 1), TRY_END_TIME = #{date}, STAGE = #{stage}, TRY_WIN = 1, GENERAL_NUM = 0  WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateTryFail" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET STAGE = #{stage}, TRY_WIN = 0, GENERAL_NUM = 0  WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="addGeneralNum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET GENERAL_NUM = GENERAL_NUM + #{generalNum}  WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <select id="getGeneralNum" parameterType="int" resultType="int">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET GENERAL_NUM = GENERAL_NUM + #{generalNum}  WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </select>
+    
+    <update id="updateStage" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET STAGE = #{stage} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updatePWin" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET P_WIN = #{pWin} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="startPTask" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET P_WIN = 0, P_FORCE_ID = #{pForceId}, P_CITY_ID = #{pCityId}, P_ID = #{pId} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateFarmLv" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET LV = #{lv},FARM_INVEST_SUM = 0 WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateInvestSum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET FARM_INVEST_SUM = #{sum} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateForceLvAndAddExp" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET FORCE_LV = #{lv},FORCE_EXP = FORCE_EXP + #{exp} WHERE FORCE_ID = #{forceId}
+     	]]> 
+    </update>
+    
+    <update id="updateForceLvAndAddExp0" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE FORCE_INFO SET FORCE_LV = #{lv},FORCE_EXP = FORCE_EXP + #{exp}
+     	]]> 
+    </update>
+    
+    <select id="getMaxExp" parameterType="int" resultType="int">
+    	<![CDATA[
+    		SELECT FORCE_ID FROM FORCE_INFO ORDER BY FORCE_EXP DESC LIMIT 1;
+     	]]> 
+    </select>
+    
+    <update id="updateNationIndivId" flushCache="true">
+    	UPDATE FORCE_INFO SET NATION_INDIV_INFO = #{info} WHERE FORCE_ID = #{forceId}
+    </update>
+    
+</mapper>

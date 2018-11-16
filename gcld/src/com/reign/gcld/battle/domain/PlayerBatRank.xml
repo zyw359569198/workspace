@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerBatRank">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerBatRankResultMap" type="PlayerBatRank">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="RANK" property="rank" />
+        <result column="REWARD" property="reward" />
+        <result column="LAST_RANK_TIME" property="lastRankTime" />
+        <result column="RANK_SCORE" property="rankScore" />
+        <result column="BUY_TIMES_TODAY" property="buyTimesToday" />
+        <result column="RANK_BAT_NUM" property="rankBatNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBatRankResultMap">
+        SELECT * FROM PLAYER_BAT_RANK WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBatRankResultMap">
+        SELECT * FROM PLAYER_BAT_RANK WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBatRankResultMap">
+        SELECT * FROM PLAYER_BAT_RANK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BAT_RANK
+    </select>
+    
+    <insert id="create" parameterType="PlayerBatRank" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BAT_RANK(
+           PLAYER_ID,
+           RANK,
+           REWARD,
+           LAST_RANK_TIME,
+           RANK_SCORE,
+           BUY_TIMES_TODAY,
+           RANK_BAT_NUM
+        ) VALUES (
+           #{ playerId },
+           #{ rank },
+           #{ reward },
+           #{ lastRankTime },
+           #{ rankScore },
+           #{ buyTimesToday },
+           #{ rankBatNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BAT_RANK WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <update id="resetReward" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BAT_RANK SET REWARD = NULL
+        ]]>
+    </update>
+    
+     <update id="resetOnePlayerReward" parameterType="int" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BAT_RANK SET REWARD = NULL  WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <update id="resetBuyNumTimes" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BAT_RANK SET BUY_TIMES_TODAY = 0
+        ]]>
+    </update>
+    
+     <update id="setLastRankTimeAsNow" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BAT_RANK SET LAST_RANK_TIME = now()
+        ]]>
+    </update>
+    
+    <update id="addRankBatNumPerTwoHours" parameterType="int" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_BAT_RANK SET RANK_BAT_NUM = RANK_BAT_NUM + 1, LAST_RANK_TIME = now()  WHERE RANK_BAT_NUM < #{rankBatNumLimit}
+        ]]>
+    </update>
+    
+     <update id="updateRewardAndRank" flushCache="true">
+        <![CDATA[
+         UPDATE PLAYER_BAT_RANK SET REWARD = #{reward}, RANK = #{rank} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <update id="updateLastRankTime" flushCache="true">
+        <![CDATA[
+         UPDATE PLAYER_BAT_RANK SET LAST_RANK_TIME = #{time} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <update id="updateRankBatNum" flushCache="true">
+        <![CDATA[
+         UPDATE PLAYER_BAT_RANK SET RANK_BAT_NUM = #{newNum} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="updateRankBatNumAndBuyTimes" flushCache="true">
+        <![CDATA[
+         UPDATE PLAYER_BAT_RANK SET RANK_BAT_NUM = #{newNum}, BUY_TIMES_TODAY = #{buyTimes} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    
+     <update id="updateRankScore" flushCache="true">
+        <![CDATA[
+         UPDATE PLAYER_BAT_RANK SET RANK_SCORE = #{score} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+</mapper>

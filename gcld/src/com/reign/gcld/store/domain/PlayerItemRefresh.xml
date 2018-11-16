@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.store.domain.PlayerItemRefresh"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerItemRefreshResultMap" type="PlayerItemRefresh">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="ITEM_ID" property="itemId" />
+        <result column="TYPE" property="type" />
+        <result column="LOCKED" property="locked" />
+        <result column="UNLOCK_TIME" property="unlockTime" />
+        <result column="PRICE" property="price" />
+        <result column="IS_GOLD" property="isGold" />
+        <result column="BOUGHT" property="bought" />
+        <result column="IS_CHEAP" property="isCheap" />
+        <result column="REFRESH_ATTRIBUTE" property="refreshAttribute" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerItemRefreshResultMap">
+        SELECT * FROM PLAYER_ITEM_REFRESH WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerItemRefreshResultMap">
+        SELECT * FROM PLAYER_ITEM_REFRESH WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerItemRefreshResultMap">
+        SELECT * FROM PLAYER_ITEM_REFRESH
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_ITEM_REFRESH
+    </select>
+    
+    <insert id="create" parameterType="PlayerItemRefresh" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_ITEM_REFRESH(
+           V_ID,
+           PLAYER_ID,
+           ITEM_ID,
+           TYPE,
+           LOCKED,
+           UNLOCK_TIME,
+           PRICE,
+           IS_GOLD,
+           BOUGHT,
+           IS_CHEAP,
+           REFRESH_ATTRIBUTE
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ itemId },
+           #{ type },
+           #{ locked },
+           #{ unlockTime },
+           #{ price },
+           #{ isGold },
+           #{ bought },
+           #{ isCheap },
+           #{ refreshAttribute }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_ITEM_REFRESH WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+	<select id ="getListByPlayerId" parameterType="int" resultMap="PlayerItemRefreshResultMap">
+		SELECT * FROM PLAYER_ITEM_REFRESH WHERE PLAYER_ID = #{playerId}
+	</select>
+	<select id="getPlayerItemRefresh" resultMap="PlayerItemRefreshResultMap">
+		SELECT * FROM PLAYER_ITEM_REFRESH WHERE PLAYER_ID = #{playerId} AND ITEM_ID=#{itemId}
+	</select> 
+	
+	<update id="lockItem" flushCache="true">
+	   UPDATE PLAYER_ITEM_REFRESH SET LOCKED = 1 WHERE V_ID =#{vId}
+	</update>
+	
+	<update id="unlockItem" flushCache="true">
+	   UPDATE PLAYER_ITEM_REFRESH SET LOCKED = 0 AND UNLOCK_TIME = #{unlockTime} WHERE V_ID =#{vId}
+	</update>
+	
+	<update id="buyItem" flushCache="true">
+		UPDATE PLAYER_ITEM_REFRESH SET BOUGHT = 1  WHERE PLAYER_ID = #{playerId} AND ITEM_ID=#{itemId}
+	</update>
+	
+	
+	<update id="update"  parameterType="PlayerItemRefresh" flushCache="true">
+          UPDATE PLAYER_ITEM_REFRESH  
+          <set>
+	          <if test="playerId!=null and playerId!='' ">
+	          		PLAYER_ID = #{playerId}
+	          </if>
+	          <if test="itemId!=null ">
+	          		, ITEM_ID = #{itemId}
+	          </if>
+	          <if test="type!=null ">
+	          		, TYPE = #{type}
+	          </if>
+	          <if test="locked!=null ">
+	          		, LOCKED = #{locked}
+	          </if>
+	          <if test="unlockTime!=null ">
+	          		, UNLOCK_TIME = #{unlockTime}
+	          </if>
+	          <if test="price!=null ">
+	          		, PRICE = #{price}
+	          </if>
+	          <if test="isGold!=null ">
+	          		, IS_GOLD = #{isGold}
+	          </if>
+	          <if test="bought!=null ">
+	          		, BOUGHT = #{bought}
+	          </if>
+	          <if test="isCheap!=null ">
+	          		, IS_CHEAP = #{isCheap}
+	          </if>
+	          <if test="refreshAttribute!=null ">
+	          		, REFRESH_ATTRIBUTE = #{refreshAttribute}
+	          </if>
+	          WHERE V_ID = #{vId};
+          </set>          
+    </update>
+</mapper>

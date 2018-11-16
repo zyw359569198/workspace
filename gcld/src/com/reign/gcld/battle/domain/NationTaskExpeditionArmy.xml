@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.NationTaskExpeditionArmy">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+	<!-- ##generate by template begin## -->
+    <resultMap id="NationTaskExpeditionArmyResultMap" type="NationTaskExpeditionArmy">
+        <id column="V_ID" property="vId" />
+        <result column="NPC_TYPE" property="npcType" />
+        <result column="STATE" property="state" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="TABLE_ID" property="tableId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="HP" property="hp" />
+        <result column="TACTICVAL" property="tacticval" />
+        <result column="MOVE_LINE" property="moveLine" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="NationTaskExpeditionArmyResultMap">
+        SELECT * FROM NATION_TASK_EXPEDITION_ARMY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="NationTaskExpeditionArmyResultMap">
+        SELECT * FROM NATION_TASK_EXPEDITION_ARMY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="NationTaskExpeditionArmyResultMap">
+        SELECT * FROM NATION_TASK_EXPEDITION_ARMY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM NATION_TASK_EXPEDITION_ARMY
+    </select>
+    
+    <insert id="create" parameterType="NationTaskExpeditionArmy" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO NATION_TASK_EXPEDITION_ARMY(
+           V_ID,
+           NPC_TYPE,
+           STATE,
+           CREATE_TIME,
+           LOCATION_ID,
+           FORCE_ID,
+           TABLE_ID,
+           ARMY_ID,
+           HP,
+           TACTICVAL,
+           MOVE_LINE
+        ) VALUES (
+           #{ vId },
+           #{ npcType },
+           #{ state },
+           #{ createTime },
+           #{ locationId },
+           #{ forceId },
+           #{ tableId },
+           #{ armyId },
+           #{ hp },
+           #{ tacticval },
+           #{ moveLine }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM NATION_TASK_EXPEDITION_ARMY WHERE V_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+	<insert id="batchCreate">
+		INSERT INTO NATION_TASK_EXPEDITION_ARMY(
+		V_ID,
+		NPC_TYPE,
+		STATE,
+		CREATE_TIME,
+		LOCATION_ID,
+		FORCE_ID,
+		TABLE_ID,
+		ARMY_ID,
+		HP,
+		TACTICVAL,
+		MOVE_LINE
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.vId}, #{item.npcType}, #{item.state}, #{item.createTime },#{item.locationId },
+			#{item.forceId },#{item.tableId },#{item.armyId },
+			#{item.hp },#{item.tacticval },#{item.moveLine })
+		</foreach>
+	</insert>
+
+	<select id="getNationTaskEAsByLocationId" resultMap="NationTaskExpeditionArmyResultMap">
+		SELECT * FROM NATION_TASK_EXPEDITION_ARMY WHERE LOCATION_ID = #{locationId}
+	</select>
+	
+	
+	<select id="getNationTaskDefenceEAsByLocationId" resultMap="NationTaskExpeditionArmyResultMap">
+        SELECT * FROM NATION_TASK_EXPEDITION_ARMY WHERE LOCATION_ID = #{locationId} AND MOVE_LINE IS NULL
+    </select>
+
+	<update id="updateLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE NATION_TASK_EXPEDITION_ARMY SET LOCATION_ID = #{locationId}, STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE NATION_TASK_EXPEDITION_ARMY SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="resetStateByLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE NATION_TASK_EXPEDITION_ARMY SET STATE = 0 WHERE LOCATION_ID = #{locationId} AND STATE = #{state}
+        ]]>
+	</update>
+
+	<update id="updateHpAndTacticVal" flushCache="true">
+        <![CDATA[
+        UPDATE NATION_TASK_EXPEDITION_ARMY SET HP = #{hp}, TACTICVAL = #{tacticVal} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="resetAllState" flushCache="true">
+        <![CDATA[
+        UPDATE NATION_TASK_EXPEDITION_ARMY SET STATE = 0
+        ]]>
+	</update>
+	
+	<select id="getMaxVid" resultType="int">
+        SELECT max(V_ID) FROM NATION_TASK_EXPEDITION_ARMY
+    </select>
+    
+    
+    <delete id="deleteAllFreeTicketArmy" parameterType="int" flushCache="true">
+        DELETE FROM NATION_TASK_EXPEDITION_ARMY WHERE NPC_TYPE = #{type} AND STATE = 0
+    </delete>
+
+</mapper>

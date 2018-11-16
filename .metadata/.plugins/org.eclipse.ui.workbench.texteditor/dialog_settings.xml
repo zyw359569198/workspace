@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="IS_GENERATE_HTML" key="selection"/>
+		<item value="getCollectInfo" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Common"/>
+			<item value="getCollectInfo"/>
+			<item value="http"/>
 			<item value="IS_GENERATE_HTML"/>
 			<item value="read_rnd_buffer_size"/>
 			<item value="read_buffer_size"/>
@@ -20,9 +23,6 @@
 			<item value="thread_stack"/>
 			<item value="binlog_cache_size"/>
 			<item value="join_buffer_size"/>
-			<item value="max_connections"/>
-			<item value="innodb_buffer_pool_size"/>
-			<item value="log-bin"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Resource.getInstance()"/>

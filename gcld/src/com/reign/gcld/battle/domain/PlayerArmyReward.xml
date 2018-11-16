@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerArmyReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerArmyRewardResultMap" type="PlayerArmyReward">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="POWER_ID" property="powerId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="FIRST" property="first" />
+        <result column="EXPIRE_TIME" property="expireTime" />
+        <result column="NPC_LOST" property="npcLost" />
+        <result column="HP" property="hp" />
+        <result column="HP_MAX" property="hpMax" />
+        <result column="STATE" property="state" />
+        <result column="BUY_COUNT" property="buyCount" />
+        <result column="FIRST_WIN" property="firstWin" />
+        <result column="WIN_COUNT" property="winCount" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerArmyRewardResultMap">
+        SELECT * FROM PLAYER_ARMY_REWARD WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerArmyRewardResultMap">
+        SELECT * FROM PLAYER_ARMY_REWARD WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerArmyRewardResultMap">
+        SELECT * FROM PLAYER_ARMY_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_ARMY_REWARD
+    </select>
+    
+    <insert id="create" parameterType="PlayerArmyReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_ARMY_REWARD(
+           V_ID,
+           PLAYER_ID,
+           POWER_ID,
+           ARMY_ID,
+           FIRST,
+           EXPIRE_TIME,
+           NPC_LOST,
+           HP,
+           HP_MAX,
+           STATE,
+           BUY_COUNT,
+           FIRST_WIN,
+           WIN_COUNT
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ powerId },
+           #{ armyId },
+           #{ first },
+           #{ expireTime },
+           #{ npcLost },
+           #{ hp },
+           #{ hpMax },
+           #{ state },
+           #{ buyCount },
+           #{ firstWin },
+           #{ winCount }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_ARMY_REWARD WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+
+
+    <select id="getPlayerArmyRewardByPowerId"  resultMap="PlayerArmyRewardResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_REWARD WHERE PLAYER_ID = #{playerId} AND POWER_ID = #{powerId} ORDER BY ARMY_ID
+        ]]>
+    </select>
+    
+     <select id="getPlayerArmyRewardByPowerIdAndState"  resultMap="PlayerArmyRewardResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_REWARD WHERE PLAYER_ID = #{playerId} AND POWER_ID = #{powerId} AND STATE = #{state} ORDER BY ARMY_ID
+        ]]>
+    </select>
+    
+     <select id="getPlayerArmyRewardByArmyId"  resultMap="PlayerArmyRewardResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_REWARD WHERE PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </select> 
+    
+    <update id="updateFirst" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET FIRST = #{first} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <update id="updateExpireTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET EXPIRE_TIME = #{expireTime} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <update id="updateNpcLost" flushCache="true">
+        <![CDATA[
+         	UPDATE PLAYER_ARMY_REWARD SET NPC_LOST = #{npcLost} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <update id="updateNpcLostHp" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET NPC_LOST = #{npcLost}, HP = #{hp} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="updateState" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET STATE = #{state} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <update id="updateStateAndExpireTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET STATE = #{state}, EXPIRE_TIME = #{expireTime} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+           
+     <update id="update" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET FIRST= #{first}, EXPIRE_TIME = #{expireTime}, NPC_LOST = #{npcLost}, HP = #{hp}, HP_MAX = #{hpMax}, STATE = #{state}, BUY_COUNT = #{buyCount} WHERE   V_ID = #{vId}
+        ]]>
+    </update>
+    
+     <update id="updateFirstWin" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_REWARD SET FIRST_WIN = #{firstWin} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByPlayerIdArmyId" flushCache="true">
+     	<![CDATA[
+        	DELETE FROM PLAYER_ARMY_REWARD WHERE PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </delete>
+    
+    <select id="getListByPlayerId"  resultMap="PlayerArmyRewardResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_REWARD WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select> 
+    
+    <update id="updateWinCount" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_ARMY_REWARD SET WIN_COUNT = #{winCount} WHERE PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+     
+</mapper>

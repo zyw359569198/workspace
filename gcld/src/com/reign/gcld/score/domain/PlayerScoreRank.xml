@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.score.domain.PlayerScoreRank">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerScoreRankResultMap" type="PlayerScoreRank">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="OCCUPY_NUM" property="occupyNum" />
+        <result column="OCCUPY" property="occupy" />
+        <result column="ASSIST_NUM" property="assistNum" />
+        <result column="ASSIST" property="assist" />
+        <result column="CHEER_NUM" property="cheerNum" />
+        <result column="CHEER" property="cheer" />
+        <result column="SCORE" property="score" />
+        <result column="SCORE2" property="score2" />
+        <result column="LAST_RANK" property="lastRank" />
+        <result column="RECEIVED" property="received" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerScoreRankResultMap">
+        SELECT * FROM PLAYER_SCORE_RANK WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerScoreRankResultMap">
+        SELECT * FROM PLAYER_SCORE_RANK WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerScoreRankResultMap">
+        SELECT * FROM PLAYER_SCORE_RANK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_SCORE_RANK
+    </select>
+    
+    <insert id="create" parameterType="PlayerScoreRank" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_SCORE_RANK(
+           PLAYER_ID,
+           OCCUPY_NUM,
+           OCCUPY,
+           ASSIST_NUM,
+           ASSIST,
+           CHEER_NUM,
+           CHEER,
+           SCORE,
+           SCORE2,
+           LAST_RANK,
+           RECEIVED
+        ) VALUES (
+           #{ playerId },
+           #{ occupyNum },
+           #{ occupy },
+           #{ assistNum },
+           #{ assist },
+           #{ cheerNum },
+           #{ cheer },
+           #{ score },
+           #{ score2 },
+           #{ lastRank },
+           #{ received }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_SCORE_RANK WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+	<update id="updateOccupyNumAndScore"  flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET OCCUPY_NUM = OCCUPY_NUM + 1, SCORE = SCORE + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateOccupyAndScore"  flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET OCCUPY = OCCUPY + 1, SCORE2 = SCORE2 + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateOccupyNum"  flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET OCCUPY_NUM = OCCUPY_NUM + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateAssistNumAndScore"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET ASSIST_NUM = ASSIST_NUM + 1, SCORE = SCORE + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+     <update id="updateAssistAndScore"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET ASSIST = ASSIST + 1, SCORE2 = SCORE2 + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateAssistNum"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET ASSIST_NUM = ASSIST_NUM + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateCheerNumAndScore"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET CHEER_NUM = CHEER_NUM + 1, SCORE = SCORE + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateCheerAndScore"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET CHEER = CHEER + 1, SCORE2 = SCORE2 + #{score} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateCheerNum"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET CHEER_NUM = CHEER_NUM + 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getScore" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT SCORE FROM PLAYER_SCORE_RANK WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <select id="getScore2" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT SCORE2 FROM PLAYER_SCORE_RANK WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="clearAll"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET OCCUPY_NUM = 0, ASSIST_NUM = 0, CHEER_NUM = 0, SCORE = 0
+    	]]>
+    </update>
+    
+    <update id="clearAll2"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET OCCUPY = 0, ASSIST = 0, CHEER = 0, SCORE2 = 0, LAST_RANK = 0, RECEIVED = 0
+    	]]>
+    </update>
+    
+     <select id="getRankList" resultMap="PlayerScoreRankResultMap">
+     	<![CDATA[
+        	SELECT * FROM PLAYER_SCORE_RANK WHERE SCORE2 > 0 ORDER BY SCORE2 DESC
+        ]]>
+    </select>
+    
+     <select id="getRewardRankList" resultMap="PlayerScoreRankResultMap">
+     	<![CDATA[
+        	SELECT * FROM PLAYER_SCORE_RANK WHERE LAST_RANK > 0 AND RECEIVED = 0
+        ]]>
+    </select>
+    
+     <update id="updateLastRank"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET LAST_RANK = #{lastRank} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="received"  flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SCORE_RANK SET RECEIVED = 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    	    
+</mapper>

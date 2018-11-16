@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<conf>
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>com.reign.framework.netty.mvc.servlet.DispatchServlet</servlet-class>
+		<init-param>
+			<props>
+			    <!-- Spring扫描路径  -->
+			    <property name="componentScanPackage" type="string">com.reign.gcld</property>
+				<!-- 扫描路径 -->
+				<property name="actionPackage" type="string">com.reign.gcld</property>
+				<!-- 单位(分钟) -->
+                <property name="sessionTimeOut" type="int">1</property>
+                <!-- 单位(秒) -->
+                <property name="sessionTickTime" type="int">1</property>
+                <!-- 压缩数据 -->
+                <property name="compress" type="string">true</property>
+                <!-- 拦截器 -->
+				<property name="actionInterceptor" type="string">com.reign.gcld.common.web.AuthInterceptor,c
+om.reign.gcld.common.web.ExceptionInterceptor,com.reign.gcld.common.web.ChatInterceptor</property>
+				<!-- 各个版本 -->
+                		<property name="versionInfo" type="string">com.reign.gcld.Environment,com.reign.framework.Environment,ast.gcldcore.fight.Environment</property>
+			</props>
+		</init-param>
+	</servlet>
+	<netty>
+		<init-param>
+			<props>
+				<property name="tcpHandler" type="string">com.reign.framework.netty.tcp.handler.TcpDefaultHandler</property>
+				<property name="port" type="int">9010</property>
+				<property name="maxThreads" type="int">200</property>
+				<property name="httpMaxThreads" type="int">50</property>
+				<property name="countPerChannel" type="int">5</property>
+                <property name="httpPort" type="int">9001</property>
+			</props>
+		</init-param>
+		<!--
+		<tcp-param>
+			<props>
+				<property name="xcb" type="int">123</property>
+				<property name="34c" type="int">123</property>
+			</props>
+		</tcp-param>
+		-->
+	</netty>
+	<listener>
+        	<listener-class>com.reign.gcld.common.web.listener.JarLoadListener</listener-class>
+   	</listener>	
+	
+	<listener>
+		<listener-class>com.reign.framework.netty.mvc.listener.SpringContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+        	<listener-class>com.reign.gcld.common.web.listener.LocalSessionListener</listener-class>
+    	</listener>
+    
+    <listener>
+        <listener-class>com.reign.gcld.common.web.listener.InitGcldListener</listener-class>
+    </listener>
+</conf>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.marke.domain.PlayerMarket">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerMarketResultMap" type="PlayerMarket">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="CANBUY_NUM" property="canbuyNum" />
+        <result column="REFRESH_TIME" property="refreshTime" />
+        <result column="SHOW_INFO" property="showInfo" />
+        <result column="GET_BUYNUM_TIME" property="getBuynumTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerMarketResultMap">
+        SELECT * FROM PLAYER_MARKET WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerMarketResultMap">
+        SELECT * FROM PLAYER_MARKET WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerMarketResultMap">
+        SELECT * FROM PLAYER_MARKET
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_MARKET
+    </select>
+    
+    <insert id="create" parameterType="PlayerMarket" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_MARKET(
+           PLAYER_ID,
+           CANBUY_NUM,
+           REFRESH_TIME,
+           SHOW_INFO,
+           GET_BUYNUM_TIME
+        ) VALUES (
+           #{ playerId },
+           #{ canbuyNum },
+           #{ refreshTime },
+           #{ showInfo },
+           #{ getBuynumTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_MARKET WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+    <resultMap id="canBuyNumMap" type="int">
+        <id column="CANBUY_NUM" property="canbuyNum" />
+    </resultMap>
+    
+	<update id ="addCanbuyNum"  flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_MARKET SET CANBUY_NUM = GREATEST(CANBUY_NUM, LEAST(#{maxNum}, CANBUY_NUM + #{addNum})) ,GET_BUYNUM_TIME=#{date} WHERE PLAYER_ID = #{playerId} 
+		]]>
+	</update> 
+	
+ 	<!-- 一次性查询多条记录 -->
+ 	<select id="getCanBuyNumList" resultMap="canBuyNumMap">
+ 		SELECT CANBUY_NUM FROM PLAYER_MARKET WHERE PLAYER_ID IN
+ 		<foreach collection="list" item = "item" open ="(" separator="," close=")">
+	       		#{item}
+	    </foreach>
+	</select>
+	
+	<update id ="rewardCanbuyNum"  flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_MARKET SET CANBUY_NUM = GREATEST(CANBUY_NUM, LEAST(#{max}, CANBUY_NUM + #{addNum})) WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id ="updateInfo"  flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_MARKET SET SHOW_INFO = #{info},REFRESH_TIME = #{refreshTime} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update> 
+	
+	<update id ="minuseCanbuyNum" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_MARKET SET CANBUY_NUM = CANBUY_NUM -1 WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<select id="getNum" parameterType="int" resultType="double">
+        SELECT CANBUY_NUM FROM PLAYER_MARKET WHERE PLAYER_ID = #{playerId}
+    </select>
+</mapper>

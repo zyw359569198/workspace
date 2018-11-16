@@ -12,6 +12,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -21,13 +22,26 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-
+@Component
 public class Utils {
 	
 	private static CloseableHttpClient  httpclient = null;
+	
+	@Autowired
+	private Common common;
+	
+	private static Common staticCommon;
+	
+	@PostConstruct
+	private void init() {
+		staticCommon=common;
+	}
 	
 	public static String getUTF8StringFromGBKString(String gbkStr) {  
         try {  
@@ -60,9 +74,9 @@ public class Utils {
     }
 	
 	public  static void  saveHtml(Configuration configuration,HttpServletRequest request,String htmlFileName,String modelName,Map content) {
-		if(Common.IS_GENERATE_HTML) {
+		if(staticCommon.isIs_generate_html()) {
 			//String htmlRealPath=request.getSession().getServletContext().getRealPath("/")+"\\html\\";
-			String htmlRealPath=Common.HTML_FILE_PATH;
+			String htmlRealPath=staticCommon.getHtml_file_path();
 			System.out.println("保存的绝对路径是:"+htmlRealPath+ "/" + htmlFileName + ".html");
 			 File htmlFile = new File(htmlRealPath + "/" + htmlFileName + ".html");
 			 try {
@@ -95,7 +109,7 @@ public class Utils {
 	}
 	
 	public  static void  saveImages(String imageUrl,String imagePath) {
-		String path =Common.HTML_FILE_PATH+imagePath;
+		String path =staticCommon.getHtml_file_path()+imagePath;
         File storeFile = null;
 		try {
 /*			//采用绕过验证的方式处理https请求  

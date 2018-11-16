@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.huizhan.domain.PlayerHuizhan">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerHuizhanResultMap" type="PlayerHuizhan">
+        <id column="V_ID" property="vId" />
+        <result column="HZ_ID" property="hzId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="PHANTOM_NUM" property="phantomNum" />
+        <result column="PK_TIMES" property="pkTimes" />
+        <result column="KILL_NUM" property="killNum" />
+        <result column="FORCES" property="forces" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="CITY_ID" property="cityId" />
+        <result column="AWARD_FLAG" property="awardFlag" />
+        <result column="JOIN_TIME" property="joinTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerHuizhanResultMap">
+        SELECT * FROM PLAYER_HUIZHAN WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerHuizhanResultMap">
+        SELECT * FROM PLAYER_HUIZHAN WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerHuizhanResultMap">
+        SELECT * FROM PLAYER_HUIZHAN
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_HUIZHAN
+    </select>
+    
+    <insert id="create" parameterType="PlayerHuizhan" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_HUIZHAN(
+           V_ID,
+           HZ_ID,
+           PLAYER_ID,
+           PHANTOM_NUM,
+           PK_TIMES,
+           KILL_NUM,
+           FORCES,
+           FORCE_ID,
+           CITY_ID,
+           AWARD_FLAG,
+           JOIN_TIME
+        ) VALUES (
+           #{ vId },
+           #{ hzId },
+           #{ playerId },
+           #{ phantomNum },
+           #{ pkTimes },
+           #{ killNum },
+           #{ forces },
+           #{ forceId },
+           #{ cityId },
+           #{ awardFlag },
+           #{ joinTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_HUIZHAN WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+	<select id="getByhuiZhanIdAndplayerId" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE HZ_ID = #{hzId} AND PLAYER_ID =  #{playerId}
+	 	]]>
+    </select>
+    
+    <update id="updateForceByhzIdAndPlayerId" flushCache="true">
+    	<![CDATA[
+      		UPDATE PLAYER_HUIZHAN SET FORCES = FORCES + #{force} WHERE HZ_ID = #{hzId} AND PLAYER_ID =  #{playerId}
+    	]]>
+    </update>
+
+    <update id="addPhantomNumByhzIdAndPlayerId" flushCache="true">
+    	<![CDATA[
+      		UPDATE PLAYER_HUIZHAN SET PHANTOM_NUM = PHANTOM_NUM +1 WHERE HZ_ID = #{hzId} AND PLAYER_ID =  #{playerId}
+    	]]>
+    </update>
+
+	<select id="getUnReceivedRewardByPlayerIdOrderByJoinTimeDesc" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE PLAYER_ID = #{playerId} AND AWARD_FLAG <  2 AND GATHER_FLAG = 1 ORDER BY JOIN_TIME DESC
+	 	]]>
+    </select>
+
+	<select id="getByhzIdOrderByForceDesc" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE HZ_ID = #{hzId} AND FORCES >0 ORDER BY FORCES DESC
+	 	]]>
+    </select>	
+
+	<select id="getByhzIdAndForceId" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE HZ_ID = #{hzId} AND FORCE_ID = #{ forceId }
+	 	]]>
+    </select>    
+
+	<select id="getByhzIdAndPlayerId" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE HZ_ID = #{hzId} AND PLAYER_ID = #{ playerId }
+	 	]]>
+    </select>
+    
+    <update id="updateKillNumByhzIdAndPlayerId" flushCache="true">
+    	<![CDATA[
+      		UPDATE PLAYER_HUIZHAN SET KILL_NUM = KILL_NUM + #{killNum} WHERE HZ_ID = #{hzId} AND PLAYER_ID =  #{playerId}
+    	]]>
+    </update>  
+
+	<select id="getUnReceivedRewardPlayerHuizhan" parameterType="int" resultMap="PlayerHuizhanResultMap">
+	 	<![CDATA[
+	 		SELECT * FROM PLAYER_HUIZHAN WHERE AWARD_FLAG = 0 OR AWARD_FLAG = 1
+	 	]]>
+    </select>    
+
+    <update id="addPKNumByhzIdAndPlayerId" flushCache="true">
+    	<![CDATA[
+      		UPDATE PLAYER_HUIZHAN SET PK_TIMES = PK_TIMES +1 WHERE HZ_ID = #{hzId} AND PLAYER_ID =  #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateAwardFlagByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE PLAYER_HUIZHAN SET AWARD_FLAG = #{awardFlag} WHERE V_ID = #{id}
+    	]]>
+    </update>      
+    
+    <delete id="deleteByHzId" parameterType="int">
+        DELETE FROM PLAYER_HUIZHAN WHERE HZ_ID = #{hzId}
+    </delete>
+  
+</mapper>

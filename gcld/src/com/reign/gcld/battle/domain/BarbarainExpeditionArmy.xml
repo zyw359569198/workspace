@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.BarbarainExpeditionArmy">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="BarbarainExpeditionArmyResultMap" type="BarbarainExpeditionArmy">
+        <id column="V_ID" property="vId" />
+        <result column="STATE" property="state" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="WORLD_PAID_B_ID" property="worldPaidBId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="HP" property="hp" />
+        <result column="TACTICVAL" property="tacticval" />
+        <result column="MOVE_LINE" property="moveLine" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="BarbarainExpeditionArmyResultMap">
+        SELECT * FROM BARBARAIN_EXPEDITION_ARMY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="BarbarainExpeditionArmyResultMap">
+        SELECT * FROM BARBARAIN_EXPEDITION_ARMY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="BarbarainExpeditionArmyResultMap">
+        SELECT * FROM BARBARAIN_EXPEDITION_ARMY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM BARBARAIN_EXPEDITION_ARMY
+    </select>
+    
+    <insert id="create" parameterType="BarbarainExpeditionArmy" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO BARBARAIN_EXPEDITION_ARMY(
+           V_ID,
+           STATE,
+           CREATE_TIME,
+           LOCATION_ID,
+           FORCE_ID,
+           WORLD_PAID_B_ID,
+           ARMY_ID,
+           HP,
+           TACTICVAL,
+           MOVE_LINE
+        ) VALUES (
+           #{ vId },
+           #{ state },
+           #{ createTime },
+           #{ locationId },
+           #{ forceId },
+           #{ worldPaidBId },
+           #{ armyId },
+           #{ hp },
+           #{ tacticval },
+           #{ moveLine }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM BARBARAIN_EXPEDITION_ARMY WHERE V_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+	<insert id="batchCreate">
+		INSERT INTO BARBARAIN_EXPEDITION_ARMY(
+		 V_ID,
+         STATE,
+         CREATE_TIME,
+         LOCATION_ID,
+         FORCE_ID,
+         WORLD_PAID_B_ID,
+         ARMY_ID,
+         HP,
+         TACTICVAL,
+         MOVE_LINE
+        )
+		VALUES
+		<foreach collection = "list" item="item" index="index" separator=",">
+			(#{item.vId}, #{item.state}, #{item.createTime },#{item.locationId },
+			#{item.forceId },#{item.worldPaidBId },#{item.armyId },
+			#{item.hp },#{item.tacticval },#{item.moveLine })
+		</foreach>
+	</insert>
+	
+	<select id="getBarEAsByLocationId" resultMap="BarbarainExpeditionArmyResultMap">
+		SELECT * FROM BARBARAIN_EXPEDITION_ARMY WHERE LOCATION_ID = #{locationId}
+	</select>
+	
+	<update id="updateLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_EXPEDITION_ARMY SET LOCATION_ID = #{locationId}, STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+	
+	<update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_EXPEDITION_ARMY SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+	
+	<update id="resetStateByLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_EXPEDITION_ARMY SET STATE = 0 WHERE LOCATION_ID = #{locationId} AND STATE = #{state}
+        ]]>
+	</update>
+	
+	<update id="updateHpAndTacticVal" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_EXPEDITION_ARMY SET HP = #{hp}, TACTICVAL = #{tacticVal} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+	
+	<update id="resetAllState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_EXPEDITION_ARMY SET STATE = 0
+        ]]>
+	</update>
+	 
+	 
+	  <delete id="removeAllInThisCity" parameterType="int" flushCache="true">
+        DELETE FROM BARBARAIN_EXPEDITION_ARMY WHERE LOCATION_ID = #{cityId}
+    </delete>
+    
+    
+</mapper>

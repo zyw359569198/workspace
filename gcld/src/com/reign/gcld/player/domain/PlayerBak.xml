@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerBak">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerBakResultMap" type="PlayerBak">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="PLAYER_NAME" property="playerName" />
+        <result column="PLAYER_LV" property="playerLv" />
+        <result column="SYS_GOLD" property="sysGold" />
+        <result column="USER_GOLD" property="userGold" />
+        <result column="USER_ID" property="userId" />
+        <result column="CONSUME_LV" property="consumeLv" />
+        <result column="YX" property="yx" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="PIC" property="pic" />
+        <result column="POWER_ID" property="powerId" />
+        <result column="LOGIN_TIME" property="loginTime" />
+        <result column="QUIT_TIME" property="quitTime" />
+        <result column="ISDELETE" property="isdelete" />
+        <result column="ABANDON_TIME" property="abandonTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBakResultMap">
+        SELECT * FROM PLAYER_BAK WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBakResultMap">
+        SELECT * FROM PLAYER_BAK WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBakResultMap">
+        SELECT * FROM PLAYER_BAK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BAK
+    </select>
+    
+    <insert id="create" parameterType="PlayerBak" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BAK(
+           PLAYER_ID,
+           PLAYER_NAME,
+           PLAYER_LV,
+           SYS_GOLD,
+           USER_GOLD,
+           USER_ID,
+           CONSUME_LV,
+           YX,
+           FORCE_ID,
+           PIC,
+           POWER_ID,
+           LOGIN_TIME,
+           QUIT_TIME,
+           ISDELETE,
+           ABANDON_TIME
+        ) VALUES (
+           #{ playerId },
+           #{ playerName },
+           #{ playerLv },
+           #{ sysGold },
+           #{ userGold },
+           #{ userId },
+           #{ consumeLv },
+           #{ yx },
+           #{ forceId },
+           #{ pic },
+           #{ powerId },
+           #{ loginTime },
+           #{ quitTime },
+           #{ isdelete },
+           #{ abandonTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BAK WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+</mapper>

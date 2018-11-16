@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.gift.domain.PlayerOnlineReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerOnlineRewardResultMap" type="PlayerOnlineReward">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="REMAIN_ONLINE_NUM" property="remainOnlineNum" />
+        <result column="ONLINE_NUM" property="onlineNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerOnlineRewardResultMap">
+        SELECT * FROM PLAYER_ONLINE_REWARD WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerOnlineRewardResultMap">
+        SELECT * FROM PLAYER_ONLINE_REWARD WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerOnlineRewardResultMap">
+        SELECT * FROM PLAYER_ONLINE_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_ONLINE_REWARD
+    </select>
+    
+    <insert id="create" parameterType="PlayerOnlineReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_ONLINE_REWARD(
+           PLAYER_ID,
+           REMAIN_ONLINE_NUM,
+           ONLINE_NUM
+        ) VALUES (
+           #{ playerId },
+           #{ remainOnlineNum },
+           #{ onlineNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_ONLINE_REWARD WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+    <select id="getOnlineNum" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT ONLINE_NUM FROM PLAYER_ONLINE_REWARD WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <update id="useOnlineNum" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_ONLINE_REWARD SET REMAIN_ONLINE_NUM = REMAIN_ONLINE_NUM - 1, ONLINE_NUM = ONLINE_NUM -1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addOnlineNum" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_ONLINE_REWARD SET ONLINE_NUM = ONLINE_NUM + 1 WHERE PLAYER_ID = #{playerId} AND REMAIN_ONLINE_NUM > ONLINE_NUM
+        ]]>
+    </update>
+    
+    <update id="setOnlineGiftBaseData" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_ONLINE_REWARD SET REMAIN_ONLINE_NUM = #{remainOnlineNum}, ONLINE_NUM = #{onlineNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="resetOnlineGiftData" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_ONLINE_REWARD SET REMAIN_ONLINE_NUM = #{remainOnlineNum}
+        ]]>
+    </update>
+	    
+</mapper>

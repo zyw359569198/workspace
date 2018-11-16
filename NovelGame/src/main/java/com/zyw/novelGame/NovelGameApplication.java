@@ -2,11 +2,13 @@ package com.zyw.novelGame;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan("com.zyw.novelGame.mapper")
+@ComponentScan(basePackages = {"com.zyw.*"})
 @EnableAsync
 @EnableTransactionManagement
 public class NovelGameApplication {

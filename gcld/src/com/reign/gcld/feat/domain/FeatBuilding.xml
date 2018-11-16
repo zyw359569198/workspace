@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.feat.domain.FeatBuilding">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="FeatBuildingResultMap" type="FeatBuilding">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="FEAT" property="feat" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="FeatBuildingResultMap">
+        SELECT * FROM FEAT_BUILDING WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="FeatBuildingResultMap">
+        SELECT * FROM FEAT_BUILDING WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="FeatBuildingResultMap">
+        SELECT * FROM FEAT_BUILDING
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM FEAT_BUILDING
+    </select>
+    
+    <insert id="create" parameterType="FeatBuilding" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO FEAT_BUILDING(
+           PLAYER_ID,
+           FEAT
+        ) VALUES (
+           #{ playerId },
+           #{ feat }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM FEAT_BUILDING WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	 <select id="getFeat" parameterType="int" resultType="int">
+	 	<![CDATA[
+	 		SELECT FEAT FROM FEAT_BUILDING WHERE PLAYER_ID = #{playerId}
+	 	]]>
+    </select>
+    
+     <update id="addFeat">
+	 	<![CDATA[
+	 		UPDATE FEAT_BUILDING SET FEAT = FEAT + #{feat} WHERE PLAYER_ID = #{playerId}
+	 	]]>
+    </update>
+    
+     <update id="resetFeat">
+	 	<![CDATA[
+	 		UPDATE FEAT_BUILDING SET FEAT = 0 WHERE PLAYER_ID = #{playerId}
+	 	]]>
+    </update>
+    
+</mapper>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hqls xmlns="http://com.reign.framework.hibernate/hql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.reign.framework.hibernate/sql.xsd http://com.reign.framework.hibernate/sql ">
+	<!-- Auctions -->
+</hqls>

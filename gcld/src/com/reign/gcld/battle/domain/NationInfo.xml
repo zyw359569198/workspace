@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.NationInfo">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="NationInfoResultMap" type="NationInfo">
+        <id column="FORCE_ID" property="forceId" />
+        <result column="RANK_INFO" property="rankInfo" />
+        <result column="HZ_WIN_NUM" property="hzWinNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="NationInfoResultMap">
+        SELECT * FROM NATION_INFO WHERE FORCE_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="NationInfoResultMap">
+        SELECT * FROM NATION_INFO WHERE FORCE_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="NationInfoResultMap">
+        SELECT * FROM NATION_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM NATION_INFO
+    </select>
+    
+    <insert id="create" parameterType="NationInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="forceId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO NATION_INFO(
+           FORCE_ID,
+           RANK_INFO,
+           HZ_WIN_NUM
+        ) VALUES (
+           #{ forceId },
+           #{ rankInfo },
+           #{ hzWinNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM NATION_INFO WHERE FORCE_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+ 	
+    <update id="updateRankInfo" flushCache="true">
+        <![CDATA[
+        	UPDATE NATION_INFO SET RANK_INFO = #{rankInfo} WHERE FORCE_ID = #{forceId}
+        ]]>
+    </update>
+
+    <update id="addHzWinNumByForceId" flushCache="true">
+        <![CDATA[
+        	UPDATE NATION_INFO SET HZ_WIN_NUM = HZ_WIN_NUM + 1 WHERE FORCE_ID = #{forceId}
+        ]]>
+    </update>   
+    
+	
+</mapper>

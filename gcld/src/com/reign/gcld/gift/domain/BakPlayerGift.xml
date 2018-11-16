@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.gift.domain.BakPlayerGift">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="BakPlayerGiftResultMap" type="BakPlayerGift">
+        <id column="BAK_ID" property="bakId" />
+        <result column="ID" property="id" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GIFT_ID" property="giftId" />
+        <result column="RECEIVED" property="received" />
+        <result column="RECEIVED_TIME" property="receivedTime" />
+        <result column="ALL_SERVER" property="allServer" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="BakPlayerGiftResultMap">
+        SELECT * FROM BAK_PLAYER_GIFT WHERE BAK_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="BakPlayerGiftResultMap">
+        SELECT * FROM BAK_PLAYER_GIFT WHERE BAK_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="BakPlayerGiftResultMap">
+        SELECT * FROM BAK_PLAYER_GIFT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM BAK_PLAYER_GIFT
+    </select>
+    
+    <insert id="create" parameterType="BakPlayerGift" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="bakId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO BAK_PLAYER_GIFT(
+           BAK_ID,
+           ID,
+           PLAYER_ID,
+           GIFT_ID,
+           RECEIVED,
+           RECEIVED_TIME,
+           ALL_SERVER
+        ) VALUES (
+           #{ bakId },
+           #{ id },
+           #{ playerId },
+           #{ giftId },
+           #{ received },
+           #{ receivedTime },
+           #{ allServer }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM BAK_PLAYER_GIFT WHERE BAK_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+</mapper>

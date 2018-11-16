@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.event.domain.PlayerEvent">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerEventResultMap" type="PlayerEvent">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="EVENT_ID" property="eventId" />
+        <result column="PARAM1" property="param1" />
+        <result column="PARAM2" property="param2" />
+        <result column="PARAM3" property="param3" />
+        <result column="PARAM4" property="param4" />
+        <result column="PARAM5" property="param5" />
+        <result column="PARAM6" property="param6" />
+        <result column="PARAM7" property="param7" />
+        <result column="PARAM8" property="param8" />
+        <result column="PARAM9" property="param9" />
+        <result column="PARAM10" property="param10" />
+        <result column="CD1" property="cd1" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerEventResultMap">
+        SELECT * FROM PLAYER_EVENT WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerEventResultMap">
+        SELECT * FROM PLAYER_EVENT WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerEventResultMap">
+        SELECT * FROM PLAYER_EVENT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_EVENT
+    </select>
+    
+    <insert id="create" parameterType="PlayerEvent" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_EVENT(
+           V_ID,
+           PLAYER_ID,
+           EVENT_ID,
+           PARAM1,
+           PARAM2,
+           PARAM3,
+           PARAM4,
+           PARAM5,
+           PARAM6,
+           PARAM7,
+           PARAM8,
+           PARAM9,
+           PARAM10,
+           CD1
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ eventId },
+           #{ param1 },
+           #{ param2 },
+           #{ param3 },
+           #{ param4 },
+           #{ param5 },
+           #{ param6 },
+           #{ param7 },
+           #{ param8 },
+           #{ param9 },
+           #{ param10 },
+           #{ cd1 }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_EVENT WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+	<resultMap id="PlayerIdResultMap" type="int">
+        <id column="PLAYER_ID" property="playerId" />
+    </resultMap>
+		
+	<select id="getPlayerEvent" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </select>
+    
+    <update id="setParam1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = PARAM1 | POWER(2, #{pos}) WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="setParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = PARAM2 | POWER(2, #{pos}) WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="setParam3" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM3 = PARAM3 | POWER(2, #{pos}) WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="setParam4" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = PARAM4 | POWER(2, #{pos}) WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="setParam5" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = PARAM5 | POWER(2, #{pos}) WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <select id="getPlayerEventList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId}
+        ]]>
+    </select>
+    
+    <update id="clearEvent" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = 0, PARAM2 = 0, PARAM3 = 0, PARAM4 = 0, PARAM5 = 0, PARAM6 = 0, PARAM7 = 0, PARAM8 = 0, PARAM9 = 0, PARAM10 = 0 WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="clearMidAutumn" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = IF(PARAM2 > #{dayNum}, PARAM2 - #{dayNum}, 0), PARAM3 = 0, PARAM4 = 0 WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="updateInfo" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2}, PARAM3 = #{param3}, PARAM4 = #{param4} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateInfo2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2}, PARAM3 = #{param3} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateInfo3" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <select id="getPlayerIdListByEventId" parameterType="int" resultMap="PlayerIdResultMap">
+	 	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId}
+        ]]>
+    </select>
+    
+     <update id="consumeBmw" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = PARAM5 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId} AND PARAM5 >= #{num}
+        ]]>
+    </update>	
+    
+     <update id="consumeXo" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM6 = PARAM6 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId} AND PARAM6 >= #{num}
+        ]]>
+    </update>	
+    
+     <update id="consumePicasso" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM7 = PARAM7 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId} AND PARAM7 >= #{num}
+        ]]>
+    </update>
+    
+    <update id="updateParam8" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM8 = #{param8} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam10" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM10 = #{param10} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam1All" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1} WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = #{param2} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="addParam2WithParam3" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = PARAM2 + PARAM3 WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="updateParam3" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM3 = #{param3} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam3All" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM3 = #{param3} WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam4" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = #{param4} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="updateParam4All" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = #{param4} WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam5" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = #{param5} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam6" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM6 = #{param6} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateCd1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET CD1 = #{cd1} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateCd1All" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET CD1 = #{cd1} WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam8All" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM8 = #{param8} WHERE EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addBmw" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = PARAM5 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addXo" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM6 = PARAM6 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addPicasso" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM7 = PARAM7 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <select id="getIronRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM2 > PARAM3
+        ]]>
+    </select>
+    
+     <update id="addParam1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = PARAM1 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = PARAM2 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addParam3" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM3 = PARAM3 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="addParam4" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = PARAM4 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="addParam4Reduce5" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = PARAM4 + #{num4}, PARAM5 = PARAM5 - #{num5} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="addParam5" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = PARAM5 + #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="addParam1andParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = PARAM1 + #{num1}, PARAM2 = PARAM2 + #{num2} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="reduceParam1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = PARAM1 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="reduceParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = PARAM2 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="reduceParam4" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM4 = PARAM4 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="reduceParam5" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM5 = PARAM5 - #{num} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <select id="getXiLianRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND (PARAM2 > PARAM3 OR PARAM5 > 0)
+        ]]>
+    </select>
+    
+    <update id="reduceParam1AndParam6" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = PARAM1 - #{num1}, PARAM6 = PARAM6 + #{num6} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="reduceParam2AndParam7" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = PARAM2 - #{num2}, PARAM7 = PARAM7 + #{num7} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="reduceParam3AndParam8" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM3 = PARAM3 - #{num3}, PARAM8 = PARAM8 + #{num8} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+    <update id="updateParam9UpdateParam10" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM9 = #{num9}, PARAM10 = #{num10} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <select id="getChristmasDayRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM4 > 0 AND (PARAM5 < PARAM4 OR PARAM9 = 0 OR PARAM10 > 0)
+        ]]>
+    </select>
+    
+    <select id="getWishRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM2 > 0 AND PARAM4 < PARAM3
+        ]]>
+    </select>
+    
+    <select id="getBeastRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM1 > 0 AND PARAM2 > 0
+        ]]>
+    </select>
+    
+    <select id="getRedPaperRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM2 > PARAM3
+        ]]>
+    </select>
+    
+     <select id="getBaiNianRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM1 > 0 AND PARAM2 = 0
+        ]]>
+    </select>
+    
+     <select id="getLanternRankList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM3 > 0
+        ]]>
+    </select>
+    
+    <select id="getLanternRankRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM4 > 0 AND PARAM5 = 0
+        ]]>
+    </select>
+    
+    <select id="getLanternTitleRewardList" parameterType="int" resultMap="PlayerEventResultMap">
+	 	<![CDATA[
+        	SELECT * FROM PLAYER_EVENT WHERE EVENT_ID = #{eventId} AND PARAM1 > 0 OR (PARAM2 > 0 && PARAM6 = 0)　
+        ]]>
+    </select>
+    
+     <update id="updateParam1updateParam2" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="updateParam1updateParam2updateParam5updateCd1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2}, PARAM5 = #{param5}, CD1 = #{cd1} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+     <update id="updateParam2updateCD1" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM2 = #{param2}, CD1 = #{cd1} WHERE PLAYER_ID = #{playerId} AND EVENT_ID = #{eventId}
+        ]]>
+    </update>
+    
+      <update id="updateParam1updateParam2WithCondition" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_EVENT SET PARAM1 = #{param1}, PARAM2 = #{param2} WHERE EVENT_ID = #{eventId} AND PARAM1 = 0
+        ]]>
+    </update>
+    	    
+</mapper>

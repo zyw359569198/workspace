@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.worl.domain.CitiesPerHour">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="CitiesPerHourResultMap" type="CitiesPerHour">
+        <id column="HOUR" property="hour" />
+        <result column="CITIES" property="cities" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CitiesPerHourResultMap">
+        SELECT * FROM CITIES_PER_HOUR WHERE HOUR = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CitiesPerHourResultMap">
+        SELECT * FROM CITIES_PER_HOUR WHERE HOUR = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CitiesPerHourResultMap">
+        SELECT * FROM CITIES_PER_HOUR
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM CITIES_PER_HOUR
+    </select>
+    
+    <insert id="create" parameterType="CitiesPerHour" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="hour">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO CITIES_PER_HOUR(
+           HOUR,
+           CITIES
+        ) VALUES (
+           #{ hour },
+           #{ cities }
+        ) ON DUPLICATE KEY UPDATE CITIES = #{ cities }
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM CITIES_PER_HOUR WHERE HOUR = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.team.domain.PlayerTeam">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTeamResultMap" type="PlayerTeam">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="PLAYER_GENERAL_ID" property="playerGeneralId" />
+        <result column="WORLD_LEGION_ID" property="worldLegionId" />
+        <result column="TEAM_ID" property="teamId" />
+        <result column="TEAM_NAME" property="teamName" />
+        <result column="CREATE_TIME" property="createTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTeamResultMap">
+        SELECT * FROM PLAYER_TEAM WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTeamResultMap">
+        SELECT * FROM PLAYER_TEAM WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTeamResultMap">
+        SELECT * FROM PLAYER_TEAM
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TEAM
+    </select>
+    
+    <insert id="create" parameterType="PlayerTeam" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TEAM(
+           PLAYER_ID,
+           PLAYER_GENERAL_ID,
+           WORLD_LEGION_ID,
+           TEAM_ID,
+           TEAM_NAME,
+           CREATE_TIME
+        ) VALUES (
+           #{ playerId },
+           #{ playerGeneralId },
+           #{ worldLegionId },
+           #{ teamId },
+           #{ teamName },
+           #{ createTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_TEAM WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<update id="updatePlayerGenrealIds" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_TEAM SET PLAYER_GENERAL_ID = #{gpIds} WHERE  PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+</mapper>

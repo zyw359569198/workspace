@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.ScenarioNpc">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="ScenarioNpcResultMap" type="ScenarioNpc">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="SCENARIO_ID" property="scenarioId" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="NPC_TYPE" property="npcType" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="HP" property="hp" />
+        <result column="TACTIC_VAL" property="tacticVal" />
+        <result column="STATE" property="state" />
+        <result column="ADD_TIME" property="addTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="ScenarioNpcResultMap">
+        SELECT * FROM SCENARIO_NPC WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="ScenarioNpcResultMap">
+        SELECT * FROM SCENARIO_NPC WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="ScenarioNpcResultMap">
+        SELECT * FROM SCENARIO_NPC
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM SCENARIO_NPC
+    </select>
+    
+    <insert id="create" parameterType="ScenarioNpc" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO SCENARIO_NPC(
+           V_ID,
+           PLAYER_ID,
+           SCENARIO_ID,
+           LOCATION_ID,
+           FORCE_ID,
+           NPC_TYPE,
+           ARMY_ID,
+           HP,
+           TACTIC_VAL,
+           STATE,
+           ADD_TIME
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ scenarioId },
+           #{ locationId },
+           #{ forceId },
+           #{ npcType },
+           #{ armyId },
+           #{ hp },
+           #{ tacticVal },
+           #{ state },
+           #{ addTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM SCENARIO_NPC WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <insert id="batchCreate">
+        INSERT INTO SCENARIO_NPC(
+           V_ID,
+           PLAYER_ID,
+           SCENARIO_ID,
+           LOCATION_ID,
+           FORCE_ID,
+           NPC_TYPE,
+           ARMY_ID,
+           HP,
+           TACTIC_VAL,
+           STATE,
+           ADD_TIME
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.vId}, #{item.playerId}, #{item.scenarioId },#{item.locationId },
+            #{item.forceId },#{item.npcType },#{item.armyId },
+            #{item.hp },#{item.tacticVal },#{item.state },#{item.addTime })
+        </foreach>
+    </insert>
+    
+    
+    <update id="updateLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE SCENARIO_NPC SET LOCATION_ID = #{locationId}, STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="updateHpAndTacticVal" flushCache="true">
+        <![CDATA[
+        UPDATE SCENARIO_NPC SET HP = #{hp}, TACTIC_VAL = #{tacticVal} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="resetAllState" flushCache="true">
+        <![CDATA[
+        UPDATE SCENARIO_NPC SET STATE = 0
+        ]]>
+    </update>
+    
+    <update id="resetStateByLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE SCENARIO_NPC SET STATE = 0 WHERE LOCATION_ID = #{locationId} AND STATE = #{state}
+        ]]>
+    </update>
+    
+    <select id="getByPlayerIdLocationId" resultMap="ScenarioNpcResultMap">
+        SELECT * FROM SCENARIO_NPC WHERE PLAYER_ID = #{playerId} AND LOCATION_ID = #{locationId}
+    </select>
+    
+    
+    <update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE SCENARIO_NPC SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getMaxVid" resultType="int">
+        SELECT max(V_ID) FROM SCENARIO_NPC
+    </select>
+    
+     <delete id="deleteAllInThisCity" flushCache="true">
+        DELETE FROM SCENARIO_NPC WHERE PLAYER_ID = #{playerId} AND LOCATION_ID = #{locationId}
+    </delete>
+    
+    <delete id="deleteAll" flushCache="true">
+        DELETE FROM SCENARIO_NPC WHERE PLAYER_ID = #{playerId}
+    </delete>
+    
+</mapper>

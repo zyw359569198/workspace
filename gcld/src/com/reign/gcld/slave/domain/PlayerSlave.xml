@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.slave.domain.PlayerSlave">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerSlaveResultMap" type="PlayerSlave">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="SLAVE_ID" property="slaveId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="GRAB_TIME" property="grabTime" />
+        <result column="CD" property="cd" />
+        <result column="SLASH_TIMES" property="slashTimes" />
+        <result column="TYPE" property="type" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="NAME" property="name" />
+        <result column="LV" property="lv" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerSlaveResultMap">
+        SELECT * FROM PLAYER_SLAVE WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerSlaveResultMap">
+        SELECT * FROM PLAYER_SLAVE WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerSlaveResultMap">
+        SELECT * FROM PLAYER_SLAVE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_SLAVE
+    </select>
+    
+    <insert id="create" parameterType="PlayerSlave" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_SLAVE(
+           V_ID,
+           PLAYER_ID,
+           SLAVE_ID,
+           GENERAL_ID,
+           GRAB_TIME,
+           CD,
+           SLASH_TIMES,
+           TYPE,
+           FORCE_ID,
+           NAME,
+           LV
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ slaveId },
+           #{ generalId },
+           #{ grabTime },
+           #{ cd },
+           #{ slashTimes },
+           #{ type },
+           #{ forceId },
+           #{ name },
+           #{ lv }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_SLAVE WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <resultMap id="SlaveIdMap" type="Integer">
+        <result column="SLAVE_ID" property="slaveId" />
+    </resultMap>
+
+	<select id="isSlave" parameterType="int" resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE SLAVE_ID = #{slaveId}
+        ]]>
+    </select>
+    
+    <select id="isSlave2" resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE SLAVE_ID = #{slaveId} AND GENERAL_ID = #{generalId} AND TYPE = 1
+        ]]>
+    </select>
+    
+    <select id="getListByPlayerId" parameterType="int" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    
+    <select id="getBySlaveId" parameterType="int" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE SLAVE_ID = #{slaveId}
+        ]]>
+    </select>
+    
+    <select id="getListByPlayerIdAndSlaveId" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND SLAVE_ID != #{slaveId}
+        ]]>
+    </select>
+    
+    <select id="getOneSlave" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND SLAVE_ID = #{slaveId}
+        ]]>
+    </select>
+    
+    <update id="setTotalCdAndSlashTimes" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET TOTAL_CD = #{totalCd}, SLASH_TIMES = SLASH_TIMES + 1 WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="setCdAndJobIdAndSlashTimes" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET CD = #{cd}, SLASH_TIMES = SLASH_TIMES + 1, JOB_ID = #{jobId} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+     
+    <select id="getSizeByPlayerId" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND SLASH_TIMES <= 0
+        ]]>
+    </select>
+    
+    <update id="clearCell" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET SLAVE_ID = NULL, BEGIN_WORK_TIME = NULL, TOTAL_CD = 0,  CD = NULL, SLASH_TIMES = 0, JOB_ID = 0 WHERE V_ID = #{vId}
+        ]]>
+    </update>
+     
+    <select id="getEmptyCellSize" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND  ISNULL(SLAVE_ID)
+        ]]>
+    </select>
+    
+    <select id="getSlave" parameterType="int" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND !ISNULL(SLAVE_ID) LIMIT 1 
+        ]]>
+    </select>
+    
+    <select id="getEmptyCell" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT V_ID FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND ISNULL(SLAVE_ID) LIMIT 1 
+        ]]>
+    </select>
+    
+    <update id="placeSlaveInCell" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET SLAVE_ID = #{slaveId}, BEGIN_WORK_TIME = #{beginWorkTime}, TOTAL_CD = #{totalCd},  CD = NULL, SLASH_TIMES = 0, JOB_ID = 0 WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="setCdAndJobId" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET CD = #{cd}, JOB_ID = #{jobId} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="setCd" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET CD = #{cd} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getMySlaveList" parameterType="int" resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND !ISNULL(SLAVE_ID)
+        ]]>
+    </select>
+    
+    <update id="setBeginWorkTime" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET BEGIN_WORK_TIME = #{beginWorkTime} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getSlaveIdList" parameterType="int" resultMap="SlaveIdMap">
+    	<![CDATA[
+        	SELECT SLAVE_ID FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND !ISNULL(SLAVE_ID) 
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdByVId" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER_SLAVE WHERE V_ID = #{vId} 
+        ]]>
+    </select>
+    
+    <update id="clear" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET SLAVE_ID = NULL, BEGIN_WORK_TIME = NULL, TOTAL_CD = 0, CD = NULL, SLASH_TIMES = 0, JOB_ID = 0 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <select id="getCellIndex"  resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND V_ID <= #{vId} 
+        ]]>
+    </select>
+    
+    <select id="getCatchNumToday"  resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_SLAVE WHERE PLAYER_ID = #{playerId} AND DATE(GRAB_TIME) = DATE(NOW())
+        ]]>
+    </select>
+    
+    <update id="lashSlave" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER_SLAVE SET SLASH_TIMES = 1 WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+     <select id="getBySlaveIdAndGeneralId"  resultMap="PlayerSlaveResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_SLAVE WHERE SLAVE_ID = #{slaveId} AND GENERAL_ID = #{generalId} AND TYPE = 1
+        ]]>
+    </select>
+    
+    <delete id="releaseSlave" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_SLAVE WHERE (PLAYER_ID = #{playerId} OR SLAVE_ID = #{playerId}) AND!ISNULL(CD) AND CD <= NOW() 
+        ]]>
+    </delete>
+    
+     <delete id="releaseAll" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_SLAVE WHERE !ISNULL(CD) AND CD <= NOW() 
+        ]]>
+    </delete>
+	
+</mapper>

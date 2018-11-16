@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.store.domain.StoreHouse">
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="StoreHouseResultMap" type="StoreHouse">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="ITEM_ID" property="itemId" />
+        <result column="TYPE" property="type" />
+        <result column="GOODS_TYPE" property="goodsType" />
+        <result column="OWNER" property="owner" />
+        <result column="LV" property="lv" />
+        <result column="ATTRIBUTE" property="attribute" />
+        <result column="QUALITY" property="quality" />
+        <result column="GEM_ID" property="gemId" />
+        <result column="NUM" property="num" />
+        <result column="STATE" property="state" />
+        <result column="REFRESH_ATTRIBUTE" property="refreshAttribute" />
+        <result column="QUENCHING_TIMES" property="quenchingTimes" />
+        <result column="QUENCHING_TIMES_FREE" property="quenchingTimesFree" />
+        <result column="SPECIAL_SKILL_ID" property="specialSkillId" />
+        <result column="BIND_EXPIRE_TIME" property="bindExpireTime" />
+        <result column="MARK_ID" property="markId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="StoreHouseResultMap">
+        SELECT * FROM STORE_HOUSE WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="StoreHouseResultMap">
+        SELECT * FROM STORE_HOUSE WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="StoreHouseResultMap">
+        SELECT * FROM STORE_HOUSE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM STORE_HOUSE
+    </select>
+    
+    <insert id="create" parameterType="StoreHouse" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO STORE_HOUSE(
+           V_ID,
+           PLAYER_ID,
+           ITEM_ID,
+           TYPE,
+           GOODS_TYPE,
+           OWNER,
+           LV,
+           ATTRIBUTE,
+           QUALITY,
+           GEM_ID,
+           NUM,
+           STATE,
+           REFRESH_ATTRIBUTE,
+           QUENCHING_TIMES,
+           QUENCHING_TIMES_FREE,
+           SPECIAL_SKILL_ID,
+           BIND_EXPIRE_TIME,
+           MARK_ID
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ itemId },
+           #{ type },
+           #{ goodsType },
+           #{ owner },
+           #{ lv },
+           #{ attribute },
+           #{ quality },
+           #{ gemId },
+           #{ num },
+           #{ state },
+           #{ refreshAttribute },
+           #{ quenchingTimes },
+           #{ quenchingTimesFree },
+           #{ specialSkillId },
+           #{ bindExpireTime },
+           #{ markId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM STORE_HOUSE WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+    <select id="getCountByPlayerId" resultType="int">
+    	<![CDATA[
+        SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND OWNER = 0 AND STATE = #{state} AND TYPE != 2
+        ]]>
+    </select>
+    
+    <select id="getMilitaryEquipList" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = 1 AND QUALITY >= #{quality} ORDER BY LV DESC, GOODS_TYPE ASC
+    	]]>
+    </select>
+    
+    <select id="getGeneralEquipCount" resultType="int">
+    	<![CDATA[
+        SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND OWNER = #{owner}
+    	]]>
+    </select>
+    
+    <select id="getStoreHouseByPlayerId" resultType="int" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <select id="getGemNumByPlayerId" resultType="int">
+    	<![CDATA[
+        SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = 2
+    	]]>
+    </select>
+    
+    <select id="getStoreHouseGoods" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND OWNER = 0 ORDER BY TYPE DESC, GOODS_TYPE ASC, QUALITY DESC, LV DESC
+    	]]>
+    </select>
+    
+    <select id="getByPlayerId" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} ORDER BY TYPE DESC, GOODS_TYPE ASC, QUALITY DESC, LV DESC
+    	]]>
+    </select>
+    
+    <update id="equipRebuild" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET ITEM_ID = ${itemId}, LV = #{lv}, ATTRIBUTE = #{attribute}, QUALITY = #{quality} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="equipUpLv" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET LV = LV + #{addLv}, ATTRIBUTE = ATTRIBUTE + #{addAttribute} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getGernerlEquip" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId}  AND TYPE = 1 AND OWNER <> 0  ORDER BY GOODS_TYPE ASC
+    	]]>
+    </select>
+    
+    <select id="getWearableEquip" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} ORDER BY OWNER DESC, QUALITY DESC, LV DESC 
+    	]]>
+    </select>
+    
+    <update id="resetOwnerByGeneralIdAndType" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET OWNER = 0 WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND OWNER = #{owner} AND GOODS_TYPE = #{goodsType}
+        ]]>
+    </update>
+    
+    
+    <update id="resetOwnerByGeneralId" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET OWNER = 0 WHERE PLAYER_ID = #{playerId} AND OWNER = #{owner}
+        ]]>
+    </update>
+    
+    <update id="resetOwnerByVId" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET OWNER = #{owner} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getGeneralEquipList" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND OWNER = #{owner} AND TYPE = #{type} AND STATE = 0
+    	]]>
+    </select>
+    
+    <select id="getNumByLvOrQuality" resultType="int">
+    <![CDATA[
+     SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND ((LV >= #{level} AND QUALITY = #{quality})OR QUALITY > #{quality})  
+     ]]>
+    </select>
+    
+    <select id="getCountByQualityNType" resultType="int">
+    <![CDATA[
+     SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND QUALITY >= #{quality}
+     ]]>
+    </select>
+    
+    <select id="getByQualityNType" resultMap="StoreHouseResultMap">
+    <![CDATA[
+     SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND QUALITY >= #{quality}
+     ]]>
+    </select>
+    
+    <select id="getWearNumByLvOrQuality" resultType="int">
+    <![CDATA[
+     SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND OWNER <> 0 AND ((LV >= #{level} AND QUALITY = #{quality})OR QUALITY > #{quality})  
+     ]]>
+    </select>
+    
+    <select id="getByGeneralIdAndType" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND OWNER = #{owner} AND GOODS_TYPE = #{goodsType}
+    	]]>
+    </select>
+    
+    <update id="updateGemId" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET GEM_ID = #{gemId} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    <update id="updateGemIdByPlayerIdAndGemId" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET GEM_ID = #{newGemId} WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND GEM_ID = #{gemId}
+    	]]>
+    </update>
+    
+    <update id="updateItemIdAndGemLvAndRefreshAttributeAndGoosType" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET ITEM_ID = #{itemId}, LV = #{gemLv}, REFRESH_ATTRIBUTE = #{refreshAttribute}, GOODS_TYPE = #{goodsType} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+     <update id="updateItemIdAndGemLvAndAttribute" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET ITEM_ID = #{itemId}, LV = #{gemLv}, ATTRIBUTE = #{attribute} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+     <update id="updateItemIdAndGemLvAndAttributeAndRefreshAttribute" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET ITEM_ID = #{itemId}, LV = #{gemLv}, ATTRIBUTE = #{attribute}, REFRESH_ATTRIBUTE = #{refreshAttribute} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    
+    <update id="reduceNum" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET NUM = NUM - #{reduceNum} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="addNum" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET NUM = NUM + #{addNum} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <select id="getByItemId" resultMap="StoreHouseResultMap">
+    	 SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND ITEM_ID = #{itemId} AND TYPE = #{type}
+    </select>
+    
+    <delete id="deleteByType" flushCache="true">
+        DELETE FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND ITEM_ID = #{itemId} AND TYPE = #{type}
+    </delete>
+    
+    <select id="getByType" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  TYPE = #{type}
+    	]]>
+    </select>
+    
+    <select id="getOwnerByType" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  TYPE = #{type} AND OWNER <> 0
+    	]]>
+    </select>
+    
+    <select id="getNoOwnerByType" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  TYPE = #{type} AND OWNER = 0
+    	]]>
+    </select>
+    
+    <update id="resetGeneralTreasure" parameterType="int" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET OWNER = 0, LV = 0 WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    <update id="updateRefreshAttribute" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET REFRESH_ATTRIBUTE = #{attr} WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="updateQuenchingTimes" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET QUENCHING_TIMES = #{t} WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+     <update id="updateQuenchingFreeTimes" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET QUENCHING_TIMES_FREE = #{t} WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="changeState" flushCache="true">
+    	UPDATE STORE_HOUSE SET STATE = #{state} WHERE V_ID = #{vId}
+    </update>
+    <select id="getCanAuctionTreasure"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  TYPE = #{type} AND OWNER = 0 AND STATE = #{state} AND QUALITY >= #{quality}
+    	]]>
+    </select>
+    
+    
+    <update id="changeGeneralTreasure" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET OWNER = #{owner}, LV = #{location} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    <update id="updateGeneralEquip" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET OWNER = #{nowGeneralId} WHERE PLAYER_ID = #{playerId} AND OWNER = #{orgGeneralId} AND TYPE = #{type}
+    	]]>
+    </update>
+    
+    <select id="getGeneralTreasureByType" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  GOODS_TYPE = #{type} AND TYPE = 3 AND STATE = 0
+    	]]>
+    </select>
+    
+     <select id="getSigningTreasure"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND  TYPE = #{type} AND STATE = #{state}
+    	]]>
+    </select>
+    
+    <select id="getUnSetGems" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} ORDER BY GOODS_TYPE, LV DESC
+    	]]>
+    </select>
+    
+    <select id="getSetGemsDiamonds" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType} AND GEM_ID > 0
+    	]]>
+    </select>
+    
+    <select id="getSetGemsDiamondsCount" resultType="int">
+    	<![CDATA[
+        SELECT count(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} AND GOODS_TYPE = #{goodsType}
+    	]]>
+    </select>
+    
+    <select id="getAllEquip" parameterType="int"  resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND TYPE = 1
+    	]]>
+    </select>
+    
+    <select id="getGeneralTreasureNum" resultType="int">
+    	<![CDATA[
+        SELECT COUNT(1) FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND OWNER = #{owner} AND TYPE = #{type}
+    	]]>
+    </select>
+    
+    <update id="updateRefreshAttriAndSpecial" flushCache="true">
+    	<![CDATA[
+    		UPDATE STORE_HOUSE SET REFRESH_ATTRIBUTE = #{attr} ,SPECIAL_SKILL_ID = #{skillId}  WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <insert id="demoutCreate">
+    	INSERT INTO STORE_HOUSE(
+    	PLAYER_ID,
+           ITEM_ID,
+           TYPE,
+           GOODS_TYPE,
+           OWNER,
+           LV,
+           ATTRIBUTE,
+           QUALITY,
+           GEM_ID,
+           NUM,
+           STATE,
+           REFRESH_ATTRIBUTE,
+           QUENCHING_TIMES,
+           QUENCHING_TIMES_FREE,
+           SPECIAL_SKILL_ID,
+           BIND_EXPIRE_TIME,
+           MARK_ID
+    	)VALUES
+    	<foreach collection="list" item="item" index="index" separator=",">
+    		(#{ item.playerId },
+           #{ item.itemId },
+           #{ item.type },
+           #{ item.goodsType },
+           #{ item.owner },
+           #{ item.lv },
+           #{ item.attribute },
+           #{ item.quality },
+           #{ item.gemId },
+           #{ item.num },
+           #{ item.state },
+           #{ item.refreshAttribute },
+           #{ item.quenchingTimes },
+           #{ item.quenchingTimesFree },
+           #{ item.specialSkillId },
+           #{ item.bindExpireTime},
+           #{ item.markId})
+    	</foreach>
+    </insert>
+    
+    <update id="resetOwnerByGeneralIdExceptTreasure" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET OWNER = 0 WHERE PLAYER_ID = #{playerId} AND OWNER = #{owner} AND TYPE != 3
+        ]]>
+    </update>
+    
+    <update id="updateBindExpireTime" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET BIND_EXPIRE_TIME = #{expireTime} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="updateRefreshAttributeAndMarkId" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET REFRESH_ATTRIBUTE = #{refreshAttribute}, MARK_ID = MARK_ID | POW(2, #{markId} -1 ) WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+     <update id="updateRefreshAttriAndSpecialAndMarkId" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET REFRESH_ATTRIBUTE = #{refreshAttribute}, SPECIAL_SKILL_ID = #{specialSkillId}, MARK_ID = MARK_ID | POW(2, #{markId} -1 ) WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+     <select id="getStoreHouseByPlayerIdAndMarkId" resultMap="StoreHouseResultMap" flushCache="true">
+        <![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND MARK_ID & POW(2, #{markId} -1 ) = POW(2, #{markId} - 1)
+        ]]>
+    </select>
+    
+    <update id="clearMarkId" flushCache="true">
+        <![CDATA[
+        UPDATE STORE_HOUSE SET MARK_ID = 0
+        ]]>
+    </update>
+    
+    
+    <delete id="deleteWeaponAndClearOwner" parameterType="int" flushCache="true">
+        DELETE FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId}
+    </delete>
+    
+    <update id="updateAttribute" flushCache="true">
+        <![CDATA[
+        	UPDATE STORE_HOUSE SET ATTRIBUTE = #{attribute} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+     <select id="getStoreHouseByWeaponId" resultMap="StoreHouseResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE WHERE PLAYER_ID = #{playerId} AND GEM_ID = #{weaponId} AND TYPE = 2 AND GOODS_TYPE = 1
+    	]]>
+    </select>
+    
+</mapper>

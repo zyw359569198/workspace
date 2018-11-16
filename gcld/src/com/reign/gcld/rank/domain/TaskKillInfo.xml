@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.rank.domain.TaskKillInfo">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="TaskKillInfoResultMap" type="TaskKillInfo">
+        <id column="VID" property="vid" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="TASK_ID" property="taskId" />
+        <result column="KILLNUM" property="killnum" />
+        <result column="ISREWARDED" property="isrewarded" />
+        <result column="UPDATETIME" property="updatetime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE VID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE VID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM TASK_KILL_INFO
+    </select>
+    
+    <insert id="create" parameterType="TaskKillInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vid">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT IGNORE INTO TASK_KILL_INFO(
+           VID,
+           PLAYER_ID,
+           TASK_ID,
+           KILLNUM,
+           ISREWARDED,
+           UPDATETIME
+        ) VALUES (
+           #{ vid },
+           #{ playerId },
+           #{ taskId },
+           #{ killnum },
+           #{ isrewarded },
+           #{ updatetime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM TASK_KILL_INFO WHERE VID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+	<resultMap id="PlayerIdResultMap" type="int">
+        <id column="PLAYER_ID" property="playerId" />
+    </resultMap>    
+
+	<select id="getTaskKillInfo" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}
+    </select>
+    
+    <select id="getTaskKillInfoByPAndT" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId} AND TASK_ID = #{taskId}
+    </select>
+    
+    <select id="getList" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO ORDER BY KILLNUM DESC;
+    </select>
+    
+    <update id="updateIsRewarded" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE TASK_KILL_INFO SET ISREWARDED = #{updateValue} WHERE PLAYER_ID = #{playerId}
+     	]]> 
+    </update>
+    
+    <update id="updateIsRewardedTask" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE TASK_KILL_INFO SET ISREWARDED = #{updateValue} WHERE PLAYER_ID = #{playerId} AND TASK_ID = #{taskId}
+     	]]> 
+    </update>
+    
+    <update id="updateKillNum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE TASK_KILL_INFO SET KILLNUM = #{killTotal} ,UPDATETIME = #{updateTime}  WHERE PLAYER_ID = #{playerId}
+     	]]> 
+    </update>
+    
+    <update id="updateKillNumTaskId" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE TASK_KILL_INFO SET KILLNUM = #{killTotal} ,UPDATETIME = #{updateTime}  WHERE PLAYER_ID = #{playerId} AND TASK_ID = #{taskId}
+     	]]> 
+    </update>
+    
+    <update id="updateTime" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE TASK_KILL_INFO SET UPDATETIME = #{updateTime}  WHERE PLAYER_ID = #{playerId}
+     	]]> 
+    </update>
+    
+    <update id="deleteAllInfos" flushCache="true">
+    	<![CDATA[
+    	 	DELETE  FROM TASK_KILL_INFO
+     	]]> 
+    </update>
+    
+    <select id="getPlayerIdByDown" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM TASK_KILL_INFO WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID != #{forceId} AND PLAYER_LV >= 30) AND KILLNUM < (SELECT KILLNUM FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}) ORDER BY KILLNUM DESC LIMIT 1 
+        ]]>
+    </select>
+    
+    <select id="getKillNum" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT KILLNUM FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdListByUp" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM TASK_KILL_INFO WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID != #{forceId} AND PLAYER_LV >= 30) AND KILLNUM > (SELECT KILLNUM FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}) ORDER BY KILLNUM  LIMIT 10
+        ]]>
+    </select>
+    
+     <select id="getPlayerIdList" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM TASK_KILL_INFO WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID != #{forceId} AND PLAYER_LV >= 30) AND KILLNUM = (SELECT KILLNUM FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}) LIMIT 10
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdListByDown" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM TASK_KILL_INFO WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID != #{forceId} AND PLAYER_LV >= 30) AND KILLNUM < (SELECT KILLNUM FROM TASK_KILL_INFO WHERE PLAYER_ID = #{playerId}) ORDER BY KILLNUM DESC LIMIT 10
+        ]]>
+    </select>
+    
+    <delete id="eraseByForceId" parameterType="int" flushCache="true">
+        DELETE FROM TASK_KILL_INFO WHERE TASK_ID = #{taskId}
+    </delete>
+    
+    <select id="getByTaskId" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE TASK_ID = #{nationTaskId}
+    </select>
+    
+    <select id="getByForceId" resultMap="TaskKillInfoResultMap">
+        SELECT * FROM TASK_KILL_INFO WHERE FLOOR(TASK_ID / 100) = #{forceId}
+    </select>
+</mapper>

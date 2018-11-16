@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.SearchComboEvent">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="SearchComboEventResultMap" type="SearchComboEvent">
+        <id column="COMBO_POS" property="comboPos" />
+        <result column="EVENT_INFO" property="eventInfo" />
+        <result column="REVEAL" property="reveal" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="SearchComboEventResultMap">
+        SELECT * FROM SEARCH_COMBO_EVENT WHERE COMBO_POS = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="SearchComboEventResultMap">
+        SELECT * FROM SEARCH_COMBO_EVENT WHERE COMBO_POS = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="SearchComboEventResultMap">
+        SELECT * FROM SEARCH_COMBO_EVENT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM SEARCH_COMBO_EVENT
+    </select>
+    
+    <insert id="create" parameterType="SearchComboEvent" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="comboPos">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO SEARCH_COMBO_EVENT(
+           COMBO_POS,
+           EVENT_INFO,
+           REVEAL
+        ) VALUES (
+           #{ comboPos },
+           #{ eventInfo },
+           #{ reveal }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM SEARCH_COMBO_EVENT WHERE COMBO_POS = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<update id="updateInfo" flushCache="true">
+		UPDATE SEARCH_COMBO_EVENT SET EVENT_INFO = #{info}, REVEAL = #{revealed} WHERE COMBO_POS = #{pos}
+	</update>
+	
+	<update id ="revealEvent" parameterType="int" flushCache="true">
+		UPDATE SEARCH_COMBO_EVENT SET REVEAL = 1 WHERE COMBO_POS = #{pos}
+	</update>
+</mapper>

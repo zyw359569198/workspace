@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.PlayerWorld">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerWorldResultMap" type="PlayerWorld">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="REWARD_NUM" property="rewardNum" />
+        <result column="ATTED_ID" property="attedId" />
+        <result column="CAN_ATT_ID" property="canAttId" />
+        <result column="REWARDS" property="rewards" />
+        <result column="REWARD" property="reward" />
+        <result column="BOXISPICKED" property="boxispicked" />
+        <result column="QUIZINFO" property="quizinfo" />
+        <result column="NPC_LOST_DETAIL" property="npcLostDetail" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerWorldResultMap">
+        SELECT * FROM PLAYER_WORLD WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerWorldResultMap">
+        SELECT * FROM PLAYER_WORLD WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerWorldResultMap">
+        SELECT * FROM PLAYER_WORLD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_WORLD
+    </select>
+    
+    <insert id="create" parameterType="PlayerWorld" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_WORLD(
+           PLAYER_ID,
+           REWARD_NUM,
+           ATTED_ID,
+           CAN_ATT_ID,
+           REWARDS,
+           REWARD,
+           BOXISPICKED,
+           QUIZINFO,
+           NPC_LOST_DETAIL
+        ) VALUES (
+           #{ playerId },
+           #{ rewardNum },
+           #{ attedId },
+           #{ canAttId },
+           #{ rewards },
+           #{ reward },
+           #{ boxispicked },
+           #{ quizinfo },
+           #{ npcLostDetail }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_WORLD WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+
+	<update id="addRewardNum" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_WORLD SET REWARD_NUM = REWARD_NUM + 1 WHERE REWARD_NUM < #{maxNum}
+        ]]>
+    </update> 
+    
+    <update id="reduceRewardNum" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_WORLD SET REWARD_NUM = REWARD_NUM - 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update> 
+    
+    <update id="updateAttInfo" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_WORLD SET ATTED_ID = #{attedId}, CAN_ATT_ID = #{canAttId} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update> 
+    
+    <select id="getByRewardNum" resultType="int">
+    	<![CDATA[
+    		SELECT PLAYER_ID FROM PLAYER_WORLD WHERE REWARD_NUM < #{rewardNumMax}
+    	]]>
+    </select>
+    
+    <update id="addRewards" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_WORLD SET REWARD_NUM = REWARD_NUM + 1, REWARDS = CONCAT(REWARDS,#{reward}) WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="reduceReward" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_WORLD SET REWARD_NUM = REWARD_NUM - 1, REWARDS = #{rewards}, REWARD = #{reward} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateBoxInfo" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_WORLD SET BOXISPICKED = #{boxInfo} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateQuizInfo" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_WORLD SET QUIZINFO = #{quizInfo} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateNpcLostDetail" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_WORLD SET NPC_LOST_DETAIL = #{npcLostDetail} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="clearRewardNum" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_WORLD SET REWARD_NUM = 0 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfzb.domain.KfzbSupport">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfzbSupportResultMap" type="KfzbSupport">
+        <id column="PLAYER_ID" property="playerId" />
+        <id column="SEASON_ID" property="seasonId" />
+        <id column="MATCH_ID" property="matchId" />
+        <id column="ROUND_ID" property="roundId" />
+        <result column="C_ID" property="cId" />
+        <result column="TICKETS" property="tickets" />
+        <result column="REWARDED" property="rewarded" />
+        <result column="TAKE_IT" property="takeIt" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfzbSupportResultMap">
+        SELECT * FROM KFZB_SUPPORT WHERE ROUND_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfzbSupportResultMap">
+        SELECT * FROM KFZB_SUPPORT WHERE ROUND_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfzbSupportResultMap">
+        SELECT * FROM KFZB_SUPPORT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFZB_SUPPORT
+    </select>
+    
+    <insert id="create" parameterType="KfzbSupport" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="roundId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFZB_SUPPORT(
+           PLAYER_ID,
+           SEASON_ID,
+           MATCH_ID,
+           ROUND_ID,
+           C_ID,
+           TICKETS,
+           REWARDED,
+           TAKE_IT
+        ) VALUES (
+           #{ playerId },
+           #{ seasonId },
+           #{ matchId },
+           #{ roundId },
+           #{ cId },
+           #{ tickets },
+           #{ rewarded },
+           #{ takeIt }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM KFZB_SUPPORT WHERE ROUND_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+
+	<select id="getUnRewardedListByWithIndex" resultMap="KfzbSupportResultMap">
+		SELECT * FROM KFZB_SUPPORT WHERE SEASON_ID = #{seasonId} AND MATCH_ID = #{matchId} AND ROUND_ID = #{roundId} AND REWARDED = #{flag}
+	</select>
+	
+	
+	<update id="updateAsRewarded" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_SUPPORT SET REWARDED = #{flag} WHERE SEASON_ID = #{seasonId} AND MATCH_ID = #{matchId} AND ROUND_ID = #{roundId} AND C_ID = #{winnerCId}
+        ]]>
+    </update>
+
+
+	<update id="updateAsFailed" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_SUPPORT SET REWARDED = #{flag} WHERE SEASON_ID = #{seasonId} AND MATCH_ID = #{matchId} AND ROUND_ID = #{roundId} AND C_ID <> #{winnerCId}
+        ]]>
+	</update>
+	
+    <update id="updateTakeIt" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_SUPPORT SET TAKE_IT = 1 WHERE SEASON_ID = #{seasonId} AND PLAYER_ID = #{playerId} AND MATCH_ID = #{matchId} AND ROUND_ID = #{roundId}
+       ]]>
+    </update>
+    
+	<select id="getByUniqIndex" resultMap="KfzbSupportResultMap">
+        SELECT * FROM KFZB_SUPPORT WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId} AND MATCH_ID = #{matchId} AND ROUND_ID = #{roundId}
+    </select>
+
+    <select id="getUnTakedSupportTicket" resultMap="KfzbSupportResultMap">
+      <![CDATA[
+        SELECT * FROM KFZB_SUPPORT WHERE SEASON_ID = #{seasonId} AND PLAYER_ID = #{playerId} AND TAKE_IT <> 1 AND REWARDED = 1;
+         ]]>
+    </select>
+    
+    <select id="getUnTakedSupportInfoBySeasonId" resultMap="KfzbSupportResultMap">
+        <![CDATA[
+        SELECT * FROM KFZB_SUPPORT WHERE SEASON_ID = #{seasonId} AND TAKE_IT <> 1 AND REWARDED = 1;
+         ]]>
+    </select>
+       <select id="getPlayerByLayerAndRound" resultMap="KfzbSupportResultMap">
+        <![CDATA[
+        SELECT * FROM KFZB_SUPPORT WHERE SEASON_ID = #{seasonId} AND PLAYER_ID = #{playerId} AND  MATCH_ID >= #{matchIdMin} AND MATCH_ID <= #{matchIdMax} AND ROUND_ID = #{round};
+         ]]>
+    </select>
+    <select id="getByMatchId" resultMap="KfzbSupportResultMap">
+        SELECT * FROM KFZB_SUPPORT WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId} AND MATCH_ID = #{matchId}
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.BattleInfo">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="BattleInfoResultMap" type="BattleInfo">
+        <id column="BATTLE_ID" property="battleId" />
+        <result column="ATT_FORCE_ID" property="attForceId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="BattleInfoResultMap">
+        SELECT * FROM BATTLE_INFO WHERE BATTLE_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="BattleInfoResultMap">
+        SELECT * FROM BATTLE_INFO WHERE BATTLE_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="BattleInfoResultMap">
+        SELECT * FROM BATTLE_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM BATTLE_INFO
+    </select>
+    
+    <insert id="create" parameterType="BattleInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="battleId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO BATTLE_INFO(
+           BATTLE_ID,
+           ATT_FORCE_ID
+        ) VALUES (
+           #{ battleId },
+           #{ attForceId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM BATTLE_INFO WHERE BATTLE_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+
+    <delete id="deleteByBattleId" parameterType="String" flushCache="true">
+        DELETE FROM BATTLE_INFO WHERE BATTLE_ID = #{battleId}
+    </delete>
+    
+    <insert id="createBattle" parameterType="BattleInfo" flushCache="true">
+        INSERT INTO BATTLE_INFO(
+           BATTLE_ID,
+           ATT_FORCE_ID
+        ) VALUES (
+           #{ battleId },#{ attForceId }
+        ) on duplicate key UPDATE BATTLE_ID = #{ battleId };
+    </insert>
+    
+</mapper>

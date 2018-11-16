@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.affair.domain.CivilAffair">  
+ <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="CivilAffairResultMap" type="CivilAffair">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="AFFAIR_ID" property="affairId" />
+        <result column="START_TIME" property="startTime" />
+        <result column="LV" property="lv" />
+        <result column="UPGRADE_SHOW" property="upgradeShow" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM CIVIL_AFFAIR
+    </select>
+    
+    <insert id="create" parameterType="CivilAffair" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO CIVIL_AFFAIR(
+           V_ID,
+           PLAYER_ID,
+           GENERAL_ID,
+           AFFAIR_ID,
+           START_TIME,
+           LV,
+           UPGRADE_SHOW
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ generalId },
+           #{ affairId },
+           #{ startTime },
+           #{ lv },
+           #{ upgradeShow }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM CIVIL_AFFAIR WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+  	<select id="getAffairList" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </select>  
+    
+    <select id="getAffairs" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR WHERE PLAYER_ID = #{playerId} 
+    </select> 
+    
+    <select id="getAffair" resultMap="CivilAffairResultMap">
+        SELECT * FROM CIVIL_AFFAIR WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND AFFAIR_ID = #{affairId}
+    </select>  
+    
+    <update id="updageStartTime" flushCache="true">
+    	UPDATE CIVIL_AFFAIR SET START_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND AFFAIR_ID = #{affairId}
+    </update>
+    
+     <update id="updageCivilStartTime" flushCache="true">
+    	UPDATE CIVIL_AFFAIR SET START_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id ="addAffairLevel" flushCache="true">
+    	UPDATE CIVIL_AFFAIR SET LV = LV + #{addLv} ,UPGRADE_SHOW = 1 WHERE V_ID= #{vId}
+    </update>
+    
+    <select id = "getRunningAffairCount" resultType="int">
+     <![CDATA[
+        SELECT COUNT(1) FROM CIVIL_AFFAIR WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND START_TIME IS NOT NULL
+      ]]>
+    </select>
+    
+    <update id = "changeUpgradeShow"  flushCache="true">
+    	UPDATE CIVIL_AFFAIR SET UPGRADE_SHOW = #{show} WHERE V_ID= #{vId}
+    </update>
+</mapper>

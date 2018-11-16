@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfzb.domain.KfzbInfo">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+	<!-- ##generate by template begin## -->
+	<resultMap id="KfzbInfoResultMap" type="KfzbInfo">
+		<id column="PLAYER_ID" property="playerId" />
+		<id column="SEASON_ID" property="seasonId" />
+		<result column="FLOWER1" property="flower1" />
+		<result column="FLOWER1_BUY" property="flower1Buy" />
+		<result column="SUPPORT1_INFO" property="support1Info" />
+		<result column="FLOWER2" property="flower2" />
+		<result column="FLOWER2_BUY" property="flower2Buy" />
+		<result column="SUPPORT2_INFO" property="support2Info" />
+	</resultMap>
+
+	<select id="read" parameterType="int" resultMap="KfzbInfoResultMap">
+		SELECT * FROM KFZB_INFO WHERE SEASON_ID = #{id}
+	</select>
+
+	<select id="readForUpdate" parameterType="int" resultMap="KfzbInfoResultMap">
+		SELECT * FROM KFZB_INFO WHERE SEASON_ID = #{id} FOR UPDATE
+	</select>
+
+	<select id="getModels" resultMap="KfzbInfoResultMap">
+		SELECT * FROM KFZB_INFO
+	</select>
+
+	<select id="getModelSize" resultType="int">
+		SELECT COUNT(1) FROM KFZB_INFO
+	</select>
+
+	<insert id="create" parameterType="KfzbInfo" flushCache="true">
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="seasonId">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		INSERT INTO KFZB_INFO(
+		PLAYER_ID,
+		SEASON_ID,
+		FLOWER1,
+		FLOWER1_BUY,
+		SUPPORT1_INFO,
+		FLOWER2,
+		FLOWER2_BUY,
+		SUPPORT2_INFO
+		) VALUES (
+		#{ playerId },
+		#{ seasonId },
+		#{ flower1 },
+		#{ flower1Buy },
+		#{ support1Info },
+		#{ flower2 },
+		#{ flower2Buy },
+		#{ support2Info }
+		)
+	</insert>
+
+	<delete id="deleteById" parameterType="int">
+		DELETE FROM KFZB_INFO WHERE SEASON_ID = #{id}
+	</delete>
+	<!-- ##generate by template end## -->
+
+
+
+	<select id="getByPlayerIdSeasonId" parameterType="int" resultMap="KfzbInfoResultMap">
+		SELECT * FROM
+		KFZB_INFO WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+	</select>
+
+
+	<update id="updateSupport1DecreaseFlower1" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_INFO SET FLOWER1 = FLOWER1-1, SUPPORT1_INFO = #{support1} WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+
+
+	<update id="updateSupport2DecreaseFlower2" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_INFO SET FLOWER2 = FLOWER2-1, SUPPORT2_INFO = #{support2} WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+
+	<select id="getBySeasonId" parameterType="int" resultMap="KfzbInfoResultMap">
+		SELECT
+		* FROM KFZB_INFO WHERE SEASON_ID = #{seasonId}
+	</select>
+
+
+	<update id="buyFlower1" flushCache="true">
+        <![CDATA[
+            UPDATE KFZB_INFO SET FLOWER1 = FLOWER1+1, FLOWER1_BUY = FLOWER1_BUY+1 WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+
+
+	<update id="buyFlower2" flushCache="true">
+       <![CDATA[
+            UPDATE KFZB_INFO SET FLOWER2 = FLOWER2+1, FLOWER2_BUY = FLOWER2_BUY+1 WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+    
+
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.tickets.domain.PlayerTickets">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTicketsResultMap" type="PlayerTickets">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="TICKETS" property="tickets" />
+        <result column="NO_TIPS" property="noTips" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTicketsResultMap">
+        SELECT * FROM PLAYER_TICKETS WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTicketsResultMap">
+        SELECT * FROM PLAYER_TICKETS WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTicketsResultMap">
+        SELECT * FROM PLAYER_TICKETS
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TICKETS
+    </select>
+    
+    <insert id="create" parameterType="PlayerTickets" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TICKETS(
+           PLAYER_ID,
+           TICKETS,
+           NO_TIPS
+        ) VALUES (
+           #{ playerId },
+           #{ tickets },
+           #{ noTips }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_TICKETS WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <update id="addTickets" flushCache="true">
+    <![CDATA[
+    	 UPDATE PLAYER_TICKETS SET
+        	TICKETS = TICKETS + #{tickets} 
+        WHERE PLAYER_ID = #{playerId}
+     ]]> 
+    </update>
+    
+    <update id="consumeTickets" flushCache="true">
+    <![CDATA[
+    	 UPDATE PLAYER_TICKETS SET
+        	TICKETS = TICKETS - #{tickets} 
+        WHERE PLAYER_ID = #{playerId} AND TICKETS >= #{tickets}
+     ]]> 
+    </update>
+    
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.PlayerKillInfo">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerKillInfoResultMap" type="PlayerKillInfo">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="KILL_NUM" property="killNum" />
+        <result column="KILL_DATE" property="killDate" />  
+        <result column="BOX_REWARD_INFO" property="box_reward_info"/>
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerKillInfoResultMap">
+        SELECT * FROM PLAYER_KILL_INFO WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerKillInfoResultMap">
+        SELECT * FROM PLAYER_KILL_INFO WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerKillInfoResultMap">
+        SELECT * FROM PLAYER_KILL_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_KILL_INFO
+    </select>
+    
+    <insert id="create" parameterType="PlayerKillInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_KILL_INFO(
+           V_ID,
+           PLAYER_ID,
+           FORCE_ID,
+           KILL_NUM,
+           KILL_DATE,
+           BOX_REWARD_INFO
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ forceId },
+           #{ killNum },
+           #{ killDate },
+           #{ box_reward_info }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_KILL_INFO WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<select id="getByTodayInfo" parameterType="int" resultMap="PlayerKillInfoResultMap">
+		<![CDATA[
+        SELECT * FROM PLAYER_KILL_INFO WHERE PLAYER_ID = #{playerId} AND KILL_DATE = #{date}
+        ]]>
+    </select>
+    
+    <select id="getTodayInfo" parameterType="int" resultMap="PlayerKillInfoResultMap">
+		<![CDATA[
+        SELECT * FROM PLAYER_KILL_INFO WHERE KILL_DATE = #{date}
+        ]]>
+    </select>
+	
+	<select id="getListByKillNum" resultMap="PlayerKillInfoResultMap">
+		<![CDATA[
+        	SELECT * FROM PLAYER_KILL_INFO WHERE FORCE_ID = #{forceId} AND KILL_DATE = #{date} ORDER BY KILL_NUM DESC
+        ]]> 
+    </select>
+    
+    <update id="updateKillNum" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_KILL_INFO SET KILL_NUM = KILL_NUM + #{killNum} WHERE PLAYER_ID = #{playerId} AND KILL_DATE = #{date}
+        ]]>
+    </update>
+    
+    <update id="resetBoxInfo" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_KILL_INFO SET BOX_REWARD_INFO = #{boxInfo} WHERE KILL_DATE = #{date}
+        ]]>
+    </update>
+    
+    <update id="updateBoxInfo" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_KILL_INFO SET BOX_REWARD_INFO =  #{boxInfo} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByDate" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_KILL_INFO WHERE KILL_DATE <= #{date}
+        ]]>
+    </delete>
+    
+    <select id="getListByPlayerId" parameterType="int" resultMap="PlayerKillInfoResultMap">
+		<![CDATA[
+        SELECT * FROM PLAYER_KILL_INFO WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+</mapper>

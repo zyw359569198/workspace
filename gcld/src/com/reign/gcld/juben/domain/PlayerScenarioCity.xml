@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.juben.domain.PlayerScenarioCity">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerScenarioCityResultMap" type="PlayerScenarioCity">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="SCENARIO_ID" property="scenarioId" />
+        <result column="CITY_ID" property="cityId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="STATE" property="state" />
+        <result column="TITLE" property="title" />
+        <result column="TRICKINFO" property="trickinfo" />
+        <result column="BORDER" property="border" />
+        <result column="EVENT_INFO" property="eventInfo" />
+        <result column="UPDATETIME" property="updatetime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerScenarioCityResultMap">
+        SELECT * FROM PLAYER_SCENARIO_CITY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerScenarioCityResultMap">
+        SELECT * FROM PLAYER_SCENARIO_CITY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerScenarioCityResultMap">
+        SELECT * FROM PLAYER_SCENARIO_CITY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_SCENARIO_CITY
+    </select>
+    
+    <insert id="create" parameterType="PlayerScenarioCity" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_SCENARIO_CITY(
+           V_ID,
+           PLAYER_ID,
+           SCENARIO_ID,
+           CITY_ID,
+           FORCE_ID,
+           STATE,
+           TITLE,
+           TRICKINFO,
+           BORDER,
+           EVENT_INFO,
+           UPDATETIME
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ scenarioId },
+           #{ cityId },
+           #{ forceId },
+           #{ state },
+           #{ title },
+           #{ trickinfo },
+           #{ border },
+           #{ eventInfo },
+           #{ updatetime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_SCENARIO_CITY WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<select id="getSCityByPidSid" parameterType="int"  resultMap="PlayerScenarioCityResultMap">
+    	<![CDATA[
+        SELECT * FROM PLAYER_SCENARIO_CITY WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+    	]]>
+    </select>
+	
+	<update id="updateInit" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO_CITY SET FORCE_ID = #{forceId}, TRICKINFO = #{trickinfo}, UPDATETIME = #{updatetime}, 
+        	TITLE = #{title}, STATE = #{state}, BORDER = #{border}, EVENT_INFO = #{eventInfo}
+        	WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId} AND CITY_ID = #{cityId}
+        ]]>
+    </update>
+    
+    <update id="updateForceId" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO_CITY SET FORCE_ID = #{forceId} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId} AND CITY_ID = #{cityId}
+        ]]>
+    </update>
+    
+    <update id="updateTrickInfo" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO_CITY SET TRICKINFO = #{trickInfo} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId} AND CITY_ID = #{cityId}
+        ]]>
+    </update>
+    
+    
+    
+</mapper>

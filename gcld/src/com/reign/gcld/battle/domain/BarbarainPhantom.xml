@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.BarbarainPhantom">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+	<!-- ##generate by template begin## -->
+    <resultMap id="BarbarainPhantomResultMap" type="BarbarainPhantom">
+        <id column="V_ID" property="vId" />
+        <result column="NPC_TYPE" property="npcType" />
+        <result column="STATE" property="state" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="BARBARAIN_ID" property="barbarainId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="HP" property="hp" />
+        <result column="TACTICVAL" property="tacticval" />
+        <result column="NAME" property="name" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="BarbarainPhantomResultMap">
+        SELECT * FROM BARBARAIN_PHANTOM WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="BarbarainPhantomResultMap">
+        SELECT * FROM BARBARAIN_PHANTOM WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="BarbarainPhantomResultMap">
+        SELECT * FROM BARBARAIN_PHANTOM
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM BARBARAIN_PHANTOM
+    </select>
+    
+    <insert id="create" parameterType="BarbarainPhantom" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO BARBARAIN_PHANTOM(
+           V_ID,
+           NPC_TYPE,
+           STATE,
+           CREATE_TIME,
+           LOCATION_ID,
+           FORCE_ID,
+           BARBARAIN_ID,
+           ARMY_ID,
+           HP,
+           TACTICVAL,
+           NAME
+        ) VALUES (
+           #{ vId },
+           #{ npcType },
+           #{ state },
+           #{ createTime },
+           #{ locationId },
+           #{ forceId },
+           #{ barbarainId },
+           #{ armyId },
+           #{ hp },
+           #{ tacticval },
+           #{ name }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM BARBARAIN_PHANTOM WHERE V_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+
+	<select id="getBarPhantomByLocationId" resultMap="BarbarainPhantomResultMap">
+		SELECT * FROM
+		BARBARAIN_PHANTOM WHERE LOCATION_ID = #{locationId}
+	</select>
+	
+	
+	<select id="getBarPhantomByForceId" resultMap="BarbarainPhantomResultMap">
+        SELECT * FROM
+        BARBARAIN_PHANTOM WHERE FORCE_ID = #{forceId}
+    </select>
+
+	<update id="updateHpTacticVal" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_PHANTOM SET HP = #{hp}, TACTICVAL = #{tacticVal} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_PHANTOM SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="resetStateByLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_PHANTOM SET STATE = 0 WHERE LOCATION_ID = #{locationId} AND STATE = #{state}
+        ]]>
+	</update>
+
+	<update id="resetStateAll" flushCache="true">
+        <![CDATA[
+        UPDATE BARBARAIN_PHANTOM SET STATE = 0
+        ]]>
+	</update>
+
+	<update id="callProcedureBatchInsert" statementType = "CALLABLE" flushCache="true">
+        <![CDATA[
+       		{call callProcedureBatchInsert(#{state}, #{cityId}, #{forceId}, #{barbarainId}, #{armyIds}, #{hps}, #{tacticval}, #{name})}
+        ]]>
+	</update>
+	
+	<insert id="batchCreate">
+		INSERT INTO BARBARAIN_PHANTOM(
+		V_ID,
+		NPC_TYPE,
+		STATE,
+		CREATE_TIME,
+		LOCATION_ID,
+		FORCE_ID,
+		BARBARAIN_ID,
+		ARMY_ID,
+		HP,
+		TACTICVAL,
+		NAME)
+		VALUES
+		<foreach collection = "list" item="item" index="index" separator=",">
+			(#{item.vId}, #{item.npcType}, #{item.state}, #{item.createTime },#{item.locationId },
+			#{item.forceId },#{item.barbarainId },#{item.armyId },
+			#{item.hp },#{item.tacticval }, #{item.name})
+		</foreach>
+	</insert>
+	
+	<select id="getMaxVid" resultType="int">
+		SELECT max(V_ID) FROM BARBARAIN_PHANTOM
+	</select>
+	
+	
+	 <delete id="removeAllInThisCity" parameterType="int" flushCache="true">
+        DELETE FROM BARBARAIN_PHANTOM WHERE LOCATION_ID = #{cityId}
+    </delete>
+	
+</mapper>

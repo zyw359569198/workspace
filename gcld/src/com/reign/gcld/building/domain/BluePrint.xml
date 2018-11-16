@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.building.domain.BluePrint">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="BluePrintResultMap" type="BluePrint">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="INDEX" property="index" />
+        <result column="STATE" property="state" />
+        <result column="CD" property="cd" />
+        <result column="JOB_ID" property="jobId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="BluePrintResultMap">
+        SELECT * FROM BLUE_PRINT WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="BluePrintResultMap">
+        SELECT * FROM BLUE_PRINT WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="BluePrintResultMap">
+        SELECT * FROM BLUE_PRINT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM BLUE_PRINT
+    </select>
+    
+    <insert id="create" parameterType="BluePrint" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO BLUE_PRINT(
+           V_ID,
+           PLAYER_ID,
+           `INDEX`,
+           STATE,
+           CD,
+           JOB_ID
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ index },
+           #{ state },
+           #{ cd },
+           #{ jobId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM BLUE_PRINT WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+	<resultMap id="IndexResultMap" type="int">
+        <id column="INDEX" property="index" />
+    </resultMap>
+	
+	<select id="getCount"  resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM BLUE_PRINT WHERE PLAYER_ID = #{playerId} AND `INDEX` = #{index} 
+        ]]>
+    </select>
+	  
+	<select id="getByPlayerIdAndIndex" resultMap="BluePrintResultMap">
+		<![CDATA[
+        	SELECT * FROM BLUE_PRINT WHERE PLAYER_ID = #{playerId} AND `INDEX` = #{index}
+         ]]>
+    </select>
+    
+    <update id="updateState" flushCache="true">
+		<![CDATA[
+        	UPDATE BLUE_PRINT SET STATE = #{state} WHERE V_ID = #{vId}
+         ]]>
+    </update>
+    
+    <update id="updateStateByPlayerIdAndIndex" flushCache="true">
+		<![CDATA[
+        	UPDATE BLUE_PRINT SET STATE = #{state} WHERE PLAYER_ID = #{playerId} AND `INDEX` = #{index}
+         ]]>
+    </update>
+    
+    <update id="cons" flushCache="true">
+		<![CDATA[
+        	UPDATE BLUE_PRINT SET STATE = #{state}, CD = #{cd}, JOB_ID = #{jobId} WHERE V_ID = #{vId}
+         ]]>
+    </update>
+    
+    <select id="getBluePrintIndexList" resultMap="IndexResultMap">
+		<![CDATA[
+        	SELECT `INDEX` FROM BLUE_PRINT WHERE PLAYER_ID = #{playerId}
+         ]]>
+    </select>
+</mapper>

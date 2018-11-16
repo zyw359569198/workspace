@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.City">
+<!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+<!-- ##generate by template begin## -->  
+    <resultMap id="CityResultMap" type="City">
+        <id column="ID" property="id" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="STATE" property="state" />
+        <result column="TITLE" property="title" />
+        <result column="G_NUM" property="gNum" />
+        <result column="TRICKINFO" property="trickinfo" />
+        <result column="BORDER" property="border" />
+        <result column="STATE_JOB_ID" property="stateJobId" />
+        <result column="HP" property="hp" />
+        <result column="HP_MAX" property="hpMax" />
+        <result column="OTHER_INFO" property="otherInfo" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CityResultMap">
+        SELECT * FROM CITY WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CityResultMap">
+        SELECT * FROM CITY WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CityResultMap">
+        SELECT * FROM CITY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM CITY
+    </select>
+    
+    <insert id="create" parameterType="City" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO CITY(
+           ID,
+           FORCE_ID,
+           STATE,
+           TITLE,
+           G_NUM,
+           TRICKINFO,
+           BORDER,
+           STATE_JOB_ID,
+           HP,
+           HP_MAX,
+           OTHER_INFO
+        ) VALUES (
+           #{ id },
+           #{ forceId },
+           #{ state },
+           #{ title },
+           #{ gNum },
+           #{ trickinfo },
+           #{ border },
+           #{ stateJobId },
+           #{ hp },
+           #{ hpMax },
+           #{ otherInfo }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM CITY WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<resultMap id="IdResultMap" type="int">
+        <id column="ID" property="id" />
+    </resultMap>
+	
+	<update id="updateTitle" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET TITLE = #{title} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <update id="updateForceIdState" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET STATE = #{state}, FORCE_ID = #{forceId} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <update id="updateState" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET STATE = #{state} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <select id="getForceCities" parameterType="int" resultMap="CityResultMap">
+    	<![CDATA[
+    	 	SELECT * FROM CITY WHERE FORCE_ID = #{forceId}
+    	 ]]>
+    </select>
+    
+    <update id="addGNum" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET G_NUM = G_NUM + #{num} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <update id="updateTrickInfo" flushCache="true">
+    	<![CDATA[
+        	UPDATE CITY SET TRICKINFO = #{trickinfo} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <update id="reduceGNum" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET G_NUM = G_NUM - #{num} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <select id="getForceCounts" resultType="int">
+     	<![CDATA[
+        	SELECT COUNT(1) FROM CITY WHERE FORCE_ID = #{forceId}
+         ]]>
+    </select>
+    
+    <update id="updateBorder" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET BORDER = #{border} WHERE ID = #{id}
+        ]]>
+    </update>
+    
+    <update id="updateJobId" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET STATE_JOB_ID = #{jobId} WHERE ID = #{cityId}
+        ]]>
+    </update>
+    
+     <update id="resetBorder" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET BORDER = 0
+        ]]>
+    </update>
+    
+    <update id="resetTitle" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET TITLE = 0
+        ]]>
+    </update>
+    
+     <update id="updateHp" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET HP = #{hp} where ID = #{cityId}
+        ]]>
+    </update>
+    
+     <update id="updateHpMaxHp" flushCache="true">
+        <![CDATA[
+        	UPDATE CITY SET HP = #{hp}, HP_MAX = #{hpMax} where ID = #{cityId}
+        ]]>
+    </update>
+    
+    <select id="getCityIdListByForceId" parameterType="int" resultMap="IdResultMap">
+    	<![CDATA[
+    	 	SELECT * FROM CITY WHERE FORCE_ID = #{forceId}
+    	 ]]>
+    </select>
+    
+     <update id="updateOtherInfo" flushCache="true">
+        <![CDATA[
+            UPDATE CITY SET OTHER_INFO = #{otherInfo} where ID = #{cityId}
+        ]]>
+    </update>
+    
+    <update id="updateForceIdStateTitleBorder" flushCache="true">
+        <![CDATA[
+            UPDATE CITY SET FORCE_ID = #{forceId}, STATE = #{state}, TITLE = #{title}, BORDER = #{border}  where ID = #{cityId}
+        ]]>
+    </update>
+    
+</mapper>

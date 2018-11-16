@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfzb.domain.KfzbSignup">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfzbSignupResultMap" type="KfzbSignup">
+        <id column="PLAYER_ID" property="playerId" />
+        <id column="SEASON_ID" property="seasonId" />
+        <result column="SAIQU_ID" property="saiquId" />
+        <result column="INFO" property="info" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfzbSignupResultMap">
+        SELECT * FROM KFZB_SIGNUP WHERE SEASON_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfzbSignupResultMap">
+        SELECT * FROM KFZB_SIGNUP WHERE SEASON_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfzbSignupResultMap">
+        SELECT * FROM KFZB_SIGNUP
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFZB_SIGNUP
+    </select>
+    
+    <insert id="create" parameterType="KfzbSignup" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="seasonId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFZB_SIGNUP(
+           PLAYER_ID,
+           SEASON_ID,
+           SAIQU_ID,
+           INFO
+        ) VALUES (
+           #{ playerId },
+           #{ seasonId },
+           #{ saiquId },
+           #{ info }
+        )
+    </insert>
+
+	<delete id="deleteById" parameterType="int">
+		DELETE FROM KFZB_SIGNUP WHERE SEASON_ID = #{id}
+	</delete>
+	<!-- ##generate by template end## -->
+
+
+	<select id="getByPlayerIdAndSeasonId" resultMap="KfzbSignupResultMap">
+	   <![CDATA[
+		SELECT * FROM KFZB_SIGNUP WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+		]]>
+	</select>
+
+	<select id="getBySeasonId" parameterType="int" resultMap="KfzbSignupResultMap">
+		SELECT * FROM KFZB_SIGNUP WHERE SEASON_ID = #{seasonId}
+	</select>
+    
+	
+</mapper>

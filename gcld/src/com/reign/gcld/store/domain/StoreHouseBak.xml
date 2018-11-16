@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.store.domain.StoreHouseBak">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="StoreHouseBakResultMap" type="StoreHouseBak">
+        <id column="V_ID" property="vId" />
+        <result column="SUIT_ID" property="suitId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="ITEM_ID" property="itemId" />
+        <result column="TYPE" property="type" />
+        <result column="GOODS_TYPE" property="goodsType" />
+        <result column="OWNER" property="owner" />
+        <result column="LV" property="lv" />
+        <result column="ATTRIBUTE" property="attribute" />
+        <result column="QUALITY" property="quality" />
+        <result column="GEM_ID" property="gemId" />
+        <result column="NUM" property="num" />
+        <result column="STATE" property="state" />
+        <result column="REFRESH_ATTRIBUTE" property="refreshAttribute" />
+        <result column="QUENCHING_TIMES" property="quenchingTimes" />
+        <result column="QUENCHING_TIMES_FREE" property="quenchingTimesFree" />
+        <result column="SPECIAL_SKILL_ID" property="specialSkillId" />
+        <result column="SUIT_INDEX" property="suitIndex" />
+        <result column="BIND_EXPIRE_TIME" property="bindExpireTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="StoreHouseBakResultMap">
+        SELECT * FROM STORE_HOUSE_BAK WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="StoreHouseBakResultMap">
+        SELECT * FROM STORE_HOUSE_BAK WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="StoreHouseBakResultMap">
+        SELECT * FROM STORE_HOUSE_BAK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM STORE_HOUSE_BAK
+    </select>
+    
+    <insert id="create" parameterType="StoreHouseBak" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO STORE_HOUSE_BAK(
+           V_ID,
+           SUIT_ID,
+           PLAYER_ID,
+           ITEM_ID,
+           TYPE,
+           GOODS_TYPE,
+           OWNER,
+           LV,
+           ATTRIBUTE,
+           QUALITY,
+           GEM_ID,
+           NUM,
+           STATE,
+           REFRESH_ATTRIBUTE,
+           QUENCHING_TIMES,
+           QUENCHING_TIMES_FREE,
+           SPECIAL_SKILL_ID,
+           SUIT_INDEX,
+           BIND_EXPIRE_TIME
+        ) VALUES (
+           #{ vId },
+           #{ suitId },
+           #{ playerId },
+           #{ itemId },
+           #{ type },
+           #{ goodsType },
+           #{ owner },
+           #{ lv },
+           #{ attribute },
+           #{ quality },
+           #{ gemId },
+           #{ num },
+           #{ state },
+           #{ refreshAttribute },
+           #{ quenchingTimes },
+           #{ quenchingTimesFree },
+           #{ specialSkillId },
+           #{ suitIndex },
+           #{ bindExpireTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM STORE_HOUSE_BAK WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+	<select id="getListByStoreId" resultMap="StoreHouseBakResultMap">
+        SELECT * FROM STORE_HOUSE_BAK WHERE SUIT_ID = #{vId}
+    </select> 
+    <delete id="demoutDelete" flushCache="true">
+    	DELETE FROM STORE_HOUSE_BAK WHERE SUIT_ID = #{suitId}
+    </delete>
+    
+    <update id="changeSuitId" flushCache="true">
+    	 <![CDATA[
+        UPDATE STORE_HOUSE_BAK SET SUIT_ID = #{suitVid} , SUIT_INDEX = #{index} WHERE PLAYER_ID = #{playerId} AND SUIT_ID = #{suitId}
+        ]]>
+    </update>
+    
+    <update id="changeBackJunior" flushCache="true">
+    	 <![CDATA[
+        UPDATE STORE_HOUSE_BAK SET SUIT_ID = #{suitId} WHERE PLAYER_ID = #{playerId} AND SUIT_ID = #{vId} AND SUIT_INDEX = #{index}
+        ]]>
+    </update>
+    
+    <select id="getBySuitIdAndIndex" resultMap="StoreHouseBakResultMap">
+    	SELECT * FROM STORE_HOUSE_BAK WHERE SUIT_ID = #{suitId} AND SUIT_INDEX = #{index}
+    </select>
+    
+    <delete id="deleteByPlayerId" parameterType="int" flushCache="true">
+        DELETE FROM STORE_HOUSE_BAK WHERE PLAYER_ID = #{playerId}
+    </delete>
+</mapper>

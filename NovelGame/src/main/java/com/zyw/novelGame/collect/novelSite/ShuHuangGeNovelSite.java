@@ -15,6 +15,7 @@ public class ShuHuangGeNovelSite extends BasicNovelSite{
 
 	@Override
 	public List<QueueInfo> getNovelSite() {
+		super.blocking_queue_threshold=1;
 		List<QueueInfo> list=new ArrayList<QueueInfo>();
 		CollectInfo collect=getCollectInfo();
 		List<String> bookList=new ArrayList<String>();

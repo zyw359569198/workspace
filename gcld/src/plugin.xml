@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <version>1.0.0.0</version>
+    <scanPackage>com.reign.plugin.yx</scanPackage>
+	<checkClass>com.reign.plugin.yx.PluginContext</checkClass>
+	<sqlResources></sqlResources>
+</plugin>

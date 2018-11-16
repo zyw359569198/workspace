@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.grouparmy.domain.PlayerGroupArmy">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGroupArmyResultMap" type="PlayerGroupArmy">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="IS_LEADER" property="isLeader" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGroupArmyResultMap">
+        SELECT * FROM PLAYER_GROUP_ARMY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGroupArmyResultMap">
+        SELECT * FROM PLAYER_GROUP_ARMY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGroupArmyResultMap">
+        SELECT * FROM PLAYER_GROUP_ARMY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GROUP_ARMY
+    </select>
+    
+    <insert id="create" parameterType="PlayerGroupArmy" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GROUP_ARMY(
+           V_ID,
+           PLAYER_ID,
+           GENERAL_ID,
+           ARMY_ID,
+           IS_LEADER
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ generalId },
+           #{ armyId },
+           #{ isLeader }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_GROUP_ARMY WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<select id ="getPlayerGroupArmy" resultMap="PlayerGroupArmyResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_GROUP_ARMY WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+		]]>
+	</select>
+  	<select id="getList" resultMap="PlayerGroupArmyResultMap">
+  		<![CDATA[
+        	SELECT * FROM PLAYER_GROUP_ARMY WHERE ARMY_ID = #{armyId}
+        ]]>
+    </select>
+    
+    <update id="updateIsLeader" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_GROUP_ARMY SET IS_LEADER = #{isLeader} WHERE V_ID = #{vId}
+    	]]>
+    </update>
+    
+    <select id="getGroupArmies" resultMap="PlayerGroupArmyResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_GROUP_ARMY WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <delete id="deleteByArmyId" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_GROUP_ARMY WHERE ARMY_ID = #{armyId}
+        ]]>
+    </delete>
+    
+    <update id="updateArmyId" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_GROUP_ARMY SET ARMY_ID = #{newArmyId} WHERE ARMY_ID = #{oldArmyId}
+    	]]>
+    </update>
+    
+    <delete id="deleteByPlayerId" parameterType="int" flushCache="true">
+    	<![CDATA[
+    		DELETE FROM PLAYER_GROUP_ARMY WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </delete>
+    
+    <select id="getCountByArmyId" parameterType="int" resultType="int">
+  		<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER_GROUP_ARMY WHERE ARMY_ID = #{armyId}
+        ]]>
+    </select>
+</mapper>

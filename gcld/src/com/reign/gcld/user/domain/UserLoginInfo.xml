@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.user.domain.UserLoginInfo"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="UserLoginInfoResultMap" type="UserLoginInfo">
+        <id column="V_ID" property="vId" />
+        <result column="USER_ID" property="userId" />
+        <result column="ONLINE_TIME" property="onlineTime" />
+        <result column="LAST_LOGIN_TIME" property="lastLoginTime" />
+        <result column="LAST_LOGOUT_TIME" property="lastLogoutTime" />
+        <result column="TAG" property="tag" />
+        <result column="YX" property="yx" />
+        <result column="OFFLINE_TIME" property="offlineTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="UserLoginInfoResultMap">
+        SELECT * FROM USER_LOGIN_INFO WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="UserLoginInfoResultMap">
+        SELECT * FROM USER_LOGIN_INFO WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="UserLoginInfoResultMap">
+        SELECT * FROM USER_LOGIN_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM USER_LOGIN_INFO
+    </select>
+    
+    <insert id="create" parameterType="UserLoginInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO USER_LOGIN_INFO(
+           V_ID,
+           USER_ID,
+           ONLINE_TIME,
+           LAST_LOGIN_TIME,
+           LAST_LOGOUT_TIME,
+           TAG,
+           YX,
+           OFFLINE_TIME
+        ) VALUES (
+           #{ vId },
+           #{ userId },
+           #{ onlineTime },
+           #{ lastLoginTime },
+           #{ lastLogoutTime },
+           #{ tag },
+           #{ yx },
+           #{ offlineTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM USER_LOGIN_INFO WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+	<select id="getUserLoginInfo" resultMap="UserLoginInfoResultMap">
+        SELECT * FROM USER_LOGIN_INFO WHERE YX = #{yx} AND USER_ID = #{userId}
+    </select>
+    
+    <update id="update" flushCache="true">
+    	<![CDATA[
+    	UPDATE USER_LOGIN_INFO SET ONLINE_TIME =#{onlineTime},LAST_LOGIN_TIME=#{lastLoginTime},LAST_LOGOUT_TIME=#{lastLogoutTime},TAG=#{tag},YX=#{yx},OFFLINE_TIME=#{offlineTime} WHERE USER_ID= #{userId}
+    	 ]]>  
+    </update>   
+</mapper>

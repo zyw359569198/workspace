@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.pay.domain.PlayerPay">  
+
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerPayResultMap" type="PlayerPay">
+        <id column="V_ID" property="vId" />
+        <result column="ORDER_ID" property="orderId" />
+        <result column="GOLD" property="gold" />
+        <result column="USER_ID" property="userId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="YX" property="yx" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="TYPE" property="type" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerPayResultMap">
+        SELECT * FROM PLAYER_PAY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerPayResultMap">
+        SELECT * FROM PLAYER_PAY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerPayResultMap">
+        SELECT * FROM PLAYER_PAY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_PAY
+    </select>
+   
+    <insert id="create" parameterType="PlayerPay" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_PAY(
+           V_ID,
+           ORDER_ID,
+           GOLD,
+           USER_ID,
+           PLAYER_ID,
+           YX,
+           CREATE_TIME,
+           TYPE
+        ) VALUES (
+           #{ vId },
+           #{ orderId },
+           #{ gold },
+           #{ userId },
+           #{ playerId },
+           #{ yx },
+           #{ createTime },
+           #{ type }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_PAY WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<select id ="queryPaySum" resultType="int">
+		SELECT SUM(GOLD) FROM PLAYER_PAY WHERE PLAYER_ID = #{playerId}
+	</select>
+
+	
+	<select id="getByOrderIdYx"  resultMap="PlayerPayResultMap">
+        <![CDATA[
+        SELECT * FROM PLAYER_PAY WHERE ORDER_ID = #{orderId} AND YX = #{yx}
+        ]]>
+    </select>
+
+	 
+    <select id="getTotalGold" resultType="int">
+     <![CDATA[
+        SELECT SUM(GOLD) FROM PLAYER_PAY WHERE date(CREATE_TIME) >= date(#{startTime}) AND date(CREATE_TIME) <= date(#{endTime}) AND YX = #{yx} AND TYPE = 0
+      ]]>
+    </select>
+
+	 
+    <select id="getPlayerPayByDateAndYx" resultMap="PlayerPayResultMap">
+     <![CDATA[
+        SELECT * FROM PLAYER_PAY WHERE date(CREATE_TIME) >= date(#{startTime}) AND date(CREATE_TIME) <= date(#{endTime}) AND YX = #{yx} AND TYPE = 0
+      ]]>
+    </select>
+    
+    <select id="getPlayerPayByDateAndPage" resultMap="PlayerPayResultMap">
+     <![CDATA[
+        SELECT * FROM PLAYER_PAY WHERE CREATE_TIME >= #{startTime} AND CREATE_TIME <= #{endTime} AND YX = #{yx} AND TYPE = 0 ORDER BY CREATE_TIME LIMIT #{begin}, #{size}
+      ]]>
+    </select>
+
+	 
+    <select id="getPlayerCount" resultType="int">
+     <![CDATA[
+        SELECT COUNT(DISTINCT PLAYER_ID) FROM PLAYER_PAY WHERE date(CREATE_TIME) >= date(#{startTime}) AND date(CREATE_TIME) <= date(#{endTime}) AND YX = #{yx} AND TYPE = 0
+      ]]>
+    </select>
+
+	 
+    <select id="getOrderCount" resultType="int">
+     <![CDATA[
+        SELECT COUNT(DISTINCT ORDER_ID) FROM PLAYER_PAY WHERE date(CREATE_TIME) >= date(#{startTime}) AND date(CREATE_TIME) <= date(#{endTime}) AND YX = #{yx} AND TYPE = 0
+      ]]>
+    </select>
+    
+    <select id="getPlayerPayByPlayerId" parameterType="int" resultMap="PlayerPayResultMap">
+        <![CDATA[
+        SELECT * FROM PLAYER_PAY WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getRecordNumByOrderId" parameterType="string" resultType="int">
+        <![CDATA[
+        SELECT COUNT(1) FROM PLAYER_PAY WHERE ORDER_ID = #{orderId}
+        ]]>
+    </select>
+    
+    <select id="queryOrder" resultMap="PlayerPayResultMap">
+        <![CDATA[
+        SELECT * FROM PLAYER_PAY WHERE ORDER_ID = #{orderId} AND YX = #{yx}
+        ]]>
+    </select>
+
+</mapper>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerArmyExtra">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerArmyExtraResultMap" type="PlayerArmyExtra">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="POWER_ID" property="powerId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="ATTACKABLE" property="attackable" />
+        <result column="WIN_NUM" property="winNum" />
+        <result column="ATT_NUM" property="attNum" />
+        <result column="FIRST_WIN" property="firstWin" />
+        <result column="FIRST_OPEN" property="firstOpen" />
+        <result column="NPC_LOST" property="npcLost" />
+        <result column="HP" property="hp" />
+        <result column="HP_MAX" property="hpMax" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerArmyExtraResultMap">
+        SELECT * FROM PLAYER_ARMY_EXTRA WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerArmyExtraResultMap">
+        SELECT * FROM PLAYER_ARMY_EXTRA WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerArmyExtraResultMap">
+        SELECT * FROM PLAYER_ARMY_EXTRA
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_ARMY_EXTRA
+    </select>
+    
+    <insert id="create" parameterType="PlayerArmyExtra" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_ARMY_EXTRA(
+           V_ID,
+           PLAYER_ID,
+           POWER_ID,
+           ARMY_ID,
+           ATTACKABLE,
+           WIN_NUM,
+           ATT_NUM,
+           FIRST_WIN,
+           FIRST_OPEN,
+           NPC_LOST,
+           HP,
+           HP_MAX
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ powerId },
+           #{ armyId },
+           #{ attackable },
+           #{ winNum },
+           #{ attNum },
+           #{ firstWin },
+           #{ firstOpen },
+           #{ npcLost },
+           #{ hp },
+           #{ hpMax }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_ARMY_EXTRA WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+    <select id="getArmiesByPowerId"  resultMap="PlayerArmyExtraResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId} AND POWER_ID = #{powerId} ORDER BY ARMY_ID
+        ]]>
+    </select>
+    
+     <select id="getArmiesByPowerIdAndAttackable"  resultMap="PlayerArmyExtraResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId} AND POWER_ID = #{powerId} AND ATTACKABLE = #{attackable}
+        ]]>
+    </select>
+    
+     <select id="getArmyByArmyId"  resultMap="PlayerArmyExtraResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </select> 
+    
+     <update id="updateAttackable" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET ATTACKABLE = #{attackable} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="AddAttNum" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET ATT_NUM = ATT_NUM + #{addAttNum} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="addWinAttNumReset" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET WIN_NUM = WIN_NUM + #{addWinNum}, ATT_NUM = ATT_NUM + #{addAttNum}, NPC_LOST = NULL, HP = 0  WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="updateWinFirstWinAttNum" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET  FIRST_WIN = #{firstWin}, WIN_NUM = WIN_NUM + #{addWinNum},  ATT_NUM = ATT_NUM + #{addAttNum} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="resetFirstWin" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET FIRST_WIN = #{firstWin} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+     <update id="resetFirstOpen" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET FIRST_OPEN = #{firstOpen} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+      <update id="updateNpcLostHp" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_ARMY_EXTRA SET NPC_LOST = #{npcLost}, HP = #{hp} WHERE  PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByPlayerIdArmyId" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId} AND ARMY_ID = #{armyId}
+         ]]>
+    </delete>
+    
+     <delete id="deleteByPlayerIdPowerId" flushCache="true">
+     	<![CDATA[
+        	DELETE FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId} AND POWER_ID = #{powerId}
+         ]]>
+    </delete>
+    
+    <select id="getListByPlayerId"  resultMap="PlayerArmyExtraResultMap">
+        <![CDATA[
+        	SELECT * FROM PLAYER_ARMY_EXTRA WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+
+</mapper>

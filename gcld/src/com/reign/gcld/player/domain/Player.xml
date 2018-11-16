@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.Player">
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## --> 
+    <resultMap id="PlayerResultMap" type="Player">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="PLAYER_NAME" property="playerName" />
+        <result column="PLAYER_LV" property="playerLv" />
+        <result column="MAX_LV" property="maxLv" />
+        <result column="SYS_GOLD" property="sysGold" />
+        <result column="USER_GOLD" property="userGold" />
+        <result column="USER_ID" property="userId" />
+        <result column="CONSUME_LV" property="consumeLv" />
+        <result column="YX" property="yx" />
+        <result column="YX_SOURCE" property="yxSource" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="PIC" property="pic" />
+        <result column="POWER_ID" property="powerId" />
+        <result column="LOGIN_TIME" property="loginTime" />
+        <result column="QUIT_TIME" property="quitTime" />
+        <result column="DAILY_ONLINE_TIME" property="dailyOnlineTime" />
+        <result column="STATE" property="state" />
+        <result column="DELETE_TIME" property="deleteTime" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="PLAYER_SERVER_ID" property="playerServerId" />
+        <result column="TOTAL_USER_GOLD" property="totalUserGold" />
+        <result column="TOTAL_TICKET_GOLD" property="totalTicketGold" />
+        <result column="GM" property="gm" />
+        <result column="DEFAULT_PAY" property="defaultPay" />
+        <result column="SERVERNAME_SERVERID_PLAYERID" property="servernameServeridPlayerid" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerResultMap">
+        SELECT * FROM PLAYER WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerResultMap">
+        SELECT * FROM PLAYER WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerResultMap">
+        SELECT * FROM PLAYER
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER
+    </select>
+    
+    <insert id="create" parameterType="Player" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER(
+           PLAYER_ID,
+           PLAYER_NAME,
+           PLAYER_LV,
+           MAX_LV,
+           SYS_GOLD,
+           USER_GOLD,
+           USER_ID,
+           CONSUME_LV,
+           YX,
+           YX_SOURCE,
+           FORCE_ID,
+           PIC,
+           POWER_ID,
+           LOGIN_TIME,
+           QUIT_TIME,
+           DAILY_ONLINE_TIME,
+           STATE,
+           DELETE_TIME,
+           CREATE_TIME,
+           PLAYER_SERVER_ID,
+           TOTAL_USER_GOLD,
+           TOTAL_TICKET_GOLD,
+           GM,
+           DEFAULT_PAY,
+           SERVERNAME_SERVERID_PLAYERID
+        ) VALUES (
+           #{ playerId },
+           #{ playerName },
+           #{ playerLv },
+           #{ maxLv },
+           #{ sysGold },
+           #{ userGold },
+           #{ userId },
+           #{ consumeLv },
+           #{ yx },
+           #{ yxSource },
+           #{ forceId },
+           #{ pic },
+           #{ powerId },
+           #{ loginTime },
+           #{ quitTime },
+           #{ dailyOnlineTime },
+           #{ state },
+           #{ deleteTime },
+           #{ createTime },
+           #{ playerServerId },
+           #{ totalUserGold },
+           #{ totalTicketGold },
+           #{ gm },
+           #{ defaultPay },
+           #{ servernameServeridPlayerid }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+     
+    <resultMap id="PlayerIdResultMap" type="int">
+        <id column="PLAYER_ID" property="playerId" />
+    </resultMap>
+
+    <select id="getPlayerByName" parameterType="string" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE PLAYER_NAME = #{playerName}
+        ]]>
+    </select>
+    
+    <select id="getPlayerByUserId" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE user_id = #{userId} AND yx = #{yx} ORDER BY PLAYER_ID DESC
+        ]]>
+    </select>
+    
+    <select id="getPlayerByNameAndYx" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE PLAYER_NAME = #{playerName} AND YX = #{yx}
+        ]]>
+    </select>
+    
+    <select id="queryPlayer" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE USER_ID = #{userId} AND YX = #{yx} AND PLAYER_NAME = #{playerName} 
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdByNameAndYx" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE PLAYER_NAME = #{playerName} AND YX = #{yx}
+        ]]>
+    </select>
+    
+    <update id="consumeGold" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER SET USER_GOLD = #{newUserGold}, SYS_GOLD = #{newSysGold} 
+        WHERE PLAYER_ID = #{playerId} 
+        AND USER_GOLD = #{userGold} 
+        and SYS_GOLD = #{sysGold}
+        ]]>  
+    </update>
+    
+    <update id="consumeSysGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET SYS_GOLD = SYS_GOLD - #{gold} WHERE PLAYER_ID = #{playerId} AND SYS_GOLD >= #{gold}
+        ]]>  
+    </update>
+    
+    <update id="addSysGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET SYS_GOLD = SYS_GOLD + #{sysGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+     <update id="addUserGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET USER_GOLD = USER_GOLD + #{userGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+     <update id="setSysGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET SYS_GOLD = #{sysGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setUserGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET USER_GOLD = #{userGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updatePlayerLv" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET PLAYER_LV = #{playerLv} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updateMaxLv" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET MAX_LV = #{maxLv} WHERE PLAYER_ID = #{playerId} AND MAX_LV < #{maxLv}
+        ]]>  
+    </update>
+    
+    <select id="getPlayerLevelRankList"  resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER ORDER BY PLAYER_LV DESC LIMIT 0,#{count}
+        ]]> 
+    </select>
+    
+    <select id="getPlayerLevelRankListByForceId"  resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE FORCE_ID = #{forceId} ORDER BY PLAYER_LV DESC LIMIT 0,#{count}
+        ]]> 
+    </select>
+    
+    <select id="getSamePlayerLevel"  resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE FORCE_ID = #{forceId} AND PLAYER_LV <= #{playerLv} ORDER BY PLAYER_LV DESC LIMIT 0,#{count}
+        ]]> 
+    </select>
+    
+    <select id="getForceMemberCount"  resultType="int">
+    	<![CDATA[
+         SELECT COUNT(1) FROM Player WHERE FORCE_ID = #{forceId}
+        ]]> 
+    </select>
+    <update id="updatePlayerNameAndPic" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET PLAYER_NAME = #{playerName}, PIC = #{pic} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updatePlayerName" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET PLAYER_NAME = #{playerName} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updatePlayerConsumeLv" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET CONSUME_LV = #{consumeLv} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updatePowerId" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET POWER_ID = #{powerId} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updateLoginTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET LOGIN_TIME = #{loginTime} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updateQuitTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET QUIT_TIME = #{quitTime} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="deletePlayer" parameterType="int" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER SET `STATE` = 1,  DELETE_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]> 
+    </update>
+    
+     <update id="retrievePlayer" parameterType="int" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER SET `STATE` = 0 WHERE PLAYER_ID = #{playerId}
+    	]]> 
+    </update>
+    
+    <select id="getRoleCount" resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER WHERE user_id = #{userId} AND yx = #{yx} AND `STATE` != 2
+        ]]>
+    </select>
+    
+    <select id="getPlayerByLevel" resultMap="PlayerResultMap">
+     	<![CDATA[
+        	SELECT * FROM PLAYER ORDER BY PLAYER_ID DESC LIMIT #{num}
+        ]]> 
+    </select>
+    
+     <select id="getUgoldStatistics" resultType="int">
+        <![CDATA[
+			SELECT SUM(USER_GOLD) FROM PLAYER WHERE PLAYER_LV >= #{lv} AND LOGIN_TIME > #{date}
+		]]> 
+    </select>
+    
+    <select id="getSgoldStatistics" resultType="int">
+        <![CDATA[
+			SELECT SUM(SYS_GOLD) FROM PLAYER WHERE PLAYER_LV >= #{lv} AND LOGIN_TIME > #{date}
+		]]> 
+    </select>
+    
+    <update id="addConsumeLv" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET CONSUME_LV = CONSUME_LV + #{addLv} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updateState" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET `STATE` = #{state} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+     <update id="updatePlayerServerId" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET PLAYER_SERVER_ID = #{playerServerId} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+     <select id="getPlayerHasRegisterAuction" resultMap="PlayerResultMap">
+        <![CDATA[
+         	SELECT * FROM PLAYER WHERE PLAYER_SERVER_ID > 0
+        ]]>
+    </select>
+    
+    <update id="consumeUserGold" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER SET USER_GOLD = USER_GOLD - #{gold} WHERE USER_GOLD > #{gold} AND PLAYER_ID = #{playerId}
+    	]]> 
+    </update>
+    
+    <select id="getPlayerLv" parameterType="int" resultType="int">
+     	<![CDATA[
+    		SELECT PLAYER_LV FROM PLAYER WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+     
+    <select id="getConsumeLv" parameterType="int" resultType="int">
+     	<![CDATA[
+    		SELECT CONSUME_LV FROM PLAYER WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <select id="getPlayerIdList" resultMap="PlayerIdResultMap">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER
+        ]]>
+    </select>
+    
+    <select id="getPlayerName" parameterType="int" resultType="string">
+     	<![CDATA[
+    		SELECT PLAYER_NAME FROM PLAYER WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <select id="getForceIdByPlayerName" parameterType="string" resultType="int">
+     	<![CDATA[
+    		SELECT FORCE_ID FROM PLAYER WHERE PLAYER_NAME = #{playerName} LIMIT 1
+    	]]>
+    </select>
+    
+    <select id="getPlayerIdListByUserIdAndYx" resultMap="PlayerIdResultMap">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE USER_ID = #{userId} AND YX = #{yx}
+        ]]>
+    </select>
+    <select id="getTotalUserGold" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT TOTAL_USER_GOLD FROM PLAYER WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getTotalTicketGold" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT TOTAL_TICKET_GOLD FROM PLAYER WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>  
+       
+    <update id="setTotalUserGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET TOTAL_USER_GOLD = #{totalUserGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update> 
+    
+    <update id="resetTotalUserGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET TOTAL_USER_GOLD = 0
+        ]]>  
+    </update> 
+    
+     <update id="resetTotalTicketGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET TOTAL_TICKET_GOLD = 0
+        ]]>  
+    </update> 
+    
+   <update id="addTotalUserGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET TOTAL_USER_GOLD = TOTAL_USER_GOLD + #{totalUserGold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update> 
+    
+    <update id="addTotalTicketGold" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET TOTAL_TICKET_GOLD = TOTAL_TICKET_GOLD + #{gold} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update> 
+    
+    <update id="setYxSource" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET YX_SOURCE = #{yxSource} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update> 
+    
+    <select id="getYxSource" parameterType="int" resultType="string">
+    	<![CDATA[
+        	SELECT YX_SOURCE FROM PLAYER WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select> 
+    
+    <select id="getPlayerNoDeleteByUserIdAndYx" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE USER_ID = #{userId} AND YX = #{yx} AND `STATE` = 0 ORDER BY LOGIN_TIME DESC
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdByUp"  resultMap="PlayerIdResultMap">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE  FORCE_ID != #{forceId} AND PLAYER_LV >= 30 AND PLAYER_LV > (SELECT PLAYER_LV FROM PLAYER WHERE PLAYER_ID = #{playerId}) ORDER BY PLAYER_LV LIMIT 10;   
+        ]]>
+    </select>
+    
+     <select id="getPlayerIdByDown" resultMap="PlayerIdResultMap">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE  FORCE_ID != #{forceId} AND PLAYER_LV >= 30 AND PLAYER_LV < (SELECT PLAYER_LV FROM PLAYER WHERE PLAYER_ID = #{playerId}) ORDER BY PLAYER_LV DESC LIMIT 10; 
+        ]]>
+    </select>
+    
+    <select id="getForceId" parameterType="int" resultType="int">
+    	<![CDATA[
+        	SELECT FORCE_ID FROM PLAYER WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getPlayerIdListByEqual" resultMap="PlayerIdResultMap">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE  FORCE_ID != #{forceId} AND PLAYER_LV >= 30 AND PLAYER_LV = (SELECT PLAYER_LV FROM PLAYER WHERE PLAYER_ID = #{playerId}) LIMIT 10; 
+        ]]>
+    </select>
+    
+    <select id="getDefaultPlayerId" resultType="int">
+   		<![CDATA[
+       		SELECT PLAYER_ID FROM PLAYER  WHERE  USER_ID = #{userId}  AND YX = #{yx}  AND PLAYER_LV = ( SELECT MAX(PLAYER_LV) FROM `PLAYER`  WHERE USER_ID = #{userId}  AND YX = #{yx} AND STATE = 0)  LIMIT 1;
+       	]]>
+    </select>
+    
+    
+    <select id="getPlayerList" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE YX = #{yx} AND DATE(#{date}) = DATE(CREATE_TIME) ORDER BY CREATE_TIME LIMIT #{start}, #{size}
+        ]]>
+    </select>
+    
+    <select id="getSizeByYxAndDate" resultType="int">
+   		<![CDATA[
+       		SELECT COUNT(1) FROM PLAYER WHERE YX = #{yx} AND DATE(#{date}) = DATE(CREATE_TIME)
+       	]]>
+    </select>
+    
+    <select id="getLoginTimeByPlayerId" parameterType="int" resultType="date">
+   		<![CDATA[
+       		SELECT login_time FROM PLAYER WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </select>
+    
+    <select id="getQuitTimeByPlayerId" parameterType="int" resultType="date">
+   		<![CDATA[
+       		SELECT quit_time FROM PLAYER WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </select>
+    
+    <update id="updateDailyOnlineTime" parameterType="int"  flushCache="true">
+   		<![CDATA[
+       		UPDATE PLAYER SET daily_online_time = daily_online_time +#{onlineTime} WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </update>
+    
+    <update id="resetDailyOnlineTime" parameterType="int"  flushCache="true">
+   		<![CDATA[
+       		UPDATE PLAYER SET daily_online_time = 0
+       	]]>
+    </update>
+    
+    <select id="getDailyOnlineTime" parameterType="int" resultType="int">
+   		<![CDATA[
+       		SELECT daily_online_time FROM PLAYER WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </select>
+    
+    <update id="setDailyOnlineTime" parameterType="int"  flushCache="true">
+   		<![CDATA[
+       		UPDATE PLAYER SET daily_online_time = #{value} WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </update>
+    
+    <update id="setGm" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET GM = #{gm} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update> 
+    
+    <select id="getByGm" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE GM > 0
+        ]]>
+    </select>
+    
+     <update id="clearDefaultPay" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET DEFAULT_PAY = 0 WHERE USER_ID = #{userId} AND YX = #{yx}
+        ]]>  
+    </update>
+    
+     <update id="setDefaultPay" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET DEFAULT_PAY = 1 WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <select id="getDefaultPayPlayerId" resultType="int">
+    	<![CDATA[
+        	SELECT PLAYER_ID FROM PLAYER WHERE USER_ID = #{userId} AND YX = #{yx} AND DEFAULT_PAY = 1 AND STATE = 0 LIMIT 1
+        ]]>
+    </select>
+    
+     <update id="modifyUserId" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER SET USER_ID = #{newUserId} WHERE USER_ID = #{oldUserId} AND YX = #{yx}
+        ]]>  
+    </update>
+    
+    <select id="getPlayerIdListAboveMinLv" parameterType="int" resultMap="PlayerIdResultMap">
+    	<![CDATA[
+       		SELECT PLAYER_ID FROM PLAYER WHERE PLAYER_LV >= #{minLv}
+       	]]>
+    </select>
+    
+    <select id="getRoleCountByUid" resultType="int">
+    	<![CDATA[
+        	SELECT COUNT(1) FROM PLAYER WHERE user_id = #{userId} AND `STATE` != 2
+        ]]>
+    </select>
+
+    <select id="getPlayerOnlyByUserId" resultMap="PlayerResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER WHERE user_id = #{userId} ORDER BY PLAYER_ID DESC
+        ]]>
+    </select>
+    
+    
+    <!-- 例子，查询某几个字段 -->
+    <resultMap id="picLvMap" type="PlayerPicLv">
+    	<id column="PLAYER_ID" property="playerId" />
+    	<result column="PIC" property="pic" />
+    	<result column="PLAYER_LV" property="playerLv" />
+    </resultMap>
+    
+    <select id="getPicLvsByPids" resultMap="picLvMap">
+       	SELECT PLAYER_ID, PLAYER_LV, PIC FROM PLAYER WHERE PLAYER_ID IN
+       	<foreach collection="list" item = "item" open ="(" separator="," close=")">
+       		#{item}
+       	</foreach>
+    </select>
+    
+    <!-- 一次性查询多条记录 -->
+    <select id="getByPlayerIds" resultMap="PlayerResultMap">
+       	SELECT * FROM PLAYER WHERE PLAYER_ID IN
+       	<foreach collection="list" item = "item" open ="(" separator="," close=")">
+       		#{item}
+       	</foreach>
+    </select>
+    
+    <!-- 一次性查询多条记录 -->
+    <select id="getByPlayerIdsCC" resultMap="PlayerResultMap">
+       	SELECT * FROM PLAYER WHERE PLAYER_LV > #{maxLv} AND PLAYER_ID IN
+       	<foreach collection="playerList" item = "item" open ="(" separator="," close=")">
+       		#{item}
+       	</foreach>
+    </select>
+    
+    <!-- 一次执行多条update 效率不高！-->
+    <update id="updatePics" flushCache="true">
+    	<!-- 连接时需设置：allowMultiQueries=true -->
+    	<foreach collection="list" item = "item" separator=";" >
+       		UPDATE PLAYER SET PIC = #{item.pic} WHERE PLAYER_ID = #{item.playerId}
+       	</foreach>
+    	
+<!--    	UPDATE PLAYER -->
+<!--    	<trim prefix="set" suffixOverrides=",">-->
+<!--    		<trim prefix="pic=case" suffix="end,">-->
+<!--    			<foreach collection="list" item="i" index = "index">-->
+<!--    				when(PLAYER_ID = #{i.playerId}) then #{i.pic}-->
+<!--    			</foreach>-->
+<!--    		</trim>    	-->
+<!--    	</trim>-->
+<!--    	WHERE-->
+<!--        <foreach collection = "list" item="item" index="index" separator="or">-->
+<!--			(PLAYER_ID = #{item.playerId})-->
+<!--		</foreach>-->
+    </update>
+    
+    <update id="updatePlayerSSP" flushCache="true">
+    	<![CDATA[
+        	UPDATE PLAYER SET SERVERNAME_SERVERID_PLAYERID = #{ssp} WHERE PLAYER_ID = #{playerId}
+        ]]> 
+    </update>
+    
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfzb.domain.KfzbReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfzbRewardResultMap" type="KfzbReward">
+        <id column="PLAYER_ID" property="playerId" />
+        <id column="SEASON_ID" property="seasonId" />
+        <result column="REWARDINFO" property="rewardinfo" />
+        <result column="DONE_NUM" property="doneNum" />
+        <result column="TITLE" property="title" />
+        <result column="INFO" property="info" />
+        <result column="LAST_POS" property="lastPos" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfzbRewardResultMap">
+        SELECT * FROM KFZB_REWARD WHERE SEASON_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfzbRewardResultMap">
+        SELECT * FROM KFZB_REWARD WHERE SEASON_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfzbRewardResultMap">
+        SELECT * FROM KFZB_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFZB_REWARD
+    </select>
+    
+    <insert id="create" parameterType="KfzbReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="seasonId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFZB_REWARD(
+           PLAYER_ID,
+           SEASON_ID,
+           REWARDINFO,
+           DONE_NUM,
+           TITLE,
+           INFO,
+           LAST_POS
+        ) VALUES (
+           #{ playerId },
+           #{ seasonId },
+           #{ rewardinfo },
+           #{ doneNum },
+           #{ title },
+           #{ info },
+           #{ lastPos }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM KFZB_REWARD WHERE SEASON_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+
+	<select id="getBySeasonId" parameterType="int" resultMap="KfzbRewardResultMap">
+		SELECT * FROM KFZB_REWARD WHERE SEASON_ID = #{seasonId}
+	</select>
+
+
+	<update id="updateDoneNum" flushCache="true">
+       <![CDATA[
+            UPDATE KFZB_REWARD SET DONE_NUM = #{doneNum} WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+	
+	<update id="updateRewardInfo" flushCache="true">
+       <![CDATA[
+            UPDATE KFZB_REWARD SET REWARDINFO = #{rewardInfo} WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+
+	<select id="getMaxSeasonId" resultType="int">
+		SELECT MAX(SEASON_ID) FROM KFZB_REWARD
+	</select>
+
+
+	<select id="getByPlayerIdSeasonId" resultMap="KfzbRewardResultMap">
+		SELECT * FROM KFZB_REWARD WHERE PLAYER_ID = #{playerId} AND SEASON_ID =
+		#{seasonId}
+	</select>
+
+
+	<update id="updateTitle" flushCache="true">
+       <![CDATA[
+            UPDATE KFZB_REWARD SET TITLE = #{kfZbTitle},LAST_POS = #{lastPos} WHERE PLAYER_ID = #{playerId} AND SEASON_ID = #{seasonId}
+        ]]>
+	</update>
+
+	<select id="getHaveTitleBySeasonId" parameterType="int" resultMap="KfzbRewardResultMap">
+		SELECT * FROM KFZB_REWARD WHERE TITLE IS NOT NULL AND SEASON_ID = #{seasonId}
+	</select>
+ 
+</mapper>

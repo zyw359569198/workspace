@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.LoginReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="LoginRewardResultMap" type="LoginReward">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="TOTAL_DAY" property="totalDay" />
+        <result column="HAVE_REWARD" property="haveReward" />
+        <result column="TODAY_FIRST_LOGIN_TIME" property="todayFirstLoginTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="LoginRewardResultMap">
+        SELECT * FROM LOGIN_REWARD WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="LoginRewardResultMap">
+        SELECT * FROM LOGIN_REWARD WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="LoginRewardResultMap">
+        SELECT * FROM LOGIN_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM LOGIN_REWARD
+    </select>
+    
+    <insert id="create" parameterType="LoginReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO LOGIN_REWARD(
+           PLAYER_ID,
+           TOTAL_DAY,
+           HAVE_REWARD,
+           TODAY_FIRST_LOGIN_TIME
+        ) VALUES (
+           #{ playerId },
+           #{ totalDay },
+           #{ haveReward },
+           #{ todayFirstLoginTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM LOGIN_REWARD WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+	 <resultMap id="totalDayMap" type="PlayerTotalDay">
+    	<id column="PLAYER_ID" property="playerId" />
+    	<result column="TOTAL_DAY" property="totalDay" />
+    </resultMap>
+    
+    <select id="getList" resultMap="totalDayMap">
+    	<![CDATA[
+       		SELECT PLAYER_ID, TOTAL_DAY FROM LOGIN_REWARD WHERE HAVE_REWARD = 1 AND PLAYER_ID IN
+       	]]>
+       	<foreach collection="list" item = "item" open ="(" separator="," close=")">
+       		#{item}
+       	</foreach>
+    </select>
+	
+	<update id="received" flushCache="true">
+		<![CDATA[
+        	UPDATE LOGIN_REWARD SET HAVE_REWARD = #{mark} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="receivedAll" flushCache="true">
+		<![CDATA[
+        	UPDATE LOGIN_REWARD SET HAVE_REWARD = #{mark} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByTotalDay" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM LOGIN_REWARD WHERE TOTAL_DAY >= #{totalDay}
+        ]]>
+    </delete>
+    
+    <update id="updateRecord" flushCache="true">
+		<![CDATA[
+        	UPDATE LOGIN_REWARD SET TOTAL_DAY = #{totalDay}, HAVE_REWARD = #{haveReward}, TODAY_FIRST_LOGIN_TIME = #{todayFirstLoginTime} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+      
+</mapper>

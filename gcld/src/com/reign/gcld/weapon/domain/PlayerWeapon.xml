@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.weapon.domain.PlayerWeapon">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerWeaponResultMap" type="PlayerWeapon">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="WEAPON_ID" property="weaponId" />
+        <result column="LV" property="lv" />
+        <result column="TYPE" property="type" />
+        <result column="GEM_ID" property="gemId" />
+        <result column="TIMES" property="times" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_WEAPON
+    </select>
+    
+    <insert id="create" parameterType="PlayerWeapon" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_WEAPON(
+           V_ID,
+           PLAYER_ID,
+           WEAPON_ID,
+           LV,
+           TYPE,
+           GEM_ID,
+           TIMES
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ weaponId },
+           #{ lv },
+           #{ type },
+           #{ gemId },
+           #{ times }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_WEAPON WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+	<select id="getPlayerWeapons" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON WHERE PLAYER_ID = #{playerId}
+    </select>  
+    
+    <select id="getPlayerWeapon" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON WHERE PLAYER_ID = #{playerId} AND WEAPON_ID = #{weaponId}
+    </select>
+    
+    <update id="upgradeWeapon" flushCache="true">
+    	UPDATE PLAYER_WEAPON SET LV = LV + #{upLv}, TIMES = #{times} WHERE PLAYER_ID = #{playerId} AND WEAPON_ID = #{weaponId}
+    </update>
+    
+    <select id="getPlayerWeaponsByType" resultMap="PlayerWeaponResultMap">
+        SELECT * FROM PLAYER_WEAPON WHERE PLAYER_ID = #{playerId} AND TYPE = #{type}
+    </select>
+    
+    <update id="upgradeLoadGem" flushCache="true">
+     	<![CDATA[
+    	UPDATE PLAYER_WEAPON SET GEM_ID = #{gemId} WHERE PLAYER_ID = #{playerId} AND WEAPON_ID = #{weaponId}
+    	]]> 
+    </update>
+    
+	<update id="setWeaponLv" flushCache="true">
+    	UPDATE PLAYER_WEAPON SET LV = #{lv}, TIMES = 0 WHERE PLAYER_ID = #{playerId} AND WEAPON_ID = #{weaponId}
+    </update>   
+        
+    <delete id="deleteByPlayerId" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_WEAPON WHERE PLAYER_ID = #{playerId}
+    </delete>
+    
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.system.domain.DbVersion">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="DbVersionResultMap" type="DbVersion">
+        <id column="DB_VERSION" property="dbVersion" />
+        <result column="SERVER_TIME" property="serverTime" />
+        <result column="DIFF_DAY" property="diffDay" />
+        <result column="SEASON_ID" property="seasonId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="DbVersionResultMap">
+        SELECT * FROM DB_VERSION WHERE DB_VERSION = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="DbVersionResultMap">
+        SELECT * FROM DB_VERSION WHERE DB_VERSION = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="DbVersionResultMap">
+        SELECT * FROM DB_VERSION
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM DB_VERSION
+    </select>
+    
+    <insert id="create" parameterType="DbVersion" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="dbVersion">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO DB_VERSION(
+           DB_VERSION,
+           SERVER_TIME,
+           DIFF_DAY,
+           SEASON_ID
+        ) VALUES (
+           #{ dbVersion },
+           #{ serverTime },
+           #{ diffDay },
+           #{ seasonId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM DB_VERSION WHERE DB_VERSION = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<update id="updateServerTime" flushCache="true">
+        <![CDATA[
+        	UPDATE DB_VERSION SET SERVER_TIME = #{date}
+        ]]>
+    </update>
+    
+    <select id="getDiffDay" resultType="int">
+        <![CDATA[
+        	SELECT DIFF_DAY FROM DB_VERSION
+        ]]>
+    </select>
+    
+    <update id="updateSeasonId" flushCache="true">
+        <![CDATA[
+        	UPDATE DB_VERSION SET SEASON_ID = #{seasonId}
+        ]]>
+    </update>
+</mapper>

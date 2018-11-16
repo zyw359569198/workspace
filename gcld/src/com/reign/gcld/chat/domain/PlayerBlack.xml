@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.chat.domain.PlayerBlack">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerBlackResultMap" type="PlayerBlack">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="BLACK_ID" property="blackId" />
+        <result column="PLAYER_NAME" property="playerName" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BLACK
+    </select>
+    
+    <insert id="create" parameterType="PlayerBlack" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BLACK(
+           V_ID,
+           PLAYER_ID,
+           BLACK_ID,
+           PLAYER_NAME
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ blackId },
+           #{ playerName }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BLACK WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<select id="getPlayerBlackList" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK WHERE PLAYER_ID = #{playerId}
+    </select>
+    
+    <select id="getBlackPlayerList" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK WHERE BLACK_ID = #{blackId}
+    </select>
+    
+    <select id="getPlayerBlackByBid" resultMap="PlayerBlackResultMap">
+        SELECT * FROM PLAYER_BLACK WHERE PLAYER_ID = #{playerId} AND BLACK_ID = #{blackId}
+    </select>
+	
+</mapper>

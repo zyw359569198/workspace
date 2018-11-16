@@ -1,5 +1,6 @@
 package com.zyw.utils;
 import java.io.IOException;
+
 import java.io.InterruptedIOException;
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
@@ -14,6 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.annotation.PostConstruct;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
@@ -51,9 +53,12 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+@Component
 public class HttpConnectionPoolUtil {
  
     private static Logger logger = LoggerFactory.getLogger(HttpConnectionPoolUtil.class);
@@ -71,6 +76,16 @@ public class HttpConnectionPoolUtil {
     
     private static CookieStore cookieStore;
     
+    @Autowired
+	private Common common;
+    
+	private static Common staticCommon;
+	
+	@PostConstruct
+	private void init() {
+		staticCommon=common;
+	}
+    
     public static void setCookieStore(CookieStore cook) {
     	          cookieStore=cook;
     }
@@ -87,7 +102,7 @@ public class HttpConnectionPoolUtil {
  
     public static CloseableHttpClient getHttpClient(String url){
     	try {
-			Thread.sleep((long) (Common.COLLECT_WAIT_TIME * Math.random()));
+			Thread.sleep((long) (staticCommon.getCollect_wait_time() * Math.random()));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

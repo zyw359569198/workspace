@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.rank.domain.PlayerCoupon">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerCouponResultMap" type="PlayerCoupon">
+        <id column="VID" property="vid" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="COUPON_TYPE" property="couponType" />
+        <result column="COUPON_NUM" property="couponNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerCouponResultMap">
+        SELECT * FROM PLAYER_COUPON WHERE VID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerCouponResultMap">
+        SELECT * FROM PLAYER_COUPON WHERE VID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerCouponResultMap">
+        SELECT * FROM PLAYER_COUPON
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_COUPON
+    </select>
+    
+    <insert id="create" parameterType="PlayerCoupon" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vid">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_COUPON(
+           VID,
+           PLAYER_ID,
+           COUPON_TYPE,
+           COUPON_NUM
+        ) VALUES (
+           #{ vid },
+           #{ playerId },
+           #{ couponType },
+           #{ couponNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_COUPON WHERE VID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	 <select id="getPlayerCouponByPT" resultMap="PlayerCouponResultMap">
+        SELECT * FROM PLAYER_COUPON WHERE PLAYER_ID = #{playerId} AND COUPON_TYPE = #{type}
+    </select>
+	
+	<update id="updateCouponNum" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE PLAYER_COUPON SET COUPON_NUM = #{num} WHERE VID = #{vId}
+     	]]> 
+    </update>
+</mapper>

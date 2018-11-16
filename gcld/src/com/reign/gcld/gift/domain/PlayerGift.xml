@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.gift.domain.PlayerGift">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGiftResultMap" type="PlayerGift">
+        <id column="ID" property="id" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GIFT_ID" property="giftId" />
+        <result column="RECEIVED" property="received" />
+        <result column="RECEIVED_TIME" property="receivedTime" />
+        <result column="ALL_SERVER" property="allServer" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGiftResultMap">
+        SELECT * FROM PLAYER_GIFT WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGiftResultMap">
+        SELECT * FROM PLAYER_GIFT WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGiftResultMap">
+        SELECT * FROM PLAYER_GIFT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GIFT
+    </select>
+    
+    <insert id="create" parameterType="PlayerGift" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GIFT(
+           ID,
+           PLAYER_ID,
+           GIFT_ID,
+           RECEIVED,
+           RECEIVED_TIME,
+           ALL_SERVER
+        ) VALUES (
+           #{ id },
+           #{ playerId },
+           #{ giftId },
+           #{ received },
+           #{ receivedTime },
+           #{ allServer }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_GIFT WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+
+	<select id="getByPlayerId" parameterType="int" resultMap="PlayerGiftResultMap">
+		<![CDATA[
+        	SELECT * FROM PLAYER_GIFT WHERE PLAYER_ID = #{PLAYER_ID} AND ALL_SERVER = 0
+        ]]>
+    </select>
+    
+    <select id="getAllServerByPlayerId" parameterType="int" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GIFT WHERE PLAYER_ID = #{PLAYER_ID} AND ALL_SERVER = 1
+    </select>
+    
+    <select id="getAllGiftByPlayerId" parameterType="int" resultMap="PlayerGiftResultMap">
+		<![CDATA[
+        	SELECT * FROM PLAYER_GIFT WHERE PLAYER_ID = #{PLAYER_ID}
+        ]]>
+    </select>
+    
+    <select id="getByPlayerIdAndGiftId" resultMap="PlayerGiftResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_GIFT WHERE PLAYER_ID = #{playerId} AND GIFT_ID = #{giftId} 
+        ]]>
+    </select>
+    
+    <update id="updateGift" flushCache="true">
+    	<![CDATA[
+       		UPDATE PLAYER_GIFT SET RECEIVED = 1, RECEIVED_TIME = #{receivedTime} WHERE ID = #{id} 
+       	]]>
+    </update>
+    
+    <delete id="deleteByGiftId" parameterType="int" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_GIFT WHERE GIFT_ID = #{giftId}
+        ]]>
+    </delete>
+    
+     <select id="getByGiftId" resultMap="PlayerGiftResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_GIFT WHERE GIFT_ID = #{giftId} 
+        ]]>
+    </select>
+</mapper>

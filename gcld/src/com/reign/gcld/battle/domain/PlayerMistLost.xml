@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerMistLost">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+	<!-- ##generate by template begin## -->
+	<resultMap id="PlayerMistLostResultMap" type="PlayerMistLost">
+		<id column="PLAYER_ID" property="playerId" />
+		<result column="AREA_ID" property="areaId" />
+		<result column="NPC_LOST" property="npcLost" />
+	</resultMap>
+
+	<select id="read" parameterType="int" resultMap="PlayerMistLostResultMap">
+		SELECT * FROM
+		PLAYER_MIST_LOST WHERE PLAYER_ID = #{id}
+	</select>
+
+	<select id="readForUpdate" parameterType="int"
+		resultMap="PlayerMistLostResultMap">
+		SELECT * FROM PLAYER_MIST_LOST WHERE PLAYER_ID = #{id} FOR
+		UPDATE
+	</select>
+
+	<select id="getModels" resultMap="PlayerMistLostResultMap">
+		SELECT * FROM PLAYER_MIST_LOST
+	</select>
+
+	<select id="getModelSize" resultType="int">
+		SELECT COUNT(1) FROM
+		PLAYER_MIST_LOST
+	</select>
+
+	<insert id="create" parameterType="PlayerMistLost" flushCache="true">
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="playerId">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		INSERT INTO PLAYER_MIST_LOST(
+		PLAYER_ID,
+		AREA_ID,
+		NPC_LOST
+		) VALUES (
+		#{
+		playerId },
+		#{ areaId },
+		#{ npcLost }
+		)
+	</insert>
+
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		DELETE FROM
+		PLAYER_MIST_LOST WHERE PLAYER_ID = #{id}
+	</delete>
+	<!-- ##generate by template end## -->
+
+	<select id="getMist" resultMap="PlayerMistLostResultMap">
+        <![CDATA[
+            SELECT * FROM PLAYER_MIST_LOST WHERE PLAYER_ID = #{playerId} AND AREA_ID = #{areaId}
+        ]]>
+	</select>
+	
+	<select id="getMistList" resultMap="PlayerMistLostResultMap">
+        <![CDATA[
+            SELECT * FROM PLAYER_MIST_LOST WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</select>
+	
+
+	<update id="updateNpcLostDetail" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_MIST_LOST SET NPC_LOST = #{losts} WHERE PLAYER_ID = #{playerId} AND AREA_ID = #{areaId}
+        ]]>
+	</update>
+	
+	<delete id="deleteByPlayerIdAreaId" flushCache="true">
+        DELETE FROM PLAYER_MIST_LOST WHERE PLAYER_ID = #{playerId} AND AREA_ID = #{areaId}
+    </delete>
+
+</mapper>

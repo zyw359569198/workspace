@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.courtesy.domain.PlayerLiYi">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerLiYiResultMap" type="PlayerLiYi">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="LI_YI_DU" property="liYiDu" />
+        <result column="REWARD_INFO" property="rewardInfo" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerLiYiResultMap">
+        SELECT * FROM PLAYER_LI_YI WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerLiYiResultMap">
+        SELECT * FROM PLAYER_LI_YI WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerLiYiResultMap">
+        SELECT * FROM PLAYER_LI_YI
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_LI_YI
+    </select>
+    
+    <insert id="create" parameterType="PlayerLiYi" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_LI_YI(
+           PLAYER_ID,
+           LI_YI_DU,
+           REWARD_INFO
+        ) VALUES (
+           #{ playerId },
+           #{ liYiDu },
+           #{ rewardInfo }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_LI_YI WHERE PLAYER_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+
+	<update id="addliYiDu" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_LI_YI SET LI_YI_DU = LI_YI_DU + #{liYiDuGain} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+	
+	<update id="updateRewardInfo" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_LI_YI SET REWARD_INFO = #{rewardInfo} WHERE PLAYER_ID = #{playerId}
+        ]]>
+	</update>
+  
+</mapper>

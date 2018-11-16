@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin>
+        <name>yxOperation</name>
+        <url>http://127.0.0.1/gcld.3.1/reign-yxoperation.jar</url>
+    </plugin>
+</plugins>

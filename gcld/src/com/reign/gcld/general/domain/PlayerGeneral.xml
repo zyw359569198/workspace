@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.general.domain.PlayerGeneral"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGeneralResultMap" type="PlayerGeneral">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="LV" property="lv" />
+        <result column="EXP" property="exp" />
+        <result column="INTEL" property="intel" />
+        <result column="POLITICS" property="politics" />
+        <result column="LEADER" property="leader" />
+        <result column="STRENGTH" property="strength" />
+        <result column="FORCES" property="forces" />
+        <result column="TYPE" property="type" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGeneralResultMap">
+        SELECT * FROM PLAYER_GENERAL WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGeneralResultMap">
+        SELECT * FROM PLAYER_GENERAL WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGeneralResultMap">
+        SELECT * FROM PLAYER_GENERAL
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL
+    </select>
+    
+    <insert id="create" parameterType="PlayerGeneral" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GENERAL(
+           V_ID,
+           PLAYER_ID,
+           GENERAL_ID,
+           LV,
+           EXP,
+           INTEL,
+           POLITICS,
+           LEADER,
+           STRENGTH,
+           FORCES,
+           TYPE
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ generalId },
+           #{ lv },
+           #{ exp },
+           #{ intel },
+           #{ politics },
+           #{ leader },
+           #{ strength },
+           #{ forces },
+           #{ type }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_GENERAL WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<select id="getPlayerGeneral" resultMap="PlayerGeneralResultMap">
+	 	<![CDATA[
+			SELECT * FROM PLAYER_GENERAL WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+		 ]]>
+	</select>
+	
+	<select id="getGeneralList" resultMap="PlayerGeneralResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_GENERAL WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<select id="getGeneralListByType" resultMap="PlayerGeneralResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_GENERAL WHERE PLAYER_ID = #{playerId} AND TYPE = #{type}
+		]]>
+	</select>
+	
+	<update id="updateState" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_GENERAL SET STATE = #{state}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateForcesDate" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_GENERAL SET FORCES = GREATEST(FORCES, LEAST(#{max}, FORCES + #{forces})), UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByPlayerIdAndGeneralId" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM PLAYER_GENERAL WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+         ]]>
+    </delete>
+    
+</mapper>

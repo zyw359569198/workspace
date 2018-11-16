@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.pay.domain.PlayerVipTx">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerVipTxResultMap" type="PlayerVipTx">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="DAILY_STATUS" property="dailyStatus" />
+        <result column="ROOKIE_STATUS" property="rookieStatus" />
+        <result column="UPGRADE_STATUS" property="upgradeStatus" />
+        <result column="EXTRA_STATUS" property="extraStatus" />
+        <result column="IS_YELLOW_YEAR_VIP" property="isYellowYearVip" />
+        <result column="IS_YELLOW_HIGH_VIP" property="isYellowHighVip" />
+        <result column="IS_YELLOW_VIP" property="isYellowVip" />
+        <result column="YELLOW_VIP_LV" property="yellowVipLv" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerVipTxResultMap">
+        SELECT * FROM PLAYER_VIP_TX WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerVipTxResultMap">
+        SELECT * FROM PLAYER_VIP_TX WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerVipTxResultMap">
+        SELECT * FROM PLAYER_VIP_TX
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_VIP_TX
+    </select>
+    
+    <insert id="create" parameterType="PlayerVipTx" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_VIP_TX(
+           V_ID,
+           PLAYER_ID,
+           DAILY_STATUS,
+           ROOKIE_STATUS,
+           UPGRADE_STATUS,
+           EXTRA_STATUS,
+           IS_YELLOW_YEAR_VIP,
+           IS_YELLOW_HIGH_VIP,
+           IS_YELLOW_VIP,
+           YELLOW_VIP_LV
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ dailyStatus },
+           #{ rookieStatus },
+           #{ upgradeStatus },
+           #{ extraStatus },
+           #{ isYellowYearVip },
+           #{ isYellowHighVip },
+           #{ isYellowVip },
+           #{ yellowVipLv }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_VIP_TX WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+ 
+     <select id = "getByPlayerId" parameterType="int" resultMap="PlayerVipTxResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_VIP_TX WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<update id="updateDailyStatus" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_VIP_TX SET  DAILY_STATUS= #{status} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+	<update id="updateRookieStatus" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_VIP_TX SET  ROOKIE_STATUS= #{status} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+	<update id="updateUgradeStatus" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_VIP_TX SET  UPGRADE_STATUS= INSERT(UPGRADE_STATUS, #{seq}, 1, #{status}) WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+	<update id="updateExtraStatus" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_VIP_TX SET  EXTRA_STATUS= #{status} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>    
+    
+    <update id="resetDailyStatus" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_VIP_TX SET  EXTRA_STATUS = 0 , DAILY_STATUS = 0
+    	]]>
+    </update>
+	
+</mapper>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.general.domain.PlayerGeneralCivil"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGeneralCivilResultMap" type="PlayerGeneralCivil">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="LV" property="lv" />
+        <result column="EXP" property="exp" />
+        <result column="INTEL" property="intel" />
+        <result column="POLITICS" property="politics" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="NEXT_MOVE_TIME" property="nextMoveTime" />
+        <result column="STATE" property="state" />
+        <result column="TASK_ID" property="taskId" />
+        <result column="OWNER" property="owner" />
+        <result column="CD" property="cd" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGeneralCivilResultMap">
+        SELECT * FROM PLAYER_GENERAL_CIVIL WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGeneralCivilResultMap">
+        SELECT * FROM PLAYER_GENERAL_CIVIL WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGeneralCivilResultMap">
+        SELECT * FROM PLAYER_GENERAL_CIVIL
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL_CIVIL
+    </select>
+    
+    <insert id="create" parameterType="PlayerGeneralCivil" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GENERAL_CIVIL(
+           V_ID,
+           PLAYER_ID,
+           GENERAL_ID,
+           LV,
+           EXP,
+           INTEL,
+           POLITICS,
+           UPDATE_TIME,
+           NEXT_MOVE_TIME,
+           STATE,
+           TASK_ID,
+           OWNER,
+           CD
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ generalId },
+           #{ lv },
+           #{ exp },
+           #{ intel },
+           #{ politics },
+           #{ updateTime },
+           #{ nextMoveTime },
+           #{ state },
+           #{ taskId },
+           #{ owner },
+           #{ cd }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_GENERAL_CIVIL WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+	<select id="getCivil" resultMap="PlayerGeneralCivilResultMap">
+		SELECT * FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+	</select>
+	
+	<select id="getCivilList" resultMap="PlayerGeneralCivilResultMap">
+		SELECT * FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId}
+	</select> 
+	
+	<select id="getCivilListOrderByLv" resultMap="PlayerGeneralCivilResultMap">
+		SELECT * FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId} ORDER BY LV DESC<!-- ,QUALITY DESC -->
+	</select> 
+	
+	<select id="getCivilAdviser" resultMap="PlayerGeneralCivilResultMap">
+		SELECT * FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId} AND OWNER > 0
+	</select> 
+	
+	<select id="getCivilNum" resultType="int">
+		SELECT COUNT(1) FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId}
+	</select>
+	
+	<select id="getCivilOwnerNum" resultType="int">
+		SELECT COUNT(1) FROM PLAYER_GENERAL_CIVIL WHERE PLAYER_ID = #{playerId}  AND OWNER > 0
+	</select>
+	
+	<update id="updateUpTime" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET UPDATE_TIME = #{updateTime} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="search" flushCache="true">
+    <![CDATA[
+    	  UPDATE PLAYER_GENERAL_CIVIL SET STATE = #{state}, NEXT_MOVE_TIME =#{nextMoveDate},TASK_ID=#{taskId}  WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    ]]>
+    </update>
+    
+    <update id="updateStateByPidAndGid" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET STATE = #{state} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateMoveTime" flushCache="true">
+    	UPDATE PLAYER_GENERAL_CIVIL SET NEXT_MOVE_TIME = #{date} WHERE V_ID = #{vId}
+    </update>
+    
+     <update id="updateCd" flushCache="true">
+    	UPDATE PLAYER_GENERAL_CIVIL SET CD = #{date} WHERE PLAYER_ID = #{id} AND  GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id="updateExpAndGlv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET EXP = #{curExp}, LV = LV + #{addLv} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addExp" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET EXP = EXP + #{addExp} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addIntel" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET INTEL = INTEL + #{addIntel} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addPolitics" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET POLITICS = POLITICS + #{addPolitics} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+      <update id="addIntelCareMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET INTEL = LEAST(#{max},INTEL + #{addIntel}) WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addPoliticsCareMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET POLITICS = LEAST(#{max},POLITICS + #{addPolitics}) WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addIntelAndPolitics" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET INTEL = INTEL + #{addIntel}, POLITICS = POLITICS + #{addPolitics} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="consumeIntelAndPolitics" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET INTEL = INTEL - #{consumeIntel}, POLITICS = POLITICS - #{consumePolitics} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="setCivilLv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_CIVIL SET LV = #{lv} WHERE PLAYER_ID = #{playerId} 
+        ]]>
+    </update>
+</mapper>

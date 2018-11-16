@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.rank.domain.PlayerHunger">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerHungerResultMap" type="PlayerHunger">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="HUNGER" property="hunger" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerHungerResultMap">
+        SELECT * FROM PLAYER_HUNGER WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerHungerResultMap">
+        SELECT * FROM PLAYER_HUNGER WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerHungerResultMap">
+        SELECT * FROM PLAYER_HUNGER
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_HUNGER
+    </select>
+    
+    <insert id="create" parameterType="PlayerHunger" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_HUNGER(
+           PLAYER_ID,
+           HUNGER
+        ) VALUES (
+           #{ playerId },
+           #{ hunger }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_HUNGER WHERE PLAYER_ID = #{id}
+    </delete>
+    
+    <insert id="batchCreate" flushCache="true">
+        INSERT INTO PLAYER_HUNGER (PLAYER_ID,HUNGER) VALUES 
+        <foreach collection="list" item="item" index="index" separator=",">
+        	(#{item.playerId},#{item.hunger})
+        </foreach>
+    </insert>
+    
+    <update id="batchUpdate" flushCache="true">
+    	<foreach collection="list" item = "item" separator=";" >
+       		UPDATE PLAYER_HUNGER SET HUNGER = HUNGER + #{item.hunger} WHERE PLAYER_ID = #{item.playerId}
+       	</foreach>
+    </update>
+<!-- ##generate by template end## -->    
+</mapper>

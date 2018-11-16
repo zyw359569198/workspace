@@ -1,0 +1,108 @@
+#更新银币产生(每十秒钟)
+job.building.calcBuildingOutput = 0/10 * * ? * * *
+#产生建筑政务系统时间(每小时)
+job.politics.producePoliticsEvent = 0 0/60 * * * ? 
+#增加寻访次数(每半小时)
+job.search.addSearchNum = 0 0/30 * * * ? 
+# 打印当前在线人数(每10分钟)
+job.system.printOnlineNum = 0 0/10 * ? * * *
+# 金币统计(统计一周之内登陆的等级在20级以上的用户金币总数,系统金币总数)(每三小时)
+job.system.statisticsGold = 0 0 3 ? * * *
+#刷新集市产品备选(每小时)
+job.market.refreshMarket = 0 0/60 * * * ? 
+#清算每日玩家杀敌数(每天23点)
+job.killRank.dealTodayInfo = 0 10 23 ? * * *
+#各国城市重新填充NPC(每小时)
+job.world.cityNpcFill = 0 0/60 * * * ?
+#增加通商次数(每半小时)
+job.trade.addTradeNum = 0 0/30 * * * ? 
+#增加宴会次数(每四小时)
+job.dinner.addDinnerNum = 0 0 0/4 * * ?
+#清除邮件相关的过期信息(每天4点)
+job.mailService.cleanMail = 0 0 4 ? * * *
+#推送整点在线奖励(每天9点到23点的每个整点)
+job.gift.pushOnlineGift = 0 0 9-23 * * ?
+#增加军资奖励次数(每小时)
+job.world.addCountryRewards = 0 0/60 * * * ?
+#玩家排位赛奖励处理(每天22点)
+job.battleRank.dealRankBat = 0 0 22 ? * * *
+#刷新寻访事件(每天22点)
+job.search.refreshComboEvent = 0 0 22 ? * * *
+#[科技]每天获得3次免费的大祭祀(每天早上3点)
+tech.job.incense.addIncense = 0 0 3 * * ?
+#[科技]宴会每天多一次次数[没有上限限制](每天凌晨5点)
+tech.job.dinner.addDinnerNumByTech = 0 0 5 * * ?
+#[排位赛]重置金币购买次数(每天凌晨5点)
+NationalRankBat.job.resetBuyNumTimes = 0 0 5 * * ?
+#[排位赛]增加排位赛次数(每两小时增加一次)
+NationalRankBat.job.addNumPerTwoHours = 0 0 0/4 * * ?
+#国家结解盟(每天6点)
+job.nation.dealLeague = 0 0 6 ? * * *
+#增加集市可购买次数(每半小时[考虑科技效果])
+job.market.addMarketBuyNum = 0 0/30 * * * ?
+#每日14点玩家杀敌数奖励(每天14点)
+job.killRank.dealTodayInfo14 = 0 10 14 ? * * *
+#每日19点玩家杀敌数奖励(每天19点)
+job.killRank.dealTodayInfo19 = 0 10 19 ? * * *
+#推送每日登陆奖励(每天0点)
+job.gift.pushDayGift = 0 0 0 * * ?
+#推送公告信息(每1分钟)
+job.notice.pushNotice = 0 0/1 * * * ?
+#增加免费洗炼次数
+job.quenching.getFreeTimes = 0 0/60 * * * ?
+#增加官职令次数
+job.quenching.addOfficerToken = 0 0 0/8 * * ?
+#每小时增加国家NPC
+job.battle.addCountryNpc = 0 0/60 * * * ?
+#数据推送中心[5分钟检查]
+job.dataPushCenterUtil.pushData = 0 0/5 * * * ?
+#国家任务开始
+job.nationTask.taskStart = 0 0 10,15,20 * * ?
+#国家任务结束
+job.nationTask.taskEnd = 0 30 11,16,21 * * ?
+#扫描对应时间国家任务是否存在[7分钟检查]
+job.nationTask.scanNationTask = 0 1/3 * * * ?
+#扫描投资事件是否是否需要变化[1分钟检查]
+job.nationTask.checkInvestSerialChange = 0 0/1 * * * ?
+#每30秒调度远征军
+job.battle.worldDoExpeditionEachMinute = 0/30 * * * * ?
+#每30分钟投放远征军
+job.battle.worldExpeditionAddEachHour = 0 0/5 * * * ?
+#每天凌晨重置各种记录(每天0点)
+job.system.resetAtZeroClock = 0 0 0 * * ?
+#每分钟调度蛮族远征军
+job.battle.worldDoManZuExpeditionEachMinute = 0 0/1 * * * ? 
+#每半小时播报蛮族远征军
+job.battle.worldManZuExpeditionBobaoEach30Minutes = 0 0/60 * * * ? 
+#每小时给官员加免费借兵次数
+job.officer.addFreePhantom = 0 0/60 * * * ?
+#每分钟尝试投放城池事件
+job.world.addCityEventEachMinute = 0 0/1 * * * ?
+#清空5.1活动奖励(每天0点)
+job.activity.clearBatExpActivity = 0 59 23 ? * * *
+#推送5.1活动奖励(每天0点)
+job.activity.sendBatExpActivity = 0 0 0 * * ?
+#更新整点杀敌榜记录[特定整点]
+job.rank.wholeKillNum = 0 0 0,9-10,13-15,18-20,23 * * ?
+#临界点推送整点杀敌信息
+job.rank.pushWholeKill = 0 0 8,12,17,22 * * ?
+#清除宝石商人和借兵事件(每天0点)
+job.playerEvent.clearPlayerEventPerDay = 0 0 0 * * ?
+#投放宝石商人和借兵事件(每天8点)
+job.playerEvent.addPlayerEventPerDay = 0 0 8 * * ?
+#每小时播报跨服国战预告信息
+job.kfgz.chatKfgz = 0 0/60 * * * ?
+#清除所有玩家当天的在线时长(每天0点)
+job.player.resetDailyOnlineTime = 0 0 0 * * ?
+#备份攻城积分榜排名(每天23点10)
+job.rank.clearScoreRank = 0 10 23 * * ?
+#清空功勋榜[每天23:10]
+job.rank.clearFeatRank = 0 10 23 * * ?
+#清空镔铁活动数据[每天0点]
+job.activity.clearIronActivity = 0 0 0 * * ?
+#活动扫描线程(每3秒钟)
+job.activity.scan = 0/3 * * ? * * *
+#清空会战相关的map[每天0点]
+job.huizhan.clearHuizhanMap = 0 0 0 * * ?
+#清除player_huizhan表(每天4点)
+job.huizhan.clearPlayerHuizhan = 0 0 4 ? * * *

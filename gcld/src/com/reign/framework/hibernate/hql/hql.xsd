@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2009 NEC Corporation. All Rights Reserved -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.reign.framework.hibernate/hql" xmlns:tns="http://com.reign.framework.hibernate/hql" elementFormDefault="qualified">
+
+    <xsd:element name="hqls" type="tns:hqls"/>
+    <xsd:complexType name="hqls">
+    	<xsd:sequence>
+    		<xsd:element name="hql" type="tns:hql" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="hql">
+    	<xsd:simpleContent>
+    		<xsd:extension base="xsd:string">
+    			<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    		</xsd:extension>
+    	</xsd:simpleContent>
+    	
+    </xsd:complexType>
+</xsd:schema>

@@ -13,10 +13,13 @@ import com.zyw.utils.Common;
 public class InitConsumerRunner implements CommandLineRunner{
 	@Autowired
 	private  Consumer consumer;
+	
+	@Autowired
+	private  Common common;
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(int i=0;i<Common.CONSUMER_NUMS;i++) {
+		for(int i=0;i<common.getConsumer_nums();i++) {
 			consumer.execute();
 		}
 		

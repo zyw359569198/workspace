@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.activity.domain.PlayerLvExp">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerLvExpResultMap" type="PlayerLvExp">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="EXP" property="exp" />
+        <result column="LV" property="lv" />
+        <result column="NEW_EXP" property="newExp" />
+        <result column="NEW_LV" property="newLv" />
+        <result column="REWARD" property="reward" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerLvExpResultMap">
+        SELECT * FROM PLAYER_LV_EXP WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerLvExpResultMap">
+        SELECT * FROM PLAYER_LV_EXP WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerLvExpResultMap">
+        SELECT * FROM PLAYER_LV_EXP
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_LV_EXP
+    </select>
+    
+    <insert id="create" parameterType="PlayerLvExp" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_LV_EXP(
+           PLAYER_ID,
+           EXP,
+           LV,
+           NEW_EXP,
+           NEW_LV,
+           REWARD
+        ) VALUES (
+           #{ playerId },
+           #{ exp },
+           #{ lv },
+           #{ newExp },
+           #{ newLv },
+           #{ reward }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_LV_EXP WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<update id ="updateReward" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_LV_EXP SET REWARD = 2 WHERE PLAYER_ID= #{playerId}
+    	]]>
+    </update>
+    
+    <delete id="deleteAll" parameterType="int" flushCache="true">
+    	<![CDATA[
+        TRUNCATE TABLE PLAYER_LV_EXP
+        ]]>
+    </delete>
+    
+	<update id ="initActivity" flushCache="true">
+    	<![CDATA[
+    		insert into player_lv_exp(player_id, exp, lv, reward) 
+			select p.player_id , prs.exp as curExp, p.player_lv , 0
+			from player p, player_resource prs where p.player_id = prs.player_id and p.player_lv >=60;
+    	]]>
+    </update>
+    
+    <update id ="endActivity" flushCache="true">
+    	<![CDATA[
+    		update player_lv_exp ple,
+	(select p.player_id  as palyer_id, prs.exp as curExp, p.player_lv as lv from player p, player_resource prs where p.player_id = prs.player_id) as bbb
+	set ple.new_exp = bbb.curExp, ple.new_lv = bbb.lv, ple.reward = 1 where bbb.palyer_id = ple.player_id ;
+    	]]>
+    </update>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.store.domain.PlayerStore">
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerStoreResultMap" type="PlayerStore">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="STORE_STATE" property="storeState" />
+        <result column="EQUIP_REFRESH_TIME" property="equipRefreshTime" />
+        <result column="TOOL_REFRESH_TIME" property="toolRefreshTime" />
+        <result column="NEXT_EQUIP_DATE" property="nextEquipDate" />
+        <result column="NEXT_TOOL_DATE" property="nextToolDate" />
+        <result column="LOCK_EQUIP_ID" property="lockEquipId" />
+        <result column="UNREFRESHED_EQUIP" property="unrefreshedEquip" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerStoreResultMap">
+        SELECT * FROM PLAYER_STORE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerStoreResultMap">
+        SELECT * FROM PLAYER_STORE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerStoreResultMap">
+        SELECT * FROM PLAYER_STORE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_STORE
+    </select>
+    
+    <insert id="create" parameterType="PlayerStore" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_STORE(
+           PLAYER_ID,
+           STORE_STATE,
+           EQUIP_REFRESH_TIME,
+           TOOL_REFRESH_TIME,
+           NEXT_EQUIP_DATE,
+           NEXT_TOOL_DATE,
+           LOCK_EQUIP_ID,
+           UNREFRESHED_EQUIP
+        ) VALUES (
+           #{ playerId },
+           #{ storeState },
+           #{ equipRefreshTime },
+           #{ toolRefreshTime },
+           #{ nextEquipDate },
+           #{ nextToolDate },
+           #{ lockEquipId },
+           #{ unrefreshedEquip }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_STORE WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+	<update id="updatePlayerStore"  flushCache="true">
+		UPDATE PLAYER_STORE SET STORE_STATE = #{storeState}, EQUIP_REFRESH_TIME=#{equipRefreshTime}, TOOL_REFRESH_TIME = #{toolRefreshTime} ,NEXT_EQUIP_DATE=#{nextEquipDate} ,NEXT_TOOL_DATE=#{nextToolDate} WHERE PLAYER_ID=#{playerId}
+	</update> 
+	
+	<update id="updateLockId" flushCache="true">
+		UPDATE PLAYER_STORE SET LOCK_EQUIP_ID = #{itemId} WHERE PLAYER_ID=#{playerId}
+	</update>
+	
+	
+	<update id="updateUnrefreshEquip" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_STORE SET UNREFRESHED_EQUIP = #{unrefreshEquip} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+</mapper>

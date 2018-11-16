@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.juben.domain.PlayerScenario">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerScenarioResultMap" type="PlayerScenario">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="SCENARIO_ID" property="scenarioId" />
+        <result column="ATTACKABLE" property="attackable" />
+        <result column="GRADE" property="grade" />
+        <result column="REWARDED" property="rewarded" />
+        <result column="STATE" property="state" />
+        <result column="EVENT_INFO" property="eventInfo" />
+        <result column="STARTTIME" property="starttime" />
+        <result column="ENDTIME" property="endtime" />
+        <result column="STARLV" property="starlv" />
+        <result column="CURSTAR" property="curstar" />
+        <result column="JIE_BING_COUNT" property="jieBingCount" />
+        <result column="OVERTIME" property="overtime" />
+        <result column="DRAMA_TIMES" property="dramaTimes" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerScenarioResultMap">
+        SELECT * FROM PLAYER_SCENARIO WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerScenarioResultMap">
+        SELECT * FROM PLAYER_SCENARIO WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerScenarioResultMap">
+        SELECT * FROM PLAYER_SCENARIO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_SCENARIO
+    </select>
+    
+    <insert id="create" parameterType="PlayerScenario" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_SCENARIO(
+           V_ID,
+           PLAYER_ID,
+           SCENARIO_ID,
+           ATTACKABLE,
+           GRADE,
+           REWARDED,
+           STATE,
+           EVENT_INFO,
+           STARTTIME,
+           ENDTIME,
+           STARLV,
+           CURSTAR,
+           JIE_BING_COUNT,
+           OVERTIME,
+           DRAMA_TIMES
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ scenarioId },
+           #{ attackable },
+           #{ grade },
+           #{ rewarded },
+           #{ state },
+           #{ eventInfo },
+           #{ starttime },
+           #{ endtime },
+           #{ starlv },
+           #{ curstar },
+           #{ jieBingCount },
+           #{ overtime },
+           #{ dramaTimes }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_SCENARIO WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+	<select id="getScenarioByPidSid" parameterType="int"  resultMap="PlayerScenarioResultMap">
+    	<![CDATA[
+        SELECT * FROM PLAYER_SCENARIO WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+    	]]>
+    </select>
+    
+    <select id="getScenarioByPid" parameterType="int"  resultMap="PlayerScenarioResultMap">
+    	<![CDATA[
+        SELECT * FROM PLAYER_SCENARIO WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID <= 10000 ORDER BY SCENARIO_ID
+    	]]>
+    </select>
+    
+    <update id="updateInit" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET GRADE = #{grade}, EVENT_INFO = "", STARTTIME = #{starttime}, ENDTIME = #{endtime}, STATE = 1, CURSTAR = #{curstar}, JIE_BING_COUNT = #{jieBingCount} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateState" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET STATE = #{state} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateStateOverTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET STATE = #{state}, OVERTIME = #{overTime} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateStar" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET CURSTAR = #{curstar}, ENDTIME = #{endtime} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <select id="getListByState" parameterType="int"  resultMap="PlayerScenarioResultMap">
+    	<![CDATA[
+        SELECT * FROM PLAYER_SCENARIO WHERE STATE = 1
+    	]]>
+    </select>
+    
+    
+    <update id="updateScenarioInfo" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET EVENT_INFO = #{info} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateRewardStarLv" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET STARLV = #{starlv}, REWARDED = #{rewarded} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateEndTime" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET ENDTIME = #{endtime} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateEndTimeCurStar" flushCache="true">
+        <![CDATA[
+        	UPDATE PLAYER_SCENARIO SET ENDTIME = #{endtime} , CURSTAR = #{curstar} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <update id="updateJieBingCount" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_SCENARIO SET JIE_BING_COUNT = #{count} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{scenarioId}
+        ]]>
+    </update>
+    
+    <select id="getDramaTimes" resultType="String">
+    	<![CDATA[
+           SELECT DRAMA_TIMES FROM PLAYER_SCENARIO WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{soloId}
+        ]]>
+    </select>
+    
+    <update id="updateDramaTimes" flushCache="true">
+        <![CDATA[
+            UPDATE PLAYER_SCENARIO SET DRAMA_TIMES = #{value} WHERE PLAYER_ID = #{playerId} AND SCENARIO_ID = #{soloId}
+        ]]>
+    </update>
+    
+</mapper>

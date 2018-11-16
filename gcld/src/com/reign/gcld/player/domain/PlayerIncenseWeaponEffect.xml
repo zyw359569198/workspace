@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerIncenseWeaponEffect">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerIncenseWeaponEffectResultMap" type="PlayerIncenseWeaponEffect">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="INCENSE_ID" property="incenseId" />
+        <result column="INCENSE_LIMIT" property="incenseLimit" />
+        <result column="INCENSE_END_TIME" property="incenseEndTime" />
+        <result column="INCENSE_MULTI" property="incenseMulti" />
+        <result column="WEAPON_ID" property="weaponId" />
+        <result column="WEAPON_LIMIT" property="weaponLimit" />
+        <result column="WEAPON_END_TIME" property="weaponEndTime" />
+        <result column="WEAPON_MULTI" property="weaponMulti" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerIncenseWeaponEffectResultMap">
+        SELECT * FROM PLAYER_INCENSE_WEAPON_EFFECT WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerIncenseWeaponEffectResultMap">
+        SELECT * FROM PLAYER_INCENSE_WEAPON_EFFECT WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerIncenseWeaponEffectResultMap">
+        SELECT * FROM PLAYER_INCENSE_WEAPON_EFFECT
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_INCENSE_WEAPON_EFFECT
+    </select>
+    
+    <insert id="create" parameterType="PlayerIncenseWeaponEffect" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_INCENSE_WEAPON_EFFECT(
+           PLAYER_ID,
+           INCENSE_ID,
+           INCENSE_LIMIT,
+           INCENSE_END_TIME,
+           INCENSE_MULTI,
+           WEAPON_ID,
+           WEAPON_LIMIT,
+           WEAPON_END_TIME,
+           WEAPON_MULTI
+        ) VALUES (
+           #{ playerId },
+           #{ incenseId },
+           #{ incenseLimit },
+           #{ incenseEndTime },
+           #{ incenseMulti },
+           #{ weaponId },
+           #{ weaponLimit },
+           #{ weaponEndTime },
+           #{ weaponMulti }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_INCENSE_WEAPON_EFFECT WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+	 <update id = "updateIncenseEffect" flushCache="true">
+	 	<![CDATA[
+	 		UPDATE PLAYER_INCENSE_WEAPON_EFFECT SET INCENSE_ID = #{incenseId}, INCENSE_LIMIT = #{incenseLimit}, INCENSE_MULTI = #{incenseMulti}, INCENSE_END_TIME = #{incenseEndTime} WHERE PLAYER_ID = #{playerId}
+	 	]]>
+	 </update>  
+	 
+	 <update id = "updateWeaponEffect" flushCache="true">
+	 	<![CDATA[
+	 		UPDATE PLAYER_INCENSE_WEAPON_EFFECT SET WEAPON_ID = #{weaponId}, WEAPON_LIMIT = #{weaponLimit}, WEAPON_MULTI = #{weaponMulti}, WEAPON_END_TIME = #{weaponEndTime} WHERE PLAYER_ID = #{playerId}
+	 	]]>
+	 </update>
+	 
+	 <update id = "reduceIncenseLimit" flushCache="true">
+	 	<![CDATA[
+	 		UPDATE PLAYER_INCENSE_WEAPON_EFFECT SET INCENSE_LIMIT = INCENSE_LIMIT - 1 WHERE PLAYER_ID = #{playerId}
+	 	]]>
+	 </update>  
+	 
+	  <update id = "reduceWeaponLimit" flushCache="true">
+	 	<![CDATA[
+	 		UPDATE PLAYER_INCENSE_WEAPON_EFFECT SET WEAPON_LIMIT = WEAPON_LIMIT - 1 WHERE PLAYER_ID = #{playerId}
+	 	]]>
+	 </update>  
+</mapper>

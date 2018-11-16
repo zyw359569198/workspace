@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.CityNpc">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="CityNpcResultMap" type="CityNpc">
+        <id column="V_ID" property="vId" />
+        <result column="CITY_ID" property="cityId" />
+        <result column="NPC_ID" property="npcId" />
+        <result column="NPC_LV" property="npcLv" />
+        <result column="ARMY_LV" property="armyLv" />
+        <result column="ATT" property="att" />
+        <result column="DEF" property="def" />
+        <result column="HP" property="hp" />
+        <result column="MAX_HP" property="maxHp" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="UP_TIMES" property="upTimes" />
+        <result column="COPY_HP" property="copyHp" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CityNpcResultMap">
+        SELECT * FROM CITY_NPC WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CityNpcResultMap">
+        SELECT * FROM CITY_NPC WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CityNpcResultMap">
+        SELECT * FROM CITY_NPC
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM CITY_NPC
+    </select>
+    
+    <insert id="create" parameterType="CityNpc" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO CITY_NPC(
+           V_ID,
+           CITY_ID,
+           NPC_ID,
+           NPC_LV,
+           ARMY_LV,
+           ATT,
+           DEF,
+           HP,
+           MAX_HP,
+           FORCE_ID,
+           UP_TIMES,
+           COPY_HP
+        ) VALUES (
+           #{ vId },
+           #{ cityId },
+           #{ npcId },
+           #{ npcLv },
+           #{ armyLv },
+           #{ att },
+           #{ def },
+           #{ hp },
+           #{ maxHp },
+           #{ forceId },
+           #{ upTimes },
+           #{ copyHp }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM CITY_NPC WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+ 	<select id="getByCityId" resultMap="CityNpcResultMap">
+ 	 	<![CDATA[
+        SELECT * FROM CITY_NPC WHERE CITY_ID = #{cityId}
+        ]]>
+    </select>
+    
+    <select id="getSizeByCityId" resultType="int">
+        SELECT COUNT(1) FROM CITY_NPC WHERE CITY_ID = #{cityId}
+    </select>
+    
+    <select id="getByForceId" resultMap="CityNpcResultMap">
+        SELECT * FROM CITY_NPC WHERE FORCE_ID = #{forceId}
+    </select>
+    
+    <update id="update"  parameterType="CityNpc" flushCache="true">
+          UPDATE CITY_NPC set NPC_ID = #{npcId}, NPC_LV = #{npcLv}, ARMY_LV = #{armyLv}, ATT = #{att}, DEF = #{def}, HP = #{hp} * UP_TIMES, COPY_HP = #{hp}, MAX_HP = #{maxHp} WHERE V_ID = #{vId};
+    </update>
+    
+    <update id="reduceHp"  parameterType="CityNpc" flushCache="true">
+          UPDATE CITY_NPC set HP = HP - #{hp} WHERE V_ID = #{vId};
+    </update>
+    
+    <update id="updateHpById" flushCache="true">
+          UPDATE CITY_NPC set HP = #{hp} WHERE V_ID = #{id};
+    </update>
+    
+    <delete id="delByCityId" parameterType="int" flushCache="true">
+        DELETE FROM CITY_NPC WHERE CITY_ID = #{cityId}
+    </delete>
+    
+    <update id="updateArmyHp"  parameterType="int" flushCache="true">
+          UPDATE CITY_NPC set HP = HP + COPY_HP, UP_TIMES = UP_TIMES +1 WHERE V_ID = #{vId};
+    </update>
+    
+</mapper>

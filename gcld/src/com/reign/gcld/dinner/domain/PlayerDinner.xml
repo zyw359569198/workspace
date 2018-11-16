@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.dinner.domain.PlayerDinner">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerDinnerResultMap" type="PlayerDinner">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="DINNER_NUM" property="dinnerNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerDinnerResultMap">
+        SELECT * FROM PLAYER_DINNER WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerDinnerResultMap">
+        SELECT * FROM PLAYER_DINNER WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerDinnerResultMap">
+        SELECT * FROM PLAYER_DINNER
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_DINNER
+    </select>
+    
+    <insert id="create" parameterType="PlayerDinner" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_DINNER(
+           PLAYER_ID,
+           DINNER_NUM
+        ) VALUES (
+           #{ playerId },
+           #{ dinnerNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_DINNER WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+	
+	<update id="addDinnerNum" parameterType="int" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_DINNER SET DINNER_NUM = DINNER_NUM + 1  WHERE DINNER_NUM < #{dinnerMaxNum}
+    	]]>
+    </update>
+    
+     <update id="consumeDinnerNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_DINNER SET DINNER_NUM = DINNER_NUM - 1 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="rewardDinnerNum" parameterType="int" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_DINNER SET DINNER_NUM = GREATEST(DINNER_NUM, LEAST(#{max}, DINNER_NUM + #{addNum}))  WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getDinnerNum" parameterType="int" resultType="int">
+     	<![CDATA[
+    		SELECT DINNER_NUM FROM PLAYER_DINNER WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+	    
+</mapper>

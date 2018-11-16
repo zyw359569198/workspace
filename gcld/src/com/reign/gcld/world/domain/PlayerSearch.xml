@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.PlayerSearch">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerSearchResultMap" type="PlayerSearch">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="CAN_SEARCH_INFO" property="canSearchInfo" />
+        <result column="CURR_SEARCH_INFO" property="currSearchInfo" />
+        <result column="SEARCH_NUM_LEFT" property="searchNumLeft" />
+        <result column="LAST_SEARCHNUM_TIME" property="lastSearchnumTime" />
+        <result column="BUY_SEARCH_NUM" property="buySearchNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerSearchResultMap">
+        SELECT * FROM PLAYER_SEARCH WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerSearchResultMap">
+        SELECT * FROM PLAYER_SEARCH WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerSearchResultMap">
+        SELECT * FROM PLAYER_SEARCH
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_SEARCH
+    </select>
+    
+    <insert id="create" parameterType="PlayerSearch" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_SEARCH(
+           PLAYER_ID,
+           CAN_SEARCH_INFO,
+           CURR_SEARCH_INFO,
+           SEARCH_NUM_LEFT,
+           LAST_SEARCHNUM_TIME,
+           BUY_SEARCH_NUM
+        ) VALUES (
+           #{ playerId },
+           #{ canSearchInfo },
+           #{ currSearchInfo },
+           #{ searchNumLeft },
+           #{ lastSearchnumTime },
+           #{ buySearchNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_SEARCH WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->
+    
+    <update id="addSearchNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET SEARCH_NUM_LEFT = GREATEST(SEARCH_NUM_LEFT, LEAST(SEARCH_NUM_LEFT+#{addNum}, #{topSearchNum})), LAST_SEARCHNUM_TIME= #{nowDate} WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+     <update id="rewardSearchNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET SEARCH_NUM_LEFT = GREATEST(SEARCH_NUM_LEFT, LEAST(#{max}, SEARCH_NUM_LEFT+#{addNum})) WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+     <update id="addSearchBuyNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET SEARCH_NUM_LEFT = SEARCH_NUM_LEFT+#{addNum}, BUY_SEARCH_NUM = BUY_SEARCH_NUM + #{addNum} WHERE PLAYER_ID = #{playerId} 
+    	]]>
+    </update>
+    
+    <update id="updateCanSearchInfo" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET CAN_SEARCH_INFO = #{info} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="updateCurrSearchInfo" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET CURR_SEARCH_INFO = #{info}, SEARCH_NUM_LEFT = SEARCH_NUM_LEFT -1  WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <update id="resetBuyNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_SEARCH SET BUY_SEARCH_NUM = 0 WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getSearchNum" parameterType="int" resultType="int">
+        SELECT SEARCH_NUM_LEFT FROM PLAYER_SEARCH WHERE PLAYER_ID = #{playerId}
+    </select>
+    
+</mapper>

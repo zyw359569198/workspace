@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.user.domain.User"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## --> 
+    <resultMap id="UserResultMap" type="User">
+        <id column="ID" property="id" />
+        <result column="USER_NAME" property="userName" />
+        <result column="PASSWORD" property="password" />
+        <result column="ACTIVATE" property="activate" />
+        <result column="ACTIVATE_CODE" property="activateCode" />
+        <result column="ADULT" property="adult" />
+        <result column="REWARD_FORCE" property="rewardForce" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="UserResultMap">
+        SELECT * FROM USER WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="UserResultMap">
+        SELECT * FROM USER WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="UserResultMap">
+        SELECT * FROM USER
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM USER
+    </select>
+    
+    <insert id="create" parameterType="User" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO USER(
+           ID,
+           USER_NAME,
+           PASSWORD,
+           ACTIVATE,
+           ACTIVATE_CODE,
+           ADULT,
+           REWARD_FORCE
+        ) VALUES (
+           #{ id },
+           #{ userName },
+           #{ password },
+           #{ activate },
+           #{ activateCode },
+           #{ adult },
+           #{ rewardForce }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM USER WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+    <select id="getUserByUserName" parameterType="int" resultMap="UserResultMap">
+        SELECT * FROM USER WHERE USER_NAME = #{userName}
+    </select>
+    
+    <update id="updateRewardFroce" flushCache="true">
+        <![CDATA[
+        UPDATE USER SET REWARD_FORCE = #{forceId} WHERE ID = #{id}
+        ]]>
+    </update>
+</mapper>

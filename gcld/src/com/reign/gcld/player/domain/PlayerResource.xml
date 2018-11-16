@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerResource">
+<!-- cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerResourceResultMap" type="PlayerResource">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="COPPER" property="copper" />
+        <result column="WOOD" property="wood" />
+        <result column="FOOD" property="food" />
+        <result column="IRON" property="iron" />
+        <result column="EXP" property="exp" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="KFGZ_VERSION" property="kfgzVersion" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerResourceResultMap">
+        SELECT * FROM PLAYER_RESOURCE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerResourceResultMap">
+        SELECT * FROM PLAYER_RESOURCE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerResourceResultMap">
+        SELECT * FROM PLAYER_RESOURCE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_RESOURCE
+    </select>
+    
+    <insert id="create" parameterType="PlayerResource" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_RESOURCE(
+           PLAYER_ID,
+           COPPER,
+           WOOD,
+           FOOD,
+           IRON,
+           EXP,
+           UPDATE_TIME,
+           KFGZ_VERSION
+        ) VALUES (
+           #{ playerId },
+           #{ copper },
+           #{ wood },
+           #{ food },
+           #{ iron },
+           #{ exp },
+           #{ updateTime },
+           #{ kfgzVersion }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_RESOURCE WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<update id="setExp" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET EXP = #{exp} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+
+	<update id="addExp" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET EXP = EXP + #{exp} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="consumeCopper" flushCache="true">
+        UPDATE PLAYER_RESOURCE SET COPPER = COPPER - #{copper} WHERE PLAYER_ID = #{playerId} AND COPPER >= #{copper}
+    </update>
+    
+    <update id="consumeCopperUnconditional" flushCache="true">
+        UPDATE PLAYER_RESOURCE SET COPPER = COPPER - #{copper} WHERE PLAYER_ID = #{playerId}
+    </update>
+    
+    <update id="addCopperIgnoreMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET COPPER = COPPER + #{copper} WHERE PLAYER_ID = #{playerId} AND COPPER < #{maxMaxValue}
+        ]]>  
+    </update>
+    
+    <update id="setCopper" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET COPPER = #{copper} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setCopperMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET COPPER = GREATEST(COPPER, LEAST(#{max}, COPPER + #{copper})) WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="consumeWood" flushCache="true">
+        UPDATE PLAYER_RESOURCE SET WOOD = WOOD - #{wood} WHERE PLAYER_ID = #{playerId} AND WOOD >= #{wood}
+    </update>
+    
+    <update id="addWoodIgnoreMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET WOOD = WOOD + #{wood} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setWood" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET WOOD = #{wood} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setWoodMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET WOOD = GREATEST(WOOD, LEAST(#{max}, WOOD + #{wood})) WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="addFoodIgnoreMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET FOOD = FOOD + #{food} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="consumeFood" flushCache="true">
+        UPDATE PLAYER_RESOURCE SET FOOD = FOOD - #{food} WHERE PLAYER_ID = #{playerId} AND FOOD >= #{food}
+    </update>
+    
+    <update id="setFood" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET FOOD = #{food} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setFoodMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET FOOD = GREATEST(FOOD, LEAST(#{max}, FOOD + #{food})) WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="consumeIron" flushCache="true">
+        UPDATE PLAYER_RESOURCE SET IRON = IRON - #{iron} WHERE PLAYER_ID = #{playerId} AND IRON >= #{iron}
+    </update>
+    
+    <update id="addIronIgnoreMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET IRON = IRON + #{iron} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setIron" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET IRON = #{max} WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setIronMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET IRON = GREATEST(IRON, LEAST(#{max}, IRON + #{iron})) WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="setResourceCareMax" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_RESOURCE SET 
+        	COPPER = GREATEST(COPPER, LEAST(#{copperMax}, COPPER + #{copper})),
+        	WOOD = GREATEST(WOOD, LEAST(#{woodMax}, WOOD + #{wood})),
+        	FOOD = GREATEST(FOOD, LEAST(#{foodMax}, FOOD + #{food})),
+        	IRON = GREATEST(IRON, LEAST(#{ironMax}, IRON + #{iron})),
+        	UPDATE_TIME = #{date}      	
+        WHERE PLAYER_ID = #{playerId}
+        ]]>  
+    </update>
+    
+    <update id="updateResourceCareMax" flushCache="true">
+          UPDATE PLAYER_RESOURCE  
+          <set>
+	          <if test="copper > 0">
+	          		COPPER = GREATEST(COPPER, LEAST(#{copperMax}, COPPER + #{copper})),
+	          </if>
+	          <if test="wood > 0">
+	          		WOOD = GREATEST(WOOD, LEAST(#{woodMax}, WOOD + #{wood})),
+	          </if>
+	          <if test="food > 0">
+	          		FOOD = GREATEST(FOOD, LEAST(#{foodMax}, FOOD + #{food})),
+	          </if>
+	          <if test="iron > 0">
+	          		IRON = GREATEST(IRON, LEAST(#{ironMax}, IRON + #{iron})),
+	          </if>
+	          UPDATE_TIME = #{date}
+	          WHERE PLAYER_ID = #{playerId};
+          </set>
+    </update>
+    
+    <update id="updateResourceCareMax2" flushCache="true">
+          UPDATE PLAYER_RESOURCE  
+          <set>
+	          	COPPER = COPPER + #{copper},
+	          	WOOD =  WOOD + #{wood},
+	          	FOOD =  FOOD + #{food},
+	          	IRON =  IRON + #{iron}
+	          WHERE PLAYER_ID = #{playerId};
+          </set>
+    </update>
+    
+    <update id="addResourceIgnoreMax" flushCache="true">
+    	 UPDATE PLAYER_RESOURCE  
+          <set>
+	          WOOD =  WOOD + #{wood},
+	          FOOD = FOOD + #{food},
+	          IRON = IRON + #{iron},
+	          COPPER = COPPER + #{copper} 
+	          WHERE PLAYER_ID = #{playerId};
+          </set>
+    </update>
+    
+    <update id="consumeResource" flushCache="true">
+    <![CDATA[
+    	 UPDATE PLAYER_RESOURCE SET
+        	COPPER = COPPER - #{copper}, 
+        	WOOD = WOOD - #{wood}, 
+        	FOOD = FOOD - #{food},
+        	IRON = IRON - #{iron}
+        WHERE PLAYER_ID = #{playerId} AND COPPER >= #{copper} AND WOOD >= #{wood} AND FOOD >= #{food} AND IRON >= #{iron}
+     ]]> 
+    </update>
+    
+    <update id="updateUpdateTime" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE PLAYER_RESOURCE SET UPDATE_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+     	]]> 
+    </update>
+    
+    <update id="updateResourceForKfgz" flushCache="true">
+    <![CDATA[
+    	 UPDATE PLAYER_RESOURCE SET
+        	COPPER = COPPER + #{copper}, 
+        	WOOD = WOOD + #{wood}, 
+        	FOOD = FOOD + #{food},
+        	IRON = IRON + #{iron},
+        	KFGZ_VERSION = #{toVersion}
+        WHERE PLAYER_ID = #{playerId} AND KFGZ_VERSION = #{fromVersion}
+     ]]> 
+    </update>
+    
+    <update id="clearKfgzVersion" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE PLAYER_RESOURCE SET KFGZ_VERSION = #{newVersion} WHERE PLAYER_ID = #{playerId}
+     	]]> 
+    </update>
+    
+    <update id="resourceUpdate" flushCache="true">
+    	 UPDATE PLAYER_RESOURCE  
+          <set>
+	          WOOD = WOOD + #{wood},
+	          FOOD = FOOD + #{food},
+	          IRON = IRON + #{iron},
+	          COPPER = COPPER + #{copper},
+	          KFGZ_VERSION = #{kfgzVersion},
+	          UPDATE_TIME = #{updateTime}
+	          WHERE PLAYER_ID = #{playerId}
+          </set>
+    </update>
+</mapper>

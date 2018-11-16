@@ -53,4 +53,10 @@ pagehelper:
 logging:
   level: 
     com.zyw.novelGame.mapper: DEBUG
+own:
+  html_file_path: /usr/local/nginx/html
+  is_generate_html: true
+  blocking_queue_nums: 10000
+  collect_wait_time: 3000
+  consumer_nums: 2
   

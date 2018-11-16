@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.juben.domain.ScenarioInfo">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="ScenarioInfoResultMap" type="ScenarioInfo">
+        <id column="V_ID" property="vId" />
+        <result column="SOLO_ID" property="soloId" />
+        <result column="GRADE" property="grade" />
+        <result column="MIN_TIME" property="minTime" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="PLAYER_NAME" property="playerName" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="ScenarioInfoResultMap">
+        SELECT * FROM SCENARIO_INFO WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="ScenarioInfoResultMap">
+        SELECT * FROM SCENARIO_INFO WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="ScenarioInfoResultMap">
+        SELECT * FROM SCENARIO_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM SCENARIO_INFO
+    </select>
+    
+    <insert id="create" parameterType="ScenarioInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO SCENARIO_INFO(
+           V_ID,
+           SOLO_ID,
+           GRADE,
+           MIN_TIME,
+           PLAYER_ID,
+           FORCE_ID,
+           PLAYER_NAME
+        ) VALUES (
+           #{ vId },
+           #{ soloId },
+           #{ grade },
+           #{ minTime },
+           #{ playerId },
+           #{ forceId },
+           #{ playerName }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM SCENARIO_INFO WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<update id="updateMinTime" flushCache="true">
+        <![CDATA[
+        	UPDATE SCENARIO_INFO SET MIN_TIME = #{minTime}, PLAYER_ID = #{playerId}, FORCE_ID = #{forceId}, PLAYER_NAME = #{playerName} WHERE SOLO_ID = #{soloId} AND GRADE = #{grade}
+        ]]>
+    </update>
+</mapper>

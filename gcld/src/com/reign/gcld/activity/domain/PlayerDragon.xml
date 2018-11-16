@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.activity.domain.PlayerDragon">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerDragonResultMap" type="PlayerDragon">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="DRAGON_NUM" property="dragonNum" />
+        <result column="BOX_NUM" property="boxNum" />
+        <result column="FEAT_BOX_NUM" property="featBoxNum" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerDragonResultMap">
+        SELECT * FROM PLAYER_DRAGON WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerDragonResultMap">
+        SELECT * FROM PLAYER_DRAGON WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerDragonResultMap">
+        SELECT * FROM PLAYER_DRAGON
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_DRAGON
+    </select>
+    
+    <insert id="create" parameterType="PlayerDragon" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_DRAGON(
+           PLAYER_ID,
+           DRAGON_NUM,
+           BOX_NUM,
+           FEAT_BOX_NUM
+        ) VALUES (
+           #{ playerId },
+           #{ dragonNum },
+           #{ boxNum },
+           #{ featBoxNum }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_DRAGON WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	 <select id="getDragonNumByPlayerId" parameterType="int" resultType="int">
+	 	<![CDATA[
+        	SELECT DRAGON_NUM FROM PLAYER_DRAGON WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getBoxNumByPlayerId" parameterType="int" resultType="int">
+	 	<![CDATA[
+        	SELECT BOX_NUM FROM PLAYER_DRAGON WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+     <update id="setDragonNumByPlayerId" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET DRAGON_NUM = #{dragonNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="useDragon" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET DRAGON_NUM = DRAGON_NUM - 1 WHERE PLAYER_ID = #{playerId} AND DRAGON_NUM > 0
+        ]]>
+    </update>
+    
+    <update id="useBox" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET BOX_NUM = BOX_NUM - 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addDragonNumByPlayerId" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET DRAGON_NUM = DRAGON_NUM + #{dragonNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addBoxNumByPlayerId" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET BOX_NUM = GREATEST(BOX_NUM, LEAST(BOX_NUM + #{boxNum}, #{maxNum})) WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <select id="getDragonNumList" resultMap="PlayerDragonResultMap">
+    	<![CDATA[
+        	SELECT * FROM PLAYER_DRAGON WHERE DRAGON_NUM > 0
+        ]]>
+    </select>
+    
+    <update id="clearDragon" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET DRAGON_NUM = 0
+        ]]>
+    </update>
+    
+    <update id="addFeatBoxNum" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET FEAT_BOX_NUM = GREATEST(FEAT_BOX_NUM, LEAST(FEAT_BOX_NUM + #{featBoxNum}, #{maxFeatNum})) WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+     <select id="getFeatBoxNum" parameterType="int" resultType="int">
+	 	<![CDATA[
+        	SELECT FEAT_BOX_NUM FROM PLAYER_DRAGON WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <update id="useFeatBoxNum" flushCache="true">
+	 	<![CDATA[
+        	UPDATE PLAYER_DRAGON SET FEAT_BOX_NUM = FEAT_BOX_NUM - 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+</mapper>

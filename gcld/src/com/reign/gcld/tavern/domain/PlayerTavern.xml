@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.tavern.domain.PlayerTavern">
+ <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />  
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTavernResultMap" type="PlayerTavern">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="TAVERN_STATE" property="tavernState" />
+        <result column="CIVIL_REFRESH_TIME" property="civilRefreshTime" />
+        <result column="MILITARY_REFRESH_TIME" property="militaryRefreshTime" />
+        <result column="NEXT_CIVIL_DATE" property="nextCivilDate" />
+        <result column="NEXT_MILITARY_DATE" property="nextMilitaryDate" />
+        <result column="LOCK_GENERAL_ID" property="lockGeneralId" />
+        <result column="MILITARY_INFO" property="militaryInfo" />
+        <result column="CIVIL_INFO" property="civilInfo" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTavernResultMap">
+        SELECT * FROM PLAYER_TAVERN WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTavernResultMap">
+        SELECT * FROM PLAYER_TAVERN WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTavernResultMap">
+        SELECT * FROM PLAYER_TAVERN
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TAVERN
+    </select>
+    
+    <insert id="create" parameterType="PlayerTavern" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TAVERN(
+           PLAYER_ID,
+           TAVERN_STATE,
+           CIVIL_REFRESH_TIME,
+           MILITARY_REFRESH_TIME,
+           NEXT_CIVIL_DATE,
+           NEXT_MILITARY_DATE,
+           LOCK_GENERAL_ID,
+           MILITARY_INFO,
+           CIVIL_INFO
+        ) VALUES (
+           #{ playerId },
+           #{ tavernState },
+           #{ civilRefreshTime },
+           #{ militaryRefreshTime },
+           #{ nextCivilDate },
+           #{ nextMilitaryDate },
+           #{ lockGeneralId },
+           #{ militaryInfo },
+           #{ civilInfo }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_TAVERN WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	<update id="updatePlayerTavern" flushCache="true">
+		<![CDATA[
+	   		UPDATE PLAYER_TAVERN SET TAVERN_STATE = #{tavernState}, CIVIL_REFRESH_TIME = #{civilRefreshTime}, MILITARY_REFRESH_TIME = #{militaryRefreshTime}, NEXT_CIVIL_DATE = #{nextCivilDate}, NEXT_MILITARY_DATE = #{nextMilitaryDate} WHERE PLAYER_ID = #{playerId}
+	   		]]>
+	</update>
+	
+	<update id="updateLockId" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TAVERN SET LOCK_GENERAL_ID = #{generalId} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id="updateMilitaryInfo" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TAVERN SET MILITARY_INFO = CONCAT_WS('', MILITARY_INFO , #{gIds}) WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id="updateCivilInfo" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TAVERN SET CIVIL_INFO = CONCAT_WS('', CIVIL_INFO , #{gIds}) WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<select id="getCivilInfo" parameterType="int" resultType="string">
+		<![CDATA[
+        	SELECT CIVIL_INFO FROM PLAYER_TAVERN WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+    
+    <select id="getMilitaryInfo" parameterType="int" resultType="string">
+    	<![CDATA[
+       		SELECT MILITARY_INFO FROM PLAYER_TAVERN WHERE PLAYER_ID = #{playerId}
+       	]]>
+    </select>
+	
+</mapper>

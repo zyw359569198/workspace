@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.world.domain.CountryRewardPerHour">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="CountryRewardPerHourResultMap" type="CountryRewardPerHour">
+        <id column="FORCE_ID" property="forceId" />  
+        <id column="HOUR" property="hour" />
+        <result column="REWARDS" property="rewards" />
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CountryRewardPerHourResultMap">
+        SELECT * FROM COUNTRY_REWARD_PER_HOUR WHERE FORCE_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CountryRewardPerHourResultMap">
+        SELECT * FROM COUNTRY_REWARD_PER_HOUR WHERE FORCE_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CountryRewardPerHourResultMap">
+        SELECT * FROM COUNTRY_REWARD_PER_HOUR
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM COUNTRY_REWARD_PER_HOUR
+    </select>
+    
+    <insert id="create" parameterType="CountryRewardPerHour" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="forceId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO COUNTRY_REWARD_PER_HOUR(
+           FORCE_ID,
+           HOUR,
+           REWARDS
+        ) VALUES (
+           #{ forceId },
+           #{ hour },
+           #{ rewards }
+        ) 
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM COUNTRY_REWARD_PER_HOUR WHERE FORCE_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+    <select id="getByHourAndForceId" resultMap="CountryRewardPerHourResultMap">
+        SELECT * FROM COUNTRY_REWARD_PER_HOUR WHERE HOUR = #{ hour } AND FORCE_ID = #{ forceId }
+    </select>
+    <update id="UpdateByHourAndForceId"  flushCache="true">
+        UPDATE COUNTRY_REWARD_PER_HOUR SET REWARDS = #{ rewards } WHERE HOUR = #{ hour } AND FORCE_ID = #{ forceId }
+    </update>
+</mapper>

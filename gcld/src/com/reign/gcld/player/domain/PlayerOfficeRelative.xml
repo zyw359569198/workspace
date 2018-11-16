@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerOfficeRelative">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerOfficeRelativeResultMap" type="PlayerOfficeRelative">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="OFFICER_ID" property="officerId" />
+        <result column="OCCUPY_OFFICIAL_TIME" property="occupyOfficialTime" />
+        <result column="HIGHEST_OFFICER" property="highestOfficer" />
+        <result column="OFFICER_NPC" property="officerNpc" />
+        <result column="SALARY_GOT_TODAY" property="salaryGotToday" />
+        <result column="LAST_OFFICER_ID" property="lastOfficerId" />
+        <result column="REPUTATION_TIME" property="reputationTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerOfficeRelativeResultMap">
+        SELECT * FROM PLAYER_OFFICE_RELATIVE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerOfficeRelativeResultMap">
+        SELECT * FROM PLAYER_OFFICE_RELATIVE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerOfficeRelativeResultMap">
+        SELECT * FROM PLAYER_OFFICE_RELATIVE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_OFFICE_RELATIVE
+    </select>
+    
+    <insert id="create" parameterType="PlayerOfficeRelative" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_OFFICE_RELATIVE(
+           PLAYER_ID,
+           OFFICER_ID,
+           OCCUPY_OFFICIAL_TIME,
+           HIGHEST_OFFICER,
+           OFFICER_NPC,
+           SALARY_GOT_TODAY,
+           LAST_OFFICER_ID,
+           REPUTATION_TIME
+        ) VALUES (
+           #{ playerId },
+           #{ officerId },
+           #{ occupyOfficialTime },
+           #{ highestOfficer },
+           #{ officerNpc },
+           #{ salaryGotToday },
+           #{ lastOfficerId },
+           #{ reputationTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_OFFICE_RELATIVE WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<update id="updateReputationTime" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_OFFICE_RELATIVE SET  REPUTATION_TIME = #{reputationTime},LAST_OFFICER_ID = #{lastOfficer} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id="getListByOfficerId" resultMap="PlayerOfficeRelativeResultMap">
+        SELECT * FROM PLAYER_OFFICE_RELATIVE WHERE OFFICER_ID = #{officerId}
+    </select>
+	
+	
+	<select id="getListByReputationTime" resultMap="PlayerOfficeRelativeResultMap">
+        SELECT * FROM PLAYER_OFFICE_RELATIVE WHERE REPUTATION_TIME >= NOW()
+    </select>
+    
+    
+    <update id="updateSalaryGot" flushCache="true">
+     	<![CDATA[
+    		UPDATE PLAYER_OFFICE_RELATIVE SET SALARY_GOT_TODAY = #{salaryGot} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    
+    <select id="getListOtherOfficerId" resultMap="PlayerOfficeRelativeResultMap">
+		<![CDATA[
+        	SELECT * FROM PLAYER_OFFICE_RELATIVE WHERE OFFICER_ID NOT IN (#{left}, #{right}, #{farmer})
+        ]]>
+    </select>
+    
+    
+    <update id="updateOfficerId" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_OFFICE_RELATIVE SET OFFICER_ID = #{officerId} , OCCUPY_OFFICIAL_TIME = #{date} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    
+    <update id="updateOfficerNpc" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_OFFICE_RELATIVE SET OFFICER_NPC = #{buildingId} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    
+    <update id="updateHighestOfficer" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_OFFICE_RELATIVE SET HIGHEST_OFFICER = #{officerId} WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+    <select id = "getOfficerId" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT OFFICER_ID FROM PLAYER_OFFICE_RELATIVE WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+</mapper>

@@ -3,11 +3,15 @@ package com.zyw.novelGame.collect.queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.zyw.utils.Common;
-
+@Component
 public class Resource {
 	
 	public static final  Logger logger=LoggerFactory.getLogger(Resource.class);
@@ -16,6 +20,15 @@ public class Resource {
 		
 	private static volatile Resource instance;
 	
+	@Autowired
+	private  Common common;
+	
+	private static Common staticCommon;
+	
+	@PostConstruct
+	private void init() {
+		staticCommon=common;
+	}
 	private Resource() {}
 		
 	public static Resource getInstance(){
@@ -23,7 +36,7 @@ public class Resource {
 			synchronized(Resource.class) {
 				if(instance==null) {
 					instance=new Resource();
-					resourceQueue= new LinkedBlockingQueue<QueueInfo>(Common.BLOCKING_QUEUE_NUMS);
+					resourceQueue= new LinkedBlockingQueue<QueueInfo>(staticCommon.getBlocking_queue_nums());
 				}
 			}
 		}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.store.domain.StoreHouseSell">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="StoreHouseSellResultMap" type="StoreHouseSell">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="ITEM_ID" property="itemId" />
+        <result column="TYPE" property="type" />
+        <result column="GOODS_TYPE" property="goodsType" />
+        <result column="LV" property="lv" />
+        <result column="ATTRIBUTE" property="attribute" />
+        <result column="QUALITY" property="quality" />
+        <result column="SELL_TIME" property="sellTime" />
+        <result column="GEM_ID" property="gemId" />
+        <result column="NUM" property="num" />
+        <result column="REFRESH_ATTRIBUTE" property="refreshAttribute" />
+        <result column="QUENCHING_TIMES" property="quenchingTimes" />
+        <result column="QUENCHING_TIMES_FREE" property="quenchingTimesFree" />
+        <result column="SPECIAL_SKILL_ID" property="specialSkillId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="StoreHouseSellResultMap">
+        SELECT * FROM STORE_HOUSE_SELL WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="StoreHouseSellResultMap">
+        SELECT * FROM STORE_HOUSE_SELL WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="StoreHouseSellResultMap">
+        SELECT * FROM STORE_HOUSE_SELL
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM STORE_HOUSE_SELL
+    </select>
+    
+    <insert id="create" parameterType="StoreHouseSell" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO STORE_HOUSE_SELL(
+           V_ID,
+           PLAYER_ID,
+           ITEM_ID,
+           TYPE,
+           GOODS_TYPE,
+           LV,
+           ATTRIBUTE,
+           QUALITY,
+           SELL_TIME,
+           GEM_ID,
+           NUM,
+           REFRESH_ATTRIBUTE,
+           QUENCHING_TIMES,
+           QUENCHING_TIMES_FREE,
+           SPECIAL_SKILL_ID
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ itemId },
+           #{ type },
+           #{ goodsType },
+           #{ lv },
+           #{ attribute },
+           #{ quality },
+           #{ sellTime },
+           #{ gemId },
+           #{ num },
+           #{ refreshAttribute },
+           #{ quenchingTimes },
+           #{ quenchingTimesFree },
+           #{ specialSkillId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM STORE_HOUSE_SELL WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<select id="getByPlayerId" parameterType="int"  resultMap="StoreHouseSellResultMap">
+    	<![CDATA[
+        SELECT * FROM STORE_HOUSE_SELL WHERE PLAYER_ID = #{playerId} ORDER BY TYPE DESC, GOODS_TYPE ASC,  QUALITY DESC, LV DESC, SELL_TIME
+    	]]>
+    </select>
+	
+	<select id="getByItemId" resultMap="StoreHouseSellResultMap">
+    	 SELECT * FROM STORE_HOUSE_SELL WHERE PLAYER_ID = #{playerId} AND ITEM_ID = #{itemId} AND TYPE = #{type}
+    </select>
+    
+    
+    
+    <update id="addNumByVid" flushCache="true">
+    	<![CDATA[
+    	    UPDATE STORE_HOUSE_SELL SET NUM = NUM + #{addNum} WHERE V_ID = #{id}
+    	]]>
+    </update>
+	
+</mapper>

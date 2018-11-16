@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.chat.domain.Silence"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="SilenceResultMap" type="Silence">
+        <id column="SILENCE_ID" property="silenceId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="NEXT_SAY_TIME" property="nextSayTime" />
+        <result column="REASON" property="reason" />
+        <result column="SILENCE_TIME" property="silenceTime" />
+        <result column="USER_ID" property="userId" />
+        <result column="YX" property="yx" />
+        <result column="TYPE" property="type" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="SilenceResultMap">
+        SELECT * FROM SILENCE WHERE SILENCE_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="SilenceResultMap">
+        SELECT * FROM SILENCE WHERE SILENCE_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="SilenceResultMap">
+        SELECT * FROM SILENCE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM SILENCE
+    </select>
+    
+    <insert id="create" parameterType="Silence" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="silenceId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO SILENCE(
+           SILENCE_ID,
+           PLAYER_ID,
+           NEXT_SAY_TIME,
+           REASON,
+           SILENCE_TIME,
+           USER_ID,
+           YX,
+           TYPE
+        ) VALUES (
+           #{ silenceId },
+           #{ playerId },
+           #{ nextSayTime },
+           #{ reason },
+           #{ silenceTime },
+           #{ userId },
+           #{ yx },
+           #{ type }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM SILENCE WHERE SILENCE_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+ 
+    <select id="getByPlayerIdAndYx" resultMap="SilenceResultMap">
+          SELECT * FROM SILENCE WHERE PLAYER_ID=#{playerId} AND YX = #{yx}
+    </select>
+    
+     <select id="getByPlayerId" parameterType="int" resultMap="SilenceResultMap">
+          SELECT * FROM SILENCE WHERE PLAYER_ID = #{playerId}
+    </select>
+    
+     <select id="getByDateAndYx"  resultMap="SilenceResultMap">
+        <![CDATA[
+          SELECT * FROM SILENCE WHERE NEXT_SAY_TIME > #{date} AND YX = #{yx} AND TYPE = #{type}
+          ]]>
+    </select>
+    
+    <update id="update"  parameterType="Silence" flushCache="true">
+          UPDATE SILENCE  
+          <set>
+	          <if test="playerId!=null and playerId!='' ">
+	          		PLAYER_ID = #{playerId}
+	          </if>
+	          <if test="nextSayTime!=null ">
+	          		, NEXT_SAY_TIME = #{nextSayTime,jdbcType=TIMESTAMP}
+	          </if>
+	          <if test="reason!=null and reason!='' ">
+	          		, REASON = #{reason}
+	          </if>
+	          <if test="silenceTime!=null ">
+	          		, SILENCE_TIME = #{silenceTime,jdbcType=TIMESTAMP}
+	          </if>
+	          <if test="userId!=null and userId!='' ">
+	          		, USER_ID=#{userId}
+	          </if>
+	          <if test="yx!=null and yx!='' ">
+	          		, YX = #{yx}
+	          </if>
+	          <if test="type!=null and type!='' ">
+	          		, TYPE=#{type}
+	          </if>
+	          WHERE SILENCE_ID = #{silenceId};
+          </set>          
+    </update>
+    
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.user.domain.UserBlock">  
+<!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache" /> -->
+<!-- ##generate by template begin## -->  
+    <resultMap id="UserBlockResultMap" type="UserBlock">
+        <id column="V_ID" property="vId" />
+        <result column="USER_ID" property="userId" />
+        <result column="YX" property="yx" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="REASON" property="reason" />
+        <result column="BLOCK_END_TIME" property="blockEndTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="UserBlockResultMap">
+        SELECT * FROM USER_BLOCK WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="UserBlockResultMap">
+        SELECT * FROM USER_BLOCK WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="UserBlockResultMap">
+        SELECT * FROM USER_BLOCK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM USER_BLOCK
+    </select>
+    
+    <insert id="create" parameterType="UserBlock" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO USER_BLOCK(
+           V_ID,
+           USER_ID,
+           YX,
+           PLAYER_ID,
+           REASON,
+           BLOCK_END_TIME
+        ) VALUES (
+           #{ vId },
+           #{ userId },
+           #{ yx },
+           #{ playerId },
+           #{ reason },
+           #{ blockEndTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM USER_BLOCK WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+  	<select id="getUserBlock" resultMap="UserBlockResultMap">
+        SELECT * FROM USER_BLOCK WHERE USER_ID = #{userId} AND YX = #{yx}
+    </select>
+    
+  	<select id="getUserBanListByDateAndYx" resultMap="UserBlockResultMap">
+  		<![CDATA[
+        	SELECT * FROM USER_BLOCK WHERE BLOCK_END_TIME > #{date} AND YX = #{yx}
+        ]]>
+    </select>
+    
+    <update id ="update" flushCache="true">
+    	UPDATE USER_BLOCK SET REASON = #{reason}, BLOCK_END_TIME = #{endTime} WHERE V_ID=#{vId}
+    </update> 
+</mapper>

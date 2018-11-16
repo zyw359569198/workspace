@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.CityDefenceNpc">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="CityDefenceNpcResultMap" type="CityDefenceNpc">
+        <id column="CITY_ID" property="cityId" />
+        <result column="PLAYER_LV" property="playerLv" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="GENERAL__LV" property="generalLv" />
+        <result column="TROOP_ID" property="troopId" />
+        <result column="STRENGTH" property="strength" />
+        <result column="LEADER" property="leader" />
+        <result column="ATT" property="att" />
+        <result column="DEF" property="def" />
+        <result column="HP" property="hp" />
+        <result column="COLUMN_NUM" property="columnNum" />
+        <result column="ATT_B" property="attB" />
+        <result column="DEF_B" property="defB" />
+        <result column="TACTIC_ATT" property="tacticAtt" />
+        <result column="TACTIC_DEF" property="tacticDef" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="CityDefenceNpcResultMap">
+        SELECT * FROM CITY_DEFENCE_NPC WHERE CITY_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="CityDefenceNpcResultMap">
+        SELECT * FROM CITY_DEFENCE_NPC WHERE CITY_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="CityDefenceNpcResultMap">
+        SELECT * FROM CITY_DEFENCE_NPC
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM CITY_DEFENCE_NPC
+    </select>
+    
+    <insert id="create" parameterType="CityDefenceNpc" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cityId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO CITY_DEFENCE_NPC(
+           CITY_ID,
+           PLAYER_LV,
+           GENERAL_ID,
+           GENERAL__LV,
+           TROOP_ID,
+           STRENGTH,
+           LEADER,
+           ATT,
+           DEF,
+           HP,
+           COLUMN_NUM,
+           ATT_B,
+           DEF_B,
+           TACTIC_ATT,
+           TACTIC_DEF
+        ) VALUES (
+           #{ cityId },
+           #{ playerLv },
+           #{ generalId },
+           #{ generalLv },
+           #{ troopId },
+           #{ strength },
+           #{ leader },
+           #{ att },
+           #{ def },
+           #{ hp },
+           #{ columnNum },
+           #{ attB },
+           #{ defB },
+           #{ tacticAtt },
+           #{ tacticDef }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM CITY_DEFENCE_NPC WHERE CITY_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+	<update id="updateDefenceNpc" flushCache="true">
+	UPDATE CITY_DEFENCE_NPC SET
+	PLAYER_LV = #{pLv},
+	GENERAL_ID = #{gId},
+	GENERAL__LV = #{gLv},
+	TROOP_ID = #{troopId},
+	STRENGTH = #{str},
+	LEADER = #{lead},
+	ATT = #{att},
+	DEF = #{def},
+	HP = #{hp},
+	COLUMN_NUM = #{colNum},
+	ATT_B = #{attB},
+	DEF_B = #{defB},
+	TACTIC_ATT = #{tacticAtt},
+	TACTIC_DEF = #{tacticDef}
+	WHERE CITY_ID = #{cityId}
+	</update>
+    
+    
+</mapper>

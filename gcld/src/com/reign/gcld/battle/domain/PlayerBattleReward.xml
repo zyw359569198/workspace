@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerBattleReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerBattleRewardResultMap" type="PlayerBattleReward">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="M_EXP" property="mExp" />
+        <result column="GENERAL_IDS" property="generalIds" />
+        <result column="G_EXP" property="gExp" />
+        <result column="COPPER" property="copper" />
+        <result column="GAIN_TIME" property="gainTime" />
+        <result column="TERRAIN" property="terrain" />
+        <result column="TYPE" property="type" />
+        <result column="ATT_LOST" property="attLost" />
+        <result column="DEF_LOST" property="defLost" />
+        <result column="DEF_ID" property="defId" />
+        <result column="ATT_FORCE_ID" property="attForceId" />
+        <result column="DEF_FORCE_ID" property="defForceId" />
+        <result column="WIN_SIDE" property="winSide" />
+        <result column="RB_REWARD" property="rbReward" />
+        <result column="MAX_KILL_GNUM" property="maxKillGnum" />
+        <result column="BONUS_DROP" property="bonusDrop" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerBattleRewardResultMap">
+        SELECT * FROM PLAYER_BATTLE_REWARD WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerBattleRewardResultMap">
+        SELECT * FROM PLAYER_BATTLE_REWARD WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerBattleRewardResultMap">
+        SELECT * FROM PLAYER_BATTLE_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_BATTLE_REWARD
+    </select>
+    
+    <insert id="create" parameterType="PlayerBattleReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_BATTLE_REWARD(
+           V_ID,
+           PLAYER_ID,
+           M_EXP,
+           GENERAL_IDS,
+           G_EXP,
+           COPPER,
+           GAIN_TIME,
+           TERRAIN,
+           TYPE,
+           ATT_LOST,
+           DEF_LOST,
+           DEF_ID,
+           ATT_FORCE_ID,
+           DEF_FORCE_ID,
+           WIN_SIDE,
+           RB_REWARD,
+           MAX_KILL_GNUM,
+           BONUS_DROP
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ mExp },
+           #{ generalIds },
+           #{ gExp },
+           #{ copper },
+           #{ gainTime },
+           #{ terrain },
+           #{ type },
+           #{ attLost },
+           #{ defLost },
+           #{ defId },
+           #{ attForceId },
+           #{ defForceId },
+           #{ winSide },
+           #{ rbReward },
+           #{ maxKillGnum },
+           #{ bonusDrop }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_BATTLE_REWARD WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<select id="getListByType" resultMap="PlayerBattleRewardResultMap">
+		<![CDATA[
+        	SELECT * FROM PLAYER_BATTLE_REWARD WHERE PLAYER_ID = #{playerId} AND TYPE = #{type} ORDER BY GAIN_TIME DESC
+        ]]>
+    </select>
+    
+    <select id="getListBy2Type" resultMap="PlayerBattleRewardResultMap">
+    	<![CDATA[
+       		 SELECT * FROM PLAYER_BATTLE_REWARD WHERE PLAYER_ID =#{playerId} AND TYPE = #{type1} OR TYPE = #{type2} ORDER BY GAIN_TIME DESC
+        ]]>
+    </select>
+    
+    <select id="getListByPlayerId" resultMap="PlayerBattleRewardResultMap">
+    	<![CDATA[
+       		 SELECT * FROM PLAYER_BATTLE_REWARD WHERE PLAYER_ID =#{playerId} ORDER BY GAIN_TIME DESC
+        ]]>
+    </select>
+</mapper>

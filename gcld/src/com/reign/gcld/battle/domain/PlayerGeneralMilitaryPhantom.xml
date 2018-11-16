@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.battle.domain.PlayerGeneralMilitaryPhantom">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGeneralMilitaryPhantomResultMap" type="PlayerGeneralMilitaryPhantom">
+        <id column="V_ID" property="vId" />
+        <result column="BUY_TIME" property="buyTime" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="PLAYER_LV" property="playerLv" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="GENERAL_LV" property="generalLv" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="TROOP_ID" property="troopId" />
+        <result column="STRENGTH" property="strength" />
+        <result column="LEADER" property="leader" />
+        <result column="ATT" property="att" />
+        <result column="DEF" property="def" />
+        <result column="HP" property="hp" />
+        <result column="HP_MAX" property="hpMax" />
+        <result column="COLUMN_NUM" property="columnNum" />
+        <result column="ATT_B" property="attB" />
+        <result column="DEF_B" property="defB" />
+        <result column="TACTIC_ATT" property="tacticAtt" />
+        <result column="TACTIC_DEF" property="tacticDef" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGeneralMilitaryPhantomResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGeneralMilitaryPhantomResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGeneralMilitaryPhantomResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY_PHANTOM
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL_MILITARY_PHANTOM
+    </select>
+    
+    <insert id="create" parameterType="PlayerGeneralMilitaryPhantom" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GENERAL_MILITARY_PHANTOM(
+           V_ID,
+           BUY_TIME,
+           PLAYER_ID,
+           FORCE_ID,
+           PLAYER_LV,
+           GENERAL_ID,
+           GENERAL_LV,
+           LOCATION_ID,
+           TROOP_ID,
+           STRENGTH,
+           LEADER,
+           ATT,
+           DEF,
+           HP,
+           HP_MAX,
+           COLUMN_NUM,
+           ATT_B,
+           DEF_B,
+           TACTIC_ATT,
+           TACTIC_DEF
+        ) VALUES (
+           #{ vId },
+           #{ buyTime },
+           #{ playerId },
+           #{ forceId },
+           #{ playerLv },
+           #{ generalId },
+           #{ generalLv },
+           #{ locationId },
+           #{ troopId },
+           #{ strength },
+           #{ leader },
+           #{ att },
+           #{ def },
+           #{ hp },
+           #{ hpMax },
+           #{ columnNum },
+           #{ attB },
+           #{ defB },
+           #{ tacticAtt },
+           #{ tacticDef }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE V_ID = #{id}
+    </delete>
+	<!-- ##generate by template end## -->
+
+
+	<select id="getPhantomByLocationIdOrderByPlayerIdLvDesc" resultMap="PlayerGeneralMilitaryPhantomResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE LOCATION_ID = #{locationId} order by PLAYER_ID , GENERAL_LV DESC
+	</select>
+	
+	<select id="getPhantomByLocationPidGid" resultMap="PlayerGeneralMilitaryPhantomResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE 
+        LOCATION_ID = #{locationId} AND PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </select>
+    
+     <update id="updateHp" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY_PHANTOM SET HP = #{hp} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <delete id="deleteByLocationId" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_GENERAL_MILITARY_PHANTOM WHERE LOCATION_ID = #{LocationId}
+    </delete>
+    
+</mapper>

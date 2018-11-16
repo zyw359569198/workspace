@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.nation.domain.PlayerTryRank">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTryRankResultMap" type="PlayerTryRank">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="NUM" property="num" />
+        <result column="RECEIVED" property="received" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTryRankResultMap">
+        SELECT * FROM PLAYER_TRY_RANK WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTryRankResultMap">
+        SELECT * FROM PLAYER_TRY_RANK WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTryRankResultMap">
+        SELECT * FROM PLAYER_TRY_RANK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TRY_RANK
+    </select>
+    
+    <insert id="create" parameterType="PlayerTryRank" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TRY_RANK(
+           PLAYER_ID,
+           NUM,
+           RECEIVED
+        ) VALUES (
+           #{ playerId },
+           #{ num },
+           #{ received }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_TRY_RANK WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+     
+     <select id="getRankList" resultMap="PlayerTryRankResultMap">
+     	<![CDATA[
+        	SELECT * FROM PLAYER_TRY_RANK WHERE NUM > 0 ORDER BY NUM DESC
+        ]]>
+    </select>
+    
+    <update id="addKillNum" flushCache="true">
+     	<![CDATA[
+        	UPDATE PLAYER_TRY_RANK SET NUM = NUM + #{killNum} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="received" flushCache="true">
+     	<![CDATA[
+        	UPDATE PLAYER_TRY_RANK SET RECEIVED = 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="clear" flushCache="true">
+     	<![CDATA[
+        	UPDATE PLAYER_TRY_RANK SET NUM = 0, RECEIVED = 0 WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID = #{forceId})
+        ]]>
+    </update>
+    
+    <select id="hasReward" parameterType="int" resultType="int">
+     	<![CDATA[
+        	SELECT RECEIVED FROM PLAYER_TRY_RANK WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </select>
+      
+</mapper>

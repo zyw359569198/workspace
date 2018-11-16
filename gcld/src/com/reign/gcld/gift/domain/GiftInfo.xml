@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.gift.domain.GiftInfo">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="GiftInfoResultMap" type="GiftInfo">
+        <id column="ID" property="id" />
+        <result column="GIFT_NAME" property="giftName" />
+        <result column="YX" property="yx" />
+        <result column="CONTENTS" property="contents" />
+        <result column="ALL_SERVER" property="allServer" />
+        <result column="CURRENT_PLAYER" property="currentPlayer" />
+        <result column="SEND_TIME" property="sendTime" />
+        <result column="EXPIRED_TIME" property="expiredTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="GiftInfoResultMap">
+        SELECT * FROM GIFT_INFO WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="GiftInfoResultMap">
+        SELECT * FROM GIFT_INFO WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="GiftInfoResultMap">
+        SELECT * FROM GIFT_INFO
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM GIFT_INFO
+    </select>
+    
+    <insert id="create" parameterType="GiftInfo" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO GIFT_INFO(
+           ID,
+           GIFT_NAME,
+           YX,
+           CONTENTS,
+           ALL_SERVER,
+           CURRENT_PLAYER,
+           SEND_TIME,
+           EXPIRED_TIME
+        ) VALUES (
+           #{ id },
+           #{ giftName },
+           #{ yx },
+           #{ contents },
+           #{ allServer },
+           #{ currentPlayer },
+           #{ sendTime },
+           #{ expiredTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM GIFT_INFO WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+	<select id="getAllServerNum"  resultType="int">
+		<![CDATA[
+        	SELECT COUNT(1) FROM GIFT_INFO WHERE YX = #{yx} AND ALL_SERVER = 1 AND EXPIRED_TIME > #{now} AND 
+        	(CURRENT_PLAYER = 0 OR SEND_TIME > #{playerDate})
+        ]]>
+    </select>
+    
+    <delete id="deleteByDate" parameterType="java.util.Date" flushCache="true">
+    	<![CDATA[
+        	DELETE FROM GIFT_INFO WHERE EXPIRED_TIME < #{date}
+        ]]>
+    </delete>
+    
+    <select id="getByDate" parameterType="java.util.Date" resultMap="GiftInfoResultMap">
+    	<![CDATA[
+        	SELECT * FROM GIFT_INFO WHERE EXPIRED_TIME < #{date}
+        ]]>
+    </select>
+    
+     <select id="getByYx" parameterType="string" resultMap="GiftInfoResultMap">
+    	<![CDATA[
+        	SELECT * FROM GIFT_INFO WHERE YX = #{yx}
+        ]]>
+    </select>
+	  
+</mapper>

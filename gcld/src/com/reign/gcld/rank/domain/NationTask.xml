@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.rank.domain.NationTask">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="NationTaskResultMap" type="NationTask">
+        <id column="NATION_TASK_ID" property="nationTaskId" />
+        <result column="FORCEID" property="forceid" />
+        <result column="TARGET" property="target" />
+        <result column="ENDTIME" property="endtime" />
+        <result column="ATT_TYPE" property="attType" />
+        <result column="ISWIN" property="iswin" />
+        <result column="FINISHTIME" property="finishtime" />
+        <result column="TASK_RELATE_INFO" property="taskRelateInfo" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="NationTaskResultMap">
+        SELECT * FROM NATION_TASK WHERE NATION_TASK_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="NationTaskResultMap">
+        SELECT * FROM NATION_TASK WHERE NATION_TASK_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="NationTaskResultMap">
+        SELECT * FROM NATION_TASK
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM NATION_TASK
+    </select>
+    
+    <insert id="create" parameterType="NationTask" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="nationTaskId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO NATION_TASK(
+           NATION_TASK_ID,
+           FORCEID,
+           TARGET,
+           ENDTIME,
+           ATT_TYPE,
+           ISWIN,
+           FINISHTIME,
+           TASK_RELATE_INFO
+        ) VALUES (
+           #{ nationTaskId },
+           #{ forceid },
+           #{ target },
+           #{ endtime },
+           #{ attType },
+           #{ iswin },
+           #{ finishtime },
+           #{ taskRelateInfo }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM NATION_TASK WHERE NATION_TASK_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+	<update id="updateIsWin" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET ISWIN = #{isWin} WHERE NATION_TASK_ID = #{taskId}
+     	]]> 
+    </update> 
+    
+    <update id="updateIsWinAndFinishTime" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET ISWIN = #{isWin} ,FINISHTIME = #{finishtime} WHERE NATION_TASK_ID = #{taskId}
+     	]]> 
+    </update>
+    
+    <update id="resetTaskIsWin1" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET ISWIN = 2 WHERE FORCEID = #{forceId} AND NATION_TASK_ID % 2 = #{id}
+     	]]> 
+    </update>
+    
+    <update id="resetTaskIsWin2" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET ISWIN = 1 WHERE   NATION_TASK_ID % 2 = #{id} AND FORCEID != #{forceId}
+     	]]> 
+    </update>
+    
+     <select id="getByForceAndTarget"  resultMap="NationTaskResultMap">
+        SELECT * FROM NATION_TASK WHERE FORCEID = #{forceId} AND TARGET = #{target}
+    </select>
+    
+    <update id="deleteAllTasks" flushCache="true">
+    	<![CDATA[
+    	 	DELETE  FROM NATION_TASK
+     	]]> 
+    </update>
+    
+    <update id="updateTarget" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET TARGET = #{target} WHERE FORCEID = #{forceId}
+     	]]> 
+    </update>
+    
+    <select id="getByForce"  resultMap="NationTaskResultMap">
+        SELECT * FROM NATION_TASK WHERE FORCEID = #{forceId}
+    </select>
+    
+    <update id="updateAttType" flushCache="true">
+    	<![CDATA[
+    	 	UPDATE NATION_TASK SET ATT_TYPE = #{winTimes} WHERE NATION_TASK_ID = #{taskId}
+     	]]> 
+    </update>
+    
+    
+    <update id="updateManZuSaoDangTaskRelateInfo" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET TASK_RELATE_INFO = #{info} WHERE FORCEID = #{forceId}
+        ]]> 
+    </update>
+    
+    <update id="updateTaskRelativeInfo" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET TASK_RELATE_INFO = #{info}
+        ]]> 
+    </update>
+    
+    <update id="setTaskWinByForceId" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET ISWIN = 2 WHERE FORCEID = #{forceId}
+        ]]> 
+    </update>
+    
+    <update id="setTaskLoseByForceId" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET ISWIN = 1 WHERE FORCEID != #{forceId}
+        ]]> 
+    </update>
+    
+    <update id="updateIsWinAndEndTime" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET ISWIN = #{isWin}, ENDTIME = #{endTime} WHERE  NATION_TASK_ID = #{nationTaskId}
+        ]]> 
+    </update>
+    
+    <update id="resetIsWin" flushCache="true">
+        <![CDATA[
+            UPDATE NATION_TASK SET ISWIN = #{isWin} WHERE  FORCEID = #{forceId}
+        ]]> 
+    </update>
+    
+</mapper>

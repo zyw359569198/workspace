@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.general.domain.PlayerGeneralMilitary">  
+<!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerGeneralMilitaryResultMap" type="PlayerGeneralMilitary">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="GENERAL_ID" property="generalId" />
+        <result column="LV" property="lv" />
+        <result column="EXP" property="exp" />
+        <result column="LEADER" property="leader" />
+        <result column="STRENGTH" property="strength" />
+        <result column="FORCES" property="forces" />
+        <result column="UPDATE_FORCES_TIME" property="updateForcesTime" />
+        <result column="STATE" property="state" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="MORALE" property="morale" />
+        <result column="AUTO" property="auto" />
+        <result column="TACTIC_EFFECT" property="tacticEffect" />
+        <result column="JUBEN_LO_ID" property="jubenLoId" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL_MILITARY
+    </select>
+    
+    <insert id="create" parameterType="PlayerGeneralMilitary" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_GENERAL_MILITARY(
+           V_ID,
+           PLAYER_ID,
+           FORCE_ID,
+           GENERAL_ID,
+           LV,
+           EXP,
+           LEADER,
+           STRENGTH,
+           FORCES,
+           UPDATE_FORCES_TIME,
+           STATE,
+           LOCATION_ID,
+           MORALE,
+           AUTO,
+           TACTIC_EFFECT,
+           JUBEN_LO_ID
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ forceId },
+           #{ generalId },
+           #{ lv },
+           #{ exp },
+           #{ leader },
+           #{ strength },
+           #{ forces },
+           #{ updateForcesTime },
+           #{ state },
+           #{ locationId },
+           #{ morale },
+           #{ auto },
+           #{ tacticEffect },
+           #{ jubenLoId }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_GENERAL_MILITARY WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<resultMap id="generalMap" type="Map">
+    	<id column="LOCATION_ID" property="locationId" />
+    	<result column="GENERAL_NUM" property="generalNum" />
+    </resultMap>
+    
+    <select id="getCityGenrealNum"  resultMap="generalMap">
+        SELECT LOCATION_ID, count(1) as GENERAL_NUM FROM PLAYER_GENERAL_MILITARY GROUP BY LOCATION_ID;
+    </select>
+	
+	<select id="getMilitary" resultMap="PlayerGeneralMilitaryResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+	</select>
+	
+	<select id="getMaxLvMilitary" resultMap="PlayerGeneralMilitaryResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY WHERE FORCE_ID = #{forceId} ORDER BY LV DESC LIMIT 1
+	</select>
+	
+	<select id="getMilitaryList" resultMap="PlayerGeneralMilitaryResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId}
+	</select>
+	
+	<select id="getMilitaryListOrder" resultMap="PlayerGeneralMilitaryResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId} ORDER BY LV DESC<!--, QUALITY DESC  -->
+	</select>
+	
+	<select id="getListByState"  resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId} AND STATE = #{state}
+    </select>
+
+	<update id="updateStateWithDate" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, UPDATE_FORCES_TIME = #{date} WHERE V_ID = #{vId} AND STATE = #{orgState}
+        ]]>
+    </update>
+    
+    <update id="updateStateAuto" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, UPDATE_FORCES_TIME = #{date}, AUTO = #{auto} WHERE V_ID = #{vId} AND STATE = #{orgState}
+        ]]>
+    </update>
+    
+    <update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+    </update>
+    
+    <update id="updateStateByPidAndGid" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateByLocationAndState3" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, UPDATE_FORCES_TIME = #{date} WHERE LOCATION_ID = #{locationId} AND STATE = 3
+        ]]>
+    </update>
+    
+    <update id="updateStateCheck" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND STATE <= 1
+        ]]>
+    </update>
+    
+    <update id="updateAutoRecruit" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1, UPDATE_FORCES_TIME = NOW() WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND STATE = 0
+        ]]>
+    </update>
+    
+    <update id="updateStateCityCheck" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, LOCATION_ID = #{locationId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND STATE <= 1
+        ]]>
+    </update>
+    
+    <select id="getMilitaryNum" resultType="int">
+    	 SELECT COUNT(1) FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId}
+    </select>
+    
+	<update id="updateExpAndGlv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = GREATEST(1, STATE), EXP = #{curExp}, LV = LV + #{addLv} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addExp" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET EXP = EXP + #{addExp} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateAllState" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1 WHERE STATE > 1 AND STATE < 24
+        ]]>
+    </update>
+    
+    <update id="move" flushCache="true">
+    <![CDATA[
+    	  UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, LOCATION_ID = #{cityId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    ]]>
+    </update>
+    
+     <update id="attack" flushCache="true">
+    <![CDATA[
+    	  UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, LOCATION_ID = #{locationId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND STATE <= 1
+    ]]>
+    </update>
+    
+    <update id ="restartRecruit" flushCache="true">
+    	UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, UPDATE_FORCES_TIME = #{date}  WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <select id="getMilitaryByLocationId"  resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE LOCATION_ID = #{locationId}
+    </select>
+    
+    <select id="getByLocationAndState3"  resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE LOCATION_ID = #{locationId} AND STATE = 3;
+    </select>
+    
+    <select id="getMilitaryByLocationIdOrderByPlayerIdLvDesc"  resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY WHERE LOCATION_ID = #{locationId} order by PLAYER_ID , LV DESC
+    </select>
+    
+    <update id="updateStateLocationId" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, LOCATION_ID = #{locationId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <select id="countMilitaryByState" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId} AND STATE = #{state}
+    </select>
+    
+    <update id="updateLocationId" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET LOCATION_ID = #{locationId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateAuto" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET AUTO = #{auto} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addLeader" flushCache="true">
+    	 UPDATE PLAYER_GENERAL_MILITARY SET LEADER = LEADER + #{addLeader} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id="addStrength" flushCache="true">
+    	 UPDATE PLAYER_GENERAL_MILITARY SET STRENGTH = STRENGTH + #{addStrength} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <select id="getMilitaryMap" resultMap="PlayerGeneralMilitaryResultMap">
+		SELECT * FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId}
+	</select>
+	
+	<update id="updateGlv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET LV = LV + #{addLv} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="SetGlv" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET LV = #{lv} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addLeaderAndStrength" flushCache="true">
+    	 UPDATE PLAYER_GENERAL_MILITARY SET LEADER = LEADER + #{addLeader}, STRENGTH = STRENGTH + #{addStrength} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id="consumeLeaderAndStrength" flushCache="true">
+    	 UPDATE PLAYER_GENERAL_MILITARY SET LEADER = LEADER - #{consumeLeader}, STRENGTH = STRENGTH - #{consumeStrength} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <select id="getGeneralsForFollow"  resultMap="PlayerGeneralMilitaryResultMap">
+        SELECT * FROM PLAYER_GENERAL_MILITARY pm LEFT JOIN PLAYER p ON pm.PLAYER_ID = p.PLAYER_ID  WHERE pm.LOCATION_ID = #{locationId} ORDER BY p.PLAYER_LV DESC
+    </select>
+    <update id="updateTacticEffect" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET TACTIC_EFFECT = TACTIC_EFFECT + #{addValue} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="resetTacticEffect" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET TACTIC_EFFECT = 0 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="updateLvAndLeader" flushCache="true">
+        <![CDATA[
+        update player_general_military set LV = #{playerLv},LEADER = 9999,  STRENGTH = 9999 where PLAYER_ID = #{playerId} ;
+        ]]>
+    </update>
+    
+    <update id="updateJuBenLocation" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET LOCATION_ID = #{locationId}, JUBEN_LO_ID = #{jubenLoId} WHERE PLAYER_ID = #{playerId} AND STATE <= 1
+        ]]>
+    </update>
+    
+    <update id="moveJuben" flushCache="true">
+	    <![CDATA[
+	    	  UPDATE PLAYER_GENERAL_MILITARY SET STATE = #{state}, JUBEN_LO_ID = #{cityId} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+	    ]]>
+    </update>
+    
+    <select id="getGeneralNumInCity" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId} AND JUBEN_LO_ID = #{cityId}
+    </select>
+    
+    <update id="updateLocationByforceIdAndLocationId" flushCache="true">
+	    <![CDATA[
+	    	  UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1, LOCATION_ID = if(FORCE_ID = 1, 123, if(FORCE_ID =2 , 19, 207)) WHERE LOCATION_ID = #{cityId}
+	    ]]>
+    </update>
+    
+    <delete id="deleteByPlayerId" parameterType="int">
+        DELETE FROM PLAYER_GENERAL_MILITARY WHERE PLAYER_ID = #{playerId}
+    </delete>
+    
+    
+    
+    <update id="consumeForces" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = GREATEST(1, STATE), FORCES = FORCES - #{forces}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="consumeForcesByState" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET FORCES = FORCES - #{forces}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId} AND STATE <= 1
+        ]]>
+    </update>
+    
+    
+    <update id="consumeCityForces" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = GREATEST(1, STATE), FORCES = FORCES - FORCES * #{forcesCost}, UPDATE_FORCES_TIME = #{date}  WHERE LOCATION_ID = #{cityId}
+        ]]>
+    </update>
+    
+    <update id="consumeForcesSetState1" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1, FORCES = FORCES - #{forces}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="updateLocationForceSetState1" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1, LOCATION_ID = #{locationId}, UPDATE_FORCES_TIME = #{date} , FORCES = FORCES - #{reduceForces} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="upJuBenLocationForceSetState1" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET STATE = 1, JUBEN_LO_ID = #{locationId}, UPDATE_FORCES_TIME = #{date} , FORCES = FORCES - #{reduceForces} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="addPlayerForces" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET FORCES = FORCES + #{forces} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addGeneralForces" flushCache="true">
+    	UPDATE PLAYER_GENERAL_MILITARY SET FORCES = FORCES + #{forces}, STATE = #{state}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id="addGeneralForces2" flushCache="true">
+    	UPDATE PLAYER_GENERAL_MILITARY SET FORCES = FORCES + #{forces} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+    </update>
+    
+    <update id="setPlayerForces" flushCache="true">
+        UPDATE PLAYER_GENERAL_MILITARY SET FORCES = #{force} WHERE PLAYER_ID = #{playerId}
+    </update>
+    
+    <update id="updateForcesDate" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET FORCES = GREATEST(FORCES, LEAST(#{max}, FORCES + #{forces})), UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+    
+    <update id="resetForces" flushCache="true">
+        <![CDATA[
+        UPDATE PLAYER_GENERAL_MILITARY SET FORCES = #{forces}, UPDATE_FORCES_TIME = #{date} WHERE PLAYER_ID = #{playerId} AND GENERAL_ID = #{generalId}
+        ]]>
+    </update>
+</mapper>

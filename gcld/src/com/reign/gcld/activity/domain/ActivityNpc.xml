@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.activity.domain.ActivityNpc">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="ActivityNpcResultMap" type="ActivityNpc">
+        <id column="V_ID" property="vId" />
+        <result column="NPC_TYPE" property="npcType" />
+        <result column="STATE" property="state" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LOCATION_ID" property="locationId" />
+        <result column="FORCE_ID" property="forceId" />
+        <result column="TABLE_ID" property="tableId" />
+        <result column="ARMY_ID" property="armyId" />
+        <result column="HP" property="hp" />
+        <result column="TACTICVAL" property="tacticval" />
+        <result column="MOVE_LINE" property="moveLine" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="ActivityNpcResultMap">
+        SELECT * FROM ACTIVITY_NPC WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="ActivityNpcResultMap">
+        SELECT * FROM ACTIVITY_NPC WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="ActivityNpcResultMap">
+        SELECT * FROM ACTIVITY_NPC
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM ACTIVITY_NPC
+    </select>
+    
+    <insert id="create" parameterType="ActivityNpc" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO ACTIVITY_NPC(
+           V_ID,
+           NPC_TYPE,
+           STATE,
+           CREATE_TIME,
+           LOCATION_ID,
+           FORCE_ID,
+           TABLE_ID,
+           ARMY_ID,
+           HP,
+           TACTICVAL,
+           MOVE_LINE
+        ) VALUES (
+           #{ vId },
+           #{ npcType },
+           #{ state },
+           #{ createTime },
+           #{ locationId },
+           #{ forceId },
+           #{ tableId },
+           #{ armyId },
+           #{ hp },
+           #{ tacticval },
+           #{ moveLine }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM ACTIVITY_NPC WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+
+	<insert id="batchCreate">
+		INSERT INTO ACTIVITY_NPC(
+		V_ID,
+		NPC_TYPE,
+		STATE,
+		CREATE_TIME,
+		LOCATION_ID,
+		FORCE_ID,
+		TABLE_ID,
+		ARMY_ID,
+		HP,
+		TACTICVAL,
+		MOVE_LINE
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.vId}, #{item.npcType}, #{item.state}, #{item.createTime },#{item.locationId },
+			#{item.forceId },#{item.tableId },#{item.armyId },
+			#{item.hp },#{item.tacticval },#{item.moveLine })
+		</foreach>
+	</insert>
+
+	<select id="getActivityNpcsByLocationId" resultMap="ActivityNpcResultMap">
+		SELECT * FROM ACTIVITY_NPC WHERE LOCATION_ID = #{locationId}
+	</select>
+	
+	
+	<select id="getActivityNpcsByLocationIdAndForceIdExclude" resultMap="ActivityNpcResultMap">
+		<![CDATA[
+		SELECT * FROM ACTIVITY_NPC WHERE LOCATION_ID = #{locationId} AND FORCE_ID <> #{forceId} AND NPC_TYPE = #{type}
+		]]>
+	</select>
+	
+
+	<update id="updateLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE ACTIVITY_NPC SET LOCATION_ID = #{locationId}, STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="updateState" flushCache="true">
+        <![CDATA[
+        UPDATE ACTIVITY_NPC SET STATE = #{state} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="resetStateByLocationAndState" flushCache="true">
+        <![CDATA[
+        UPDATE ACTIVITY_NPC SET STATE = 0 WHERE LOCATION_ID = #{locationId} AND STATE = #{state}
+        ]]>
+	</update>
+
+	<update id="updateHpAndTacticVal" flushCache="true">
+        <![CDATA[
+        UPDATE ACTIVITY_NPC SET HP = #{hp}, TACTICVAL = #{tacticVal} WHERE V_ID = #{vId}
+        ]]>
+	</update>
+
+	<update id="resetAllState" flushCache="true">
+        <![CDATA[
+        UPDATE ACTIVITY_NPC SET STATE = 0
+        ]]>
+	</update>
+	
+	<select id="getMaxVid" resultType="int" flushCache="true">
+        SELECT max(V_ID) FROM ACTIVITY_NPC
+    </select>
+    
+    
+    <delete id="deleteAll" flushCache="true">
+        DELETE FROM ACTIVITY_NPC
+    </delete>
+    
+      
+</mapper>

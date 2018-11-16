@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.diamondshop.domain.PlayerDiamondShop">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerDiamondShopResultMap" type="PlayerDiamondShop">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="SHOP_ID" property="shopId" />
+        <result column="LV" property="lv" />
+        <result column="R_TIMES" property="rTimes" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerDiamondShopResultMap">
+        SELECT * FROM PLAYER_DIAMOND_SHOP WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerDiamondShopResultMap">
+        SELECT * FROM PLAYER_DIAMOND_SHOP WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerDiamondShopResultMap">
+        SELECT * FROM PLAYER_DIAMOND_SHOP
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_DIAMOND_SHOP
+    </select>
+    
+    <insert id="create" parameterType="PlayerDiamondShop" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_DIAMOND_SHOP(
+           V_ID,
+           PLAYER_ID,
+           SHOP_ID,
+           LV,
+           R_TIMES
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ shopId },
+           #{ lv },
+           #{ rTimes }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM PLAYER_DIAMOND_SHOP WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+    <select id="getMaxShop" resultMap="PlayerDiamondShopResultMap" flushCache="true">
+        <![CDATA[
+         	SELECT * FROM PLAYER_DIAMOND_SHOP WHERE PLAYER_ID = #{playerId} ORDER BY SHOP_ID DESC LIMIT 1;
+        ]]>
+    </select>
+
+    <update id="updateDiamondShopLv" flushCache="true">
+    	<![CDATA[
+    	    UPDATE PLAYER_DIAMOND_SHOP SET LV = #{lv} WHERE PLAYER_ID = #{playerId} and SHOP_ID = #{shopId}
+    	]]>
+    </update>
+    
+    <select id="getByShopId" resultMap="PlayerDiamondShopResultMap" flushCache="true">
+        <![CDATA[
+         	SELECT * FROM PLAYER_DIAMOND_SHOP WHERE PLAYER_ID = #{playerId} AND SHOP_ID = #{shopId};
+        ]]>
+    </select>
+    
+    <update id="reduceDailyTimes" flushCache="true">
+    	<![CDATA[
+    	    UPDATE PLAYER_DIAMOND_SHOP SET R_TIMES = IF(R_TIMES <= 0, 0, R_TIMES - 1 ) WHERE PLAYER_ID = #{playerId} and SHOP_ID = #{shopId}
+    	]]>
+    </update>
+
+    <update id="resetRTimes" flushCache="true">
+    	<![CDATA[
+    	    UPDATE PLAYER_DIAMOND_SHOP SET R_TIMES = #{rTimes} WHERE SHOP_ID = #{shopId}
+    	]]>
+    </update>    
+
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.notice.domain.SystemNotice">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="SystemNoticeResultMap" type="SystemNotice">
+        <id column="ID" property="id" />
+        <result column="NOTICE_TYPE" property="noticeType" />
+        <result column="CONTENT" property="content" />
+        <result column="YX" property="yx" />
+        <result column="EXPIRE_TIME" property="expireTime" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="START_TIME" property="startTime" />
+        <result column="FREQUENCY" property="frequency" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="SystemNoticeResultMap">
+        SELECT * FROM SYSTEM_NOTICE WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="SystemNoticeResultMap">
+        SELECT * FROM SYSTEM_NOTICE WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="SystemNoticeResultMap">
+        SELECT * FROM SYSTEM_NOTICE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM SYSTEM_NOTICE
+    </select>
+    
+    <insert id="create" parameterType="SystemNotice" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO SYSTEM_NOTICE(
+           ID,
+           NOTICE_TYPE,
+           CONTENT,
+           YX,
+           EXPIRE_TIME,
+           CREATE_TIME,
+           START_TIME,
+           FREQUENCY
+        ) VALUES (
+           #{ id },
+           #{ noticeType },
+           #{ content },
+           #{ yx },
+           #{ expireTime },
+           #{ createTime },
+           #{ startTime },
+           #{ frequency }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM SYSTEM_NOTICE WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+	<update id="update" flushCache="true">
+		  <![CDATA[
+		  	UPDATE SYSTEM_NOTICE SET CONTENT = #{ content },EXPIRE_TIME =  #{ expireTime },START_TIME= #{ startTime },FREQUENCY=#{ frequency } WHERE ID = #{ id }
+		  ]]>
+	</update>
+	
+	<select id="getYxById" parameterType="int" resultType="string">
+	      <![CDATA[
+	      	SELECT YX FROM SYSTEM_NOTICE WHERE ID = #{id}
+			]]>
+	</select>
+</mapper>

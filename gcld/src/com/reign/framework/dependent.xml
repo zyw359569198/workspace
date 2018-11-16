@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependents>
+	<item>
+		<type>jar</type>
+		<name>reign-tcp</name>
+		<jarName>reign-tcp-framework</jarName>
+		<version>1.0.0.1</version>
+	</item>
+	<item>
+		<type>jar</type>
+		<name>reign-util</name>
+		<jarName>reign-util</jarName>
+		<version>1.0.0.0</version>
+	</item>
+	<item>
+		<type>jar</type>
+		<name>zzsf2</name>
+		<jarName>zzsf2</jarName>
+		<version>1-0-0-0</version>
+	</item>
+	<item>
+		<type>jar</type>
+		<name>zsf2core</name>
+		<jarName>zsf2core</jarName>
+		<version>0-0-0-12</version>
+	</item>
+</dependents>

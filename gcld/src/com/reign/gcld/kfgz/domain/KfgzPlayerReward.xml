@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfgz.domain.KfgzPlayerReward">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfgzPlayerRewardResultMap" type="KfgzPlayerReward">
+        <id column="ID" property="id" />
+        <result column="COMPETITOR_ID" property="competitorId" />
+        <result column="SEASON_ID" property="seasonId" />
+        <result column="REWARD_TIMES" property="rewardTimes" />
+        <result column="REWARD" property="reward" />
+        <result column="GZID" property="gzid" />
+        <result column="NATION" property="nation" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD WHERE ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD WHERE ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFGZ_PLAYER_REWARD
+    </select>
+    
+    <insert id="create" parameterType="KfgzPlayerReward" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFGZ_PLAYER_REWARD(
+           ID,
+           COMPETITOR_ID,
+           SEASON_ID,
+           REWARD_TIMES,
+           REWARD,
+           GZID,
+           NATION
+        ) VALUES (
+           #{ id },
+           #{ competitorId },
+           #{ seasonId },
+           #{ rewardTimes },
+           #{ reward },
+           #{ gzid },
+           #{ nation }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM KFGZ_PLAYER_REWARD WHERE ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+
+ 	<select id="hasData" resultType="int">
+        SELECT COUNT(1) FROM KFGZ_PLAYER_REWARD WHERE SEASON_ID=#{seasonId} AND GZID=#{gzId} AND NATION=#{nation}
+    </select>
+    
+    <select id="getKfgzPlayerReward" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD WHERE SEASON_ID=#{seasonId} AND GZID=#{gzId} AND COMPETITOR_ID=#{cId}
+    </select>
+    
+    <update id="addRewardTimes" flushCache="true">
+    <![CDATA[
+    	 UPDATE KFGZ_PLAYER_REWARD SET
+        	REWARD_TIMES = REWARD_TIMES + #{num}
+        WHERE ID = #{id}
+     ]]> 
+    </update>
+
+    <select id="getModelsBySeasonIdAndgzId" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD WHERE SEASON_ID=#{seasonId} AND GZID=#{gzId} AND REWARD_TIMES = 0
+    </select>
+    
+    <select id="getModelsBySeasonIdForReward" resultMap="KfgzPlayerRewardResultMap">
+        SELECT * FROM KFGZ_PLAYER_REWARD WHERE SEASON_ID=#{seasonId} AND NATION = #{nation} AND REWARD_TIMES = 0
+    </select>
+
+    <select id="getMaxGzId" resultType="int">
+        SELECT MAX(GZID) FROM KFGZ_PLAYER_REWARD WHERE SEASON_ID=#{seasonId}
+    </select>
+    
+    <select id="getMaxSeasonId" resultType="int">
+        SELECT MAX(SEASON_ID) FROM KFGZ_PLAYER_REWARD
+    </select>
+</mapper>

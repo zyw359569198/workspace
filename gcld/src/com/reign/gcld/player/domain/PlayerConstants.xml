@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.player.domain.PlayerConstants"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## --> 
+    <resultMap id="PlayerConstantsResultMap" type="PlayerConstants">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="EXTRA_NUM" property="extraNum" />
+        <result column="VIP_EXPRESSION" property="vipExpression" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerConstantsResultMap">
+        SELECT * FROM PLAYER_CONSTANTS WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerConstantsResultMap">
+        SELECT * FROM PLAYER_CONSTANTS WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerConstantsResultMap">
+        SELECT * FROM PLAYER_CONSTANTS
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_CONSTANTS
+    </select>
+    
+    <insert id="create" parameterType="PlayerConstants" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_CONSTANTS(
+           PLAYER_ID,
+           EXTRA_NUM,
+           VIP_EXPRESSION
+        ) VALUES (
+           #{ playerId },
+           #{ extraNum },
+           #{ vipExpression }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_CONSTANTS WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->  
+  	
+    <update id="updateExtraNum" flushCache="true">
+        UPDATE PLAYER_CONSTANTS SET EXTRA_NUM = EXTRA_NUM + #{addExtraNum} WHERE PLAYER_ID = #{playerId}
+    </update>
+    
+    <update id="updateExpression" flushCache="true">
+        UPDATE PLAYER_CONSTANTS SET VIP_EXPRESSION = #{expression} WHERE PLAYER_ID = #{playerId}
+    </update>
+    
+</mapper>

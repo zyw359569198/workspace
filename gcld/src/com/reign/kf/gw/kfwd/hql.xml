@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hqls xmlns="http://com.reign.framework.hibernate/hql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.reign.framework.hibernate/sql.xsd http://com.reign.framework.hibernate/sql ">
+	<!-- Auctions -->
+	<hql id="com.reign.kf.gw.kfwd.dao.getKfwdActiveSeasonInfo">
+	 <![CDATA[
+	  from KfwdSeasonInfo where valid=1 and globalState<4 and endTime>? order by endTime asc
+	   ]]>
+	</hql>
+</hqls>

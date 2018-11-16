@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.incense.domain.PlayerIncense">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerIncenseResultMap" type="PlayerIncense">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="INCENSE_NUM" property="incenseNum" />
+        <result column="OPEN_BIT" property="openBit" />
+        <result column="COPPER_TIMES" property="copperTimes" />
+        <result column="WOOD_TIMES" property="woodTimes" />
+        <result column="FOOD_TIMES" property="foodTimes" />
+        <result column="IRON_TIMES" property="ironTimes" />
+        <result column="GEM_TIMES" property="gemTimes" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerIncenseResultMap">
+        SELECT * FROM PLAYER_INCENSE WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerIncenseResultMap">
+        SELECT * FROM PLAYER_INCENSE WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerIncenseResultMap">
+        SELECT * FROM PLAYER_INCENSE
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_INCENSE
+    </select>
+    
+    <insert id="create" parameterType="PlayerIncense" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_INCENSE(
+           PLAYER_ID,
+           INCENSE_NUM,
+           OPEN_BIT,
+           COPPER_TIMES,
+           WOOD_TIMES,
+           FOOD_TIMES,
+           IRON_TIMES,
+           GEM_TIMES
+        ) VALUES (
+           #{ playerId },
+           #{ incenseNum },
+           #{ openBit },
+           #{ copperTimes },
+           #{ woodTimes },
+           #{ foodTimes },
+           #{ ironTimes },
+           #{ gemTimes }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_INCENSE WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+	<update id="useIncenseNum" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET INCENSE_NUM = INCENSE_NUM - 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addCopperTimes" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET COPPER_TIMES = COPPER_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addWoodTimes" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET WOOD_TIMES = WOOD_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addFoodTimes" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET FOOD_TIMES = FOOD_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addIronTimes" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET IRON_TIMES = IRON_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addGemTimes" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET GEM_TIMES = GEM_TIMES + 1 WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="setOpenBit" flushCache="true">
+		<![CDATA[
+        	UPDATE PLAYER_INCENSE SET OPEN_BIT = OPEN_BIT + POW(2, #{godId} - 1) WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+    
+    <update id="addIncenseNum" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_INCENSE SET INCENSE_NUM = GREATEST(INCENSE_NUM, LEAST(#{max},INCENSE_NUM+ #{num})) WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </update>
+    
+     <select id="getIncenseNum" parameterType="int" resultType="int">
+    	<![CDATA[
+    		SELECT INCENSE_NUM FROM PLAYER_INCENSE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="resetIncenseTimes" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_INCENSE SET COPPER_TIMES = 0, WOOD_TIMES = 0, FOOD_TIMES = 0, IRON_TIMES = 0, GEM_TIMES = 0
+    	]]>
+    </update>
+    
+    <select id="getOpenBit" parameterType="int" resultType="int">
+    	<![CDATA[
+    		SELECT OPEN_BIT FROM PLAYER_INCENSE WHERE PLAYER_ID = #{playerId}
+    	]]>
+    </select>
+    
+    <update id="addIncenseNumByForceId" flushCache="true">
+    	<![CDATA[
+    		UPDATE PLAYER_INCENSE SET INCENSE_NUM = INCENSE_NUM + #{num} WHERE PLAYER_ID IN (SELECT PLAYER_ID FROM PLAYER WHERE FORCE_ID = #{forceId} AND PLAYER_LV >= 30)
+    	]]>
+    </update>
+       
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.gift.domain.GiftUuid">  
+<!-- ##generate by template begin## -->  
+    <resultMap id="GiftUuidResultMap" type="GiftUuid">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="UUID" property="uuid" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="GiftUuidResultMap">
+        SELECT * FROM GIFT_UUID WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="GiftUuidResultMap">
+        SELECT * FROM GIFT_UUID WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="GiftUuidResultMap">
+        SELECT * FROM GIFT_UUID
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM GIFT_UUID
+    </select>
+    
+    <insert id="create" parameterType="GiftUuid" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO GIFT_UUID(
+           PLAYER_ID,
+           UUID
+        ) VALUES (
+           #{ playerId },
+           #{ uuid }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM GIFT_UUID WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+	<update id="modifyUuid"  flushCache="true">
+		<![CDATA[
+        	UPDATE GIFT_UUID SET UUID = #{uuid} WHERE PLAYER_ID = #{playerId}
+        ]]>
+    </update>
+</mapper>

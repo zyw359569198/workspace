@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.kfzb.domain.KfzbFeast">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="KfzbFeastResultMap" type="KfzbFeast">
+        <id column="PLAYER_ID" property="playerId" />
+        <result column="FREE_CARD" property="freeCard" />
+        <result column="GOLD_CARD" property="goldCard" />
+        <result column="BUY_CARD" property="buyCard" />
+        <result column="DRINK_NUM" property="drinkNum" />
+        <result column="XIAOQIAN" property="xiaoqian" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="KfzbFeastResultMap">
+        SELECT * FROM KFZB_FEAST WHERE PLAYER_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="KfzbFeastResultMap">
+        SELECT * FROM KFZB_FEAST WHERE PLAYER_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="KfzbFeastResultMap">
+        SELECT * FROM KFZB_FEAST
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM KFZB_FEAST
+    </select>
+    
+    <insert id="create" parameterType="KfzbFeast" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="playerId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO KFZB_FEAST(
+           PLAYER_ID,
+           FREE_CARD,
+           GOLD_CARD,
+           BUY_CARD,
+           DRINK_NUM,
+           XIAOQIAN
+        ) VALUES (
+           #{ playerId },
+           #{ freeCard },
+           #{ goldCard },
+           #{ buyCard },
+           #{ drinkNum },
+           #{ xiaoqian }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM KFZB_FEAST WHERE PLAYER_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->    
+	
+	<update id = "addDrink">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET DRINK_NUM = DRINK_NUM + #{num} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id = "consumeDrink">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET DRINK_NUM = DRINK_NUM - #{num} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id = "setFreeCardInit">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET FREE_CARD = FREE_CARD + #{freeCard}
+		]]>
+	</update>
+	
+	<update id = "consumeFreeCard">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET FREE_CARD = FREE_CARD - 1 WHERE PLAYER_ID = #{playerId} AND FREE_CARD > 0
+		]]>
+	</update>
+	
+	<update id = "addGoldCard">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET GOLD_CARD = GOLD_CARD + #{goldCard}, BUY_CARD = BUY_CARD + #{goldCard} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id = "consumeGoldCard">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET GOLD_CARD = GOLD_CARD - 1 WHERE PLAYER_ID = #{playerId} AND GOLD_CARD > 0
+		]]>
+	</update>
+	
+	<select id = "getDrink" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT DRINK_NUM FROM KFZB_FEAST WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select>
+	
+	<update id = "setXiqoqian">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET XIAOQIAN = 1 WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+	<update id = "clearData">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET BUY_CARD = 0, DRINK_NUM = 0;
+		]]>
+	</update>
+	
+	<select id = "getMailList" resultMap="KfzbFeastResultMap">
+		<![CDATA[
+			SELECT * FROM KFZB_FEAST WHERE GOLD_CARD > 0
+		]]>
+	</select>
+	
+	<update id = "addFreeCard">
+		<![CDATA[
+			UPDATE KFZB_FEAST SET FREE_CARD = FREE_CARD + #{num} WHERE PLAYER_ID = #{playerId}
+		]]>
+	</update>
+	
+</mapper>

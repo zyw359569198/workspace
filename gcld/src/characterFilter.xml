@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	 xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	    xmlns:context="http://www.springframework.org/schema/context"
+	    xmlns:tx="http://www.springframework.org/schema/tx"
+	    xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	    http://www.springframework.org/schema/tx
+	    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"> 
+	    
+	<bean id="defaultReplaceCharacterGetter" class="com.reign.gcld.common.util.characterFilter.ReplaceCharacterGetterDefault" >
+		
+    </bean>    
+    
+    <bean id="randomReplaceCharacterGetter" class="com.reign.gcld.common.util.characterFilter.ReplaceCharacterGetterRandom" >
+					
+    </bean> 
+    
+    <bean id="randomReplaceCharacterGetter2" class="com.reign.gcld.common.util.characterFilter.ReplaceCharacterGetterRandom" >
+					
+    </bean> 
+	
+	<bean  id="ftpDataGetter" class="com.reign.gcld.common.util.characterFilter.dataGetter.FtpDataGetter">
+		<constructor-arg index="0" value="ftp.game-reign.com"/>
+		<constructor-arg index="1" value="21" />
+		<constructor-arg index="2" value="dongyan-lan"/>
+		<constructor-arg index="3" value="dongyan-lan"/>
+		<constructor-arg index="4" value="astd/Blade/love.txt"/>			
+    </bean>
+    
+    <bean  id="fileDataGetter" class="com.reign.gcld.common.util.characterFilter.dataGetter.FileDataGetter">
+		<constructor-arg index="0" value="illegalkeyword.txt"/>
+    </bean>
+    
+    <bean  id="nameDataGetter" class="com.reign.gcld.common.util.characterFilter.dataGetter.FileDataGetter">
+		<constructor-arg index="0" value="illegalname.txt"/>
+    </bean>
+    
+    <bean  id="dataGetter" class="com.reign.gcld.common.util.characterFilter.dataGetter.SelectorDataGetter">
+		<constructor-arg index="0">
+			<list>
+				<ref bean="ftpDataGetter" />
+				<ref bean="fileDataGetter" />
+			</list>
+		</constructor-arg>	
+    </bean>
+    
+    <bean  id="versionGetter" class="com.reign.gcld.common.util.characterFilter.dataGetter.FtpDataGetter">
+		<constructor-arg index="0" value="ftp.game-reign.com"/>
+		<constructor-arg index="1" value="21" />
+		<constructor-arg index="2" value="dongyan-lan"/>
+		<constructor-arg index="3" value="dongyan-lan"/>
+		<constructor-arg index="4" value="astd/Blade/version.txt"/>			
+    </bean>
+    
+     <bean  id="versionGetterFile" class="com.reign.gcld.common.util.characterFilter.dataGetter.FileDataGetter">
+        <constructor-arg index="0" value="illegalkeywordVersion.txt"/>       
+    </bean>
+    
+    <bean  id="versionChecker" class="com.reign.gcld.common.util.characterFilter.KeyWordsVersionCheckerVersionFile">
+		<constructor-arg index="0" ref="versionGetterFile"/>
+	</bean>
+	
+	<bean  id="patternWM" class="com.reign.gcld.common.util.characterFilter.PatternWM.CharacterFilterSimplePatternWM">
+		<constructor-arg name="replaceCharacterGetter" ref="randomReplaceCharacterGetter"/>
+	</bean>
+	
+	<bean  id="patternWMName" class="com.reign.gcld.common.util.characterFilter.PatternWM.CharacterFilterSimplePatternWM">
+		<constructor-arg name="replaceCharacterGetter" ref="randomReplaceCharacterGetter2"/>
+	</bean>
+	 
+	<bean  id="filter" class="com.reign.gcld.common.util.characterFilter.CharacterFilterAutoUpdate">
+		<constructor-arg index="0" ref="patternWM"/>
+		<constructor-arg index="1"  ref="fileDataGetter"/>
+		<constructor-arg index="2"  ref="versionChecker"/>
+		<constructor-arg index="3"  value="300"/>
+	</bean>
+	
+	<bean  id="nameFilter" class="com.reign.gcld.common.util.characterFilter.CharacterFilterAutoUpdate">
+		<constructor-arg index="0" ref="patternWMName"/>
+		<constructor-arg index="1"  ref="nameDataGetter"/>
+		<constructor-arg index="2"  ref="versionChecker"/>
+		<constructor-arg index="3"  value="300"/>
+	</bean>
+	
+	<bean  id="filter1" class="com.reign.gcld.common.util.characterFilter.CharacterFilterNormal">
+		<constructor-arg index="0" ref="patternWM"/>
+		<constructor-arg index="1"  ref="fileDataGetter"/>
+	</bean>
+</beans>

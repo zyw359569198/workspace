@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.huizhan.domain.HuizhanHistory">  
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+<!-- ##generate by template begin## -->  
+    <resultMap id="HuizhanHistoryResultMap" type="HuizhanHistory">
+        <id column="V_ID" property="vId" />
+        <result column="START_TIME" property="startTime" />
+        <result column="CITY_ID" property="cityId" />
+        <result column="ATT_FORCE_ID_1" property="attForceId1" />
+        <result column="ATT_FORCE_1" property="attForce1" />
+        <result column="ATT_FORCE_ID_2" property="attForceId2" />
+        <result column="ATT_FORCE_2" property="attForce2" />
+        <result column="DEF_FORCE_ID" property="defForceId" />
+        <result column="DEF_FORCE" property="defForce" />
+        <result column="WINNER" property="winner" />
+        <result column="GATHER_FLAG" property="gatherFlag" />
+        <result column="STATE" property="state" />
+        <result column="END_TIME" property="endTime" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="HuizhanHistoryResultMap">
+        SELECT * FROM HUIZHAN_HISTORY WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="HuizhanHistoryResultMap">
+        SELECT * FROM HUIZHAN_HISTORY WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="HuizhanHistoryResultMap">
+        SELECT * FROM HUIZHAN_HISTORY
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM HUIZHAN_HISTORY
+    </select>
+    
+    <insert id="create" parameterType="HuizhanHistory" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO HUIZHAN_HISTORY(
+           V_ID,
+           START_TIME,
+           CITY_ID,
+           ATT_FORCE_ID_1,
+           ATT_FORCE_1,
+           ATT_FORCE_ID_2,
+           ATT_FORCE_2,
+           DEF_FORCE_ID,
+           DEF_FORCE,
+           WINNER,
+           GATHER_FLAG,
+           STATE,
+           END_TIME
+        ) VALUES (
+           #{ vId },
+           #{ startTime },
+           #{ cityId },
+           #{ attForceId1 },
+           #{ attForce1 },
+           #{ attForceId2 },
+           #{ attForce2 },
+           #{ defForceId },
+           #{ defForce },
+           #{ winner },
+           #{ gatherFlag },
+           #{ state },
+           #{ endTime }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM HUIZHAN_HISTORY WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## -->   
+
+    <select id="getLatestHuizhan" parameterType="int" resultMap="HuizhanHistoryResultMap">
+    	<![CDATA[
+    		SELECT * FROM HUIZHAN_HISTORY ORDER BY START_TIME DESC LIMIT 1
+ 		]]>
+    </select>
+
+    <update id="updateHzStateById" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET STATE = #{state} WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+
+    <update id="updateHzEndTimeById" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET END_TIME = #{ endTime } WHERE V_ID = #{id}
+    	]]>
+    </update>	
+    
+    <update id="updateGatherFlagByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET GATHER_FLAG = #{ gFlag } WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="updateWinnerByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET WINNER = #{ winner } WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <select id="getHuizhanByDate" resultMap="HuizhanHistoryResultMap">
+        <![CDATA[
+             SELECT * FROM HUIZHAN_HISTORY WHERE START_TIME < #{clearTime}
+    	]]>
+    </select>
+    
+    <select id="getWinNumByForceId" resultType="int" flushCache="true">
+        <![CDATA[
+        	SELECT COUNT(*) FROM HUIZHAN_HISTORY WHERE WINNER = #{forceId} 
+        ]]>
+    </select>    
+
+    <update id="updateHzAttForce1ByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET ATT_FORCE_1 = ATT_FORCE_1 + #{ attForce } WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="updateHzAttForce2ByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET ATT_FORCE_2 = ATT_FORCE_2 + #{ attForce } WHERE V_ID = #{id}
+    	]]>
+    </update>
+    
+    <update id="updateHzDefForceByVid" flushCache="true">
+    	<![CDATA[
+      		UPDATE HUIZHAN_HISTORY SET DEF_FORCE = DEF_FORCE + #{ defForce } WHERE V_ID = #{id}
+    	]]>
+    </update> 
+ 
+
+    <select id="getFinishedHzNum" resultType="int" flushCache="true">
+        <![CDATA[
+        	SELECT COUNT(*) FROM HUIZHAN_HISTORY WHERE STATE = 3 
+        ]]>
+    </select> 
+</mapper>
