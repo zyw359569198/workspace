@@ -104,3 +104,8 @@ source /etc/profile
 
 
 修改密码长度：set global validate_password.policy=0;set global validate_password.length=1;再更新密码即可
+
+
+
+wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh
+wget --no-check-certificate https://raw.githubusercontent.com/quericy/one-key-ikev2-vpn/master/one-key-ikev2.sh
