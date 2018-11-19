@@ -109,3 +109,4 @@ source /etc/profile
 
 wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh
 wget --no-check-certificate https://raw.githubusercontent.com/quericy/one-key-ikev2-vpn/master/one-key-ikev2.sh
+https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/README-zh.md
